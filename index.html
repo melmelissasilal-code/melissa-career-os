@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MELISSA CAREER OS — Cockpit & Portfólio Vivo</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="app-header">
+    <div class="nav-container">
+      <div class="brand">
+        <span class="brand-badge">CAREER OS</span>
+        <span>MELISSA CAREER OS</span>
+      </div>
+      <nav class="main-nav">
+        <button class="nav-btn active" data-tab="cockpit">🎯 Cockpit</button>
+        <button class="nav-btn" data-tab="resumes">📄 Currículo Camaleão</button>
+        <button class="nav-btn" data-tab="portfolio">🎬 Portfólio Vivo</button>
+        <button class="nav-btn" data-tab="star">⭐ Histórias STAR</button>
+        <button class="nav-btn" data-tab="warroom">⚔️ Sala de Guerra</button>
+        <button class="nav-btn" data-tab="radar">🧭 Radar de Áreas</button>
+        <button class="nav-btn" data-tab="competencias">🏅 Competências</button>
+      </nav>
+      <button class="theme-toggle" id="themeToggle">🌙 Escuro</button>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="container">
+
+    <!-- 1. Cockpit / Visão Geral -->
+    <section id="cockpit" class="tab-pane active">
+      <div class="hero-card">
+        <div class="hero-avatar">M</div>
+        <div class="hero-info">
+          <h1>Melissa da Silva Almeida</h1>
+          <div class="hero-subtitle">Administração na UFC (4º Semestre, Noturno) &bull; Estagiária de GP no Banco do Nordeste &bull; Presidente do Dragão do Mar</div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.4rem;">
+            Perfil analítico e orientado a impacto, combinando rigor na gestão e tratamento de dados com liderança executiva, estruturação de processos e facilidade em articular comunicação corporativa e bem-estar.
+          </p>
+          <div class="hero-tags">
+            <span class="tag">Banco do Nordeste (GP)</span>
+            <span class="tag">Dragão do Mar (SFLB)</span>
+            <span class="tag">Ceará Finance</span>
+            <span class="tag">Excel Avançado</span>
+            <span class="tag">People Analytics & DEI</span>
+            <span class="tag">Gamificação</span>
+          </div>
+        </div>
+        <div>
+          <button class="nav-btn" style="background: var(--primary); color: white;" onclick="document.querySelector('[data-tab=resumes]').click()">Ver Currículos ➔</button>
+        </div>
+      </div>
+
+      <!-- Quick Metrics -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-val" id="statAreas">7</div>
+          <div class="stat-label">Áreas Profissionais Mapeadas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="statProjetos">0</div>
+          <div class="stat-label">Projetos no Portfólio Vivo</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="statSTAR">0</div>
+          <div class="stat-label">Histórias STAR Prontas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="statCompetencias">0</div>
+          <div class="stat-label">Competências Mapeadas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="statActiveProcesses">0</div>
+          <div class="stat-label">Processos Ativos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="statEmpresas">0</div>
+          <div class="stat-label">Empresas-Alvo Monitoradas</div>
+        </div>
+      </div>
+
+      <!-- Overview Grid -->
+      <div class="grid-2">
+        <div>
+          <h2 class="section-title">🧭 Radar de Compatibilidade (Top Áreas)</h2>
+          <div id="radarList"></div>
+        </div>
+        <div>
+          <h2 class="section-title">🎬 Destaques do Portfólio Vivo</h2>
+          
+          <div class="netflix-card" style="margin-bottom: 1.25rem; border: 2px solid var(--primary);">
+            <div class="card-banner" style="height: 100px; background: linear-gradient(135deg, #1e40af, #3b82f6);">
+              <span class="banner-org">NOVO &bull; Ferramenta Interativa</span>
+              <span class="banner-title" style="font-size: 1.1rem;">Dashboard de People Analytics & DEI</span>
+            </div>
+            <div class="card-body">
+              <p class="card-synopsis">Simulação interativa em tempo real medindo adesão a campanhas corporativas, taxa de resposta e eNPS de colaboradores.</p>
+              <a href="dashboard_people_analytics_interativo.html" target="_blank" class="nav-btn" style="background: var(--primary); color: white; text-align: center; text-decoration: none; margin-top: 0.5rem; display: block;">
+                📊 Abrir Dashboard Interativo em Nova Aba ➔
+              </a>
+            </div>
+          </div>
+
+          <div class="netflix-card" style="margin-bottom: 1rem;">
+            <div class="card-banner" style="height: 80px;">
+              <span class="banner-org">Dragão do Mar / SFLB</span>
+              <span class="banner-title" style="font-size: 1.05rem;">Governança Gamificada no Notion</span>
+            </div>
+            <div class="card-body">
+              <p class="card-synopsis">Reestruturação operacional de projeto extensionista universitário com elevação de 70% na assiduidade dos voluntários.</p>
+              <div class="card-impact">Impacto: 20+ voluntários mobilizados e conferências com 100+ inscritos.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Currículo Camaleão -->
+    <section id="resumes" class="tab-pane">
+      <div style="margin-bottom: 1.5rem;">
+        <h2 class="section-title" style="margin-bottom: 0.2rem;">📄 O Currículo Camaleão</h2>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">Adaptação cirúrgica para os 7 eixos estratégicos e 3 vagas de calibração. Clique para abrir ou baixar qualquer versão em PDF diretamente.</p>
+      </div>
+
+      <div class="netflix-grid">
+        <!-- MESTRE -->
+        <div class="netflix-card" style="border: 2px solid var(--primary);">
+          <div class="card-banner" style="background: linear-gradient(135deg, #7c3aed, #8b5cf6);">
+            <span class="banner-org">VERSÃO INTEGRAL</span>
+            <span class="banner-title">⭐ Currículo Mestre</span>
+          </div>
+          <div class="card-body">
+            <p class="card-synopsis">Versão completa com todas as experiências, competências e projetos consolidados.</p>
+            <div class="card-impact">Inclui: BNB, Dragão do Mar, Ceará Finance, Itaú Asset e todas as 29 competências.</div>
+            <a href="02_CURRICULO_CAMALEAO/CURRICULO_MESTRE/CURRICULO_MESTRE.pdf" target="_blank" class="nav-btn" style="background: var(--primary); color: white; text-decoration: none; text-align: center; margin-top: auto; padding: 0.4rem 0.8rem; font-size: 0.82rem;">
+              📥 Abrir PDF Completo ➔
+            </a>
+          </div>
+        </div>
+
+        <!-- RH -->
+        <div class="netflix-card">
+          <div class="card-banner" style="background: linear-gradient(135deg, #064e3b, #10b981);">
+            <span class="banner-org">EIXO ESTRATÉGICO</span>
+            <span class="banner-title">👥 RH & Gestão de Pessoas</span>
+          </div>
+          <div class="card-body">
+            <p class="card-synopsis">Foco em People Analytics, DEI, Wellhub, PPAs e vivência corporativa no BNB com +7.000 colaboradores.</p>
+            <a href="02_CURRICULO_CAMALEAO/RH_E_GESTAO_DE_PESSOAS/CURRICULO_RH_E_GESTAO_DE_PESSOAS.pdf" target="_blank" class="nav-btn" style="background: #059669; color: white; text-decoration: none; text-align: center; margin-top: auto; padding: 0.4rem 0.8rem; font-size: 0.82rem;">
+              📥 Abrir PDF (RH) ➔
+            </a>
+          </div>
+        </div>
+
+        <!-- CORPORATE -->
+        <div class="netflix-card">
+          <div class="card-banner" style="background: linear-gradient(135deg, #1e3a8a, #3b82f6);">
+            <span class="banner-org">EIXO ESTRATÉGICO</span>
+            <span class="banner-title">🏢 Corporate & Estratégia</span>
+          </div>
+          <div class="card-body">
+            <p class="card-synopsis">Foco em governança, liderança executiva, planejamento estratégico e gestão de equipes.</p>
+            <a href="02_CURRICULO_CAMALEAO/CORPORATE_E_ESTRATEGIA/CURRICULO_CORPORATE_E_ESTRATEGIA.pdf" target="_blank" class="nav-btn" style="background: #2563eb; color: white; text-decoration: none; text-align: center; margin-top: auto; padding: 0.4rem 0.8rem; font-size: 0.82rem;">
+              📥 Abrir PDF (Corporate) ➔
+            </a>
+          </div>
+        </div>
+
+        <!-- FINANÇAS -->
+        <div class="netflix-card">
+          <div class="card-banner" style="background: linear-gradient(135deg, #7c2d12, #f59e0b);">
+            <span class="banner-org">EIXO ESTRATÉGICO</span>
+            <span class="banner-title">📈 Finanças & Mercado</span>
+          </div>
+          <div class="card-body">
+            <p class="card-synopsis">Foco em análise fundamentalista, Ceará Finance, Desafio Quant AI (Itaú Asset) e conciliação financeira.</p>
+            <a href="02_CURRICULO_CAMALEAO/FINANCAS/CURRICULO_FINANCAS.pdf" target="_blank" class="nav-btn" style="background: #d97706; color: white; text-decoration: none; text-align: center; margin-top: auto; padding: 0.4rem 0.8rem; font-size: 0.82rem;">
+              📥 Abrir PDF (Finanças) ➔
+            </a>
+          </div>
+        </div>
+
+        <!-- BI & DADOS -->
+        <div class="netflix-card">
+          <div class="card-banner" style="background: linear-gradient(135deg, #312e81, #6366f1);">
+            <span class="banner-org">EIXO ESTRATÉGICO</span>
+            <span class="banner-title">📊 BI & Dados</span>
+          </div>
+          <div class="card-body">
+            <p class="card-synopsis">Foco em Excel avançado, Power BI, auditoria de dados e indicadores de performance.</p>
+            <a href="02_CURRICULO_CAMALEAO/BI_DADOS_E_PERFORMANCE/CURRICULO_BI_DADOS_E_PERFORMANCE.pdf" target="_blank" class="nav-btn" style="background: #4f46e5; color: white; text-decoration: none; text-align: center; margin-top: auto; padding: 0.4rem 0.8rem; font-size: 0.82rem;">
+              📥 Abrir PDF (BI & Dados) ➔
+            </a>
+          </div>
+        </div>
+
+        <!-- ESG -->
+        <div class="netflix-card">
+          <div class="card-banner" style="background: linear-gradient(135deg, #365314, #84cc16);">
+            <span class="banner-org">EIXO ESTRATÉGICO</span>
+            <span class="banner-title">🌱 ESG & Sustentabilidade</span>
+          </div>
+          <div class="card-body">
+            <p class="card-synopsis">Foco em diversidade, equidade, inclusão, saúde mental e programas corporativos do BNB.</p>
+            <a href="02_CURRICULO_CAMALEAO/ESG_E_SUSTENTABILIDADE/CURRICULO_ESG_E_SUSTENTABILIDADE.pdf" target="_blank" class="nav-btn" style="background: #65a30d; color: white; text-decoration: none; text-align: center; margin-top: auto; padding: 0.4rem 0.8rem; font-size: 0.82rem;">
+              📥 Abrir PDF (ESG) ➔
+            </a>
+          </div>
+        </div>
+
+        <!-- PRODUTOS -->
+        <div class="netflix-card">
+          <div class="card-banner" style="background: linear-gradient(135deg, #831843, #ec4899);">
+            <span class="banner-org">EIXO ESTRATÉGICO</span>
+            <span class="banner-title">💡 Produtos & Inovação</span>
+          </div>
+          <div class="card-body">
+            <p class="card-synopsis">Foco em gamificação, experiência do usuário e jornada de onboarding.</p>
+            <a href="02_CURRICULO_CAMALEAO/PRODUTOS_E_INOVACAO/CURRICULO_PRODUTOS_E_INOVACAO.pdf" target="_blank" class="nav-btn" style="background: #db2777; color: white; text-decoration: none; text-align: center; margin-top: auto; padding: 0.4rem 0.8rem; font-size: 0.82rem;">
+              📥 Abrir PDF (Produtos) ➔
+            </a>
+          </div>
+        </div>
+
+        <!-- MARKETING -->
+        <div class="netflix-card">
+          <div class="card-banner" style="background: linear-gradient(135deg, #134e4a, #14b8a6);">
+            <span class="banner-org">EIXO ESTRATÉGICO</span>
+            <span class="banner-title">📣 Marketing & Comunicação</span>
+          </div>
+          <div class="card-body">
+            <p class="card-synopsis">Foco em endomarketing, eventos corporativos, apresentações executivas e marca pessoal.</p>
+            <a href="02_CURRICULO_CAMALEAO/MARKETING_E_COMUNICACAO/CURRICULO_MARKETING_E_COMUNICACAO.pdf" target="_blank" class="nav-btn" style="background: #0d9488; color: white; text-decoration: none; text-align: center; margin-top: auto; padding: 0.4rem 0.8rem; font-size: 0.82rem;">
+              📥 Abrir PDF (Marketing) ➔
+            </a>
+          </div>
+        </div>
+
+        <!-- GOOGLE -->
+        <div class="netflix-card" style="border: 1px dashed var(--primary);">
+          <div class="card-banner" style="background: linear-gradient(135deg, #ea4335, #4285f4);">
+            <span class="banner-org">CALIBRAÇÃO CIRÚRGICA</span>
+            <span class="banner-title">🚀 Google Business</span>
+          </div>
+          <div class="card-body">
+            <p class="card-synopsis">Customizado para o Google Business Internship: resolução de problemas, dados, People Ops e inovação.</p>
+            <a href="02_CURRICULO_CAMALEAO/CURRICULOS_POR_VAGA/2026-09_GOOGLE_BUSINESS_INTERNSHIP.pdf" target="_blank" class="nav-btn" style="background: #4285f4; color: white; text-decoration: none; text-align: center; margin-top: auto; padding: 0.4rem 0.8rem; font-size: 0.82rem;">
+              📥 Abrir PDF (Google) ➔
+            </a>
+          </div>
+        </div>
+
+        <!-- M. DIAS BRANCO -->
+        <div class="netflix-card" style="border: 1px dashed var(--primary);">
+          <div class="card-banner" style="background: linear-gradient(135deg, #b91c1c, #f97316);">
+            <span class="banner-org">CALIBRAÇÃO CIRÚRGICA</span>
+            <span class="banner-title">🏭 M. Dias Branco</span>
+          </div>
+          <div class="card-body">
+            <p class="card-synopsis">Customizado para Estágio em Gente & Gestão: conciliação, métricas, DEI e cultura de dono.</p>
+            <a href="02_CURRICULO_CAMALEAO/CURRICULOS_POR_VAGA/2026-09_M_DIAS_BRANCO_ESTAGIO_GENTE_E_GESTAO.pdf" target="_blank" class="nav-btn" style="background: #ea580c; color: white; text-decoration: none; text-align: center; margin-top: auto; padding: 0.4rem 0.8rem; font-size: 0.82rem;">
+              📥 Abrir PDF (M. Dias) ➔
+            </a>
+          </div>
+        </div>
+
+        <!-- BNB GP -->
+        <div class="netflix-card" style="border: 1px dashed var(--primary);">
+          <div class="card-banner" style="background: linear-gradient(135deg, #15803d, #eab308);">
+            <span class="banner-org">CALIBRAÇÃO CIRÚRGICA</span>
+            <span class="banner-title">🏦 Banco do Nordeste (BNB)</span>
+          </div>
+          <div class="card-body">
+            <p class="card-synopsis">Dossiê de estágio corporativo em Gestão de Pessoas: 100% alinhado à célula de diversidade.</p>
+            <a href="02_CURRICULO_CAMALEAO/CURRICULOS_POR_VAGA/2026-09_BANCO_DO_NORDESTE_GESTAO_DE_PESSOAS.pdf" target="_blank" class="nav-btn" style="background: #16a34a; color: white; text-decoration: none; text-align: center; margin-top: auto; padding: 0.4rem 0.8rem; font-size: 0.82rem;">
+              📥 Abrir PDF (BNB) ➔
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. Portfólio Vivo (Netflix da Carreira) -->
+    <section id="portfolio" class="tab-pane">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h2 class="section-title" style="margin-bottom: 0.2rem;">🎬 A Netflix da Carreira</h2>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">Cards de projetos estruturados em problema, solução, ferramentas e resultados reais.</p>
+        </div>
+        <a href="dashboard_people_analytics_interativo.html" target="_blank" class="nav-btn" style="background: var(--primary); color: white; text-decoration: none;">
+          📊 Abrir Dashboard Interativo ➔
+        </a>
+      </div>
+      <div id="netflixGrid" class="netflix-grid"></div>
+    </section>
+
+    <!-- 4. Histórias STAR -->
+    <section id="star" class="tab-pane">
+      <div style="margin-bottom: 1.5rem;">
+        <h2 class="section-title">⭐ Banco de Histórias no Método STAR</h2>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">Estrutura de alta eficácia para dinâmicas e entrevistas: Situação, Tarefa, Ação e Resultado.</p>
+      </div>
+      <div style="margin-bottom: 1rem;">
+        <input type="text" id="starSearchInput" placeholder="🔍 Filtrar por título, competência ou instituição..." style="width: 100%; padding: 0.6rem 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); color: var(--text-main); font-size: 0.88rem; outline: none;">
+      </div>
+      <div id="starContainer"></div>
+    </section>
+
+    <!-- 5. Sala de Guerra das Vagas -->
+    <section id="warroom" class="tab-pane">
+      <div style="margin-bottom: 1.5rem;">
+        <h2 class="section-title">⚔️ Sala de Guerra das Vagas & Pipeline Ativo</h2>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">Acompanhamento em tempo real de candidaturas, prazos e conexões estratégicas.</p>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.75rem; color: var(--text-main);">📋 Candidaturas no Pipeline Ativo</h3>
+          <div id="activeProcessesList"></div>
+        </div>
+
+        <div>
+          <h3 style="font-size: 1.05rem; margin-bottom: 0.75rem; color: var(--text-main);">🏢 Empresas-Alvo Monitoradas</h3>
+          <div id="companiesList"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Radar de Áreas -->
+    <section id="radar" class="tab-pane">
+      <div style="margin-bottom: 1.5rem;">
+        <h2 class="section-title">🧭 Radar de Compatibilidade & Fechamento de Lacunas</h2>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">Análise detalhada de aderência e planos de ação para cada um dos 7 caminhos profissionais.</p>
+      </div>
+      <div id="radarFullContainer"></div>
+    </section>
+
+    <!-- 7. Competências -->
+    <section id="competencias" class="tab-pane">
+      <div style="margin-bottom: 1.5rem;">
+        <h2 class="section-title">🏅 Matriz de Competências</h2>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">29 competências mapeadas entre Hard Skills, Soft Skills, Ferramentas, Metodologias, Idiomas e Certificações.</p>
+      </div>
+      <div id="competenciasContainer" class="competencias-grid"></div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <div class="footer-container">
+      <span>MELISSA CAREER OS v2.0 — Arquitetura Local-First & 100% Segura</span>
+      <span id="footerUpdate">Última atualização: carregando...</span>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
