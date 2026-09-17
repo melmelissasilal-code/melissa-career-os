@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Dossiê Estratégico iFuture 2027 — Webcase iFood Salão</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 10mm 12mm 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      line-height: 1.4;
+      font-size: 9pt;
+      background: #ffffff;
+    }
+    .header {
+      border-bottom: 3px solid #ea1d2c;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .badge {
+      display: inline-block;
+      background: #ea1d2c;
+      color: white;
+      font-weight: 800;
+      font-size: 7.5pt;
+      padding: 2px 7px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .title {
+      font-size: 14pt;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+    .subtitle {
+      font-size: 8.5pt;
+      color: #64748b;
+      margin-top: 2px;
+    }
+    .meta-box {
+      text-align: right;
+      font-size: 7.8pt;
+      color: #475569;
+      background: #f8fafc;
+      padding: 5px 8px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+      line-height: 1.35;
+    }
+    .meta-box strong {
+      color: #ea1d2c;
+    }
+    h2 {
+      font-size: 10.5pt;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 10px 0 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 2px;
+    }
+    h3 {
+      font-size: 9pt;
+      font-weight: 700;
+      color: #334155;
+      margin: 6px 0 2px 0;
+    }
+    p {
+      margin-bottom: 5px;
+      text-align: justify;
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin: 6px 0 10px 0;
+    }
+    .stat-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-top: 3px solid #ea1d2c;
+      border-radius: 6px;
+      padding: 6px 4px;
+      text-align: center;
+    }
+    .stat-val {
+      font-size: 12pt;
+      font-weight: 800;
+      color: #ea1d2c;
+      display: block;
+    }
+    .stat-lbl {
+      font-size: 6.5pt;
+      color: #64748b;
+      font-weight: 600;
+      text-transform: uppercase;
+      line-height: 1.15;
+      margin-top: 2px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 5px 0 8px 0;
+      font-size: 7.8pt;
+    }
+    th, td {
+      border: 1px solid #e2e8f0;
+      padding: 4px 6px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+      font-size: 7.2pt;
+      text-transform: uppercase;
+    }
+    tr:nth-child(even) {
+      background: #f8fafc;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 5px;
+      padding: 6px 8px;
+      margin-bottom: 5px;
+      page-break-inside: avoid;
+    }
+    .card-title {
+      font-weight: 800;
+      font-size: 8.5pt;
+      color: #0f172a;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .card-body {
+      font-size: 7.8pt;
+      color: #334155;
+      line-height: 1.35;
+    }
+    .callout {
+      background: rgba(234, 29, 44, 0.04);
+      border: 1px solid rgba(234, 29, 44, 0.25);
+      border-left: 4px solid #ea1d2c;
+      border-radius: 4px;
+      padding: 6px 8px;
+      margin: 6px 0;
+      font-size: 8pt;
+      page-break-inside: avoid;
+    }
+    .callout-green {
+      background: rgba(16, 185, 129, 0.05);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-left: 4px solid #10b981;
+      border-radius: 4px;
+      padding: 6px 8px;
+      margin: 6px 0;
+      font-size: 8pt;
+      page-break-inside: avoid;
+    }
+    .quote-box {
+      font-style: italic;
+      color: #1e293b;
+      font-size: 8.3pt;
+      line-height: 1.45;
+    }
+    .footer {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 4px;
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7pt;
+      color: #94a3b8;
+    }
+    .page-break {
+      page-break-before: always;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PÁGINA 1 ==================== -->
+  <div class="header">
+    <div>
+      <span class="badge">iFuture 2027 • Estágio iFood</span>
+      <h1 class="title">Dossiê Estratégico: Webcase Salão & Dinâmica</h1>
+      <div class="subtitle">Tema Oficial: "A Nova Fronteira do iFood na Alimentação Fora do Lar — O iFood Agora é Comer Fora"</div>
+    </div>
+    <div class="meta-box">
+      <div>Candidata: <strong>Melissa Almeida</strong> (UFC)</div>
+      <div>Data da Dinâmica: <strong>24/09 às 09:30</strong></div>
+      <div>Plataforma: <strong>Kolab</strong> (Acesso às 09:00)</div>
+    </div>
+  </div>
+
+  <!-- NÚMEROS DE OURO -->
+  <h2>📊 1. Raio-X do Webcase & Números de Ouro</h2>
+  <p>O iFood domina o delivery (+60M pedidos/mês, +1.500 cidades), mas a maior fatia do consumo alimentar ocorre no salão físico. Os dados revelados no pré-work fundamentam toda a argumentação analítica do case:</p>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <span class="stat-val">R$ 495 Bi</span>
+      <span class="stat-lbl">Mercado Fora do Lar (Abrasel 2025)</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-val">60%</span>
+      <span class="stat-lbl">Pedem via WhatsApp / Redes Sociais</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-val">24%</span>
+      <span class="stat-lbl">Restaurantes com Operação Híbrida</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-val">5 Cidades</span>
+      <span class="stat-lbl">Pilotos (BH, BSB, Campinas, CWB, SP)</span>
+    </div>
+  </div>
+
+  <!-- JORNADA 360 -->
+  <h2>🧭 2. A Jornada Presencial 360° & Soluções iFood Salão</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 13%;">Etapa</th>
+        <th style="width: 25%;">👤 Dor do Consumidor</th>
+        <th style="width: 25%;">🏪 Dor do Restaurante</th>
+        <th style="width: 23%;">⚡ Solução iFood Salão</th>
+        <th style="width: 14%;">🎯 Métrica Chave</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1. Descobrir</strong></td>
+        <td>Indecisão sobre onde ir; busca dispersa no Google/Instagram sem cardápio atualizado.</td>
+        <td>Dependência de redes sociais e WhatsApp; alto custo de tráfego sem conversão de salão.</td>
+        <td>Aba "Comer Fora" geolocalizada + <strong>iFood Ads</strong> em horários ociosos.</td>
+        <td>Taxa de conversão de busca para visita.</td>
+      </tr>
+      <tr>
+        <td><strong>2. Escolher</strong></td>
+        <td>Cardápios em QR Code ruins (PDFs pesados, sem preços ou fotos reais).</td>
+        <td>Custo recorrente de impressão física; lentidão para pausar itens esgotados na cozinha.</td>
+        <td><strong>Cardápio Digital</strong> nativo com fotos de alta qualidade e avaliações verificadas.</td>
+        <td>Tempo médio de escolha e ticket médio.</td>
+      </tr>
+      <tr>
+        <td><strong>3. Reservar</strong></td>
+        <td>Esperar de 30 a 60 min em pé na calçada com fome e estresse sem previsão de mesa.</td>
+        <td>Abandono silencioso de fila (clientes indo ao concorrente) e no-shows telefônicos.</td>
+        <td><strong>Fila Virtual & Reservas</strong> com notificação push e previsão preditiva com IA.</td>
+        <td>Queda na taxa de no-show e abandono de fila.</td>
+      </tr>
+      <tr>
+        <td><strong>4. Visitar</strong></td>
+        <td>Dificuldade de sinalizar ao garçom que já sentou e está pronto para pedir.</td>
+        <td>Restaurante é "cego" no salão: zero dados de histórico, frequência ou preferências.</td>
+        <td><strong>Check-in Presencial</strong> via QR Code da mesa integrando o cliente ao CRM.</td>
+        <td>Adoção de check-in e ativação de dados.</td>
+      </tr>
+      <tr>
+        <td><strong>5. Consumir</strong></td>
+        <td><strong>A maior dor:</strong> esperar 15 a 25 min pelo garçom trazer conta, maquininha e recibo.</td>
+        <td>Garçons gastam 25% do tempo útil transportando maquininhas; mesas travadas sem faturar.</td>
+        <td><strong>Pagar na Mesa:</strong> divisão de conta e pagamento no app em 10 segundos.</td>
+        <td><strong>Giro de mesa:</strong> -15 min por mesa = +25% no pico!</td>
+      </tr>
+      <tr>
+        <td><strong>6. Retornar</strong></td>
+        <td>Consome, paga caro e sai sem incentivo palpável para voltar àquele local.</td>
+        <td>Custo alto para atrair novos clientes (CAC) por falta de CRM e recompra.</td>
+        <td><strong>Cashback Unificado</strong> Delivery ⇄ Salão + <strong>Clube iFood</strong> integrado.</td>
+        <td>Frequência de retorno (30 e 60 dias) e LTV.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SIMULADOR GIRO -->
+  <div class="callout-green">
+    <strong>🧮 A Matemática do Case (Otimização de Giro de Mesas):</strong><br>
+    Um restaurante com 30 mesas e ticket médio de R$ 130 que adote o <em>Pagar na Mesa</em> e o <em>Cardápio Digital</em> economiza 15 minutos por atendimento (de 75 min para 60 min). No pico de 3 horas, a capacidade salta de 2.4 para 3.0 giros por mesa, gerando <strong>+18 mesas extras atendidas por noite</strong> e <strong>+R$ 2.340 de receita extra por noite</strong>. Em um fim de semana (Sex-Dom), são mais de <strong>+R$ 7.000 adicionais</strong> sem contratar novos garçons nem ampliar o espaço físico!
+  </div>
+
+  <div class="footer">
+    <span>MELISSA CAREER OS — Preparação iFuture 2027</span>
+    <span>Página 1 de 2 • Webcase Salão & Oportunidade de R$ 495 Bi</span>
+  </div>
+
+  <!-- ==================== PÁGINA 2 ==================== -->
+  <div class="page-break"></div>
+
+  <!-- FRAMEWORK E SOLUÇÕES -->
+  <h2>💡 3. Três Soluções Inovadoras Prontas para a Dinâmica</h2>
+
+  <div class="card">
+    <div class="card-title"><span>💡 Ideia 1:</span> Garçom Parceiro & Gamificação no Salão</div>
+    <div class="card-body">
+      <strong>Desafio & Solução:</strong> Superar a resistência dos garçons garantindo a taxa de serviço (gorjeta de 10% a 13%) diretamente integrada no checkout do app <em>Pagar na Mesa</em>, com repasse instantâneo e bonificação do iFood para cada check-in de mesa realizado.<br>
+      <strong>Fit com Melissa:</strong> Conecta com a experiência em <em>Gamificação Organizacional</em> no Dragão do Mar e processos de remuneração/benefícios no Banco do Nordeste.
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span>💡 Ideia 2:</span> Clube Omnichannel (Cashback Cruzado)</div>
+      <div class="card-body">
+        Créditos de delivery usados no salão no fim de semana e frete grátis no delivery para quem come no salão. Aumenta retenção e LTV bilateral.
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span>💡 Ideia 3:</span> Cardápio Inteligente com Pré-Pedido (AI)</div>
+      <div class="card-body">
+        Cliente a caminho adianta o pedido dos pratos e senta com a mesa servida. Ideal para almoço corporativo (<em>iFood Benefícios</em>) — pilar <strong>AI First</strong>.
+      </div>
+    </div>
+  </div>
+
+  <!-- POSTURA E FRASES DE OURO -->
+  <h2>🗣️ 4. Roteiro de Postura & Frases de Ouro na Plataforma Kolab</h2>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">1. Abertura Facilitadora (0 a 60s)</div>
+      <div class="card-body">
+        <em>"Pessoal, para aproveitarmos ao máximo nosso tempo, que tal 5 min alinhando dores, 10 min em soluções e 5 min finais fechando quem fala cada ponto no pitch?"</em>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">2. Puxar Dados do Pré-Work</div>
+      <div class="card-body">
+        <em>"Vale resgatar um dado do pré-work: só 24% dos restaurantes têm operação híbrida e 60% pedem no WhatsApp. Nossa solução tem que ser super amigável no balcão."</em>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">3. Destravar um Impasse no Grupo</div>
+      <div class="card-body">
+        <em>"Temos duas ideias ricas aqui: uma focando no cliente e outra no restaurante. Como o iFood é bilateral, que tal conectarmos as duas na jornada 360°?"</em>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">4. Organizar o Pitch Final (3 min)</div>
+      <div class="card-body">
+        <em>"Faltam 5 minutos! Vamos organizar nossa fala em 4 blocos de 30 a 45s: 1) Problema e Dados ➔ 2) Solução ➔ 3) Impacto no Ecossistema ➔ 4) Métricas e KPIs."</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- PITCH DE MELISSA -->
+  <h2>🎤 5. Seu Pitch Pessoal de 45 Segundos</h2>
+  <div class="callout">
+    <div class="quote-box">
+      "Sou a Melissa, estudante do 4º semestre de Administração na UFC. No <strong>Banco do Nordeste</strong>, atuo em Gestão de Pessoas em uma célula responsável por mais de 7 mil colaboradores, onde vivo diariamente o tratamento rigoroso de grandes bases no Excel para transformar dados em decisões operacionais e de clima. Em paralelo, presidi o <strong>Dragão do Mar</strong> na UFC, onde aprendi na prática a liderar squads voluntários com foco em governança, rituais ágeis e metas no Notion. Me identifico profundamente com o ecossistema do iFood porque uno a <strong>mentalidade de dona</strong> com o <strong>raciocínio analítico</strong> para resolver problemas que geram impacto em larga escala."
+    </div>
+  </div>
+
+  <!-- SIMULADO DE PERGUNTAS -->
+  <h2>❓ 6. Simulado: 4 Perguntas Capciosas da Banca e Respostas</h2>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">P: "E se o restaurante temer taxas abusivas?"</div>
+      <div class="card-body">
+        <strong>R:</strong> O foco é ganho de giro: economizar 15 min gera 18 mesas extras no pico (+R$ 2.340/noite), pagando com folga qualquer taxa de serviço da plataforma.
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">P: "Isso canibaliza o delivery do iFood?"</div>
+      <div class="card-body">
+        <strong>R:</strong> Não, é expansão de TAM (R$ 495 Bi). Quem come fora no sábado com amigos não pediria delivery; o iFood agora monetiza onde antes era cego.
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">P: "Por que o cliente abre o app no salão?"</div>
+      <div class="card-body">
+        <strong>R:</strong> Conveniência: ninguém quer esperar 15 min pela conta. Pagar na Mesa em 10 segundos com cashback resolve uma dor real e universal.
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">P: "Como vocês aplicaram AI First no case?"</div>
+      <div class="card-body">
+        <strong>R:</strong> Previsão preditiva de ocupação de mesas para o iFood Shop, recomendação personalizada no cardápio digital e balanceamento dinâmico de filas.
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>MELISSA CAREER OS — Preparação iFuture 2027</span>
+    <span>Página 2 de 2 • Soluções, Postura na Dinâmica, Pitch e Simulado da Banca</span>
+  </div>
+
+</body>
+</html>
