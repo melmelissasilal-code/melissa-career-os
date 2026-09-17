@@ -193,6 +193,7 @@ function renderAll() {
   renderWarRoom();
   renderCompetencias();
   setupResumeViewer();
+  setupIFoodStudyModule();
   renderFooter();
 }
 
@@ -462,7 +463,7 @@ function renderWarRoom() {
             <p><strong>Etapa Atual:</strong> ${p.etapa_atual} | <strong>Próximo Prazo:</strong> ${p.proximo_prazo || 'Acompanhando'}</p>
             <p><strong>Estratégia:</strong> ${p.anotacoes_estrategicas}</p>
             <div style="margin-top: 0.5rem;">
-              <a href="${p.curriculo_usado}" target="_blank" class="nav-btn" style="background: #eff6ff; color: var(--primary); text-decoration: none; font-size: 0.78rem; padding: 0.25rem 0.6rem; display: inline-block;">
+              <a href="../../${p.curriculo_usado}" target="_blank" class="nav-btn" style="background: #eff6ff; color: var(--primary); text-decoration: none; font-size: 0.78rem; padding: 0.25rem 0.6rem; display: inline-block;">
                 📄 Abrir Currículo Cirúrgico (PDF)
               </a>
             </div>
@@ -497,7 +498,7 @@ function renderWarRoom() {
             <p><strong>Status:</strong> ${p.etapa_atual} | <strong>Finalidade:</strong> Calibração de Currículo Cirúrgico</p>
             <p><strong>Estratégia:</strong> ${p.anotacoes_estrategicas}</p>
             <div style="margin-top: 0.5rem;">
-              <a href="${p.curriculo_usado}" target="_blank" class="nav-btn" style="background: #f8fafc; border: 1px solid #cbd5e1; color: #334155; text-decoration: none; font-size: 0.78rem; padding: 0.25rem 0.6rem; display: inline-block;">
+              <a href="../../${p.curriculo_usado}" target="_blank" class="nav-btn" style="background: #f8fafc; border: 1px solid #cbd5e1; color: #334155; text-decoration: none; font-size: 0.78rem; padding: 0.25rem 0.6rem; display: inline-block;">
                 📄 Ver Currículo Customizado (PDF)
               </a>
             </div>
@@ -620,6 +621,330 @@ function setupResumeViewer() {
       }
     });
   });
+}
+
+// ======================================================================
+// MÓDULO DE ESTUDO IFOOD (iFuture 2027 — Webcase Salão)
+// ======================================================================
+function setupIFoodStudyModule() {
+  const stepper = document.getElementById("journeyStepper");
+  const detailBox = document.getElementById("journeyDetailBox");
+
+  // --- Contagem Regressiva para a Dinâmica (24/09 às 09:30) ---
+  function updateCountdown() {
+    // 24 de Setembro de 2026 às 09:30 (mês 8 = setembro no JS)
+    const target = new Date(2026, 8, 24, 9, 30, 0).getTime();
+    const now = new Date().getTime();
+    const diff = target - now;
+
+    const daysEl = document.getElementById("cdDays");
+    const hoursEl = document.getElementById("cdHours");
+    const minsEl = document.getElementById("cdMins");
+    const secsEl = document.getElementById("cdSecs");
+
+    if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
+
+    if (diff <= 0) {
+      daysEl.textContent = "00";
+      hoursEl.textContent = "00";
+      minsEl.textContent = "00";
+      secsEl.textContent = "00";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+    daysEl.textContent = String(days).padStart(2, "0");
+    hoursEl.textContent = String(hours).padStart(2, "0");
+    minsEl.textContent = String(mins).padStart(2, "0");
+    secsEl.textContent = String(secs).padStart(2, "0");
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  const JOURNEY_STEPS = [
+    {
+      titulo: "1. Descobrir (App iFood & iFood Ads)",
+      dorCliente: "Indecisão sobre onde comer fora; pesquisa dispersa no Google/Instagram sem ver cardápio, fotos reais ou benefícios consolidados.",
+      dorRestaurante: "Dependência de WhatsApp e redes sociais (onde 60% pedem informalmente); alto custo com marketing digital sem conversão de salão mensurável.",
+      solucaoIFood: "Aba 'Comer Fora' geolocalizada com filtros por ocasião, culinária e iFood Ads impulsionando descoberta e atraindo clientes em horários ociosos.",
+      metricaChave: "Taxa de conversão de busca para check-in presencial."
+    },
+    {
+      titulo: "2. Escolher (Cardápio Digital & Avaliações)",
+      dorCliente: "Cardápios em QR Code mal formatados (PDFs pesados, sem preços atualizados ou ilegíveis no celular).",
+      dorRestaurante: "Custo recorrente de impressão de cardápios físicos e lentidão para pausar itens esgotados na cozinha.",
+      solucaoIFood: "Cardápio Digital interativo nativo no app do iFood com fotos de alta qualidade, avaliações verificadas e sincronização em tempo real.",
+      metricaChave: "Tempo médio de decisão e visualização de pratos de alta margem."
+    },
+    {
+      titulo: "3. Reservar (Gestão Inteligente de Filas & Reservas)",
+      dorCliente: "Esperar de 30 a 60 minutos em pé na calçada com fome e estresse sem previsão confiável de liberação.",
+      dorRestaurante: "Abandono silencioso de fila (clientes indo para o concorrente), no-shows de reservas telefônicas e mesas ociosas.",
+      solucaoIFood: "Fila de espera virtual com notificação push quando a mesa estiver pronta e gestão preditiva de ocupação com IA.",
+      metricaChave: "Queda na taxa de abandono de fila e redução de no-shows."
+    },
+    {
+      titulo: "4. Visitar (Check-in via Geolocalização no Salão)",
+      dorCliente: "Dificuldade de sinalizar ao garçom que já sentou e está pronto para ser atendido.",
+      dorRestaurante: "O restaurante é 'cego' no salão: não sabe quem é o cliente, histórico de pedidos ou ticket médio histórico.",
+      solucaoIFood: "Check-in presencial via QR Code na mesa ou geolocalização, conectando o cliente ao CRM do restaurante para ofertas personalizadas.",
+      metricaChave: "Adoção de check-in e ativação de dados para o CRM de salão."
+    },
+    {
+      titulo: "5. Consumir (Pagar na Mesa + PDVs)",
+      dorCliente: "A maior dor de quem come fora: pedir a conta, esperar o garçom trazer a maquininha, dividir conta e pegar recibo (15 a 25 min perdidos).",
+      dorRestaurante: "Garçons gastam 25% do tempo apenas transportando maquininhas; mesas ficam bloqueadas sem consumo após a refeição.",
+      solucaoIFood: "Solução 'Pagar na Mesa': divisão de conta pelo app em segundos, pagamento com cartão cadastrado ou iFood Benefícios e liberação imediata.",
+      metricaChave: "Redução de 15 min por mesa = aumento de até 25% no giro de mesas no horário de pico!"
+    },
+    {
+      titulo: "6. Retornar (Cashback Unificado & Fidelidade)",
+      dorCliente: "Paga caro no salão e sai sem incentivos palpáveis para retornar ao mesmo estabelecimento.",
+      dorRestaurante: "Custo elevado de aquisição de novos clientes (CAC) por falta de mecanismos integrados de retenção e recompra.",
+      solucaoIFood: "Cashback unificado no app (acumulado no salão para usar no delivery e vice-versa) e integração com o Clube iFood.",
+      metricaChave: "Frequência de retorno (recorrência em 30 e 60 dias) e LTV do ecossistema."
+    }
+  ];
+
+  function renderJourneyStep(idx) {
+    if (!detailBox) return;
+    const s = JOURNEY_STEPS[idx] || JOURNEY_STEPS[0];
+    detailBox.innerHTML = `
+      <div style="font-weight: 800; font-size: 1.05rem; color: #ea1d2c; margin-bottom: 0.75rem;">${s.titulo}</div>
+      <div class="journey-grid">
+        <div class="journey-item-card">
+          <div class="journey-item-title">👤 Dor do Consumidor</div>
+          <div style="font-size: 0.85rem; color: var(--text-main);">${s.dorCliente}</div>
+        </div>
+        <div class="journey-item-card">
+          <div class="journey-item-title">🏪 Dor do Restaurante</div>
+          <div style="font-size: 0.85rem; color: var(--text-main);">${s.dorRestaurante}</div>
+        </div>
+        <div class="journey-item-card">
+          <div class="journey-item-title">⚡ Solução iFood Salão</div>
+          <div style="font-size: 0.85rem; color: var(--text-main);">${s.solucaoIFood}</div>
+        </div>
+        <div class="journey-item-card" style="border-left: 3px solid #10b981;">
+          <div class="journey-item-title" style="color: #10b981;">🎯 Métrica / KPI Chave</div>
+          <div style="font-size: 0.85rem; color: var(--text-main); font-weight: 600;">${s.metricaChave}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  if (stepper) {
+    const stepBtns = stepper.querySelectorAll(".journey-step");
+    stepBtns.forEach((btn, idx) => {
+      btn.addEventListener("click", () => {
+        stepBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderJourneyStep(idx);
+      });
+    });
+    renderJourneyStep(0);
+  }
+
+  // --- Simulador de Impacto no Salão ---
+  function updateIFoodSimulator() {
+    const inputMesas = document.getElementById("inputMesas");
+    if (!inputMesas) return;
+
+    const mesas = parseInt(inputMesas.value || 30);
+    const ticket = parseInt(document.getElementById("inputTicket")?.value || 130);
+    const tempoAtual = parseInt(document.getElementById("inputTempoAtual")?.value || 75);
+    const economia = parseInt(document.getElementById("inputEconomia")?.value || 15);
+
+    const tempoNovo = Math.max(30, tempoAtual - economia);
+    const picoMinutos = 180; // 3 horas de pico (ex: 19h30 às 22h30)
+    const girosAtuais = picoMinutos / tempoAtual;
+    const novosGiros = picoMinutos / tempoNovo;
+
+    const totalMesasAtuais = Math.round(mesas * girosAtuais);
+    const totalMesasNovas = Math.round(mesas * novosGiros);
+    const mesasExtras = Math.max(0, totalMesasNovas - totalMesasAtuais);
+
+    const receitaExtraNoite = mesasExtras * ticket;
+    const receitaExtraFimDeSemana = receitaExtraNoite * 3;
+
+    const setTxt = (id, txt) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = txt;
+    };
+
+    setTxt("valMesas", mesas);
+    setTxt("valTicket", "R$ " + ticket);
+    setTxt("valTempoAtual", tempoAtual + " min");
+    setTxt("valEconomia", economia + " min");
+
+    setTxt("resGirosAtuais", girosAtuais.toFixed(1) + " giros");
+    setTxt("resNovosGiros", novosGiros.toFixed(1) + " giros");
+    setTxt("resMesasExtras", "+" + mesasExtras + " mesas");
+    setTxt("resReceitaExtra", "+R$ " + receitaExtraNoite.toLocaleString("pt-BR"));
+
+    const concEl = document.getElementById("calcConclusion");
+    if (concEl) {
+      concEl.innerHTML = `💡 <strong>Argumento de Venda para o Dono:</strong> Em um fim de semana (Sex-Dom), o restaurante fatura cerca de <strong>+R$ ${receitaExtraFimDeSemana.toLocaleString("pt-BR")} adicionais</strong> sem contratar novos garçons nem ampliar o espaço físico!`;
+    }
+  }
+
+  ["inputMesas", "inputTicket", "inputTempoAtual", "inputEconomia"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("input", updateIFoodSimulator);
+  });
+  updateIFoodSimulator();
+
+  // --- Flashcards de Estudo ---
+  const FLASHCARDS_DATA = {
+    cultura: [
+      {
+        titulo: "Não há limites para o nosso apetite",
+        preview: "Inconformismo positivo e ambição saudável por resultados exponenciais.",
+        detalhe: "No iFood, não se busca melhoria incremental de 5%, mas transformações de 10x. Na dinâmica, demonstre apetite propondo soluções que escalem para as 1.500 cidades do ecossistema."
+      },
+      {
+        titulo: "Mentalidade de Dono (Ownership)",
+        preview: "Assumir a responsabilidade de ponta a ponta sem esperar ordens.",
+        detalhe: "Não culpe fatores externos nem espere o facilitador pedir. Assuma a iniciativa de organizar o tempo do grupo, estruturar os slides e garantir que a entrega saia redonda."
+      },
+      {
+        titulo: "Decisões Guiadas por Dados (Data-Driven)",
+        preview: "Opiniões são bem-vindas, mas hipóteses precisam ser testadas com métricas.",
+        detalhe: "Cite sempre os números do case: mercado de R$ 495 Bi (Abrasel 2025), 60% que pedem no WhatsApp e apenas 24% com operação híbrida. Dados geram autoridade instantânea."
+      },
+      {
+        titulo: "Construímos Juntos & Diversidade Ativa",
+        preview: "Inovação nasce da troca real entre diferentes pontos de vista.",
+        detalhe: "Nunca atropele os colegas. Diga frases como: 'Excelente ponto trazido pela Mariana! Somando a isso, podíamos conectar com a ideia do Pedro...' — o avaliador pontua alto em quem eleva o grupo."
+      },
+      {
+        titulo: "AI First: Inovação como Ponto de Partida",
+        preview: "A tecnologia e a inteligência artificial são centrais no iFuture.",
+        detalhe: "Traga IA para o case: previsão de fluxo de clientes para evitar filas no salão, precificação dinâmica em horários ociosos e recomendações no cardápio digital."
+      }
+    ],
+    solucoes: [
+      {
+        titulo: "Garçom Parceiro & Gamificação no Salão",
+        preview: "Superar a resistência dos garçons ao cardápio digital e ao pagamento pelo app.",
+        detalhe: "Garantir a taxa de serviço (gorjeta de 10-13%) diretamente no app 'Pagar na Mesa' com repasse instantâneo e bonificação do iFood por check-ins realizados. (Fit com a experiência de Melissa em Gamificação)."
+      },
+      {
+        titulo: "Clube Omnichannel (Cashback Cruzado)",
+        preview: "Fazer o cliente de delivery frequentar o salão e vice-versa.",
+        detalhe: "Quem pede delivery durante a semana ganha créditos/cashback para gastar no salão no sábado. Quem come no salão ganha cupom exclusivo para delivery em dias chuvosos. Eleva o LTV bilateral."
+      },
+      {
+        titulo: "Cardápio Inteligente com Pré-Pedido no Trajeto",
+        preview: "Atender quem tem tempo escasso no almoço corporativo (iFood Benefícios).",
+        detalhe: "O cliente reserva a mesa e já adianta os pedidos de bebidas e pratos enquanto está a caminho. Ao sentar, a comida é servida em minutos. Giro de mesa ultrarrápido."
+      },
+      {
+        titulo: "Migração do WhatsApp para CRM Integrado",
+        preview: "Capturar os 60% que pedem fora de plataformas dedicadas.",
+        detalhe: "Oferecer aos restaurantes uma ferramenta do iFood que automatiza respostas de WhatsApp e gera links diretos para reservas e cardápio digital com desconto na 1ª visita física."
+      }
+    ],
+    frases: [
+      {
+        titulo: "Como Abrir a Discussão no Grupo",
+        preview: "Estabelecer liderança facilitadora nos primeiros 60 segundos.",
+        detalhe: "'Pessoal, muito prazer! Para aproveitarmos ao máximo nosso tempo, o que acham de gastarmos os primeiros 5 min alinhando dores, 10 min desenhando soluções e os 5 min finais fechando quem fala cada ponto no pitch?'"
+      },
+      {
+        titulo: "Como Puxar os Dados do Pré-Work",
+        preview: "Usar dados para embasar decisões sem soar pedante.",
+        detalhe: "'Concordo com essa direção. Vale resgatarmos um número do pré-work: hoje só 24% dos restaurantes têm operação híbrida e 60% pedem pelo WhatsApp. Nossa solução tem que ser super amigável pro dono adotar no balcão.'"
+      },
+      {
+        titulo: "Como Destravar um Impasse entre Colegas",
+        preview: "Conciliar opiniões divergentes com visão de ecossistema.",
+        detalhe: "'Temos duas ideias muito ricas aqui: a do [Colega A] focando no cliente e a do [Colega B] focando no restaurante. Como o iFood é uma plataforma de duas pontas, que tal conectarmos as duas na nossa jornada 360°?'"
+      },
+      {
+        titulo: "Como Fechar o Pitch Final",
+        preview: "Organizar o grupo para uma apresentação brilhante de 3 minutos.",
+        detalhe: "'Faltam 5 minutos! Vamos organizar nossa fala em 4 blocos de 30 a 45 segundos: 1) O Problema e Dados ➔ 2) Nossa Solução ➔ 3) O Impacto no Ecossistema ➔ 4) Métricas e Próximos Passos.'"
+      }
+    ],
+    perguntas: [
+      {
+        titulo: "E se o restaurante recusar por medo de taxas?",
+        preview: "A objeção mais comum dos donos de estabelecimentos.",
+        detalhe: "Argumento: O foco não é taxa, é giro de mesas. Se o restaurante economiza 15 minutos por mesa no pagamento, ele atende 18 mesas extras no pico (+R$ 2.300/noite). O ganho de eficiência cobre qualquer custo de plataforma."
+      },
+      {
+        titulo: "Por que o cliente abriria o app dentro do salão?",
+        preview: "Vencer a inércia do comportamento presencial tradicional.",
+        detalhe: "Argumento: Conveniência e benefício financeiro. Ninguém gosta de esperar 15 minutos pelo garçom trazer a conta e a maquininha. Pagar na Mesa em 10 segundos com desconto e cashback resolve uma dor real e universal."
+      },
+      {
+        titulo: "Isso canibaliza o Delivery do iFood?",
+        preview: "Preocupação estratégica de canibalização de receita.",
+        detalhe: "Argumento: Não! O mercado fora do lar movimenta R$ 495 bilhões. O cliente que sai para jantar com amigos ou família no sábado já não pediria delivery. Ao estar no salão, o iFood monetiza um momento de consumo onde antes era cego."
+      },
+      {
+        titulo: "Como vocês aplicaram AI First no case?",
+        preview: "Demonstrar alinhamento com a diretriz tecnológica do iFuture.",
+        detalhe: "Argumento: IA na previsão preditiva de ocupação para gestão de compras no iFood Shop; IA na recomendação personalizada de pratos no cardápio digital; e IA no balanceamento dinâmico de filas de espera."
+      }
+    ]
+  };
+
+  const flashcardsGrid = document.getElementById("flashcardsGrid");
+  const fcTabs = document.querySelectorAll(".fc-tab");
+
+  function renderFlashcards(category) {
+    if (!flashcardsGrid) return;
+    const items = FLASHCARDS_DATA[category] || FLASHCARDS_DATA.cultura;
+    flashcardsGrid.innerHTML = "";
+
+    items.forEach((item, idx) => {
+      const card = document.createElement("div");
+      card.className = "flashcard";
+      card.innerHTML = `
+        <div>
+          <div class="fc-title"><span>📌</span> ${item.titulo}</div>
+          <div class="fc-preview">${item.preview}</div>
+          <div class="fc-answer" id="fcAns_${category}_${idx}" style="display: none;">
+            ${item.detalhe}
+          </div>
+        </div>
+        <button class="fc-toggle-btn" data-target="fcAns_${category}_${idx}">
+          🔍 Ver Argumento / Detalhes ➔
+        </button>
+      `;
+      flashcardsGrid.appendChild(card);
+    });
+
+    flashcardsGrid.querySelectorAll(".fc-toggle-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.getAttribute("data-target");
+        const ansEl = document.getElementById(targetId);
+        if (ansEl) {
+          const isHidden = ansEl.style.display === "none";
+          ansEl.style.display = isHidden ? "block" : "none";
+          btn.textContent = isHidden ? "▲ Ocultar Detalhes" : "🔍 Ver Argumento / Detalhes ➔";
+        }
+      });
+    });
+  }
+
+  if (fcTabs.length > 0) {
+    fcTabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        fcTabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        const cat = tab.getAttribute("data-cat");
+        renderFlashcards(cat);
+      });
+    });
+    renderFlashcards("cultura");
+  }
 }
 
 // ======================================================================

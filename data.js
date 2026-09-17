@@ -580,9 +580,57 @@ window.CAREER_DATA = {
       "fit_cultural": "Forte cultura de eficiência, liderança regional e global, valorização de talentos UFC.",
       "palavras_chave": "supply chain, governança, finanças corporativas, gente e gestão, d&i",
       "status_monitoramento": "Mapeando"
+    },
+    {
+      "id": 6,
+      "nome": "PWR Gestão",
+      "setor": "Consultoria Empresarial e Gestão",
+      "perfil_empresa": "Consultoria de alta performance em gestão estratégica, governança, metas e processos empresariais para PMEs e grandes grupos no Brasil e exterior.",
+      "programas_interesse": "Programa de Estágio PWR / Consultoria em Gestão",
+      "fit_cultural": "Excepcional: cultura de meritocracia, 'O time que NUNCA PARA', intensidade, defesa irrestrita do empreendedorismo e da liberdade, ritmo acelerado.",
+      "palavras_chave": "Consultoria, Gestão de Projetos, Cronogramas, Metas, BackOffice, Excel, Notion, Empreendedorismo, Liberdade",
+      "status_monitoramento": "Ativo - Candidatura em Andamento"
+    },
+    {
+      "id": 7,
+      "nome": "iFood",
+      "setor": "Tecnologia / FoodTech / Delivery",
+      "perfil_empresa": "Maior foodtech da América Latina, ecossistema inovador e data-driven",
+      "programas_interesse": "iFuture (Programa de Estágio iFood)",
+      "fit_cultural": "Alta autonomia, ownership, ambiente dinâmico e foco em impacto",
+      "palavras_chave": "FoodTech, Data-Driven, Ownership, Inovação, Metodologias Ágeis",
+      "status_monitoramento": "Processo Ativo"
     }
   ],
   "processos_seletivos": [
+    {
+      "id": 5,
+      "empresa": "iFood",
+      "cargo_vaga": "iFuture — Programa de Estágio",
+      "area": "Negócios / Estratégia / Operações / Gente & Gestão",
+      "plataforma": "Gupy / 99jobs / Site Próprio",
+      "link_vaga": null,
+      "status": "Em Andamento",
+      "data_candidatura": "2026-09-17",
+      "etapa_atual": "Dinâmica Online no Kolab (24/09 às 09:30)",
+      "proximo_prazo": "2026-09-24 09:30",
+      "curriculo_usado": null,
+      "anotacoes_estrategicas": "Dinâmica agendada para 24/09 às 09:30 via Kolab. Webcase: Comer Fora / iFood Salão. Acesso liberado às 09:00."
+    },
+    {
+      "id": 4,
+      "empresa": "PWR Gestão",
+      "cargo_vaga": "Estagiário - Consultoria em Gestão",
+      "area": "Consultoria em Gestão / Projetos & Processos",
+      "plataforma": "InHire",
+      "link_vaga": "https://grupopwr.inhire.app/vagas/13b4dd68-c860-40c0-a679-fde6b986cc95/estagiario-consultoria-em-gestao",
+      "status": "Em Candidatura",
+      "data_candidatura": "2026-09-10",
+      "etapa_atual": "Inscrição Online (InHire)",
+      "proximo_prazo": "Imediato",
+      "curriculo_usado": "02_CURRICULO_CAMALEAO/CURRICULOS_POR_VAGA/2026-09_PWR_GESTAO_CONSULTORIA_EM_GESTAO.pdf",
+      "anotacoes_estrategicas": "Fit cultural extraordinário: defesa do empreendedorismo e liberdade (Dragão do Mar / SFLB), ritmo intenso ('NUNCA PARAR'), meritocracia, governança de projetos no Notion e backoffice no BNB."
+    },
     {
       "id": 3,
       "empresa": "Banco do Nordeste (BNB)",

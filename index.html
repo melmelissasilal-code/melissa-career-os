@@ -23,6 +23,7 @@
         <button class="nav-btn" data-tab="warroom">⚔️ Sala de Guerra</button>
         <button class="nav-btn" data-tab="radar">🧭 Radar de Áreas</button>
         <button class="nav-btn" data-tab="competencias">🏅 Competências</button>
+        <button class="nav-btn ifood-nav-btn" data-tab="ifood-study">🍔 Estudo iFood</button>
       </nav>
       <button class="theme-toggle" id="themeToggle">🌙 Escuro</button>
     </div>
@@ -347,6 +348,184 @@
         <p style="font-size: 0.88rem; color: var(--text-muted);">29 competências mapeadas entre Hard Skills, Soft Skills, Ferramentas, Metodologias, Idiomas e Certificações.</p>
       </div>
       <div id="competenciasContainer" class="competencias-grid"></div>
+    </section>
+
+    <!-- 8. Centro de Treinamento iFood (iFuture 2027) -->
+    <section id="ifood-study" class="tab-pane">
+      <div class="ifood-hero-banner">
+        <div class="ifood-hero-content">
+          <div class="ifood-badge-row">
+            <span class="ifood-badge">iFuture 2027</span>
+            <span class="ifood-status-pill">🔥 ETAPA ATIVA: Dinâmica Online (Kolab)</span>
+          </div>
+          <h1 class="ifood-title">🍔 Central de Estudo: Dinâmica & Webcase iFood</h1>
+          <p class="ifood-desc">
+            Tema Oficial: <strong>"A nova fronteira do iFood na alimentação fora do lar — O iFood Agora é Comer Fora"</strong>.<br>
+            Prepare-se com dados de mercado, simulação de alavancas de negócio, jornada 360°, flashcards de cultura e roteiro prático para a dinâmica em grupo.
+          </p>
+
+          <div class="ifood-countdown-card">
+            <div class="countdown-label">⏳ CONTAGEM REGRESSIVA PARA A DINÂMICA ONLINE:</div>
+            <div class="countdown-time-row">
+              <div class="countdown-unit"><span id="cdDays">07</span><small>DIAS</small></div>
+              <div class="countdown-sep">:</div>
+              <div class="countdown-unit"><span id="cdHours">09</span><small>HORAS</small></div>
+              <div class="countdown-sep">:</div>
+              <div class="countdown-unit"><span id="cdMins">56</span><small>MIN</small></div>
+              <div class="countdown-sep">:</div>
+              <div class="countdown-unit"><span id="cdSecs">10</span><small>SEG</small></div>
+            </div>
+            <div class="countdown-sub">📅 <strong>24 de Setembro às 09:30</strong> (Sala no Kolab libera às 09:00 — 30 min de antecedência)</div>
+          </div>
+
+          <div class="ifood-actions">
+            <a href="06_SALA_DE_GUERRA_DAS_VAGAS/PROCESSOS_ATIVOS/2026-09_IFOOD_IFUTURE_PROGRAMA_DE_ESTAGIO/GUIA_DE_ESTUDO_WEBCASE_DINAMICA.md" target="_blank" class="nav-btn ifood-btn-primary">
+              📖 Abrir Dossiê Completo (Markdown)
+            </a>
+            <a href="06_SALA_DE_GUERRA_DAS_VAGAS/PROCESSOS_ATIVOS/2026-09_IFOOD_IFUTURE_PROGRAMA_DE_ESTAGIO/DOCUMENTOS_E_ANEXOS/ifood-estagio-26h2-pre-work.pdf" target="_blank" class="nav-btn ifood-btn-secondary">
+              📑 Ver PDF do Pré-Work Original
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Métricas de Ouro do Pré-Work -->
+      <div style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+        <h3 class="section-title">📊 Números de Ouro do Pré-Work (Decore e Cite na Dinâmica)</h3>
+        <div class="stats-grid ifood-stats-grid">
+          <div class="stat-card ifood-stat-card">
+            <div class="stat-val ifood-val">R$ 495 Bi</div>
+            <div class="stat-label">Movimentação Anual Fora do Lar (Abrasel 2025)</div>
+          </div>
+          <div class="stat-card ifood-stat-card">
+            <div class="stat-val ifood-val">60%</div>
+            <div class="stat-label">Pedem via Redes Sociais / WhatsApp (Fora de Apps)</div>
+          </div>
+          <div class="stat-card ifood-stat-card">
+            <div class="stat-val ifood-val">24%</div>
+            <div class="stat-label">Apenas 24% têm Operação Híbrida (Salão + Delivery)</div>
+          </div>
+          <div class="stat-card ifood-stat-card">
+            <div class="stat-val ifood-val">+60M</div>
+            <div class="stat-label">Pedidos/Mês no iFood em +1.500 Cidades</div>
+          </div>
+          <div class="stat-card ifood-stat-card">
+            <div class="stat-val ifood-val">5 Cidades</div>
+            <div class="stat-label">Pilotos Atuais (BH, Brasília, Campinas, Curitiba, SP)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jornada 360° Interativa -->
+      <div class="ifood-section-card">
+        <h3 class="section-title">🧭 A Jornada Presencial 360° (Clique nas etapas para detalhes)</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+          O iFood acompanha o cliente antes, durante e após a refeição. Clique em cada etapa para ver as dores e a solução tecnológica:
+        </p>
+        <div class="journey-stepper" id="journeyStepper">
+          <div class="journey-step active" data-step="0">1. Descobrir</div>
+          <div class="journey-step" data-step="1">2. Escolher</div>
+          <div class="journey-step" data-step="2">3. Reservar</div>
+          <div class="journey-step" data-step="3">4. Visitar</div>
+          <div class="journey-step" data-step="4">5. Consumir</div>
+          <div class="journey-step" data-step="5">6. Retornar</div>
+        </div>
+        <div class="journey-detail-box" id="journeyDetailBox"></div>
+      </div>
+
+      <!-- Calculadora / Simulador de Impacto no Salão -->
+      <div class="ifood-section-card" style="margin-top: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+          <h3 class="section-title" style="margin-bottom: 0;">🧮 Simulador de Impacto: Otimização de Giro de Mesas</h3>
+          <span class="tag" style="background: rgba(234, 29, 44, 0.1); color: #ea1d2c; border: 1px solid rgba(234, 29, 44, 0.2); font-weight: 600;">Alavanca Estratégica do Case</span>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+          Demonstre autoridade na dinâmica explicando como o <strong>Pagar na Mesa</strong> e o <strong>Cardápio Digital</strong> geram ganho financeiro direto para o dono do restaurante ao reduzir o tempo de fechamento da conta:
+        </p>
+        <div class="grid-2">
+          <div class="calc-inputs-panel">
+            <div class="calc-field">
+              <div class="calc-label-row">
+                <span>Número de Mesas no Restaurante:</span>
+                <strong id="valMesas">30</strong>
+              </div>
+              <input type="range" id="inputMesas" min="10" max="100" value="30" step="5" class="ifood-slider">
+            </div>
+            <div class="calc-field">
+              <div class="calc-label-row">
+                <span>Ticket Médio por Mesa:</span>
+                <strong id="valTicket">R$ 130</strong>
+              </div>
+              <input type="range" id="inputTicket" min="40" max="300" value="130" step="10" class="ifood-slider">
+            </div>
+            <div class="calc-field">
+              <div class="calc-label-row">
+                <span>Tempo Médio Atual por Mesa (min):</span>
+                <strong id="valTempoAtual">75 min</strong>
+              </div>
+              <input type="range" id="inputTempoAtual" min="45" max="120" value="75" step="5" class="ifood-slider">
+            </div>
+            <div class="calc-field">
+              <div class="calc-label-row">
+                <span>Economia de Tempo com iFood Salão:</span>
+                <strong id="valEconomia">15 min</strong>
+              </div>
+              <input type="range" id="inputEconomia" min="5" max="25" value="15" step="5" class="ifood-slider">
+            </div>
+          </div>
+          <div class="calc-results-panel">
+            <div class="calc-res-header">Impacto Estimado no Pico (3 Horas de Salão Cheio):</div>
+            <div class="calc-res-grid">
+              <div class="calc-res-item">
+                <span class="calc-res-num" id="resGirosAtuais">2.4 giros</span>
+                <span class="calc-res-lbl">Capacidade Atual</span>
+              </div>
+              <div class="calc-res-item">
+                <span class="calc-res-num highlight-green" id="resNovosGiros">3.0 giros</span>
+                <span class="calc-res-lbl">Com iFood Salão</span>
+              </div>
+              <div class="calc-res-item">
+                <span class="calc-res-num highlight-red" id="resMesasExtras">+18 mesas</span>
+                <span class="calc-res-lbl">Atendimentos Extras</span>
+              </div>
+              <div class="calc-res-item">
+                <span class="calc-res-num highlight-green" id="resReceitaExtra">+R$ 2.340</span>
+                <span class="calc-res-lbl">Receita Extra / Noite</span>
+              </div>
+            </div>
+            <div class="calc-conclusion-box" id="calcConclusion">
+              💡 <strong>Argumento de Venda para o Dono:</strong> Em um fim de semana (Sex-Dom), o restaurante fatura cerca de <strong>+R$ 7.020 adicionais</strong> sem contratar novos garçons nem ampliar o espaço físico!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flashcards de Estudo & Roteiro da Dinâmica -->
+      <div class="ifood-section-card" style="margin-top: 1.5rem;">
+        <h3 class="section-title">🃏 Flashcards de Estudo & Roteiro da Dinâmica</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Clique nas abas e explore os cards para treinar argumentos e memorizar posturas-chave:
+        </p>
+        <div class="flashcard-tabs" id="flashcardTabs">
+          <button class="fc-tab active" data-cat="cultura">🚀 Jeito iFood (Cultura)</button>
+          <button class="fc-tab" data-cat="solucoes">💡 Ideias para o Case</button>
+          <button class="fc-tab" data-cat="frases">🗣️ Frases de Ouro na Dinâmica</button>
+          <button class="fc-tab" data-cat="perguntas">❓ Perguntas da Banca</button>
+        </div>
+        <div class="flashcards-grid" id="flashcardsGrid"></div>
+      </div>
+
+      <!-- Pitch de Apresentação de Melissa -->
+      <div class="ifood-section-card" style="margin-top: 1.5rem; border-left: 4px solid #ea1d2c;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
+          <h3 class="section-title" style="margin-bottom: 0;">🎤 Seu Pitch de 45 Segundos para o iFood</h3>
+          <span class="tag" style="background: rgba(234, 29, 44, 0.1); color: #ea1d2c; font-weight: 600;">Memorize para a Abertura</span>
+        </div>
+        <p style="font-size: 0.95rem; line-height: 1.7; font-style: italic; color: var(--text-main); background: rgba(234, 29, 44, 0.03); padding: 1rem 1.25rem; border-radius: var(--radius-sm); border: 1px dashed rgba(234, 29, 44, 0.3);">
+          "Sou a Melissa, estudante do 4º semestre de Administração na UFC. No <strong>Banco do Nordeste</strong>, atuo em Gestão de Pessoas em uma célula responsável por mais de 7 mil colaboradores, onde vivo diariamente o tratamento rigoroso de grandes bases no Excel para transformar dados em decisões operacionais e de clima. Em paralelo, presidi o <strong>Dragão do Mar</strong> na UFC, onde aprendi na prática a liderar squads voluntários com foco em governança, rituais ágeis e metas no Notion. Me identifico profundamente com o ecossistema do iFood porque uno a <strong>mentalidade de dona</strong> com o <strong>raciocínio analítico</strong> para resolver problemas que geram impacto em larga escala."
+        </p>
+      </div>
+
     </section>
 
   </main>
