@@ -798,33 +798,70 @@ function setupIFoodStudyModule() {
   });
   updateIFoodSimulator();
 
-  // --- Flashcards de Estudo ---
+  // --- Flashcards de Estudo Baseados no Deck Oficial de Cultura 2025 ---
   const FLASHCARDS_DATA = {
     cultura: [
       {
-        titulo: "Não há limites para o nosso apetite",
-        preview: "Inconformismo positivo e ambição saudável por resultados exponenciais.",
-        detalhe: "No iFood, não se busca melhoria incremental de 5%, mas transformações de 10x. Na dinâmica, demonstre apetite propondo soluções que escalem para as 1.500 cidades do ecossistema."
+        titulo: "Propósito: Alimentar o Futuro do Mundo",
+        preview: "A bandeira central que guia todas as decisões e negócios do iFood.",
+        detalhe: "Não é apenas sobre entrega de comida, mas sobre criar tecnologia proprietária para revolucionar a forma como as pessoas vivem e fazem negócios. Conecte sua fala na dinâmica com o impacto positivo para restaurantes e entregadores."
       },
       {
-        titulo: "Mentalidade de Dono (Ownership)",
-        preview: "Assumir a responsabilidade de ponta a ponta sem esperar ordens.",
-        detalhe: "Não culpe fatores externos nem espere o facilitador pedir. Assuma a iniciativa de organizar o tempo do grupo, estruturar os slides e garantir que a entrega saia redonda."
+        titulo: "J.i.T. • Conflitos Produtivos",
+        preview: "'Seja brutal com os problemas, nunca com as pessoas.'",
+        detalhe: "O iFood repudia o 'falso consenso'. Discorde com franqueza, respeito e escuta ativa. Traga opiniões opostas sem grosseria para encontrar a melhor solução para o negócio."
       },
       {
-        titulo: "Decisões Guiadas por Dados (Data-Driven)",
-        preview: "Opiniões são bem-vindas, mas hipóteses precisam ser testadas com métricas.",
-        detalhe: "Cite sempre os números do case: mercado de R$ 495 Bi (Abrasel 2025), 60% que pedem no WhatsApp e apenas 24% com operação híbrida. Dados geram autoridade instantânea."
+        titulo: "J.i.T. • Ambidestria (Transatlântico & Jet-skis)",
+        preview: "Inovar sem perder a eficiência: manter o hoje rodando enquanto constrói o amanhã.",
+        detalhe: "O delivery consolidado é o Transatlântico (eficiência e estabilidade). Novos negócios como o 'Comer Fora / iFood Salão' são Jet-skis: testes rápidos, ágeis e sem colocar o navio em risco."
       },
       {
-        titulo: "Construímos Juntos & Diversidade Ativa",
-        preview: "Inovação nasce da troca real entre diferentes pontos de vista.",
-        detalhe: "Nunca atropele os colegas. Diga frases como: 'Excelente ponto trazido pela Mariana! Somando a isso, podíamos conectar com a ideia do Pedro...' — o avaliador pontua alto em quem eleva o grupo."
+        titulo: "J.i.T. • Priorize 80/20 e Entregue",
+        preview: "Foque no essencial. Descomplique o caminho e transforme problemas em soluções.",
+        detalhe: "Tenha a maturidade de desapegar de ideias legais que não são viáveis no tempo da dinâmica. Foque nas 2 ou 3 alavancas de maior impacto na receita e giro do restaurante."
       },
       {
-        titulo: "AI First: Inovação como Ponto de Partida",
-        preview: "A tecnologia e a inteligência artificial são centrais no iFuture.",
-        detalhe: "Traga IA para o case: previsão de fluxo de clientes para evitar filas no salão, precificação dinâmica em horários ociosos e recomendações no cardápio digital."
+        titulo: "J.i.T. • Mentalidade de Dono(a)",
+        preview: "Coloque o iFood em primeiro lugar. Assuma responsabilidade sem terceirizar.",
+        detalhe: "Assuma o front! Se ninguém puxar a contagem do tempo ou a divisão das falas no pitch, tome a iniciativa com postura agregadora e proativa."
+      },
+      {
+        titulo: "J.i.T. • Ágil: Falhe Rápido e Aprenda",
+        preview: "Aprenda fazendo: teste, erre, corrija rápido e ajuste a rota sem medo.",
+        detalhe: "Na dinâmica, se o grupo perceber que uma proposta inicial é fraca ou tem falha operacional, elogie a descoberta do erro e mude a rota rapidamente sem apego ao ego."
+      }
+    ],
+    simbolos: [
+      {
+        titulo: "Kung Fu • Alma Startupeira & Eficiência",
+        preview: "Alta performance, agilidade, fail fast e drible à burocracia.",
+        detalhe: "O Kung Fu não descansa até extrair o potencial máximo com austeridade e simplicidade. Representa o valor de RESULTADOS com agilidade de startup."
+      },
+      {
+        titulo: "Elefante Johnny • Os Fatos Brutais na Sala",
+        preview: "Encarar a verdade de frente com respeito e foco na solução.",
+        detalhe: "Quando algo não está dando certo no grupo ou no case, o Elefante Johnny entra na sala para colocar a verdade às claras — sem ser agressivo e sem 'passar pano'."
+      },
+      {
+        titulo: "Canarinho • Garra e Coragem sob Pressão",
+        preview: "Foco para reinar no caos e força brasileira inabalável.",
+        detalhe: "Representa a coragem de não abaixar a cabeça diante da incerteza, da pressão de tempo da dinâmica e dos desafios de um mercado complexo."
+      },
+      {
+        titulo: "High Quality Agreement (HQA)",
+        preview: "Discordar construtivamente no debate, mas remar 100% juntos após a decisão.",
+        detalhe: "Debata com garra; mas, assim que o grupo escolher o caminho, apoie com energia máxima. Nunca critique a decisão coletiva durante o pitch final."
+      },
+      {
+        titulo: "Evitar o 'Brilliant Jerk'",
+        preview: "O iFood não tolera quem entrega resultado atropelando as pessoas.",
+        detalhe: "Buscar o melhor resultado envolve O QUÊ você entrega e COMO você entrega. Tratar os colegas com desrespeito ou arrogância elimina qualquer candidato na hora."
+      },
+      {
+        titulo: "#EatYourOwnDogFood",
+        preview: "Testar as soluções internamente com a comunidade antes de lançar ao mercado.",
+        detalhe: "Citar na dinâmica: 'Podemos testar o Pagar na Mesa primeiro nos restaurantes dos próprios polos e escritórios com os FoodLovers para coletar feedbacks rápidos antes do rollout nacional!'"
       }
     ],
     solucoes: [
