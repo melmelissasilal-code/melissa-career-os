@@ -17,17 +17,34 @@
 ## 2. Dossiê Institucional & Fit Cultural (O "Jeito iFood")
 O iFood é guiado por uma cultura de alta autonomia, ritmo acelerado de startup com escala de gigante de tecnologia.
 
-### Princípios e Pilares Culturais:
-1. **Não há limites para o nosso apetite:** Ambição saudável, inconformismo positivo e busca por resultados exponenciais.
-2. **Mentalidade de Dono (Ownership):** Autonomia com responsabilidade. Assumir o desafio de ponta a ponta sem esperar ordem superior.
-3. **Decisões Guiadas por Dados (Data-Driven):** Não basta ter opinião; é preciso validar com dados, testes rápidos (*test & learn*) e métricas claras.
-4. **Construímos Juntos & Diversidade Ativa:** Colaboração multidisciplinar em squads, inclusão real e respeito a diferentes vivências.
-5. **Obsessão pelo Ecossistema:** Encantar clientes, restaurantes parceiros e entregadores.
+### 1. Propósito Maior
+**"ALIMENTAR O FUTURO DO MUNDO"** — Entregar produtos e serviços acessíveis, conveniência e crescimento, criando tecnologia proprietária para revolucionar como as pessoas vivem e fazem negócios.
+
+### 2. Os 4 Valores Centrais:
+1. **RESULTADOS:** Movidos por alta performance com foco, agilidade e apetite constante. Entregam com escala e impacto. Atenção: o COMO importa tanto quanto o QUÊ (rejeição ao *Brilliant Jerk*).
+2. **INOVAÇÃO:** Ousadia e tecnologia proprietária. Sem medo de errar (testam, falham e ajustam a rota). Ambidestria: eficiência (Transatlântico) + disrupção (Jet-skis). Metodologia *#EatYourOwnDogFood*.
+3. **ALL TOGETHER:** Gente vem primeiro. Equidade e diversidade (pessoas, trajetórias, ideias). Colaboração, conflitos produtivos, cuidado, confiança e leveza.
+4. **EMPREENDEDORISMO:** Sonhar grande, encarar o caos e a incerteza com garra, coragem, humildade e mentalidade de dono(a).
+
+### 3. J.i.T. (Jeito iFood de Trabalhar — 7 Princípios Comportamentais):
+- **Sonhe Grande:** Apetite de conquistar o impossível e transformar ideias em ações de impacto.
+- **Conflitos Produtivos:** *"Seja brutal com os problemas, nunca com as pessoas."* Sem falsos consensos; franqueza com escuta ativa e respeito.
+- **Mentalidade de Dono:** Colocar o iFood em primeiro lugar; assumir responsabilidade sem terceirizar.
+- **Ambidestria:** Eficiência no hoje + disrupção no amanhã (Transatlântico e Jet-skis).
+- **Ágil: Falhe Rápido e Aprenda:** Aprender fazendo; testar hipóteses, errar rápido e ajustar a rota.
+- **Gente:** Equidade, cuidar e desafiar uns aos outros com empatia e feedback sincero.
+- **Priorize 80/20 e Entregue:** Foco no essencial; desapegar de ideias legais sem impacto imediato.
+
+### 4. Símbolos Culturais Oficiais:
+- 🥋 **Kung Fu:** Alma startupeira e eficiência radical, alta performance e drible à burocracia.
+- 🐘 **Elefante Johnny:** O elefante na sala! Encarar fatos brutais de frente com escuta ativa e verdade nua, sem grosseria.
+- 🇧🇷 **Canarinho:** Coragem estratégica, resistência e garra sob pressão, foco para reinar no caos.
+- 🤝 **High Quality Agreement (HQA):** Debate rico e franco; uma vez decidida a rota, todos remam 100% juntos.
 
 ### Fit Cirúrgico de Melissa com o iFood:
-- **Veia Empreendedora e Ownership:** Como cofundadora e Presidente do **Dragão do Mar (UFC)**, liderou voluntários, fundou um projeto do zero, estruturou rituais ágeis e metas quinzenais no Notion.
-- **Rigor Analítico e Dados:** Gestão e conciliação analítica no Excel com milhares de registros no **Banco do Nordeste (BNB)** e análise financeira no **Ceará Finance**.
-- **Comunicação e Cultura:** Experiência prática em Gestão de Pessoas no BNB em célula responsável por +7.000 colaboradores em múltiplos estados, lidando com clima, inclusão e endomarketing.
+- **Veia Empreendedora e Ownership (Kung Fu & Sonhe Grande):** Como cofundadora e Presidente do **Dragão do Mar (UFC)**, liderou voluntários, estruturou rituais ágeis e metas quinzenais no Notion.
+- **Rigor Analítico e Fatos Brutais (Elefante Johnny & 80/20):** Gestão e conciliação analítica no Excel com 4.480 registros no **Banco do Nordeste (BNB)** e People Analytics na Plataforma Senior.
+- **Gente & All Together (Cultura & Equidade):** Experiência corporativa em Gestão de Pessoas no BNB em célula de DEI/Qualidade de Vida para +7.000 colaboradores em múltiplos estados.
 
 ---
 
