@@ -120,13 +120,9 @@ const FALLBACK_DATA = {
     { id: 9, titulo: "Desafio Quant AI 2026: Robô de Investimentos Aequitas Value Robot", organizacao: "Itaú Asset Management", tipo_projeto: "Finanças Quantitativas e Inteligência Artificial", descricao: "Desenvolvimento de modelo algorítmico e quantitativo unindo Value Investing com inteligência artificial.", desafio: "Transformar indicadores contábeis em algoritmo preditivo com proteção contra value traps.", solucao: "Triagem sistemática de fatores contábeis (P/L, EV/EBITDA, ROIC), modelagem quantitativa sob mentoria de Vitor Borges Monteiro.", resultados_impacto: "Conclusão de todas as etapas eliminatórias com homologação pela Itaú Asset; certificado oficial emitido.", ferramentas_utilizadas: "Python, Algoritmos Quantitativos, Machine Learning, Análise Fundamentalista, Value Investing, Excel" },
     { id: 10, titulo: "Automação Corporativa e Engenharia de Prompts com IA Generativa", organizacao: "Banco do Nordeste / Autônomo", tipo_projeto: "Inteligência Artificial Generativa e Produtividade", descricao: "Desenvolvimento de fluxos estruturados de prompting para suporte a People Analytics, redação executiva e governança do Career OS.", desafio: "Otimizar rotinas corporativas garantindo 100% de aderência factual e respeito à LGPD.", solucao: "Criação de prompts parametrizados para correlação de dados de clima, briefings e arquitetura de 3 camadas (Framework DOE).", resultados_impacto: "Aumento exponencial de produtividade e consolidação do ecossistema MELISSA CAREER OS.", ferramentas_utilizadas: "Microsoft Copilot (M365), ChatGPT, Engenharia de Prompts, Python, SQLite, Markdown" }
   ],
-  empresas_alvo: [
-    { nome: "Ambev", setor: "Bens de Consumo / Bebidas", perfil_empresa: "Grande Multinacional", programas_interesse: "Estágio / Trainee Ambev", fit_cultural: "Cultura de dono, ambição, resolução de problemas e capacidade de execução.", palavras_chave: "gente e gestão, logística, finanças, dados, liderança de impacto", status_monitoramento: "Mapeando" },
-    { nome: "Banco do Nordeste (BNB)", setor: "Serviços Financeiros / Desenvolvimento Regional", perfil_empresa: "Instituição Financeira Pública", programas_interesse: "Estágio Atual / Continuidade em Projetos de Alto Impacto", fit_cultural: "Foco no desenvolvimento do Nordeste, sustentabilidade, ESG e gestão de pessoas.", palavras_chave: "gestão de pessoas, clima organizacional, fne, impacto regional, desenvolvimento", status_monitoramento: "Estágio Atual (Colaboradora)" },
-    { nome: "Google", setor: "Tecnologia / Internet", perfil_empresa: "Big Tech Global", programas_interesse: "Google Business Internship / Programas de Jovens Talentos", fit_cultural: "Inovação, diversidade, raciocínio estruturado, comunicação clara e adaptabilidade rápida.", palavras_chave: "people operations, business strategy, data analytics, product support, dei", status_monitoramento: "Mapeando" },
-    { nome: "Itaú Unibanco", setor: "Serviços Financeiros / Bancário", perfil_empresa: "Instituição Financeira Privada", programas_interesse: "Programa de Estágio Corporativo / Trainee", fit_cultural: "Foco em resultados, inovação digital, meritocracia e liderança jovem.", palavras_chave: "corporate banking, rh estratégico, data analytics, agilidade", status_monitoramento: "Mapeando" },
-    { nome: "M. Dias Branco", setor: "Bens de Consumo / Indústria Alimentícia", perfil_empresa: "Grande Nacional / Multinacional Brasileira", programas_interesse: "Estágio / Trainee Corporativo", fit_cultural: "Forte cultura de eficiência, liderança regional e global, valorização de talentos UFC.", palavras_chave: "supply chain, governança, finanças corporativas, gente e gestão, d&i", status_monitoramento: "Mapeando" }
-  ]
+  empresas_alvo: [],
+  processos_seletivos: [],
+  autopsias: []
 };
 
 let appData = FALLBACK_DATA;
@@ -134,6 +130,13 @@ let appData = FALLBACK_DATA;
 // ======================================================================
 // Carregamento de dados (data.js > data.json > fallback)
 // ======================================================================
+function mergePrivateData(privateData) {
+  if (!privateData) return;
+  appData.processos_seletivos = privateData.processos_seletivos || [];
+  appData.empresas_alvo = privateData.empresas_alvo || [];
+  appData.autopsias = privateData.autopsias || [];
+}
+
 async function loadData() {
   if (window.CAREER_DATA && window.CAREER_DATA.perfil) {
     appData = window.CAREER_DATA;
@@ -150,6 +153,12 @@ async function loadData() {
       console.warn("Modo offline: utilizando dados embutidos de fallback.");
     }
   }
+
+  // Se a usuária já estiver autenticada, mescla os dados do cofre
+  if (window.CareerAuth && window.CareerAuth.isAuthenticated && window.CareerAuth.privateData) {
+    mergePrivateData(window.CareerAuth.privateData);
+  }
+
   renderAll();
 }
 
@@ -1006,10 +1015,140 @@ function renderFooter() {
 }
 
 // ======================================================================
+// AUTENTICAÇÃO E INTERFACE DO COFRE PRIVADO
+// ======================================================================
+function setupAuthUI() {
+  const authBtn = document.getElementById("authBtn");
+  const footerAuthLink = document.getElementById("footerAuthLink");
+  const modalCloseBtn = document.getElementById("modalCloseBtn");
+  const authModal = document.getElementById("authModal");
+  const authForm = document.getElementById("authForm");
+  const authInput = document.getElementById("authInput");
+  const authError = document.getElementById("authError");
+  const authRemember = document.getElementById("authRemember");
+  const authSubmitBtn = document.getElementById("authSubmitBtn");
+  const logoutBtn = document.getElementById("logoutBtn");
+  const heroAvatar = document.getElementById("heroAvatar");
+
+  const openModal = () => {
+    if (window.CareerAuth) window.CareerAuth.openLoginModal();
+  };
+
+  const closeModal = () => {
+    if (window.CareerAuth) window.CareerAuth.closeLoginModal();
+  };
+
+  if (authBtn) authBtn.addEventListener("click", openModal);
+  if (footerAuthLink) {
+    footerAuthLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  }
+  if (modalCloseBtn) modalCloseBtn.addEventListener("click", closeModal);
+  if (authModal) {
+    authModal.addEventListener("click", (e) => {
+      if (e.target === authModal) closeModal();
+    });
+  }
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+      if (window.CareerAuth) window.CareerAuth.logout();
+    });
+  }
+
+  if (authForm) {
+    authForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!window.CareerAuth) return;
+      if (authError) authError.textContent = "";
+
+      const origText = authSubmitBtn ? authSubmitBtn.innerHTML : "";
+      if (authSubmitBtn) {
+        authSubmitBtn.innerHTML = "<span>Descriptografando...</span> ⏳";
+        authSubmitBtn.disabled = true;
+      }
+
+      const pass = authInput ? authInput.value : "";
+      const remember = authRemember ? authRemember.checked : true;
+
+      const res = await window.CareerAuth.login(pass, remember);
+
+      if (authSubmitBtn) {
+        authSubmitBtn.innerHTML = origText;
+        authSubmitBtn.disabled = false;
+      }
+
+      if (res.success) {
+        closeModal();
+      } else {
+        if (authError) authError.textContent = res.error || "PIN ou senha inválidos.";
+        if (authInput) {
+          authInput.select();
+          authInput.focus();
+        }
+      }
+    });
+  }
+
+  // Atalho de teclado: Ctrl + Shift + L
+  window.addEventListener("keydown", (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === "L" || e.key === "l")) {
+      e.preventDefault();
+      openModal();
+    }
+    if (e.key === "Escape" && authModal && authModal.classList.contains("active")) {
+      closeModal();
+    }
+  });
+
+  // Easter egg: 3 cliques rápidos no avatar abrem o login
+  if (heroAvatar) {
+    let clickCount = 0;
+    let clickTimer = null;
+    heroAvatar.addEventListener("click", () => {
+      clickCount++;
+      clearTimeout(clickTimer);
+      if (clickCount >= 3) {
+        clickCount = 0;
+        openModal();
+      } else {
+        clickTimer = setTimeout(() => {
+          clickCount = 0;
+        }, 600);
+      }
+    });
+  }
+
+  // Listener para atualização dinâmica quando o status de login mudar
+  window.addEventListener("career-auth-change", (evt) => {
+    const { authenticated, data } = evt.detail || {};
+    if (authenticated && data) {
+      mergePrivateData(data);
+    } else {
+      appData.processos_seletivos = [];
+      appData.empresas_alvo = [];
+      appData.autopsias = [];
+
+      // Se a usuária estiver numa aba restrita ao deslogar, redireciona para o cockpit
+      const activeTab = document.querySelector(".tab-pane.active");
+      if (activeTab && (activeTab.id === "warroom" || activeTab.id === "ifood-study")) {
+        const cockpitBtn = document.querySelector("[data-tab='cockpit']");
+        if (cockpitBtn) cockpitBtn.click();
+      }
+    }
+    renderCockpitMetrics();
+    renderWarRoom();
+  });
+}
+
+// ======================================================================
 // INICIALIZAÇÃO
 // ======================================================================
 window.addEventListener("DOMContentLoaded", () => {
   setupTabs();
   setupTheme();
+  setupAuthUI();
   loadData();
 });

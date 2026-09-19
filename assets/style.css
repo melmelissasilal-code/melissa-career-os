@@ -1052,3 +1052,289 @@ body.dark-mode .ifood-status-pill {
   border-color: var(--primary);
 }
 
+/* ====================================================================== */
+/* AUTHENTICATION & PRIVATE VAULT STYLES                                  */
+/* ====================================================================== */
+
+/* Por padrão, oculta elementos do modo privado */
+.nav-private,
+.private-only {
+  display: none !important;
+}
+
+/* Quando autenticada, exibe abas e cards internos */
+body.authenticated .nav-private {
+  display: inline-flex !important;
+}
+
+body.authenticated .private-only {
+  display: flex !important;
+}
+
+body.authenticated .private-card {
+  display: block !important;
+}
+
+/* Quando autenticada, pode ocultar elementos que só faziam sentido no modo visitante */
+body.authenticated .public-only {
+  display: none !important;
+}
+
+/* Header Auth Button & Status Badge */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.auth-btn {
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--primary);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.auth-btn:hover {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.auth-logged-pill {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--success);
+  white-space: nowrap;
+}
+
+body.authenticated .auth-btn {
+  display: none !important;
+}
+
+body.authenticated .auth-logged-pill {
+  display: inline-flex !important;
+}
+
+.auth-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--success);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.9); }
+}
+
+.logout-link {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.78rem;
+  padding: 0 0.2rem;
+  margin-left: 0.3rem;
+  transition: color 0.15s ease;
+}
+
+.logout-link:hover {
+  color: var(--danger);
+}
+
+/* Modal de Autenticação */
+.auth-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  padding: 1rem;
+}
+
+.auth-modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.auth-modal-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 420px;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: scale(0.95) translateY(10px);
+  transition: transform 0.25s ease;
+  position: relative;
+}
+
+.auth-modal-backdrop.active .auth-modal-card {
+  transform: scale(1) translateY(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-main);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.auth-icon-circle {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(59, 130, 246, 0.1));
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 0.75rem auto;
+}
+
+.auth-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+}
+
+.auth-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.auth-input-group {
+  margin-bottom: 1.25rem;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 1.15rem;
+  text-align: center;
+  letter-spacing: 0.15em;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-main);
+  color: var(--text-main);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.auth-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.auth-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.auth-submit-btn {
+  width: 100%;
+  padding: 0.85rem;
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.auth-submit-btn:hover {
+  background: var(--primary-hover);
+}
+
+.auth-submit-btn:active {
+  transform: scale(0.98);
+}
+
+.auth-error-msg {
+  color: var(--danger);
+  font-size: 0.82rem;
+  text-align: center;
+  margin-top: 0.75rem;
+  min-height: 1.2rem;
+  font-weight: 500;
+}
+
+.auth-hint {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+  border-top: 1px dashed var(--border-color);
+  padding-top: 0.75rem;
+}
+
+

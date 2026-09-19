@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Dossiê Estratégico iFuture 2027 — Webcase iFood Salão & Cultura</title>
+  <title>Dossiê Estratégico iFuture 2027 — Webcase iFood Salão & Cultura (Edição Completa)</title>
   <style>
     @page {
       size: A4 portrait;
@@ -51,6 +51,19 @@
       margin-left: 4px;
       border: 1px solid #cbd5e1;
     }
+    .badge-new {
+      display: inline-block;
+      background: #10b981;
+      color: white;
+      font-weight: 800;
+      font-size: 6pt;
+      padding: 1px 5px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
     .title {
       font-size: 13.5pt;
       font-weight: 800;
@@ -87,6 +100,12 @@
       border-bottom: 1px solid #e2e8f0;
       padding-bottom: 2px;
     }
+    h3 {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 5px 0 3px 0;
+    }
     p {
       margin-bottom: 4px;
       text-align: justify;
@@ -94,25 +113,59 @@
     .stats-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 6px;
-      margin: 5px 0 8px 0;
+      gap: 5px;
+      margin: 5px 0 6px 0;
+    }
+    .stats-row-5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 5px;
+      margin: 5px 0 6px 0;
     }
     .stat-card {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
       border-top: 3px solid #ea1d2c;
       border-radius: 5px;
-      padding: 5px 3px;
+      padding: 4px 3px;
+      text-align: center;
+    }
+    .stat-card-blue {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-top: 3px solid #3b82f6;
+      border-radius: 5px;
+      padding: 4px 3px;
+      text-align: center;
+    }
+    .stat-card-green {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-top: 3px solid #10b981;
+      border-radius: 5px;
+      padding: 4px 3px;
       text-align: center;
     }
     .stat-val {
-      font-size: 11.5pt;
+      font-size: 11pt;
       font-weight: 800;
       color: #ea1d2c;
       display: block;
     }
+    .stat-val-blue {
+      font-size: 11pt;
+      font-weight: 800;
+      color: #3b82f6;
+      display: block;
+    }
+    .stat-val-green {
+      font-size: 11pt;
+      font-weight: 800;
+      color: #10b981;
+      display: block;
+    }
     .stat-lbl {
-      font-size: 6.2pt;
+      font-size: 6pt;
       color: #64748b;
       font-weight: 600;
       text-transform: uppercase;
@@ -122,12 +175,12 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 5px 0 7px 0;
-      font-size: 7.6pt;
+      margin: 5px 0 6px 0;
+      font-size: 7.4pt;
     }
     th, td {
       border: 1px solid #e2e8f0;
-      padding: 4px 5px;
+      padding: 3px 5px;
       text-align: left;
       vertical-align: top;
     }
@@ -135,7 +188,7 @@
       background: #f1f5f9;
       color: #0f172a;
       font-weight: 700;
-      font-size: 7pt;
+      font-size: 6.8pt;
       text-transform: uppercase;
     }
     tr:nth-child(even) {
@@ -153,6 +206,12 @@
       gap: 5px;
       margin-bottom: 5px;
     }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 5px;
+      margin-bottom: 5px;
+    }
     .card {
       background: #ffffff;
       border: 1px solid #e2e8f0;
@@ -163,7 +222,7 @@
     }
     .card-title {
       font-weight: 800;
-      font-size: 8.2pt;
+      font-size: 8pt;
       color: #0f172a;
       margin-bottom: 2px;
       display: flex;
@@ -171,7 +230,7 @@
       gap: 4px;
     }
     .card-body {
-      font-size: 7.5pt;
+      font-size: 7.3pt;
       color: #334155;
       line-height: 1.32;
     }
@@ -182,7 +241,7 @@
       border-radius: 4px;
       padding: 5px 8px;
       margin: 5px 0;
-      font-size: 7.8pt;
+      font-size: 7.6pt;
       page-break-inside: avoid;
     }
     .callout-green {
@@ -192,13 +251,33 @@
       border-radius: 4px;
       padding: 5px 8px;
       margin: 5px 0;
-      font-size: 7.8pt;
+      font-size: 7.6pt;
+      page-break-inside: avoid;
+    }
+    .callout-blue {
+      background: rgba(59, 130, 246, 0.04);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      border-left: 4px solid #3b82f6;
+      border-radius: 4px;
+      padding: 5px 8px;
+      margin: 5px 0;
+      font-size: 7.6pt;
+      page-break-inside: avoid;
+    }
+    .callout-amber {
+      background: rgba(245, 158, 11, 0.06);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-left: 4px solid #f59e0b;
+      border-radius: 4px;
+      padding: 5px 8px;
+      margin: 5px 0;
+      font-size: 7.6pt;
       page-break-inside: avoid;
     }
     .quote-box {
       font-style: italic;
       color: #1e293b;
-      font-size: 8pt;
+      font-size: 7.8pt;
       line-height: 1.4;
     }
     .footer {
@@ -213,6 +292,60 @@
     .page-break {
       page-break-before: always;
     }
+    .tag {
+      display: inline-block;
+      background: #fef2f2;
+      color: #ea1d2c;
+      font-size: 6pt;
+      font-weight: 700;
+      padding: 1px 4px;
+      border-radius: 3px;
+      border: 1px solid #fecaca;
+      margin-right: 2px;
+    }
+    .tag-blue {
+      display: inline-block;
+      background: #eff6ff;
+      color: #3b82f6;
+      font-size: 6pt;
+      font-weight: 700;
+      padding: 1px 4px;
+      border-radius: 3px;
+      border: 1px solid #bfdbfe;
+      margin-right: 2px;
+    }
+    .tag-green {
+      display: inline-block;
+      background: #ecfdf5;
+      color: #059669;
+      font-size: 6pt;
+      font-weight: 700;
+      padding: 1px 4px;
+      border-radius: 3px;
+      border: 1px solid #a7f3d0;
+      margin-right: 2px;
+    }
+    ul {
+      margin: 2px 0 4px 14px;
+      font-size: 7.4pt;
+    }
+    li {
+      margin-bottom: 1px;
+    }
+    .danger-card {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-left: 3px solid #ef4444;
+      border-radius: 4px;
+      padding: 5px 7px;
+      page-break-inside: avoid;
+    }
+    .danger-title {
+      font-weight: 800;
+      font-size: 7.5pt;
+      color: #b91c1c;
+      margin-bottom: 2px;
+    }
   </style>
 </head>
 <body>
@@ -222,223 +355,471 @@
     <div>
       <span class="badge">iFuture 2027 • Estágio iFood</span>
       <span class="badge-sub">Propósito: Alimentar o Futuro do Mundo</span>
-      <h1 class="title">Dossiê Estratégico: Webcase Salão & Jeito iFood (J.i.T.)</h1>
-      <div class="subtitle">Tema: "A Nova Fronteira do iFood na Alimentação Fora do Lar" • Valores: Resultados | Inovação | All Together | Empreendedorismo</div>
+      <span class="badge-new">Edição Completa v2</span>
+      <h1 class="title">Dossiê Estratégico: Webcase Salão, Cultura, IA & Ecossistema</h1>
+      <div class="subtitle">Tema: "A Nova Fronteira do iFood na Alimentação Fora do Lar" • CEO: Diego Barreto • Investimento FY27: R$ 24 Bi</div>
     </div>
     <div class="meta-box">
       <div>Candidata: <strong>Melissa Almeida</strong> (UFC)</div>
       <div>Data da Dinâmica: <strong>24/09 às 09:30</strong></div>
       <div>Plataforma: <strong>Kolab</strong> (Acesso às 09:00)</div>
+      <div>Fonte: FY2026 Prosus + iFood MOVE 2026</div>
     </div>
   </div>
 
-  <!-- NÚMEROS DE OURO -->
-  <h2>📊 1. Raio-X do Webcase & Números de Ouro</h2>
-  <p>O delivery é o <em>Transatlântico</em> do iFood (+60M pedidos/mês, +1.500 cidades), mas a maior fatia do consumo fora do lar é física. Os dados do pré-work embasam a tese dos novos <em>Jet-skis</em> do ecossistema:</p>
-
-  <div class="stats-row">
+  <!-- NÚMEROS DE OURO ATUALIZADOS -->
+  <h2>📊 1. Raio-X do iFood em 2026 — Números Atualizados (Prosus FY2026 + iFood MOVE)</h2>
+  <div class="stats-row-5">
     <div class="stat-card">
-      <span class="stat-val">R$ 495 Bi</span>
-      <span class="stat-lbl">Mercado Fora do Lar (Abrasel 2025)</span>
+      <span class="stat-val">R$ 10,1 Bi</span>
+      <span class="stat-lbl">Receita Líquida (+40% YoY)</span>
     </div>
     <div class="stat-card">
-      <span class="stat-val">60%</span>
+      <span class="stat-val">180M+</span>
+      <span class="stat-lbl">Pedidos por Mês</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-val">65M</span>
+      <span class="stat-lbl">Usuários Ativos</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-val">500 mil</span>
+      <span class="stat-lbl">Restaurantes Parceiros em 2.000+ Cidades</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-val">R$ 24 Bi</span>
+      <span class="stat-lbl">Investimento Aprovado FY27 (+41%)</span>
+    </div>
+  </div>
+
+  <!-- DADOS DO PRÉ-WORK COMER FORA -->
+  <h2>🍽️ 2. O Webcase "Comer Fora" — Dados do Pré-Work + Intel Atualizada</h2>
+  <div class="stats-row">
+    <div class="stat-card-blue">
+      <span class="stat-val-blue">R$ 495 Bi</span>
+      <span class="stat-lbl">TAM Alimentação Fora do Lar (Abrasel 2025)</span>
+    </div>
+    <div class="stat-card-blue">
+      <span class="stat-val-blue">60%</span>
       <span class="stat-lbl">Pedem via WhatsApp / Redes Sociais</span>
     </div>
-    <div class="stat-card">
-      <span class="stat-val">24%</span>
+    <div class="stat-card-blue">
+      <span class="stat-val-blue">24%</span>
       <span class="stat-lbl">Restaurantes com Operação Híbrida</span>
     </div>
-    <div class="stat-card">
-      <span class="stat-val">5 Cidades</span>
-      <span class="stat-lbl">Pilotos (BH, BSB, Campinas, CWB, SP)</span>
+    <div class="stat-card-green">
+      <span class="stat-val-green">50+ Cidades</span>
+      <span class="stat-lbl">Comer Fora Ativo (atualizado 2026 — antes: 5 pilotos)</span>
     </div>
   </div>
 
-  <!-- JORNADA 360 -->
-  <h2>🧭 2. A Jornada Presencial 360° & Soluções iFood Salão</h2>
+  <!-- JORNADA 360 ATUALIZADA -->
   <table>
     <thead>
       <tr>
-        <th style="width: 12%;">Etapa</th>
-        <th style="width: 26%;">👤 Dor do Consumidor</th>
-        <th style="width: 25%;">🏪 Dor do Restaurante</th>
-        <th style="width: 23%;">⚡ Solução iFood Salão</th>
-        <th style="width: 14%;">🎯 Métrica Chave</th>
+        <th style="width: 10%;">Etapa</th>
+        <th style="width: 24%;">👤 Dor do Consumidor</th>
+        <th style="width: 22%;">🏪 Dor do Restaurante</th>
+        <th style="width: 26%;">⚡ Solução iFood Salão (Atualizada)</th>
+        <th style="width: 18%;">🎯 Métrica Chave</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td><strong>1. Descobrir</strong></td>
-        <td>Indecisão sobre onde ir; busca dispersa no Google/Instagram sem cardápio atualizado.</td>
-        <td>Dependência de redes sociais e WhatsApp; alto custo de tráfego sem conversão de salão.</td>
-        <td>Aba "Comer Fora" geolocalizada + <strong>iFood Ads</strong> em horários ociosos.</td>
-        <td>Taxa de conversão de busca para visita.</td>
+        <td>Indecisão; busca dispersa no Google/Instagram sem info confiável.</td>
+        <td>Dependência de redes sociais; CAC alto sem conversão de salão.</td>
+        <td>Aba <strong>"Comer Fora"</strong> geolocalizada + <strong>iFood Ads</strong> (receita de R$ 1,2 Bi, +106% YoY!) em horários ociosos.</td>
+        <td>Conversão busca→visita</td>
       </tr>
       <tr>
         <td><strong>2. Escolher</strong></td>
-        <td>Cardápios em QR Code ruins (PDFs pesados, sem preços ou fotos reais).</td>
-        <td>Custo recorrente de impressão física; lentidão para pausar itens esgotados na cozinha.</td>
-        <td><strong>Cardápio Digital</strong> nativo com fotos de alta qualidade e avaliações verificadas.</td>
-        <td>Tempo médio de escolha e ticket médio.</td>
+        <td>QR Codes que abrem PDFs pesados sem preços ou fotos reais.</td>
+        <td>Custo de impressão; lentidão para pausar pratos esgotados.</td>
+        <td><strong>Cardápio Digital</strong> nativo + <strong>Toqan IA</strong> (sugestão de preços e recomendação personalizada via LCM).</td>
+        <td>Tempo de escolha; ticket médio</td>
       </tr>
       <tr>
         <td><strong>3. Reservar</strong></td>
-        <td>Esperar de 30 a 60 min em pé na calçada com fome e estresse sem previsão de mesa.</td>
-        <td>Abandono silencioso de fila (clientes indo ao concorrente) e no-shows telefônicos.</td>
-        <td><strong>Fila Virtual & Reservas</strong> com notificação push e previsão preditiva com IA.</td>
-        <td>Queda na taxa de no-show e abandono de fila.</td>
+        <td>30-60 min em pé na calçada sem previsão de mesa.</td>
+        <td>Abandono silencioso de fila; no-shows telefônicos.</td>
+        <td><strong>Get In</strong> & <strong>Tagme</strong> integrados: fila virtual + reserva com previsão preditiva por IA.</td>
+        <td>Queda no-show/abandono</td>
       </tr>
       <tr>
         <td><strong>4. Visitar</strong></td>
-        <td>Dificuldade de sinalizar ao garçom que já sentou e está pronto para pedir.</td>
-        <td>Restaurante é "cego" no salão: zero dados de histórico, frequência ou preferências.</td>
-        <td><strong>Check-in Presencial</strong> via QR Code da mesa integrando o cliente ao CRM.</td>
-        <td>Adoção de check-in e ativação de dados.</td>
+        <td>Dificuldade de sinalizar ao garçom que sentou e quer pedir.</td>
+        <td>Restaurante "cego": zero dados de histórico ou preferências do cliente.</td>
+        <td><strong>Check-in</strong> via QR Code + CRM integrado ao <strong>Portal do Parceiro</strong> (histórico presencial).</td>
+        <td>Adoção check-in; dados</td>
       </tr>
       <tr>
         <td><strong>5. Consumir</strong></td>
-        <td><strong>A maior dor:</strong> esperar 15 a 25 min pelo garçom trazer conta, maquininha e recibo.</td>
-        <td>Garçons gastam 25% do tempo útil transportando maquininhas; mesas travadas sem faturar.</td>
-        <td><strong>Pagar na Mesa:</strong> divisão de conta e pagamento no app em 10 segundos.</td>
-        <td><strong>Giro de mesa:</strong> -15 min por mesa = +25% no pico!</td>
+        <td><strong>MAIOR DOR:</strong> esperar 15-25 min pela conta e maquininha.</td>
+        <td>Garçons gastam 25% do tempo com maquininha; mesas travadas.</td>
+        <td><strong>Pagar na Mesa</strong> + <strong>Totens/KDS</strong> + <strong>"Maquinona" iFood Pago</strong> integrada ao PDV.</td>
+        <td><strong>Giro: -15 min = +25% pico!</strong></td>
       </tr>
       <tr>
         <td><strong>6. Retornar</strong></td>
-        <td>Consome, paga caro e sai sem incentivo palpável para voltar àquele local.</td>
-        <td>Custo alto para atrair novos clientes (CAC) por falta de CRM e recompra.</td>
-        <td><strong>Cashback Unificado</strong> Delivery ⇄ Salão + <strong>Clube iFood</strong> integrado.</td>
-        <td>Frequência de retorno (30 e 60 dias) e LTV.</td>
+        <td>Sai sem incentivo para voltar.</td>
+        <td>CAC alto por falta de CRM e recompra.</td>
+        <td><strong>Clube iFood Omnichannel</strong> (45% do volume!) + cashback cruzado Delivery ⇄ Salão.</td>
+        <td>Retorno 30/60d; LTV</td>
       </tr>
     </tbody>
   </table>
 
-  <!-- SIMULADOR GIRO -->
   <div class="callout-green">
-    <strong>🧮 A Matemática do Case (Otimização de Giro de Mesas):</strong><br>
-    Restaurante com 30 mesas e ticket médio de R$ 130 economiza 15 minutos com <em>Pagar na Mesa</em> e <em>Cardápio Digital</em> (de 75 min para 60 min). No pico de 3 horas, a capacidade salta de 2.4 para 3.0 giros, gerando <strong>+18 mesas extras atendidas/noite</strong> e <strong>+R$ 2.340 de receita extra/noite</strong>. Em um fim de semana (Sex-Dom), são mais de <strong>+R$ 7.000 adicionais</strong> sem contratar novos garçons nem ampliar salão!
+    <strong>🧮 Matemática do Case:</strong> Restaurante com 30 mesas, ticket R$ 130, economiza 15 min com <em>Pagar na Mesa</em> + <em>Cardápio Digital</em> (75→60 min). No pico de 3h: 2,4→3,0 giros = <strong>+18 mesas extras/noite = +R$ 2.340/noite</strong>. Fim de semana (Sex-Dom): <strong>+R$ 7.000 sem contratar garçons!</strong>
   </div>
 
   <div class="footer">
-    <span>MELISSA CAREER OS — Preparação iFuture 2027</span>
-    <span>Página 1 de 2 • Webcase Salão, Oportunidade de R$ 495 Bi & Giro de Mesas</span>
+    <span>MELISSA CAREER OS — Dossiê iFuture 2027 (Edição Completa v2)</span>
+    <span>Página 1 de 4 • Raio-X FY2026, Webcase "Comer Fora" & Jornada 360° Atualizada</span>
   </div>
 
   <!-- ==================== PÁGINA 2 ==================== -->
   <div class="page-break"></div>
 
-  <!-- SÍMBOLOS DA CULTURA IFOOD (NOVO - BASEADO NO DECK 2025) -->
-  <h2>🦁 3. Símbolos Culturais & O Jeito iFood de Trabalhar (J.i.T.)</h2>
+  <!-- LIDERANÇA E CENÁRIO COMPETITIVO -->
+  <h2>👤 3. Liderança-Chave & Cenário Competitivo <span class="badge-new">NOVO</span></h2>
   <div class="grid-3">
     <div class="card" style="border-top: 2px solid #ea1d2c;">
+      <div class="card-title">🎯 Diego Barreto (CEO)</div>
+      <div class="card-body">Ex-CFO, CEO desde mai/2024. Arquiteto do plano de R$ 24 Bi. Filosofia: <strong>"IA multiplica a ação, mas não substitui o julgamento humano."</strong> Autor e voz pública da transformação AI-First.</div>
+    </div>
+    <div class="card" style="border-top: 2px solid #3b82f6;">
+      <div class="card-title">🌐 Fabrício Bloisi (Chairman)</div>
+      <div class="card-body">Ex-CEO do iFood (2019-2024), fundador da Movile. Agora CEO Global da <strong>Prosus/Naspers</strong>. Presidente do Conselho do iFood.</div>
+    </div>
+    <div class="card" style="border-top: 2px solid #10b981;">
+      <div class="card-title">🌱 Luana Ozemela (VP Impacto)</div>
+      <div class="card-body">Lidera ESG, DEI e Sustentabilidade. <strong>Forbes 2026 "Mulheres + Influentes"</strong> e conselheira do Fórum Econômico Mundial. <span class="tag-green">FIT MELISSA</span></div>
+    </div>
+  </div>
+
+  <div class="callout-amber">
+    <strong>⚔️ Cenário Competitivo — Temas Quentes para o Case:</strong><br>
+    • <strong>Parceria iFood + Uber:</strong> Assinatura conjunta de R$ 21,90/mês (Clube iFood + Uber One). Corridas Uber pelo app iFood e vice-versa. Clube iFood já responde por <strong>45% do volume total de entregas</strong>.<br>
+    • <strong>Keeta (Meituan):</strong> Gigante chinesa entrou no Brasil com R$ 5,6 Bi. Taxas baixas para PMEs e capacetes inteligentes. Ameaça real em SP.<br>
+    • <strong>Market Share iFood:</strong> 80-89% do delivery BR. Acordo CADE (TCC até 2027): sem exclusividade com redes de 30+ lojas, limite de 25% de GMV exclusivo.<br>
+    • <strong>Rappi (~9%):</strong> Superapp com Turbo (10 min), farmácias, carteira digital PicPay. &nbsp; <strong>99Food:</strong> Relançada em capitais (sinergia 99Moto).
+  </div>
+
+  <!-- CULTURA APROFUNDADA -->
+  <h2>🦁 4. Cultura iFood Aprofundada — O J.i.T. (Jeito iFood de Trabalhar)</h2>
+  <p style="font-size: 7.4pt; color: #475569; margin-bottom: 4px;">
+    Fonte: Livro <strong>"Código Aberto — O Jeito iFood de Trabalhar"</strong> (Raphael Bozza, VP de Pessoas). A cultura é o "sistema operacional" de +8.000 FoodLovers.
+  </p>
+
+  <div class="grid-4">
+    <div class="card" style="border-top: 2px solid #ea1d2c;">
       <div class="card-title">🥋 Kung Fu</div>
-      <div class="card-body"><strong>Alma Startupeira & Eficiência:</strong> Não descansa até atingir a alta performance; foco, fail fast e drible à burocracia.</div>
+      <div class="card-body">Alta performance, disciplina de startup, apetite de superação e mentalidade de dono. Não descansa até atingir o ápice.</div>
     </div>
     <div class="card" style="border-top: 2px solid #3b82f6;">
       <div class="card-title">🐘 Elefante Johnny</div>
-      <div class="card-body"><strong>Fatos Brutais sem Grosseria:</strong> Encarar o "elefante na sala" com escuta ativa e verdade nua, nunca sendo agressivo com as pessoas.</div>
+      <div class="card-body"><em>"Brutal com os fatos, respeitoso com as pessoas."</em> Colocar o problema na mesa com dados, sem melindres, com empatia.</div>
     </div>
     <div class="card" style="border-top: 2px solid #f59e0b;">
       <div class="card-title">🇧🇷 Canarinho</div>
-      <div class="card-body"><strong>Garra e Coragem sob Pressão:</strong> Foco para reinar no caos; atitude, propósito e força inabalável diante da incerteza.</div>
+      <div class="card-body">Coragem estratégica, orgulho de ser BR, garra sob pressão. Empresa brasileira que desafia multinacionais.</div>
+    </div>
+    <div class="card" style="border-top: 2px solid #10b981;">
+      <div class="card-title">🤝 HQA</div>
+      <div class="card-body"><strong>High Quality Agreement:</strong> Debate rico e franco; uma vez decidida a rota, <strong>todos remam 100% juntos.</strong></div>
     </div>
   </div>
-  <p style="font-size: 7.4pt; color: #64748b; margin-top: -2px; margin-bottom: 5px;">
-    <strong>Princípios-Chave do J.i.T.:</strong> <em>Conflitos Produtivos</em> ("Brutal com os problemas, nunca com as pessoas") &bull; <em>Ambidestria</em> (Transatlântico & Jet-Skis) &bull; <em>High Quality Agreement</em> (Discordar no debate, mas remar 100% juntos) &bull; <em>Não ao 'Brilliant Jerk'</em> (O COMO importa tanto quanto o QUÊ).
-  </p>
 
-  <!-- SOLUÇÕES -->
-  <h2>💡 4. Três Soluções Inovadoras Prontas para o Case</h2>
+  <div class="grid-2">
+    <div>
+      <h3>Os 7 Princípios do J.i.T.:</h3>
+      <ul>
+        <li><strong>Sonhe Grande:</strong> Apetite de conquistar o impossível.</li>
+        <li><strong>Conflitos Produtivos:</strong> Sem falsos consensos; franqueza com escuta ativa.</li>
+        <li><strong>Mentalidade de Dono:</strong> iFood primeiro; responsabilidade sem terceirizar.</li>
+        <li><strong>Ambidestria:</strong> Eficiência hoje (Transatlântico) + disrupção amanhã (Jet-skis).</li>
+        <li><strong>Ágil — Falhe Rápido e Aprenda:</strong> Testar hipóteses, errar rápido, ajustar.</li>
+        <li><strong>Priorize 80/20 e Entregue:</strong> Foco no que move a agulha com impacto.</li>
+        <li><strong>Gente (All Together):</strong> Diversidade como motor; empatia e feedback sincero.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="callout" style="margin-top: 0;">
+        <strong>🚫 O "Brilliant Jerk" é REJEITADO:</strong><br>
+        O COMO importa tanto quanto o QUÊ. Pessoa tecnicamente brilhante que é tóxica, arrogante ou destrói a colaboração <strong>não sobrevive na cultura iFood</strong>. Na dinâmica: jamais domine, interrompa ou diminua colegas.<br><br>
+        <strong>💡 Na prática da dinâmica:</strong> Demonstre que você é brilhante E generosa. Potencialize as ideias dos outros, dê crédito e construa junto (<em>"Yes, and..."</em>).
+      </div>
+    </div>
+  </div>
+
+  <!-- AI FIRST -->
+  <h2>🤖 5. Estratégia AI First — O iFood é uma AI Company <span class="badge-new">NOVO</span></h2>
+  <div class="grid-2">
+    <div class="card" style="border-top: 2px solid #7c3aed;">
+      <div class="card-title">🧠 LCM (Large Commerce Model)</div>
+      <div class="card-body">Modelo fundacional proprietário (parceria Prosus). Treinado na massa de dados de consumo gastronômico BR. Hiperpersonalização de cardápio, busca e logística em tempo real. <span class="tag-blue">CITE NO CASE</span></div>
+    </div>
+    <div class="card" style="border-top: 2px solid #7c3aed;">
+      <div class="card-title">📊 Toqan (IA para Restaurantes)</div>
+      <div class="card-body">IA generativa + preditiva para parceiros: previsão de demanda de insumos, sugestão de preços, cardápio inteligente e gestão de marketing. <span class="tag-blue">CITE NO CASE</span></div>
+    </div>
+  </div>
+  <div class="callout-blue">
+    <strong>190+ modelos ML em produção</strong> com bilhões de inferências/mês. Diego Barreto: <em>"Se esses modelos fossem desligados, a operação pararia no mesmo segundo."</em><br>
+    <strong>Framework de Maturidade Agêntica:</strong> 1) Iniciante (FAQ) → 2) Júnior (consulta bases) → 3) Pleno (executa via API) → 4) <strong>Sênior (orquestra fluxos autônomos ponta a ponta)</strong>.<br>
+    <strong>Filosofia:</strong> IA democratiza a AÇÃO (código, triagem, rotas), mas <strong>NÃO substitui o JULGAMENTO humano</strong> (contexto, ética, acolhimento).
+  </div>
+
+  <div class="footer">
+    <span>MELISSA CAREER OS — Dossiê iFuture 2027 (Edição Completa v2)</span>
+    <span>Página 2 de 4 • Liderança, Competição, Cultura J.i.T. Aprofundada & Estratégia AI First</span>
+  </div>
+
+  <!-- ==================== PÁGINA 3 ==================== -->
+  <div class="page-break"></div>
+
+  <h2>🚀 6. Ecossistema de Verticais do iFood (Além do Delivery) <span class="badge-new">NOVO</span></h2>
+  <p style="font-size: 7.4pt; color: #475569; margin-bottom: 4px;">Negócios além do delivery já somam <strong>33% da receita</strong>. Todos atingiram breakeven. Conheça o ecossistema inteiro:</p>
+
+  <div class="grid-3">
+    <div class="card" style="border-top: 2px solid #ea1d2c;">
+      <div class="card-title">💳 iFood Pago (Fintech)</div>
+      <div class="card-body">R$ 2,5 Bi em receita (25% do total). Maquininhas ("Maquinona"), crédito rotativo, antecipação de recebíveis. CEO: Bruno Henriques.</div>
+    </div>
+    <div class="card" style="border-top: 2px solid #f59e0b;">
+      <div class="card-title">🏢 iFood Benefícios</div>
+      <div class="card-body">Cartões flex multibenefício (Alimentação, Refeição, Mobilidade, Cultura, Saúde/Colab+). CEO: Arthur Freitas. <span class="tag-green">PÓS-PAT</span></div>
+    </div>
+    <div class="card" style="border-top: 2px solid #3b82f6;">
+      <div class="card-title">📦 iFood Shop (B2B)</div>
+      <div class="card-body">Marketplace de suprimentos para bares/restaurantes. Preços de atacado + embalagens biodegradáveis subsidiadas.</div>
+    </div>
+    <div class="card" style="border-top: 2px solid #7c3aed;">
+      <div class="card-title">📢 iFood Ads (Retail Media)</div>
+      <div class="card-body">R$ 1,2 Bi receita (+106% YoY!). Mídia patrocinada no app e inteligência de segmentação. VP: Sam James.</div>
+    </div>
+    <div class="card" style="border-top: 2px solid #10b981;">
+      <div class="card-title">🚚 Envios iFood (LaaS)</div>
+      <div class="card-body">Logistics as a Service: frota de 600K entregadores aberta para pedidos FORA do app (e-commerce, WhatsApp, sites próprios).</div>
+    </div>
+    <div class="card" style="border-top: 2px solid #06b6d4;">
+      <div class="card-title">⚡ iFood Turbo (Q-Commerce)</div>
+      <div class="card-body">Entregas em 15-20 min. Farmácias, conveniência, pet shops, hortifrúti. Expansão além de comida.</div>
+    </div>
+  </div>
+
+  <!-- ESG/DEI -->
+  <h2>🌱 7. ESG, Diversidade & Impacto Social — Conexão Direta com Melissa <span class="badge-new">NOVO</span></h2>
+  <div class="grid-2">
+    <div>
+      <div class="card" style="border-left: 3px solid #10b981;">
+        <div class="card-title">🌍 iFood Regenera (Sustentabilidade)</div>
+        <div class="card-body">
+          • R$ 300M+ em eletrificação de frota (motos elétricas + iFood Pedal com Tembici)<br>
+          • Embalagens compostáveis subsidiadas via iFood Shop (bagaço de cana, papel)<br>
+          • Meta de neutralização da pegada de carbono
+        </div>
+      </div>
+      <div class="card" style="border-left: 3px solid #7c3aed;">
+        <div class="card-title">🎓 Potência Tech + Meu Diploma</div>
+        <div class="card-body">
+          • <strong>Potência Tech:</strong> Dezenas de milhares de bolsas em programação, dados e tech para populações sub-representadas<br>
+          • <strong>Meu Diploma:</strong> +15 mil entregadores formaram o Ensino Médio (parceria ENCCEJA + aulas + bonificação)
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card" style="border-left: 3px solid #ea1d2c;">
+        <div class="card-title">🏳️‍🌈 DEI no iFood (Luana Ozemela)</div>
+        <div class="card-body">
+          • Meta: <strong>40% de mulheres em alta liderança</strong> ✅<br>
+          • Movimento MOVER (equidade racial) + contratação afirmativa<br>
+          • Comitês: <em>AfroFood, Pride, Mulheres no iFood, iFood PcD</em><br>
+          • Transição de gênero: suporte financeiro, médico e jurídico<br>
+          • Licença parental de gênero neutro
+        </div>
+      </div>
+      <div class="callout-green" style="margin-top: 4px;">
+        <strong>🎯 FIT CIRÚRGICO — Melissa + ESG/DEI iFood:</strong><br>
+        Melissa opera na célula de DEI do BNB (3 pessoas → 7.000 colaboradores em 11 estados). Estruturou cases de Liderança Feminina, BI de Diversidade com LGPD e dossiê Vittude Awards. <strong>É exatamente o que a VP Luana Ozemela lidera no iFood.</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOLUÇÕES DO CASE ATUALIZADAS -->
+  <h2>💡 8. Três Soluções Inovadoras para o Case (Atualizadas com Intel Nova)</h2>
   <div class="card">
-    <div class="card-title"><span>💡 Ideia 1:</span> Garçom Parceiro & Gamificação (All Together & People)</div>
+    <div class="card-title">💡 Ideia 1: Garçom Parceiro & Gamificação no Salão <span class="tag">ALL TOGETHER</span> <span class="tag-blue">TOQAN IA</span></div>
     <div class="card-body">
-      Superar a resistência dos garçons garantindo a taxa de serviço (gorjeta de 10% a 13%) integrada no checkout do app <em>Pagar na Mesa</em>, com repasse instantâneo e bonificação do iFood por check-in de mesa realizado. (Fit com a experiência de Melissa em <em>Gamificação</em> no Dragão do Mar e benefícios no BNB).
+      Gorjeta de 10-13% integrada no checkout do <em>Pagar na Mesa</em> com repasse instantâneo via <strong>iFood Pago</strong>. Bonificação gamificada do iFood por check-in de mesa. A <strong>Toqan IA</strong> otimiza a escala de garçons com base em previsão de demanda.
+      <br><span class="tag-green">FIT MELISSA</span> Gamificação no Dragão do Mar + benefícios/remuneração no BNB.
     </div>
   </div>
   <div class="grid-2">
     <div class="card">
-      <div class="card-title"><span>💡 Ideia 2:</span> Clube Omnichannel (Cashback Cruzado)</div>
+      <div class="card-title">💡 Ideia 2: Clube Omnichannel (Cashback Cruzado) <span class="tag">CLUBE iFOOD</span></div>
       <div class="card-body">
-        Créditos de delivery usados no salão no sábado e frete grátis no delivery para quem come no salão. Eleva retenção e LTV bilateral.
+        Clube já representa <strong>45% do volume total</strong>. Expandir para salão: créditos de delivery válidos no sábado + frete grátis para quem come presencial. Integrado com a parceria <strong>Uber One</strong> (R$ 21,90/mês). Eleva LTV bilateral.
       </div>
     </div>
     <div class="card">
-      <div class="card-title"><span>💡 Ideia 3:</span> Cardápio Inteligente com Pré-Pedido (AI First)</div>
+      <div class="card-title">💡 Ideia 3: Cardápio Inteligente com LCM & Pré-Pedido <span class="tag-blue">AI FIRST</span></div>
       <div class="card-body">
-        Cliente a caminho adianta o pedido dos pratos e senta com a mesa servida. Ideal para almoço corporativo (<em>iFood Benefícios</em>).
-      </div>
-    </div>
-  </div>
-
-  <!-- POSTURA E FRASES DE OURO -->
-  <h2>🗣️ 5. Roteiro de Postura & Frases de Ouro na Plataforma Kolab</h2>
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">1. Abertura Facilitadora (0 a 60s)</div>
-      <div class="card-body">
-        <em>"Pessoal, para aproveitarmos ao máximo nosso tempo, que tal 5 min alinhando dores, 10 min em soluções e 5 min finais fechando quem fala cada ponto no pitch?"</em>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-title">2. Puxar Dados do Pré-Work</div>
-      <div class="card-body">
-        <em>"Vale resgatar um dado do pré-work: só 24% dos restaurantes têm operação híbrida e 60% pedem no WhatsApp. Nossa solução tem que ser super amigável no balcão."</em>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-title">3. Destravar um Impasse (Conflito Produtivo)</div>
-      <div class="card-body">
-        <em>"Temos duas ideias ricas aqui: uma focando no cliente e outra no restaurante. Como o iFood é bilateral, que tal conectarmos as duas na jornada 360°?"</em>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-title">4. Organizar o Pitch Final (High Quality Agreement)</div>
-      <div class="card-body">
-        <em>"Faltam 5 minutos! Vamos organizar nossa fala em 4 blocos de 30 a 45s: 1) Problema e Dados ➔ 2) Solução ➔ 3) Impacto no Ecossistema ➔ 4) Métricas e KPIs."</em>
-      </div>
-    </div>
-  </div>
-
-  <!-- PITCH DE MELISSA -->
-  <h2>🎤 6. Seu Pitch Pessoal de 45 Segundos</h2>
-  <div class="callout">
-    <div class="quote-box">
-      "Sou a Melissa, estudante do 4º semestre de Administração na UFC. No <strong>Banco do Nordeste</strong>, atuo em Gestão de Pessoas em uma célula responsável por mais de 7 mil colaboradores, onde vivo diariamente o tratamento rigoroso de grandes bases no Excel para transformar dados em decisões operacionais e de clima. Em paralelo, presidi o <strong>Dragão do Mar</strong> na UFC, onde aprendi na prática a liderar squads voluntários com foco em governança, rituais ágeis e metas no Notion. Me identifico profundamente com o ecossistema do iFood porque uno a <strong>mentalidade de dona</strong> com o <strong>raciocínio analítico</strong> para resolver problemas que geram impacto em larga escala."
-    </div>
-  </div>
-
-  <!-- SIMULADO DE PERGUNTAS -->
-  <h2>❓ 7. Simulado: 4 Perguntas Capciosas da Banca e Respostas</h2>
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">P: "E se o restaurante temer taxas abusivas?"</div>
-      <div class="card-body">
-        <strong>R:</strong> O foco é giro de mesas: economizar 15 min gera 18 mesas extras no pico (+R$ 2.340/noite), pagando com folga qualquer taxa de serviço da plataforma.
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-title">P: "Isso canibaliza o delivery do iFood?"</div>
-      <div class="card-body">
-        <strong>R:</strong> Não, é expansão de TAM (R$ 495 Bi). Quem come fora com amigos no sábado não pediria delivery; o iFood agora monetiza onde antes era cego.
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-title">P: "Por que o cliente abre o app no salão?"</div>
-      <div class="card-body">
-        <strong>R:</strong> Conveniência: ninguém quer esperar 15 min pela conta. Pagar na Mesa em 10 segundos com cashback resolve uma dor real e universal.
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-title">P: "Como vocês aplicaram AI First no case?"</div>
-      <div class="card-body">
-        <strong>R:</strong> Previsão preditiva de ocupação de mesas para o iFood Shop, recomendação personalizada no cardápio digital e balanceamento dinâmico de filas.
+        O <strong>LCM</strong> (Large Commerce Model) personaliza recomendações com base no histórico. Cliente a caminho já escolhe e pede; senta com a mesa servida. Ideal para <strong>iFood Benefícios</strong> (almoço corporativo em 1h).
       </div>
     </div>
   </div>
 
   <div class="footer">
-    <span>MELISSA CAREER OS — Preparação iFuture 2027</span>
-    <span>Página 2 de 2 • Cultura iFood (J.i.T.), Soluções do Case, Postura na Dinâmica, Pitch e Simulado</span>
+    <span>MELISSA CAREER OS — Dossiê iFuture 2027 (Edição Completa v2)</span>
+    <span>Página 3 de 4 • Ecossistema de Verticais, ESG/DEI, Soluções Atualizadas do Case</span>
+  </div>
+
+  <!-- ==================== PÁGINA 4 ==================== -->
+  <div class="page-break"></div>
+
+  <!-- POSTURA E FRASES DE OURO -->
+  <h2>🗣️ 9. Roteiro de Postura & Frases de Ouro na Dinâmica (Kolab)</h2>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">1. Abertura Facilitadora (0-60s)</div>
+      <div class="card-body">
+        <em>"Pessoal, para aproveitarmos ao máximo, que tal 5 min alinhando dores, 10 min em soluções e os últimos 5 min fechando quem fala cada ponto no pitch?"</em>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">2. Puxar Dados com Autoridade Natural</div>
+      <div class="card-body">
+        <em>"Vale resgatar um dado forte do pré-work: só 24% dos restaurantes operam de forma híbrida e 60% dos consumidores pedem no WhatsApp. O mercado fora do lar é de R$ 495 bilhões — é maior que o delivery."</em>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">3. Conectar com IA e Ecossistema</div>
+      <div class="card-body">
+        <em>"E podemos trazer a premissa do AI First do iFood aqui: o LCM deles já faz recomendação hiperpersonalizada. Imagina usar isso para sugerir pratos no salão com base no histórico do delivery do cliente."</em>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">4. Destravar Impasse (Conflito Produtivo)</div>
+      <div class="card-body">
+        <em>"Temos duas ideias ricas: uma focando no cliente e outra no restaurante. Como o iFood é bilateral, que tal conectarmos as duas? É o que o HQA pede — debater e depois remar 100% juntos."</em>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">5. Incluir Colega Tímido (All Together)</div>
+      <div class="card-body">
+        <em>"[Nome], você mencionou algo sobre [tema] no começo. Pode expandir? Acho que a perspectiva pode enriquecer a nossa proposta."</em> <span class="tag-green">ANTI-BRILLIANT JERK</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">6. Fechar o Pitch Final (Últimos 5 min)</div>
+      <div class="card-body">
+        <em>"Faltam 5 minutos! Vamos fechar: 4 blocos de 30-45s: 1) Problema & Dados → 2) Solução → 3) Impacto no Ecossistema → 4) Métricas & KPIs. Quem quer abrir?"</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- ERROS FATAIS -->
+  <h2>🚫 10. Anti-Patterns — Os 5 Erros Fatais na Dinâmica <span class="badge-new">NOVO</span></h2>
+  <div class="grid-2" style="margin-bottom: 4px;">
+    <div class="danger-card">
+      <div class="danger-title">❌ 1. Interromper Colegas</div>
+      <div class="card-body">Sinal vermelho nº 1. Cortar a fala de alguém = incompatível com <em>All Together</em>. Espere, anote e construa sobre o ponto.</div>
+    </div>
+    <div class="danger-card">
+      <div class="danger-title">❌ 2. Guerra de Egos (Brilliant Jerk)</div>
+      <div class="card-body">Bater de frente para provar quem sabe mais destrói a dinâmica. Avaliadores detectam isso instantaneamente.</div>
+    </div>
+    <div class="danger-card">
+      <div class="danger-title">❌ 3. Não Conhecer os Produtos Recentes</div>
+      <div class="card-body">Desconhecer Comer Fora, iFood Pago, LCM ou Toqan = desinteresse. Você tem o dossiê — USE os nomes oficiais.</div>
+    </div>
+    <div class="danger-card">
+      <div class="danger-title">❌ 4. Perder a Gestão do Tempo</div>
+      <div class="card-body">Deixar para consolidar no último minuto = proposta atropelada. Lidere o cronômetro com sutileza desde o início.</div>
+    </div>
+  </div>
+  <div class="callout" style="font-size: 7.2pt;">
+    <strong>❌ 5. Forçar um Personagem:</strong> Não finja ser hiperassertiva se não é natural. Avaliadores seniores detectam inconsistência de conduta. Seja autêntica, analítica e generosa — é o seu perfil real.
+  </div>
+
+  <!-- SIMULADO EXPANDIDO -->
+  <h2>❓ 11. Simulado Expandido: 6 Perguntas Capciosas & Respostas</h2>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">P: "E se o restaurante temer taxas abusivas?"</div>
+      <div class="card-body"><strong>R:</strong> Foco no giro: -15 min = +18 mesas extras/noite (+R$ 2.340). Planos escalonados e test & learn sem custo fixo. A <strong>Toqan IA</strong> otimiza receita do parceiro, pagando a taxa com folga.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">P: "Isso canibaliza o delivery?"</div>
+      <div class="card-body"><strong>R:</strong> Expansão de TAM (R$ 495 Bi). O iFood passa a monetizar momentos onde era 100% cego. Dado real: negócios além do delivery já são <strong>33% da receita</strong>.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">P: "Como vocês aplicaram AI First?"</div>
+      <div class="card-body"><strong>R:</strong> Com o <strong>LCM</strong> (Large Commerce Model) proprietário e <strong>Toqan IA</strong>: previsão de demanda, recomendação personalizada e balanceamento dinâmico de descontos em horários ociosos. São <strong>190+ modelos ML em produção</strong>.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">P: "E a ameaça da Keeta (Meituan)?"<span class="badge-new">NOVO</span></div>
+      <div class="card-body"><strong>R:</strong> A Keeta investe R$ 5,6 Bi e compete com taxas baixas em SP. Mas o iFood tem <strong>moat</strong> brutal: 500K parceiros, 65M de users, LCM proprietário e a parceria com a Uber. O Comer Fora adiciona mais uma camada de retenção.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">P: "Como convencer o cliente a abrir o app no salão?"</div>
+      <div class="card-body"><strong>R:</strong> Dor universal: ninguém quer esperar 15 min pela conta. <em>Pagar na Mesa</em> em 10 seg + cashback instantâneo do <strong>Clube iFood</strong> (45% do volume!) é conveniência real com benefício imediato.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">P: "O grupo não chegou a consenso. O que faz?" <span class="badge-new">NOVO</span></div>
+      <div class="card-body"><strong>R:</strong> Aplico <strong>HQA</strong>: proponho escolher a solução mais viável (80/20), defino métricas de validação e distribuo os papéis no pitch. <em>"Errar rápido e entregar é melhor que perfeccionismo sem entrega."</em></div>
+    </div>
+  </div>
+
+  <!-- PITCH ATUALIZADO -->
+  <h2>🎤 12. Seu Pitch Pessoal de 45 Segundos (Atualizado)</h2>
+  <div class="callout">
+    <div class="quote-box">
+      "Sou a Melissa, estudante do 4º semestre de Administração na UFC. No <strong>Banco do Nordeste</strong>, atuo em Gestão de Pessoas em uma célula de apenas 3 pessoas responsável por mais de 7 mil colaboradores em 11 estados — vivendo diariamente People Analytics no Excel e na Plataforma Senior, conciliação de benefícios em escala e dossiês de DEI para premiações como o Vittude Awards. Em paralelo, presidi o <strong>Dragão do Mar</strong> na UFC, co-fundando a organização e liderando 30+ voluntários com rituais ágeis e metas gamificadas no Notion. Me identifico profundamente com o ecossistema do iFood porque uno a <strong>mentalidade de dona</strong> com o <strong>raciocínio analítico orientado a dados</strong> para resolver problemas que geram impacto em larga escala — e me empolga especialmente a premissa <strong>AI First</strong> que o Diego Barreto está liderando."
+    </div>
+  </div>
+
+  <!-- CHECKLIST PRÉ-DINÂMICA -->
+  <h2>✅ 13. Checklist Pré-Dinâmica — 24/09 às 09:00 <span class="badge-new">NOVO</span></h2>
+  <div class="grid-3">
+    <div class="card" style="border-left: 3px solid #ea1d2c;">
+      <div class="card-title">🖥️ Técnico</div>
+      <div class="card-body">
+        ☐ Testar Kolab 1 dia antes<br>
+        ☐ Câmera e microfone OK<br>
+        ☐ Internet cabeada ou WiFi forte<br>
+        ☐ Fundo limpo e iluminação frontal<br>
+        ☐ Fechar apps pesados/notificações
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #3b82f6;">
+      <div class="card-title">📋 Conteúdo</div>
+      <div class="card-body">
+        ☐ Revisar este dossiê (4 págs)<br>
+        ☐ Decorar: R$ 495 Bi, 60%, 24%<br>
+        ☐ Memorizar: LCM, Toqan, HQA<br>
+        ☐ Ensaiar pitch 3x em voz alta<br>
+        ☐ Ter papel e caneta para anotar
+      </div>
+    </div>
+    <div class="card" style="border-left: 3px solid #10b981;">
+      <div class="card-title">🧠 Mental & Postura</div>
+      <div class="card-body">
+        ☐ Entrar às 09:00 (30 min antes)<br>
+        ☐ Sorrir ao se apresentar<br>
+        ☐ Anotar os nomes de TODOS<br>
+        ☐ Facilitar, não dominar<br>
+        ☐ Respirar fundo antes de falar
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>MELISSA CAREER OS — Dossiê iFuture 2027 (Edição Completa v2) • Fontes: Prosus FY2026, iFood MOVE 2026, "Código Aberto" (R. Bozza), Glassdoor, Forbes</span>
+    <span>Página 4 de 4 • Roteiro de Postura, Anti-Patterns, Simulado Expandido, Pitch & Checklist</span>
   </div>
 
 </body>

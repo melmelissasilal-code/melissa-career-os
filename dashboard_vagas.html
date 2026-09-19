@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard Tático de Vagas — Melissa Almeida</title>
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <script src="assets/vault_data.js"></script>
+  <script src="assets/auth.js"></script>
   <style>
     :root {
       --primary: #1660d0;
@@ -31,11 +33,42 @@
   </style>
 </head>
 <body class="bg-transparent text-[var(--foreground)] antialiased p-2 md:p-4 font-sans">
-  <div class="max-w-6xl mx-auto space-y-5">
+
+  <!-- TELA DE BLOQUEIO / ÁREA RESTRITA -->
+  <div id="lockScreen" class="min-h-[80vh] flex items-center justify-center p-4">
+    <div class="max-w-md w-full bg-[var(--card)] border border-[var(--border)] rounded-2xl p-8 shadow-2xl text-center space-y-5">
+      <div class="w-16 h-16 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 text-3xl flex items-center justify-center mx-auto shadow-inner">
+        🔐
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-[var(--foreground)]">Área Restrita — Vagas & Entrevistas</h2>
+        <p class="text-xs text-[var(--muted-foreground)] mt-2 leading-relaxed">
+          Este painel contém links diretos de reuniões e estratégias táticas de entrevistas exclusivas para <strong>Melissa da Silva Almeida</strong>. Digite seu PIN ou senha para desbloquear.
+        </p>
+      </div>
+      <form id="lockForm" onsubmit="return false;" class="space-y-4">
+        <div>
+          <input type="password" id="lockInput" placeholder="PIN ou Senha" class="w-full px-4 py-3 text-center text-lg tracking-widest rounded-xl border border-[var(--border)] bg-[var(--background)] text-[var(--foreground)] focus:outline-none focus:border-blue-500 shadow-sm" autofocus>
+          <div id="lockError" class="text-xs text-red-500 mt-2 min-h-[1.2rem] font-medium"></div>
+        </div>
+        <button type="submit" id="lockSubmitBtn" class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-md transition flex items-center justify-center gap-2">
+          <span>Desbloquear Painel</span> ➔
+        </button>
+      </form>
+      <div class="pt-3 border-t border-[var(--border)]">
+        <a href="index.html" class="text-xs text-[var(--muted-foreground)] hover:text-blue-500 transition inline-flex items-center gap-1.5 font-medium">
+          <span>⬅️ Voltar ao Portfólio Público</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO PROTEGIDO (Só renderizado após autenticação) -->
+  <div id="protectedDashboard" style="display: none;" class="max-w-6xl mx-auto space-y-5">
 
     <!-- HEADER DO DASHBOARD -->
     <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 shadow-sm">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div>
           <div class="flex items-center gap-2 mb-1">
             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-500 border border-blue-500/20">
@@ -53,19 +86,30 @@
           </p>
         </div>
         
-        <!-- Quick Stats Banner -->
-        <div class="grid grid-cols-3 gap-2 text-center">
-          <div class="bg-[var(--background)] border border-[var(--border)] p-2.5 rounded-xl">
-            <div class="text-xs text-[var(--muted-foreground)] font-medium">Entrevistas</div>
-            <div class="text-xl font-bold text-blue-500">2</div>
+        <div class="flex items-center gap-3 self-end lg:self-auto flex-wrap">
+          <!-- Quick Stats Banner -->
+          <div class="grid grid-cols-3 gap-2 text-center">
+            <div class="bg-[var(--background)] border border-[var(--border)] p-2.5 rounded-xl">
+              <div class="text-xs text-[var(--muted-foreground)] font-medium">Entrevistas</div>
+              <div class="text-xl font-bold text-blue-500">2</div>
+            </div>
+            <div class="bg-[var(--background)] border border-[var(--border)] p-2.5 rounded-xl">
+              <div class="text-xs text-[var(--muted-foreground)] font-medium">Pipeline</div>
+              <div class="text-xl font-bold text-amber-500">5</div>
+            </div>
+            <div class="bg-[var(--background)] border border-[var(--border)] p-2.5 rounded-xl">
+              <div class="text-xs text-[var(--muted-foreground)] font-medium">Histórias STAR</div>
+              <div class="text-xl font-bold text-emerald-500">11</div>
+            </div>
           </div>
-          <div class="bg-[var(--background)] border border-[var(--border)] p-2.5 rounded-xl">
-            <div class="text-xs text-[var(--muted-foreground)] font-medium">Pipeline</div>
-            <div class="text-xl font-bold text-amber-500">5</div>
-          </div>
-          <div class="bg-[var(--background)] border border-[var(--border)] p-2.5 rounded-xl">
-            <div class="text-xs text-[var(--muted-foreground)] font-medium">Histórias STAR</div>
-            <div class="text-xl font-bold text-emerald-500">11</div>
+
+          <div class="flex flex-col gap-1.5 pl-2 border-l border-[var(--border)]">
+            <a href="index.html" class="px-3 py-1.5 rounded-lg border border-[var(--border)] text-xs font-semibold hover:bg-[var(--background)] transition whitespace-nowrap text-center text-[var(--foreground)]">
+              ⬅️ Cockpit
+            </a>
+            <button id="btnLockDashboard" class="px-3 py-1.5 rounded-lg bg-red-500/10 text-red-500 border border-red-500/20 text-xs font-semibold hover:bg-red-500/20 transition whitespace-nowrap">
+              🔒 Bloquear
+            </button>
           </div>
         </div>
       </div>
@@ -646,9 +690,82 @@
       });
     }
 
-    // Inicializar na Moura
+    // ======================================================================
+    // Controle de Acesso e Autenticação do Dashboard
+    // ======================================================================
+    function updateDashboardAuth(isAuthed) {
+      const lock = document.getElementById('lockScreen');
+      const prot = document.getElementById('protectedDashboard');
+      if (isAuthed) {
+        if (lock) lock.style.display = 'none';
+        if (prot) prot.style.display = 'block';
+        selectVaga('moura');
+      } else {
+        if (lock) lock.style.display = 'flex';
+        if (prot) prot.style.display = 'none';
+        const lockInput = document.getElementById('lockInput');
+        if (lockInput) {
+          lockInput.value = '';
+          setTimeout(() => lockInput.focus(), 100);
+        }
+      }
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
-      selectVaga('moura');
+      const lockForm = document.getElementById('lockForm');
+      const lockInput = document.getElementById('lockInput');
+      const lockError = document.getElementById('lockError');
+      const lockSubmitBtn = document.getElementById('lockSubmitBtn');
+      const btnLockDashboard = document.getElementById('btnLockDashboard');
+
+      // Verifica status de autenticação
+      const isAuthed = window.CareerAuth && window.CareerAuth.isAuthenticated;
+      updateDashboardAuth(isAuthed);
+
+      if (lockForm) {
+        lockForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          if (!window.CareerAuth) return;
+          if (lockError) lockError.textContent = '';
+
+          const orig = lockSubmitBtn ? lockSubmitBtn.innerHTML : '';
+          if (lockSubmitBtn) {
+            lockSubmitBtn.innerHTML = '<span>Validando...</span> ⏳';
+            lockSubmitBtn.disabled = true;
+          }
+
+          const val = (lockInput ? lockInput.value : '').trim();
+          const res = await window.CareerAuth.login(val, true);
+
+          if (lockSubmitBtn) {
+            lockSubmitBtn.innerHTML = orig;
+            lockSubmitBtn.disabled = false;
+          }
+
+          if (res.success) {
+            updateDashboardAuth(true);
+          } else {
+            if (lockError) lockError.textContent = res.error || 'PIN ou senha incorretos.';
+            if (lockInput) {
+              lockInput.select();
+              lockInput.focus();
+            }
+          }
+        });
+      }
+
+      if (btnLockDashboard) {
+        btnLockDashboard.addEventListener('click', () => {
+          if (window.CareerAuth) {
+            window.CareerAuth.logout();
+            updateDashboardAuth(false);
+          }
+        });
+      }
+
+      window.addEventListener('career-auth-change', (evt) => {
+        updateDashboardAuth(evt.detail && evt.detail.authenticated);
+      });
     });
   </script>
 </body>

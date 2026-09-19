@@ -20,13 +20,22 @@
         <button class="nav-btn" data-tab="resumes">📄 Currículo Camaleão</button>
         <button class="nav-btn" data-tab="portfolio">🎬 Portfólio Vivo</button>
         <button class="nav-btn" data-tab="star">⭐ Histórias STAR</button>
-        <button class="nav-btn" data-tab="warroom">⚔️ Sala de Guerra</button>
-        <a href="dashboard_vagas.html" class="nav-btn" style="background: linear-gradient(135deg, #1e40af, #2563eb); color: #ffffff !important; text-decoration: none; font-weight: 700; border-radius: 8px; padding: 6px 12px; display: inline-flex; align-items: center; gap: 4px;">⚡ Minhas Vagas</a>
-        <button class="nav-btn" data-tab="radar">🧭 Radar de Áreas</button>
         <button class="nav-btn" data-tab="competencias">🏅 Competências</button>
-        <button class="nav-btn ifood-nav-btn" data-tab="ifood-study">🍔 Estudo iFood</button>
+        <button class="nav-btn" data-tab="radar">🧭 Radar de Áreas</button>
+        <!-- Abas Privadas (desbloqueadas apenas com o login da Melissa) -->
+        <button class="nav-btn nav-private" data-tab="warroom">⚔️ Sala de Guerra</button>
+        <a href="dashboard_vagas.html" class="nav-btn nav-private" style="background: linear-gradient(135deg, #1e40af, #2563eb); color: #ffffff !important; text-decoration: none; font-weight: 700; border-radius: 8px; padding: 6px 12px; display: inline-flex; align-items: center; gap: 4px;">⚡ Minhas Vagas</a>
+        <button class="nav-btn ifood-nav-btn nav-private" data-tab="ifood-study">🍔 Estudo iFood</button>
       </nav>
-      <button class="theme-toggle" id="themeToggle">🌙 Escuro</button>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle">🌙 Escuro</button>
+        <button class="auth-btn" id="authBtn" title="Acesso Restrito para Melissa (Ctrl+Shift+L)">🔒 Acesso Interno</button>
+        <div class="auth-logged-pill" id="authLoggedPill">
+          <span class="auth-dot"></span>
+          <span>Modo Melissa</span>
+          <button id="logoutBtn" class="logout-link" title="Bloquear e voltar ao modo público">Sair</button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -36,7 +45,7 @@
     <!-- 1. Cockpit / Visão Geral -->
     <section id="cockpit" class="tab-pane active">
       <div class="hero-card">
-        <div class="hero-avatar">M</div>
+        <div class="hero-avatar" id="heroAvatar" title="Melissa da Silva Almeida (Clique 3x para login)" style="cursor: pointer;">M</div>
         <div class="hero-info">
           <h1>Melissa da Silva Almeida</h1>
           <div class="hero-subtitle">Administração na UFC (4º Semestre, Noturno) &bull; Estagiária de GP no Banco do Nordeste &bull; Presidente do Dragão do Mar</div>
@@ -64,23 +73,33 @@
           <div class="stat-label">Áreas Profissionais Mapeadas</div>
         </div>
         <div class="stat-card">
-          <div class="stat-val" id="statProjetos">0</div>
+          <div class="stat-val" id="statProjetos">16</div>
           <div class="stat-label">Projetos no Portfólio Vivo</div>
         </div>
         <div class="stat-card">
-          <div class="stat-val" id="statSTAR">0</div>
-          <div class="stat-label">Histórias STAR Prontas</div>
+          <div class="stat-val" id="statSTAR">14</div>
+          <div class="stat-label">Histórias STAR de Impacto</div>
         </div>
         <div class="stat-card">
-          <div class="stat-val" id="statCompetencias">0</div>
+          <div class="stat-val" id="statCompetencias">29</div>
           <div class="stat-label">Competências Mapeadas</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-val" id="statActiveProcesses">0</div>
-          <div class="stat-label">Processos Ativos</div>
+        <!-- Métricas Públicas para Recrutadores -->
+        <div class="stat-card public-only">
+          <div class="stat-val" style="color: var(--primary);">+4.480</div>
+          <div class="stat-label">Registros Auditados (Wellhub/BNB)</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-val" id="statEmpresas">0</div>
+        <div class="stat-card public-only">
+          <div class="stat-val" style="color: var(--success);">C1</div>
+          <div class="stat-label">Inglês Avançado (Certificado)</div>
+        </div>
+        <!-- Métricas Táticas Privadas (Exibidas apenas no Modo Melissa) -->
+        <div class="stat-card private-only" style="border: 1px solid rgba(37, 99, 235, 0.35); background: rgba(37, 99, 235, 0.05);">
+          <div class="stat-val" id="statActiveProcesses" style="color: var(--primary);">0</div>
+          <div class="stat-label">Processos Ativos (Pipeline)</div>
+        </div>
+        <div class="stat-card private-only" style="border: 1px solid rgba(16, 185, 129, 0.35); background: rgba(16, 185, 129, 0.05);">
+          <div class="stat-val" id="statEmpresas" style="color: var(--success);">0</div>
           <div class="stat-label">Empresas-Alvo Monitoradas</div>
         </div>
       </div>
@@ -537,12 +556,52 @@
 
   <footer class="app-footer">
     <div class="footer-container">
-      <span>MELISSA CAREER OS v2.0 — Arquitetura Local-First & 100% Segura</span>
-      <span id="footerUpdate">Última atualização: carregando...</span>
+      <span>MELISSA CAREER OS v2.0 — Portfólio Executivo & Cockpit Profissional</span>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <span id="footerUpdate">Última atualização: carregando...</span>
+        <a href="#" id="footerAuthLink" class="logout-link" style="font-size: 0.82rem; color: var(--text-muted); text-decoration: none;">🔒 Acesso Restrito</a>
+      </div>
     </div>
   </footer>
 
+  <!-- Modal de Autenticação / Login da Melissa -->
+  <div class="auth-modal-backdrop" id="authModal">
+    <div class="auth-modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn" title="Fechar">&times;</button>
+      
+      <div class="auth-header">
+        <div class="auth-icon-circle">🔐</div>
+        <h2 class="auth-title">Acesso ao Cockpit Privado</h2>
+        <p class="auth-subtitle">Área restrita de Melissa da Silva Almeida. Digite seu PIN de 6 dígitos ou senha mestra para desbloquear suas vagas ativas, sala de guerra e dossiês táticos.</p>
+      </div>
+
+      <form id="authForm" onsubmit="return false;">
+        <div class="auth-input-group">
+          <input type="password" id="authInput" class="auth-input" placeholder="PIN ou Senha" autocomplete="current-password" autofocus>
+          <div class="auth-error-msg" id="authError"></div>
+        </div>
+
+        <div class="auth-options">
+          <label class="auth-checkbox-label">
+            <input type="checkbox" id="authRemember" checked>
+            <span>Manter conectado neste navegador</span>
+          </label>
+        </div>
+
+        <button type="submit" class="auth-submit-btn" id="authSubmitBtn">
+          <span>Desbloquear Cockpit</span> ➔
+        </button>
+      </form>
+
+      <div class="auth-hint">
+        💡 <strong>Dica rápida:</strong> Você também pode abrir esta tela de qualquer lugar pressionando <code>Ctrl + Shift + L</code> ou clicando 3 vezes na letra "M" do seu avatar.
+      </div>
+    </div>
+  </div>
+
   <script src="data.js"></script>
+  <script src="assets/vault_data.js"></script>
+  <script src="assets/auth.js"></script>
   <script src="assets/app.js"></script>
 </body>
 </html>
