@@ -1058,6 +1058,15 @@ function setupAuthUI() {
     });
   }
 
+  const togglePasswordBtn = document.getElementById("togglePasswordBtn");
+  if (togglePasswordBtn && authInput) {
+    togglePasswordBtn.addEventListener("click", () => {
+      const isPwd = authInput.type === "password";
+      authInput.type = isPwd ? "text" : "password";
+      togglePasswordBtn.textContent = isPwd ? "🙈" : "👁️";
+    });
+  }
+
   if (authForm) {
     authForm.addEventListener("submit", async (e) => {
       e.preventDefault();

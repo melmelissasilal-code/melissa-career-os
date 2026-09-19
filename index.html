@@ -576,8 +576,9 @@
       </div>
 
       <form id="authForm" onsubmit="return false;">
-        <div class="auth-input-group">
+        <div class="auth-input-group" style="position: relative;">
           <input type="password" id="authInput" class="auth-input" placeholder="PIN ou Senha" autocomplete="current-password" autofocus>
+          <button type="button" id="togglePasswordBtn" class="toggle-pwd-btn" title="Mostrar/Ocultar Senha">👁️</button>
           <div class="auth-error-msg" id="authError"></div>
         </div>
 
