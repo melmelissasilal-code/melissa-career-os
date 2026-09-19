@@ -552,6 +552,16 @@
       "status_monitoramento": "Estágio Atual (Colaboradora)"
     },
     {
+      "id": 9,
+      "nome": "Baterias Moura (Rede Moura)",
+      "setor": "Energia / Automotivo / Manufatura e Distribuição",
+      "perfil_empresa": "Líder na produção e distribuição de acumuladores de energia da América Latina, com mais de 65 anos de tradição e inovação.",
+      "programas_interesse": "Programa de Estágio Moura / Vagas Administrativas",
+      "fit_cultural": "Excelente: Fortalecimento de vínculos, melhoria contínua, simplicidade, processos bem definidos (POPs) e otimismo realista.",
+      "palavras_chave": "Baterias Moura, Faturamento, Excel, POP, Administrativo Financeiro, Fortaleza, Atendimento",
+      "status_monitoramento": "Ativo - Convocada para Entrevista"
+    },
+    {
       "id": 2,
       "nome": "Google",
       "setor": "Tecnologia / Internet",
@@ -582,6 +592,16 @@
       "status_monitoramento": "Mapeando"
     },
     {
+      "id": 8,
+      "nome": "Mundo das Permutas",
+      "setor": "Tecnologia / Plataforma de Permutas Corporativas B2B",
+      "perfil_empresa": "Plataforma inovadora de permutas multilaterais entre empresas para troca de produtos e serviços sem uso de caixa, monetizando capacidade ociosa em UniU.",
+      "programas_interesse": "Estágio Comercial — 30h Remoto (Plano de Efetivação e Partnership)",
+      "fit_cultural": "Excelente: mentalidade empreendedora, proatividade comercial, orientação a metas e comissões, negociação de valor e articulação B2B.",
+      "palavras_chave": "Permutas B2B, Vendas, Negociação, Prospecção, Onboarding, Matchmaking IA, UniU, Preservação de Caixa, Comunicação",
+      "status_monitoramento": "Ativo - Candidatura em Andamento"
+    },
+    {
       "id": 6,
       "nome": "PWR Gestão",
       "setor": "Consultoria Empresarial e Gestão",
@@ -603,6 +623,48 @@
     }
   ],
   "processos_seletivos": [
+    {
+      "id": 8,
+      "empresa": "Baterias Moura",
+      "cargo_vaga": "Estágio Administrativo Financeiro",
+      "area": "Administrativo / Financeiro / Faturamento",
+      "plataforma": "Gupy / Contato Direto",
+      "link_vaga": "https://redemoura.gupy.io/jobs/11748104?jobBoardSource=gupy_public_page",
+      "status": "Em Andamento",
+      "data_candidatura": "2026-09-18",
+      "etapa_atual": "Entrevista Online (Teams com Vitória)",
+      "proximo_prazo": "2026-09-21 09:45",
+      "curriculo_usado": "Gupy Profile / Banco de Talentos",
+      "anotacoes_estrategicas": "Entrevista agendada para 21/09 às 09:45 no Teams com a recrutadora Vitória (Pessoas). Link: https://teams.microsoft.com/meet/250840109778871?p=mrla1YYy1fuHovsgvd"
+    },
+    {
+      "id": 7,
+      "empresa": "Mundo das Permutas",
+      "cargo_vaga": "Estágio Comercial",
+      "area": "Comercial / Vendas B2B & Parcerias",
+      "plataforma": "WhatsApp (11 94321-8804)",
+      "link_vaga": "https://mundodaspermutas.com.br",
+      "status": "Em Candidatura",
+      "data_candidatura": "2026-09-18",
+      "etapa_atual": "Envio de Texto + Currículo via WhatsApp",
+      "proximo_prazo": "Imediato (Início Outubro/2026)",
+      "curriculo_usado": "02_CURRICULO_CAMALEAO/CURRICULOS_POR_VAGA/2026-09_MUNDO_DAS_PERMUTAS_ESTAGIO_COMERCIAL.pdf",
+      "anotacoes_estrategicas": "Plataforma de permuta multilateral B2B (UniU). Atividades: onboarding de novas empresas, acompanhamento e fechamento de trocas (comissões), mediação entre partes. 100% remoto, 30h semanais diurnas flexíveis (UFC Noturno). Contrato 3 meses (out-dez) com renovação, efetivação em 1 ano e partnership em 2 anos."
+    },
+    {
+      "id": 6,
+      "empresa": "Veritas",
+      "cargo_vaga": "Estágio em Gestão de Pessoas",
+      "area": "Gente e Gestão / RH",
+      "plataforma": "Site Institucional",
+      "link_vaga": null,
+      "status": "Candidatura Submetida",
+      "data_candidatura": "2026-09-18",
+      "etapa_atual": "Triagem de Currículo e Fit Cultural",
+      "proximo_prazo": null,
+      "curriculo_usado": null,
+      "anotacoes_estrategicas": null
+    },
     {
       "id": 5,
       "empresa": "iFood",
