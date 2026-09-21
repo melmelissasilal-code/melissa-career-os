@@ -530,8 +530,212 @@ window.CAREER_DATA = {
       "prioridade_estudo": 4
     }
   ],
-  "empresas_alvo": [],
-  "processos_seletivos": [],
+  "empresas_alvo": [
+    {
+      "id": 5,
+      "nome": "Ambev",
+      "setor": "Bens de Consumo / Bebidas",
+      "perfil_empresa": "Grande Multinacional",
+      "programas_interesse": "Estágio / Trainee Ambev",
+      "fit_cultural": "Cultura de dono, ambição, resolução de problemas e capacidade de execução.",
+      "palavras_chave": "gente e gestão, logística, finanças, dados, liderança de impacto",
+      "status_monitoramento": "Mapeando"
+    },
+    {
+      "id": 3,
+      "nome": "Banco do Nordeste (BNB)",
+      "setor": "Serviços Financeiros / Desenvolvimento Regional",
+      "perfil_empresa": "Instituição Financeira Pública",
+      "programas_interesse": "Estágio Atual / Continuidade em Projetos de Alto Impacto",
+      "fit_cultural": "Foco no desenvolvimento do Nordeste, sustentabilidade, ESG e gestão de pessoas.",
+      "palavras_chave": "gestão de pessoas, clima organizacional, fne, impacto regional, desenvolvimento",
+      "status_monitoramento": "Estágio Atual (Colaboradora)"
+    },
+    {
+      "id": 9,
+      "nome": "Baterias Moura (Rede Moura)",
+      "setor": "Energia / Automotivo / Manufatura e Distribuição",
+      "perfil_empresa": "Líder na produção e distribuição de acumuladores de energia da América Latina, com mais de 65 anos de tradição e inovação.",
+      "programas_interesse": "Programa de Estágio Moura / Vagas Administrativas",
+      "fit_cultural": "Excelente: Fortalecimento de vínculos, melhoria contínua, simplicidade, processos bem definidos (POPs) e otimismo realista.",
+      "palavras_chave": "Baterias Moura, Faturamento, Excel, POP, Administrativo Financeiro, Fortaleza, Atendimento",
+      "status_monitoramento": "Ativo - Convocada para Entrevista"
+    },
+    {
+      "id": 2,
+      "nome": "Google",
+      "setor": "Tecnologia / Internet",
+      "perfil_empresa": "Big Tech Global",
+      "programas_interesse": "Google Business Internship / Programas de Jovens Talentos",
+      "fit_cultural": "Inovação, diversidade, raciocínio estruturado, comunicação clara e adaptabilidade rápida.",
+      "palavras_chave": "people operations, business strategy, data analytics, product support, dei",
+      "status_monitoramento": "Mapeando"
+    },
+    {
+      "id": 4,
+      "nome": "Itaú Unibanco",
+      "setor": "Serviços Financeiros / Bancário",
+      "perfil_empresa": "Instituição Financeira Privada",
+      "programas_interesse": "Programa de Estágio Corporativo / Trainee",
+      "fit_cultural": "Foco em resultados, inovação digital, meritocracia e liderança jovem.",
+      "palavras_chave": "corporate banking, rh estratégico, data analytics, agilidade",
+      "status_monitoramento": "Mapeando"
+    },
+    {
+      "id": 1,
+      "nome": "M. Dias Branco",
+      "setor": "Bens de Consumo / Indústria Alimentícia",
+      "perfil_empresa": "Grande Nacional / Multinacional Brasileira",
+      "programas_interesse": "Estágio / Trainee Corporativo",
+      "fit_cultural": "Forte cultura de eficiência, liderança regional e global, valorização de talentos UFC.",
+      "palavras_chave": "supply chain, governança, finanças corporativas, gente e gestão, d&i",
+      "status_monitoramento": "Mapeando"
+    },
+    {
+      "id": 8,
+      "nome": "Mundo das Permutas",
+      "setor": "Tecnologia / Plataforma de Permutas Corporativas B2B",
+      "perfil_empresa": "Plataforma inovadora de permutas multilaterais entre empresas para troca de produtos e serviços sem uso de caixa, monetizando capacidade ociosa em UniU.",
+      "programas_interesse": "Estágio Comercial — 30h Remoto (Plano de Efetivação e Partnership)",
+      "fit_cultural": "Excelente: mentalidade empreendedora, proatividade comercial, orientação a metas e comissões, negociação de valor e articulação B2B.",
+      "palavras_chave": "Permutas B2B, Vendas, Negociação, Prospecção, Onboarding, Matchmaking IA, UniU, Preservação de Caixa, Comunicação",
+      "status_monitoramento": "Ativo - Entrevista Agendada (21/09)"
+    },
+    {
+      "id": 6,
+      "nome": "PWR Gestão",
+      "setor": "Consultoria Empresarial e Gestão",
+      "perfil_empresa": "Consultoria de alta performance em gestão estratégica, governança, metas e processos empresariais para PMEs e grandes grupos no Brasil e exterior.",
+      "programas_interesse": "Programa de Estágio PWR / Consultoria em Gestão",
+      "fit_cultural": "Excepcional: cultura de meritocracia, 'O time que NUNCA PARA', intensidade, defesa irrestrita do empreendedorismo e da liberdade, ritmo acelerado.",
+      "palavras_chave": "Consultoria, Gestão de Projetos, Cronogramas, Metas, BackOffice, Excel, Notion, Empreendedorismo, Liberdade",
+      "status_monitoramento": "Ativo - Candidatura em Andamento"
+    },
+    {
+      "id": 7,
+      "nome": "iFood",
+      "setor": "Tecnologia / FoodTech / Delivery",
+      "perfil_empresa": "Maior foodtech da América Latina, ecossistema inovador e data-driven",
+      "programas_interesse": "iFuture (Programa de Estágio iFood)",
+      "fit_cultural": "Alta autonomia, ownership, ambiente dinâmico e foco em impacto",
+      "palavras_chave": "FoodTech, Data-Driven, Ownership, Inovação, Metodologias Ágeis",
+      "status_monitoramento": "Processo Ativo"
+    }
+  ],
+  "processos_seletivos": [
+    {
+      "id": 8,
+      "empresa": "Baterias Moura",
+      "cargo_vaga": "Estágio Administrativo Financeiro",
+      "area": "Administrativo / Financeiro / Faturamento",
+      "plataforma": "Gupy / Contato Direto",
+      "link_vaga": "https://redemoura.gupy.io/jobs/11748104?jobBoardSource=gupy_public_page",
+      "status": "Em Andamento",
+      "data_candidatura": "2026-09-18",
+      "etapa_atual": "Entrevista Online (Teams com Vitória)",
+      "proximo_prazo": "2026-09-21 09:45",
+      "curriculo_usado": "Gupy Profile / Banco de Talentos",
+      "anotacoes_estrategicas": "Entrevista agendada para 21/09 às 09:45 no Teams com a recrutadora Vitória (Pessoas). Link: https://teams.microsoft.com/meet/250840109778871?p=mrla1YYy1fuHovsgvd"
+    },
+    {
+      "id": 7,
+      "empresa": "Mundo das Permutas",
+      "cargo_vaga": "Estágio Comercial",
+      "area": "Comercial / Vendas B2B & Parcerias",
+      "plataforma": "WhatsApp (11 94321-8804)",
+      "link_vaga": "https://mundodaspermutas.com.br",
+      "status": "Em Andamento",
+      "data_candidatura": "2026-09-18",
+      "etapa_atual": "Videoconferência de Alinhamento (21/09 às 15:00)",
+      "proximo_prazo": "2026-09-21 15:00",
+      "curriculo_usado": "02_CURRICULO_CAMALEAO/CURRICULOS_POR_VAGA/2026-09_MUNDO_DAS_PERMUTAS_ESTAGIO_COMERCIAL.pdf",
+      "anotacoes_estrategicas": "Entrevista confirmada para Segunda-feira, 21/09/2026 às 15h00 via videoconferência. Recrutador (WhatsApp 11 94321-8804) marcou alinhamento dos detalhes. Vaga 100% remota (30h flexíveis), contrato inicial de 3 meses (out-dez). Rotina viável: 4h presenciais no BNB + flexibilidade remota diurna + FEAAC/UFC noturno. Checklist da entrevista: validar valor da bolsa fixa vs comissões, tipo formal de contrato (TCE vs prestador direto) e ferramentas/leads."
+    },
+    {
+      "id": 6,
+      "empresa": "Veritas",
+      "cargo_vaga": "Estágio em Gestão de Pessoas",
+      "area": "Gente e Gestão / RH",
+      "plataforma": "Site Institucional",
+      "link_vaga": null,
+      "status": "Candidatura Submetida",
+      "data_candidatura": "2026-09-18",
+      "etapa_atual": "Triagem de Currículo e Fit Cultural",
+      "proximo_prazo": null,
+      "curriculo_usado": null,
+      "anotacoes_estrategicas": null
+    },
+    {
+      "id": 5,
+      "empresa": "iFood",
+      "cargo_vaga": "iFuture — Programa de Estágio",
+      "area": "Negócios / Estratégia / Operações / Gente & Gestão",
+      "plataforma": "Gupy / 99jobs / Site Próprio",
+      "link_vaga": null,
+      "status": "Em Andamento",
+      "data_candidatura": "2026-09-17",
+      "etapa_atual": "Dinâmica Online no Kolab (24/09 às 09:30)",
+      "proximo_prazo": "2026-09-24 09:30",
+      "curriculo_usado": null,
+      "anotacoes_estrategicas": "Dinâmica agendada para 24/09 às 09:30 via Kolab. Webcase: Comer Fora / iFood Salão. Acesso liberado às 09:00."
+    },
+    {
+      "id": 4,
+      "empresa": "PWR Gestão",
+      "cargo_vaga": "Estagiário - Consultoria em Gestão",
+      "area": "Consultoria em Gestão / Projetos & Processos",
+      "plataforma": "InHire",
+      "link_vaga": "https://grupopwr.inhire.app/vagas/13b4dd68-c860-40c0-a679-fde6b986cc95/estagiario-consultoria-em-gestao",
+      "status": "Em Candidatura",
+      "data_candidatura": "2026-09-10",
+      "etapa_atual": "Inscrição Online (InHire)",
+      "proximo_prazo": "Imediato",
+      "curriculo_usado": "02_CURRICULO_CAMALEAO/CURRICULOS_POR_VAGA/2026-09_PWR_GESTAO_CONSULTORIA_EM_GESTAO.pdf",
+      "anotacoes_estrategicas": "Fit cultural extraordinário: defesa do empreendedorismo e liberdade (Dragão do Mar / SFLB), ritmo intenso ('NUNCA PARAR'), meritocracia, governança de projetos no Notion e backoffice no BNB."
+    },
+    {
+      "id": 3,
+      "empresa": "Banco do Nordeste (BNB)",
+      "cargo_vaga": "Estagiária em Gestão de Pessoas (Acompanhamento e Consolidação)",
+      "area": "Recursos Humanos e Gestão de Pessoas",
+      "plataforma": "Interno / IEL-CE",
+      "link_vaga": "https://www.bnb.gov.br/",
+      "status": "Exemplo / Simulação",
+      "data_candidatura": "2026-01-22",
+      "etapa_atual": "Caso de Estudo / Calibração",
+      "proximo_prazo": "N/A (Exemplo)",
+      "curriculo_usado": "02_CURRICULO_CAMALEAO/CURRICULOS_POR_VAGA/2026-09_BANCO_DO_NORDESTE_GESTAO_DE_PESSOAS.pdf",
+      "anotacoes_estrategicas": "Vaga utilizada como exemplo prático de calibração para o Currículo Cirúrgico. Não representa candidatura ativa no momento."
+    },
+    {
+      "id": 2,
+      "empresa": "M. Dias Branco",
+      "cargo_vaga": "Estágio Corporativo em Gente & Gestão (People Operations)",
+      "area": "Recursos Humanos e Gestão de Pessoas",
+      "plataforma": "Gupy / Vagas M. Dias Branco",
+      "link_vaga": "https://mdiasbranco.gupy.io/",
+      "status": "Exemplo / Simulação",
+      "data_candidatura": "2026-09-05",
+      "etapa_atual": "Caso de Estudo / Calibração",
+      "proximo_prazo": "N/A (Exemplo)",
+      "curriculo_usado": "02_CURRICULO_CAMALEAO/CURRICULOS_POR_VAGA/2026-09_M_DIAS_BRANCO_ESTAGIO_GENTE_E_GESTAO.pdf",
+      "anotacoes_estrategicas": "Vaga utilizada como exemplo prático de calibração para o Currículo Cirúrgico. Não representa candidatura ativa no momento."
+    },
+    {
+      "id": 1,
+      "empresa": "Google",
+      "cargo_vaga": "Google Business Internship Program (Estágio Corporativo)",
+      "area": "Produtos, Inovação e Dados",
+      "plataforma": "Google Careers / Gupy",
+      "link_vaga": "https://careers.google.com/jobs/results/",
+      "status": "Exemplo / Simulação",
+      "data_candidatura": "2026-09-05",
+      "etapa_atual": "Caso de Estudo / Calibração",
+      "proximo_prazo": "N/A (Exemplo)",
+      "curriculo_usado": "02_CURRICULO_CAMALEAO/CURRICULOS_POR_VAGA/2026-09_GOOGLE_BUSINESS_INTERNSHIP.pdf",
+      "anotacoes_estrategicas": "Vaga utilizada como exemplo prático de calibração para o Currículo Cirúrgico. Não representa candidatura ativa no momento."
+    }
+  ],
   "projetos": [
     {
       "id": 1,
