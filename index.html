@@ -25,7 +25,8 @@
         <!-- Abas Privadas (desbloqueadas apenas com o login da Melissa) -->
         <button class="nav-btn nav-private" data-tab="warroom">⚔️ Sala de Guerra</button>
         <a href="dashboard_vagas.html" class="nav-btn nav-private" style="background: linear-gradient(135deg, #1e40af, #2563eb); color: #ffffff !important; text-decoration: none; font-weight: 700; border-radius: 8px; padding: 6px 12px; display: inline-flex; align-items: center; gap: 4px;">⚡ Minhas Vagas</a>
-        <button class="nav-btn ifood-nav-btn nav-private" data-tab="ifood-study">🍔 Estudo iFood</button>
+        <!-- Aba iFood Oficial (Visível Publicamente para Preparação da Dinâmica) -->
+        <button class="nav-btn ifood-nav-btn" data-tab="ifood-study" style="background: rgba(234, 29, 44, 0.12); color: #ea1d2c; border: 1px solid rgba(234, 29, 44, 0.35); font-weight: 800;">🍔 Estudo iFood</button>
       </nav>
       <div class="header-actions">
         <button class="theme-toggle" id="themeToggle">🌙 Escuro</button>
@@ -63,6 +64,29 @@
         </div>
         <div>
           <button class="nav-btn" style="background: var(--primary); color: white;" onclick="document.querySelector('[data-tab=resumes]').click()">Ver Currículos ➔</button>
+        </div>
+      </div>
+
+      <!-- Alerta da Dinâmica iFood em Destaque Oficial -->
+      <div style="background: linear-gradient(135deg, #ea1d2c 0%, #991b1b 100%); color: #ffffff; border-radius: 12px; padding: 14px 18px; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 14px rgba(234, 29, 44, 0.25); flex-wrap: wrap; gap: 12px; border: 1px solid rgba(255,255,255,0.2);">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font-size: 2.2rem; line-height: 1;">🍔</span>
+          <div>
+            <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 800; background: rgba(255,255,255,0.22); display: inline-block; padding: 2px 8px; border-radius: 4px; margin-bottom: 3px;">🔥 ETAPA ATIVA: 24/09 às 09:30 (Kolab — Sala libera 09:00)</div>
+            <h3 style="margin: 0; font-size: 1.15rem; font-weight: 800; letter-spacing: -0.3px;">iFood iFuture 2027 — Dossiê Estratégico & Manual da Dinâmica</h3>
+            <p style="margin: 2px 0 0 0; font-size: 0.82rem; opacity: 0.95;">Webcase "Comer Fora", Cultura J.i.T. (Kung Fu, Johnny, Canarinho, HQA), IA LCM/Toqan e Manual Minuto a Minuto.</p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <a href="dossie_ifood.html" target="_blank" style="background: #ffffff; color: #ea1d2c; padding: 8px 14px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+            🌐 Abrir Dossiê Interativo
+          </a>
+          <a href="dossie_ifood.pdf" target="_blank" style="background: rgba(255,255,255,0.18); color: #ffffff; border: 1px solid rgba(255,255,255,0.4); padding: 8px 14px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 6px;">
+            📥 Baixar PDF (5 Páginas)
+          </a>
+          <button onclick="document.querySelector('[data-tab=ifood-study]').click()" class="nav-btn" style="background: transparent; color: #ffffff; border: 1px dashed rgba(255,255,255,0.6); padding: 6px 12px; font-size: 0.8rem; cursor: pointer;">
+            Ver Módulo de Estudo ➔
+          </button>
         </div>
       </div>
 
@@ -399,17 +423,41 @@
           </div>
 
           <div class="ifood-actions">
-            <a href="06_SALA_DE_GUERRA_DAS_VAGAS/PROCESSOS_ATIVOS/2026-09_IFOOD_IFUTURE_PROGRAMA_DE_ESTAGIO/DOSSIE_PREPARACAO_DINAMICA_IFOOD.pdf" target="_blank" class="nav-btn ifood-btn-primary">
-              📥 Baixar Dossiê Completo (PDF)
+            <a href="dossie_ifood.html" target="_blank" class="nav-btn ifood-btn-primary" style="background: #ea1d2c; color: #ffffff !important; box-shadow: 0 4px 12px rgba(234, 29, 44, 0.35);">
+              🌐 Ver Dossiê Interativo Completo (Web)
+            </a>
+            <a href="dossie_ifood.pdf" target="_blank" class="nav-btn ifood-btn-primary">
+              📥 Baixar Dossiê em PDF (5 Páginas A4)
             </a>
             <a href="06_SALA_DE_GUERRA_DAS_VAGAS/PROCESSOS_ATIVOS/2026-09_IFOOD_IFUTURE_PROGRAMA_DE_ESTAGIO/GUIA_DE_ESTUDO_WEBCASE_DINAMICA.md" target="_blank" class="nav-btn ifood-btn-secondary">
-              📖 Ver Dossiê em Markdown
+              📖 Ver Guia em Markdown
             </a>
             <a href="06_SALA_DE_GUERRA_DAS_VAGAS/PROCESSOS_ATIVOS/2026-09_IFOOD_IFUTURE_PROGRAMA_DE_ESTAGIO/DOCUMENTOS_E_ANEXOS/ifood-estagio-26h2-pre-work.pdf" target="_blank" class="nav-btn ifood-btn-secondary">
-              📑 Ver PDF do Pré-Work Original
+              📑 Pré-Work Original
             </a>
           </div>
         </div>
+      </div>
+
+      <!-- Visualizador Embutido do Dossiê Interativo -->
+      <div class="ifood-section-card" style="margin-top: 1.5rem; padding: 1.2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <h3 style="margin: 0; font-size: 1.05rem; font-weight: 800; color: #ea1d2c; display: flex; align-items: center; gap: 6px;">
+              📖 Dossiê Executivo Interativo (Edição Completa v3 — 5 Páginas)
+            </h3>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Consulte diretamente aqui ou abra em nova aba para navegação em tela cheia</span>
+          </div>
+          <div style="display: flex; gap: 6px;">
+            <a href="dossie_ifood.html" target="_blank" class="nav-btn" style="background: rgba(234, 29, 44, 0.1); color: #ea1d2c; border: 1px solid rgba(234, 29, 44, 0.3); font-size: 0.8rem; padding: 6px 12px; text-decoration: none; font-weight: 700;">
+              Abrir em Nova Aba ↗
+            </a>
+            <a href="dossie_ifood.pdf" target="_blank" class="nav-btn" style="background: #ea1d2c; color: white; font-size: 0.8rem; padding: 6px 12px; text-decoration: none; font-weight: 700;">
+              Baixar PDF ➔
+            </a>
+          </div>
+        </div>
+        <iframe src="dossie_ifood.html" style="width: 100%; height: 780px; border: 1px solid var(--card-border); border-radius: 8px; background: #ffffff;"></iframe>
       </div>
 
       <!-- Métricas de Ouro do Pré-Work -->

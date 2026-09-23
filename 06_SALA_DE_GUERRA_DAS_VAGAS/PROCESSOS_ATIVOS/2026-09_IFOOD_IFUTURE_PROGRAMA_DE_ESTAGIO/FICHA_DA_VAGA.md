@@ -1,7 +1,7 @@
 # SALA DE GUERRA: iFuture — Programa de Estágio iFood
 
 ## 1. Dados Básicos da Oportunidade
-- **Empresa:** iFood (Maior FoodTech e ecossistema de delivery da América Latina)
+- **Empresa:** iFood (Maior FoodTech e ecossistema de alimentação da América Latina — Receita FY2026: R$ 10,1 Bi)
 - **Programa / Cargo:** iFuture — Programa de Estágio iFood
 - **Área Funcional:** Negócios / Estratégia / Gente & Gestão / Operações / Finanças
 - **Plataforma de Inscrição:** Gupy / 99jobs / Site de Carreiras do iFood
@@ -15,18 +15,26 @@
 ---
 
 ## 2. Dossiê Institucional & Fit Cultural (O "Jeito iFood")
-O iFood é guiado por uma cultura de alta autonomia, ritmo acelerado de startup com escala de gigante de tecnologia.
+O iFood é guiado por uma cultura de alta autonomia, ritmo acelerado de startup com escala de gigante de tecnologia. +8.000 FoodLovers, 500K parceiros, 65M de usuários, 180M+ pedidos/mês. Glassdoor: 4,3/5 (85% recomendam).
 
 ### 1. Propósito Maior
 **"ALIMENTAR O FUTURO DO MUNDO"** — Entregar produtos e serviços acessíveis, conveniência e crescimento, criando tecnologia proprietária para revolucionar como as pessoas vivem e fazem negócios.
 
-### 2. Os 4 Valores Centrais:
+### 2. Liderança Executiva (Decore!):
+- **CEO:** Diego Barreto (desde mai/2024, ex-CFO). Arquiteto do plano de R$ 24 Bi. Filosofia: "IA multiplica a ação, mas NÃO substitui o julgamento humano."
+- **Chairman:** Fabrício Bloisi (fundador Movile, ex-CEO iFood, agora CEO Global Prosus/Naspers)
+- **VP Impacto/ESG:** Luana Ozemela (Forbes 2026 "Mulheres + Influentes", conselheira Fórum Econômico Mundial)
+- **VP Pessoas:** Gustavo Vitti (recrutamento e cultura)
+- **CFO:** Pedro Pereira (desde abr/2026, ex-Global Investment Partner Prosus)
+
+### 3. Os 4 Valores Centrais:
 1. **RESULTADOS:** Movidos por alta performance com foco, agilidade e apetite constante. Entregam com escala e impacto. Atenção: o COMO importa tanto quanto o QUÊ (rejeição ao *Brilliant Jerk*).
-2. **INOVAÇÃO:** Ousadia e tecnologia proprietária. Sem medo de errar (testam, falham e ajustam a rota). Ambidestria: eficiência (Transatlântico) + disrupção (Jet-skis). Metodologia *#EatYourOwnDogFood*.
-3. **ALL TOGETHER:** Gente vem primeiro. Equidade e diversidade (pessoas, trajetórias, ideias). Colaboração, conflitos produtivos, cuidado, confiança e leveza.
+2. **INOVAÇÃO:** Ousadia e tecnologia proprietária (LCM, Toqan, 190+ modelos ML). Ambidestria: eficiência (Transatlântico) + disrupção (Jet-skis). Metodologia *#EatYourOwnDogFood*.
+3. **ALL TOGETHER:** Gente vem primeiro. 40% mulheres em alta liderança. Comitês AfroFood, Pride, Mulheres, PcD. Conflitos produtivos com empatia.
 4. **EMPREENDEDORISMO:** Sonhar grande, encarar o caos e a incerteza com garra, coragem, humildade e mentalidade de dono(a).
 
-### 3. J.i.T. (Jeito iFood de Trabalhar — 7 Princípios Comportamentais):
+### 4. J.i.T. (Jeito iFood de Trabalhar — 7 Princípios Comportamentais):
+Fonte: Livro "Código Aberto — O Jeito iFood de Trabalhar" (Raphael Bozza, VP de Pessoas).
 - **Sonhe Grande:** Apetite de conquistar o impossível e transformar ideias em ações de impacto.
 - **Conflitos Produtivos:** *"Seja brutal com os problemas, nunca com as pessoas."* Sem falsos consensos; franqueza com escuta ativa e respeito.
 - **Mentalidade de Dono:** Colocar o iFood em primeiro lugar; assumir responsabilidade sem terceirizar.
@@ -35,16 +43,26 @@ O iFood é guiado por uma cultura de alta autonomia, ritmo acelerado de startup 
 - **Gente:** Equidade, cuidar e desafiar uns aos outros com empatia e feedback sincero.
 - **Priorize 80/20 e Entregue:** Foco no essencial; desapegar de ideias legais sem impacto imediato.
 
-### 4. Símbolos Culturais Oficiais:
+### 5. Símbolos Culturais Oficiais:
 - 🥋 **Kung Fu:** Alma startupeira e eficiência radical, alta performance e drible à burocracia.
 - 🐘 **Elefante Johnny:** O elefante na sala! Encarar fatos brutais de frente com escuta ativa e verdade nua, sem grosseria.
 - 🇧🇷 **Canarinho:** Coragem estratégica, resistência e garra sob pressão, foco para reinar no caos.
 - 🤝 **High Quality Agreement (HQA):** Debate rico e franco; uma vez decidida a rota, todos remam 100% juntos.
 
+### 6. Cenário Competitivo (Pode Surgir no Case!):
+- **Market Share iFood:** 80-89% do delivery BR. Acordo CADE (TCC até 2027).
+- **Parceria iFood + Uber:** Assinatura conjunta R$ 21,90/mês (Clube iFood + Uber One). Clube = 45% do volume total.
+- **Keeta (Meituan):** Investindo R$ 5,6 Bi no Brasil, taxas baixas para PMEs em SP.
+- **Rappi (~9%):** Superapp com Turbo 10 min. 99Food: relançada em capitais.
+
+### 7. Ecossistema de Verticais (33% da receita já é além do delivery):
+iFood Pago (R$ 2,5 Bi) | iFood Benefícios | iFood Shop (B2B) | iFood Ads (R$ 1,2 Bi, +106%) | Envios iFood (LaaS) | iFood Turbo | Comer Fora (50+ cidades)
+
 ### Fit Cirúrgico de Melissa com o iFood:
-- **Veia Empreendedora e Ownership (Kung Fu & Sonhe Grande):** Como cofundadora e Presidente do **Dragão do Mar (UFC)**, liderou voluntários, estruturou rituais ágeis e metas quinzenais no Notion.
-- **Rigor Analítico e Fatos Brutais (Elefante Johnny & 80/20):** Gestão e conciliação analítica no Excel com 4.480 registros no **Banco do Nordeste (BNB)** e People Analytics na Plataforma Senior.
-- **Gente & All Together (Cultura & Equidade):** Experiência corporativa em Gestão de Pessoas no BNB em célula de DEI/Qualidade de Vida para +7.000 colaboradores em múltiplos estados.
+- **Empreendedorismo e Ownership (Kung Fu & Sonhe Grande):** Como cofundadora e Presidente do **Dragão do Mar (UFC)**, liderou 30+ voluntários, estruturou rituais ágeis e metas gamificadas no Notion.
+- **Rigor Analítico e Fatos Brutais (Elefante Johnny & 80/20):** Conciliação de 4.480 registros Wellhub no Excel (99,89% validados) no **BNB** e People Analytics na Plataforma Senior.
+- **Gente & All Together (DEI & Equidade):** Célula de DEI (3 pessoas) para +7.000 colaboradores em 11 estados no BNB. Cases de Liderança Feminina, BI de Diversidade (LGPD), Vittude Awards. **Conecta diretamente com VP Luana Ozemela.**
+- **Inovação & AI First:** People Analytics + BI de Diversidade + certificação IA (FIAP/Alura/BNB). **Conecta com LCM, Toqan e a premissa AI First de Diego Barreto.**
 
 ---
 
