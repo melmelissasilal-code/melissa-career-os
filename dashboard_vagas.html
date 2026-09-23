@@ -24,11 +24,11 @@
     <div class="flex items-center justify-between gap-3">
       <div>
         <h1 class="text-xl font-bold tracking-tight text-[var(--foreground)]">Cockpit de Vagas</h1>
-        <p class="text-xs text-[var(--muted-foreground)]">Melissa Carrer • Atualizado 22/09/2026</p>
+        <p class="text-xs text-[var(--muted-foreground)]">Melissa Carrer • Atualizado 23/09/2026</p>
       </div>
       <div class="flex items-center gap-2">
         <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
-          ✅ 2 em Fase Final
+          ✅ 3 em Fase Ativa / Entrevistas
         </span>
         <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-blue-500/10 text-blue-500 border border-blue-500/20">
           5 no Pipeline
@@ -39,7 +39,7 @@
     <!-- PRÓXIMAS AÇÕES (compacto, sem repetição) -->
     <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-3.5 shadow-sm">
       <div class="text-[10px] font-bold uppercase tracking-widest text-[var(--muted-foreground)] mb-2">📅 Esta semana</div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2">
         <!-- iFood -->
         <div class="flex items-center gap-2.5 p-2 rounded-lg bg-red-500/5 border border-red-500/15">
           <div class="w-7 h-7 rounded-md bg-[#ea1d2c] text-white flex items-center justify-center text-[9px] font-black shrink-0">iF</div>
@@ -75,6 +75,20 @@
           <a href="https://maps.google.com/?q=Rua+Edite+Braga+440+Fortaleza" target="_blank" class="px-2 py-0.5 rounded bg-blue-600 text-white font-bold text-[9px] transition shrink-0">
             Maps ↗
           </a>
+        </div>
+
+        <!-- PWR Gestão -->
+        <div class="flex items-center justify-between gap-2 p-2 rounded-lg bg-amber-500/5 border border-amber-500/20">
+          <div class="flex items-center gap-2 min-w-0">
+            <div class="w-7 h-7 rounded-md bg-[#1e293b] text-amber-400 flex items-center justify-center text-[9px] font-bold shrink-0 shadow-sm">PWR</div>
+            <div class="min-w-0">
+              <div class="text-xs font-semibold text-[var(--foreground)] truncate">PWR Gestão — Bate-papo RH</div>
+              <div class="text-[10px] text-amber-500 font-medium">Thaís Andrade • Agendando (Trainee)</div>
+            </div>
+          </div>
+          <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-500 font-bold text-[9px] shrink-0">
+            Online
+          </span>
         </div>
       </div>
     </div>
@@ -298,29 +312,45 @@
             <div class="w-9 h-9 rounded-lg bg-[#1e293b] text-amber-400 flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">PWR</div>
             <div class="min-w-0">
               <h3 class="font-bold text-sm text-[var(--foreground)]">PWR Gestão</h3>
-              <div class="text-xs text-[var(--muted-foreground)]">Estagiário Consultoria em Gestão • Fortaleza</div>
+              <div class="text-xs text-[var(--muted-foreground)]">Trainee em Consultoria de Gestão • Fortaleza (40h)</div>
             </div>
           </div>
           <div class="flex items-center gap-2 shrink-0">
-            <span class="hidden sm:inline px-2 py-0.5 text-[10px] font-semibold rounded-full bg-amber-500/10 text-amber-500">Triagem</span>
+            <span class="hidden sm:inline px-2 py-0.5 text-[10px] font-semibold rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 font-bold">Bate-papo RH 💬</span>
             <svg class="chevron w-4 h-4 text-[var(--muted-foreground)]" id="chev-pwr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
           </div>
         </button>
         <div class="collapse-content" id="detail-pwr">
           <div class="px-4 pb-4 space-y-3 border-t border-[var(--border)] pt-3 detail-section">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
-              <div><span class="text-[var(--muted-foreground)]">Formato:</span> <span class="font-medium">Presencial</span></div>
-              <div><span class="text-[var(--muted-foreground)]">Horário:</span> <span class="font-medium">6h/dia</span></div>
-              <div><span class="text-[var(--muted-foreground)]">Remuneração:</span> <span class="font-medium text-emerald-500">Bolsa + VT</span></div>
-              <div><span class="text-[var(--muted-foreground)]">Etapa:</span> <span class="font-medium text-amber-500">Inscrição/Triagem</span></div>
+            
+            <!-- Ações Rápidas PWR -->
+            <div class="flex items-center gap-2 flex-wrap p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20">
+              <a href="02_CURRICULO_CAMALEAO/CURRICULOS_POR_VAGA/2026-09_PWR_GESTAO_TRAINEE.pdf" target="_blank" class="px-3.5 py-1.5 rounded-lg bg-[#1e293b] hover:bg-[#334155] text-amber-400 font-bold text-xs shadow-sm transition inline-flex items-center gap-1.5">
+                <span>📄 Ver Currículo Trainee Enviado</span> ↗
+              </a>
+              <span class="text-xs text-amber-600 font-medium px-2 py-0.5">💬 Contato WhatsApp recebido (Thaís Andrade - 23/09)</span>
             </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
+              <div><span class="text-[var(--muted-foreground)]">Formato:</span> <span class="font-medium">Presencial (Fortaleza)</span></div>
+              <div><span class="text-[var(--muted-foreground)]">Horário:</span> <span class="font-medium text-emerald-500 font-bold">40h/sem (Integral Diurno)</span></div>
+              <div><span class="text-[var(--muted-foreground)]">Vaga Alvo:</span> <span class="font-medium text-amber-500 font-bold">Trainee / Gestão</span></div>
+              <div><span class="text-[var(--muted-foreground)]">Etapa:</span> <span class="font-medium text-emerald-500 font-bold">Bate-papo Online RH</span></div>
+            </div>
+
+            <!-- Alinhamento Estratégico WhatsApp -->
+            <div class="p-3 rounded-lg bg-emerald-500/5 border border-emerald-500/20 text-xs">
+              <div class="font-semibold text-emerald-600 mb-1">🎯 Ponto Crítico de Alinhamento: Trainee vs Estágio</div>
+              <p class="text-[var(--muted-foreground)] leading-relaxed">Contato inicial de Thaís Andrade mencionou estágio. Como a graduação na UFC é noturna e o período comercial diurno está 100% livre (40h semanais), o objetivo é alinhar o bate-papo para a trilha de <strong>Trainee em Consultoria de Gestão</strong> por já estar adiantada no curso (>50%) e com plena dedicação executiva.</p>
+            </div>
+
             <div class="p-3 rounded-lg bg-[var(--background)] border border-[var(--border)] text-xs">
               <span class="font-semibold text-[var(--foreground)]">Cultura:</span>
               <span class="text-[var(--muted-foreground)]"> "O time que nunca para" — metas arrojadas, meritocracia, empreendedorismo, ritmo intenso.</span>
             </div>
             <div class="p-3 rounded-lg bg-blue-500/5 border border-blue-500/20 text-xs">
-              <span class="font-semibold text-blue-500">🎯 Match:</span>
-              <span class="text-[var(--muted-foreground)]"> Liderança Dragão do Mar (sprints + Notion) + Célula enxuta BNB + Senso de dono.</span>
+              <span class="font-semibold text-blue-500">🎯 Match Cirúrgico:</span>
+              <span class="text-[var(--muted-foreground)]"> Liderança Dragão do Mar (sprints + Notion + rituais quinzenais) + Célula enxuta BNB (+7k colaboradores) + Rigor analítico/DRE no Ceará Finance.</span>
             </div>
           </div>
         </div>
