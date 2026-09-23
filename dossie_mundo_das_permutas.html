@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossiê Tático — Mundo das Permutas | Melissa Carrer</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+    
+    :root {
+      --mdp-green: #2C4128;
+      --mdp-bg: #F7F6F1;
+      --mdp-cobalt: #2563EB;
+      --mdp-card: #FFFFFF;
+      --mdp-border: #E5E5E0;
+    }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      background-color: var(--mdp-bg);
+      color: #1a1a1a;
+    }
+
+    .font-mono-custom { font-family: 'IBM Plex Mono', monospace; }
+    .font-display { font-family: 'Space Grotesk', sans-serif; }
+
+    .tab-btn.active {
+      background: #2C4128;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(44, 65, 40, 0.25);
+    }
+  </style>
+</head>
+<body class="p-3 md:p-6 antialiased">
+  <div class="max-w-5xl mx-auto space-y-6">
+
+    <!-- BARRA SUPERIOR DE NAVEGAÇÃO -->
+    <div class="flex items-center justify-between flex-wrap gap-3 pb-2 border-b border-[#E5E5E0]">
+      <a href="dashboard_vagas.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-600 hover:text-[#2C4128] transition">
+        <span>←</span> Voltar ao Cockpit de Vagas
+      </a>
+      <div class="flex items-center gap-2">
+        <a href="apresentacao_mundo_das_permutas.html" target="_blank" class="px-3.5 py-1.5 bg-[#2C4128] hover:bg-[#1f2f1c] text-white rounded-lg text-xs font-bold shadow-sm transition inline-flex items-center gap-1.5">
+          <span>🖥️ Abrir Apresentação (Slides)</span> ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- CABEÇALHO DO DOSSIÊ -->
+    <div class="bg-white border border-[#E5E5E0] rounded-2xl p-5 md:p-6 shadow-sm relative overflow-hidden">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="flex items-start gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-[#2C4128] text-white flex items-center justify-center font-bold text-xl shadow-md shrink-0">
+            MP
+          </div>
+          <div>
+            <div class="flex items-center gap-2 flex-wrap mb-1">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">
+                ✅ APROVADA NA 1ª ETAPA
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700">
+                Quinta, 24/09 às 14h00
+              </span>
+            </div>
+            <h1 class="text-2xl font-bold tracking-tight text-gray-900 font-display">
+              Mundo das Permutas — Dossiê Tático de Estágio
+            </h1>
+            <p class="text-sm text-gray-600 mt-1">
+              Plano de Ação de 3 Meses • Captação de Novas Ofertas e Produtos • Candidata: <strong>Melissa Carrer</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-row md:flex-col gap-2 shrink-0">
+          <a href="apresentacao_mundo_das_permutas.html" target="_blank" class="px-4 py-2.5 bg-[#2563EB] hover:bg-[#1d4ed8] text-white rounded-xl text-xs font-bold shadow-md transition inline-flex items-center justify-center gap-2">
+            <span>▶️ Apresentação Interativa</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Resumo Rápido das Metas em Destaque -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5 pt-4 border-t border-gray-100 text-center font-mono-custom">
+        <div class="p-2.5 bg-[#F7F6F1] rounded-xl border border-[#E5E5E0]">
+          <div class="text-[11px] text-gray-500 uppercase font-sans">Contatos (3 meses)</div>
+          <div class="text-xl font-bold text-[#2563EB]">750</div>
+        </div>
+        <div class="p-2.5 bg-[#F7F6F1] rounded-xl border border-[#E5E5E0]">
+          <div class="text-[11px] text-gray-500 uppercase font-sans">Cadastros Ativos</div>
+          <div class="text-xl font-bold text-[#2C4128]">18</div>
+        </div>
+        <div class="p-2.5 bg-[#F7F6F1] rounded-xl border border-[#E5E5E0]">
+          <div class="text-[11px] text-gray-500 uppercase font-sans">Ofertas Publicadas</div>
+          <div class="text-xl font-bold text-amber-700">36</div>
+        </div>
+        <div class="p-2.5 bg-[#F7F6F1] rounded-xl border border-[#E5E5E0]">
+          <div class="text-[11px] text-gray-500 uppercase font-sans">Taxa da Rede</div>
+          <div class="text-xl font-bold text-gray-800">6% <span class="text-[10px] text-gray-500 font-sans font-normal">(no êxito)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABS DE NAVEGAÇÃO -->
+    <div class="flex items-center gap-2 border-b border-[#E5E5E0] pb-2 overflow-x-auto">
+      <button onclick="switchTab('tab-plano')" id="btn-tab-plano" class="tab-btn active px-4 py-2 text-xs font-bold rounded-lg transition whitespace-nowrap">
+        📊 1. Plano de Ação Completo (3 Meses)
+      </button>
+      <button onclick="switchTab('tab-templates')" id="btn-tab-templates" class="tab-btn px-4 py-2 text-xs font-semibold text-gray-600 hover:text-gray-900 rounded-lg transition whitespace-nowrap bg-white border border-[#E5E5E0]">
+        ✉️ 2. Templates de Prospecção (LinkedIn/Email/Whats)
+      </button>
+      <button onclick="switchTab('tab-checklist')" id="btn-tab-checklist" class="tab-btn px-4 py-2 text-xs font-semibold text-gray-600 hover:text-gray-900 rounded-lg transition whitespace-nowrap bg-white border border-[#E5E5E0]">
+        ✅ 3. Checklist & Roteiro da Entrevista
+      </button>
+    </div>
+
+    <!-- ABA 1: PLANO DE AÇÃO COMPLETO -->
+    <div id="tab-plano" class="space-y-5">
+      <!-- 1. Visão Estratégica -->
+      <div class="bg-white border border-[#E5E5E0] rounded-xl p-5 shadow-sm space-y-3">
+        <h2 class="text-base font-bold text-gray-900 font-display flex items-center gap-2">
+          <span>🎯</span> 1. Visão Estratégica & Efeito de Rede
+        </h2>
+        <p class="text-xs text-gray-600 leading-relaxed">
+          O sucesso do Mundo das Permutas depende diretamente de densidade e complementaridade. Minha estratégia nos primeiros 3 meses foca em construir uma base qualificada, priorizando empresas e profissionais com <strong>capacidade ociosa real</strong> e necessidade de preservar caixa.
+        </p>
+        <div class="p-3 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-900 font-medium">
+          💡 <strong>Princípio Norteador:</strong> "Não vendemos uma plataforma — resolvemos um problema: transformar capacidade ociosa em poder de compra sem desembolso financeiro."
+        </div>
+      </div>
+
+      <!-- 2. Nichos & Perfis -->
+      <div class="bg-white border border-[#E5E5E0] rounded-xl p-5 shadow-sm space-y-4">
+        <h2 class="text-base font-bold text-gray-900 font-display flex items-center gap-2">
+          <span>👥</span> 2. Nichos Prioritários & ICP
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          <div class="p-3 rounded-lg border border-gray-200 bg-gray-50 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <strong class="text-gray-900">🥇 Serviços Profissionais</strong>
+              <span class="text-[10px] font-bold px-1.5 py-0.5 bg-amber-200 text-amber-900 rounded">Prioridade Alta</span>
+            </div>
+            <p class="text-gray-600">Marketing, design, contabilidade, TI, consultoria. Alta margem, baixo custo marginal e capacidade intelectual ociosa frequente.</p>
+          </div>
+
+          <div class="p-3 rounded-lg border border-gray-200 bg-gray-50 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <strong class="text-gray-900">🥇 Hotelaria & Turismo</strong>
+              <span class="text-[10px] font-bold px-1.5 py-0.5 bg-amber-200 text-amber-900 rounded">Prioridade Alta</span>
+            </div>
+            <p class="text-gray-600">Hotéis, pousadas, resorts. Quarto vazio em dia de semana é receita perdida para sempre. Permutar monetiza essa ociosidade.</p>
+          </div>
+
+          <div class="p-3 rounded-lg border border-gray-200 bg-gray-50 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <strong class="text-gray-900">🥈 Saúde & Bem-estar</strong>
+              <span class="text-[10px] font-bold px-1.5 py-0.5 bg-blue-100 text-blue-900 rounded">Prioridade Média</span>
+            </div>
+            <p class="text-gray-600">Clínicas médicas, odontológicas, estética e academias. Horários vagos na agenda são convertidos em créditos de consumo.</p>
+          </div>
+
+          <div class="p-3 rounded-lg border border-gray-200 bg-gray-50 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <strong class="text-gray-900">🥈 Gráficas & Impressão</strong>
+              <span class="text-[10px] font-bold px-1.5 py-0.5 bg-blue-100 text-blue-900 rounded">Prioridade Média</span>
+            </div>
+            <p class="text-gray-600">Maquinário parado fora de picos sazonais. Produtos físicos com precificação transparente e alta demanda por outras PMEs.</p>
+          </div>
+        </div>
+
+        <!-- Expansão Geográfica -->
+        <div class="p-3 rounded-lg border border-gray-200 space-y-2">
+          <div class="font-bold text-xs text-gray-900">🗺️ Expansão Regional por Fases:</div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+            <div class="p-2 bg-gray-50 rounded border border-gray-200">
+              <span class="font-mono-custom text-[#2563EB] font-bold">MÊS 1:</span> Grande SP + Capitais Sudeste (SP, RJ, BH)
+            </div>
+            <div class="p-2 bg-gray-50 rounded border border-gray-200">
+              <span class="font-mono-custom text-[#2C4128] font-bold">MÊS 2:</span> Capitais do Sul (Curitiba, Floripa, POA) + Brasília
+            </div>
+            <div class="p-2 bg-gray-50 rounded border border-gray-200">
+              <span class="font-mono-custom text-amber-800 font-bold">MÊS 3:</span> Capitais do Nordeste (Recife, Salvador, Fortaleza)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Funil de Conversão e Metas -->
+      <div class="bg-white border border-[#E5E5E0] rounded-xl p-5 shadow-sm space-y-4">
+        <h2 class="text-base font-bold text-gray-900 font-display flex items-center gap-2">
+          <span>📈</span> 3. Funil de Conversão & Metas Mensais
+        </h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs text-left">
+            <thead class="bg-gray-50 text-gray-600 font-mono-custom uppercase text-[10px] border-b border-gray-200">
+              <tr>
+                <th class="p-2.5">Etapa / Métrica</th>
+                <th class="p-2.5 text-center">Taxa Benchmark</th>
+                <th class="p-2.5 text-center">Mês 1</th>
+                <th class="p-2.5 text-center">Mês 2</th>
+                <th class="p-2.5 text-center">Mês 3</th>
+                <th class="p-2.5 text-center font-bold text-[#2C4128]">Total Trimestre</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 font-mono-custom">
+              <tr>
+                <td class="p-2.5 font-sans font-semibold text-gray-900">1. Contatos Realizados (Outreach)</td>
+                <td class="p-2.5 text-center text-gray-500">100%</td>
+                <td class="p-2.5 text-center font-bold text-[#2563EB]">150</td>
+                <td class="p-2.5 text-center font-bold text-[#2563EB]">250</td>
+                <td class="p-2.5 text-center font-bold text-[#2563EB]">350</td>
+                <td class="p-2.5 text-center font-bold text-[#2563EB] bg-blue-50/50">750</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 font-sans text-gray-700">2. Respostas Obtidas (Interesse Inicial)</td>
+                <td class="p-2.5 text-center text-gray-500">~15%</td>
+                <td class="p-2.5 text-center">23</td>
+                <td class="p-2.5 text-center">38</td>
+                <td class="p-2.5 text-center">53</td>
+                <td class="p-2.5 text-center font-bold">114</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 font-sans text-gray-700">3. Reuniões de Apresentação / Diagnóstico</td>
+                <td class="p-2.5 text-center text-gray-500">~30%</td>
+                <td class="p-2.5 text-center">7</td>
+                <td class="p-2.5 text-center">12</td>
+                <td class="p-2.5 text-center">16</td>
+                <td class="p-2.5 text-center font-bold">35</td>
+              </tr>
+              <tr class="bg-emerald-50/30">
+                <td class="p-2.5 font-sans font-bold text-[#2C4128]">4. Cadastros Ativos na Plataforma</td>
+                <td class="p-2.5 text-center text-emerald-700 font-bold">~50%</td>
+                <td class="p-2.5 text-center font-bold text-[#2C4128]">4</td>
+                <td class="p-2.5 text-center font-bold text-[#2C4128]">6</td>
+                <td class="p-2.5 text-center font-bold text-[#2C4128]">8</td>
+                <td class="p-2.5 text-center font-bold text-[#2C4128] bg-emerald-100/50">18</td>
+              </tr>
+              <tr class="bg-amber-50/30">
+                <td class="p-2.5 font-sans font-bold text-amber-900">5. Ofertas Publicadas no Catálogo</td>
+                <td class="p-2.5 text-center text-amber-800">~2/cadastro</td>
+                <td class="p-2.5 text-center font-bold text-amber-900">8</td>
+                <td class="p-2.5 text-center font-bold text-amber-900">12</td>
+                <td class="p-2.5 text-center font-bold text-amber-900">16</td>
+                <td class="p-2.5 text-center font-bold text-amber-900 bg-amber-100/50">36</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 4. Cronograma Trimestral -->
+      <div class="bg-white border border-[#E5E5E0] rounded-xl p-5 shadow-sm space-y-3">
+        <h2 class="text-base font-bold text-gray-900 font-display flex items-center gap-2">
+          <span>📅</span> 4. Fases de Execução Trimestral
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+          <div class="p-3 rounded-lg border-l-4 border-l-[#2563EB] bg-gray-50 space-y-1">
+            <strong class="text-gray-900">Mês 1 — Fundação (150 contatos)</strong>
+            <p class="text-gray-600">Onboarding, definição de ICP com liderança, construção de scripts, testes de pitch e primeiros 4 cadastros (8 ofertas).</p>
+          </div>
+          <div class="p-3 rounded-lg border-l-4 border-l-[#2C4128] bg-gray-50 space-y-1">
+            <strong class="text-gray-900">Mês 2 — Aceleração (250 contatos)</strong>
+            <p class="text-gray-600">Disparo com prova social e cases iniciais, programa de indicações com membros ativos, expansão Sul e Brasília (6 cadastros).</p>
+          </div>
+          <div class="p-3 rounded-lg border-l-4 border-l-amber-600 bg-gray-50 space-y-1">
+            <strong class="text-gray-900">Mês 3 — Escala & Legado (350 contatos)</strong>
+            <p class="text-gray-600">Campanhas verticais por nicho, expansão Nordeste, parcerias com associações comerciais e documentação do Playbook Comercial (8 cadastros).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABA 2: TEMPLATES DE ABORDAGEM -->
+    <div id="tab-templates" class="hidden space-y-4">
+      <div class="bg-white border border-[#E5E5E0] rounded-xl p-5 shadow-sm space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h2 class="text-base font-bold text-gray-900 font-display">✉️ Scripts de Abordagem Consultiva</h2>
+            <p class="text-xs text-gray-500">Prontos para copiar e personalizar no LinkedIn, E-mail e WhatsApp.</p>
+          </div>
+        </div>
+
+        <!-- Template LinkedIn -->
+        <div class="p-3.5 rounded-lg border border-blue-200 bg-blue-50/30 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-blue-700 uppercase font-mono-custom">🔗 LinkedIn — Mensagem Direta Pós-Conexão</span>
+            <button onclick="copyScript(this)" class="text-[11px] font-bold text-blue-600 hover:text-blue-800 underline">Copiar Script</button>
+          </div>
+          <pre class="script-box text-xs bg-white p-3 rounded border border-blue-200 text-gray-800 font-mono-custom whitespace-pre-wrap leading-relaxed">
+Oi [Nome], obrigada por aceitar a conexão!
+
+Vou direto ao ponto: o Mundo das Permutas é uma rede onde empresas trocam o que têm de capacidade ociosa pelo que precisam — sem dinheiro no meio.
+
+Funciona assim: você cadastra o que entrega (ex: [serviço do nicho]), nossa curadoria valida escopo e valor justo, e a plataforma conecta vocês com quem tem o que vocês precisam.
+
+Vi que a [Empresa] atua com [segmento]. Vocês provavelmente têm [exemplo: horas livres na equipe / maquinário parado / quartos vagos]. Isso poderia virar crédito (MP) para contratar marketing, TI ou reformas sem desembolsar caixa.
+
+Topa uma conversa rápida de 10 min para eu te mostrar como funciona na prática?</pre>
+        </div>
+
+        <!-- Template Email -->
+        <div class="p-3.5 rounded-lg border border-gray-200 bg-gray-50 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-gray-700 uppercase font-mono-custom">📧 Cold E-mail — Assunto com Alto Engajamento</span>
+            <button onclick="copyScript(this)" class="text-[11px] font-bold text-gray-700 hover:text-black underline">Copiar Script</button>
+          </div>
+          <pre class="script-box text-xs bg-white p-3 rounded border border-gray-300 text-gray-800 font-mono-custom whitespace-pre-wrap leading-relaxed">
+Assunto: Capacidade ociosa? Transforme em poder de compra para a [Empresa] — sem custo
+
+Oi [Nome], tudo bem?
+
+Me chamo Melissa Carrer e atuo na expansão do Mundo das Permutas.
+
+Imagino que na [Empresa], como em qualquer negócio de [segmento], existam períodos com capacidade ociosa — [exemplo: quartos livres / horas vagas de consultores / estoque].
+
+O Mundo das Permutas resolve isso: é um ecossistema seguro onde empresas cadastram o que oferecem e recebem em troca o que precisam, utilizando nossa unidade de conta MP (1 MP = R$ 1), sem desembolso financeiro de caixa.
+
+Diferenciais da plataforma:
+• Curadoria humana em cada oferta antes de publicar no catálogo
+• Contrato-padrão transparente e liquidação na entrega
+• Gratuito para cadastrar: taxa de 6% apenas sobre permutas concluídas com sucesso
+
+Podemos bater um papo rápido de 10 minutos nesta semana para eu te apresentar como funciona? Que dia fica melhor para você?
+
+Abraço,
+Melissa Carrer
+Mundo das Permutas • mundodaspermutas.com.br</pre>
+        </div>
+
+        <!-- Template WhatsApp -->
+        <div class="p-3.5 rounded-lg border border-emerald-200 bg-emerald-50/30 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-emerald-800 uppercase font-mono-custom">📱 WhatsApp — Abordagem Quente / Indicação</span>
+            <button onclick="copyScript(this)" class="text-[11px] font-bold text-emerald-700 hover:text-emerald-900 underline">Copiar Script</button>
+          </div>
+          <pre class="script-box text-xs bg-white p-3 rounded border border-emerald-200 text-gray-800 font-mono-custom whitespace-pre-wrap leading-relaxed">
+Oi [Nome]! Tudo bem? Aqui é a Melissa, do Mundo das Permutas 😊
+
+Estou entrando em contato porque [vi seu perfil no LinkedIn / recebi sua indicação do Fulano].
+
+Nós conectamos empresas para que troquem serviços e produtos entre si sem gastar dinheiro de caixa. Cada oferta passa por curadoria antes de entrar no catálogo oficial, garantindo segurança e valor justo.
+
+Posso te mandar um áudio de 1 minuto ou resumo em PDF explicando como funciona para a [Empresa]?</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABA 3: CHECKLIST DE PREPARAÇÃO -->
+    <div id="tab-checklist" class="hidden space-y-4">
+      <div class="bg-white border border-[#E5E5E0] rounded-xl p-5 shadow-sm space-y-4">
+        <h2 class="text-base font-bold text-gray-900 font-display flex items-center gap-2">
+          <span>✅</span> Checklist de Preparação para Quinta (24/09 às 14h)
+        </h2>
+
+        <div class="space-y-3 text-xs">
+          <!-- Bloco 1 -->
+          <div class="p-3 bg-gray-50 rounded-lg border border-gray-200 space-y-2">
+            <div class="font-bold text-gray-900">📚 1. Conceitos-Chave da Plataforma para Fixar:</div>
+            <ul class="space-y-1 text-gray-700">
+              <li>• <strong>MP (Mundo Permutas):</strong> Unidade interna de conta (1 MP = R$ 1). Não é moeda, não é investimento, não se saca.</li>
+              <li>• <strong>Curadoria Humana:</strong> Valida escopo delimitado, descrição clara e valor justo de mercado antes de publicar.</li>
+              <li>• <strong>Modelo de Receita:</strong> Cobrança de 6% por parte apenas em transações concluídas. Cadastro é 100% gratuito.</li>
+              <li>• <strong>Restrições Claras:</strong> Não fazem permuta imobiliária. Aceita PF (CPF) e PJ (CNPJ). NF emitida por cada parte.</li>
+            </ul>
+          </div>
+
+          <!-- Bloco 2 -->
+          <div class="p-3 bg-gray-50 rounded-lg border border-gray-200 space-y-2">
+            <div class="font-bold text-gray-900">🎯 2. Perguntas Estratégicas para Você Fazer no Final:</div>
+            <ul class="space-y-1.5 text-gray-700">
+              <li>👉 <em>"Quantos membros e ofertas ativas a plataforma possui hoje no catálogo, e quais categorias vocês querem acelerar primeiro?"</em></li>
+              <li>👉 <em>"Como é estruturada a rotina com quem faz a curadoria das ofertas cadastradas?"</em></li>
+              <li>👉 <em>"A equipe comercial já possui alguma ferramenta ou CRM homologado para prospecção, ou poderei estruturar a esteira?"</em></li>
+              <li>👉 <em>"Quais são os principais critérios de sucesso para efetivação após o período de estágio?"</em></li>
+            </ul>
+          </div>
+
+          <!-- Bloco 3 -->
+          <div class="p-3 bg-emerald-50 rounded-lg border border-emerald-200 space-y-1 text-emerald-900">
+            <div class="font-bold">🚀 Dica Final:</div>
+            <p>Eles já gostaram do seu perfil na 1ª fase! Na quinta-feira, abra a <strong>Apresentação Interativa (Slides)</strong> no seu navegador, coloque em tela cheia (F11) e mostre segurança ao falar sobre números, nichos e abordagem consultiva. Vai ser um sucesso!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      ['tab-plano', 'tab-templates', 'tab-checklist'].forEach(t => {
+        const el = document.getElementById(t);
+        const btn = document.getElementById(`btn-${t}`);
+        if (t === tabId) {
+          el.classList.remove('hidden');
+          btn.classList.add('active');
+          btn.classList.remove('bg-white', 'text-gray-600');
+        } else {
+          el.classList.add('hidden');
+          btn.classList.remove('active');
+          btn.classList.add('bg-white', 'text-gray-600');
+        }
+      });
+    }
+
+    function copyScript(btn) {
+      const box = btn.closest('div').parentElement.querySelector('.script-box');
+      if (box) {
+        navigator.clipboard.writeText(box.innerText).then(() => {
+          const original = btn.textContent;
+          btn.textContent = '✓ Copiado!';
+          setTimeout(() => { btn.textContent = original; }, 1500);
+        });
+      }
+    }
+  </script>
+</body>
+</html>
