@@ -554,12 +554,12 @@ window.CAREER_DATA = {
     {
       "id": 9,
       "nome": "Baterias Moura (Rede Moura)",
-      "setor": "Energia / Automotivo / Manufatura e Distribuição",
+      "setor": "Energia / Automotivo / Distribuição",
       "perfil_empresa": "Líder na produção e distribuição de acumuladores de energia da América Latina, com mais de 65 anos de tradição e inovação.",
       "programas_interesse": "Programa de Estágio Moura / Vagas Administrativas",
       "fit_cultural": "Excelente: Fortalecimento de vínculos, melhoria contínua, simplicidade, processos bem definidos (POPs) e otimismo realista.",
       "palavras_chave": "Baterias Moura, Faturamento, Excel, POP, Administrativo Financeiro, Fortaleza, Atendimento",
-      "status_monitoramento": "Ativo - Convocada para Entrevista"
+      "status_monitoramento": "Ativo - Etapa Presencial Final (Supervisora & Sócio)"
     },
     {
       "id": 2,
@@ -632,10 +632,10 @@ window.CAREER_DATA = {
       "link_vaga": "https://redemoura.gupy.io/jobs/11748104?jobBoardSource=gupy_public_page",
       "status": "Em Andamento",
       "data_candidatura": "2026-09-18",
-      "etapa_atual": "Entrevista Online (Teams com Vitória)",
-      "proximo_prazo": "2026-09-21 09:45",
+      "etapa_atual": "Presencial Final (Soraia & Sócio)",
+      "proximo_prazo": "2026-09-24 16:00",
       "curriculo_usado": "Gupy Profile / Banco de Talentos",
-      "anotacoes_estrategicas": "Entrevista agendada para 21/09 às 09:45 no Teams com a recrutadora Vitória (Pessoas). Link: https://teams.microsoft.com/meet/250840109778871?p=mrla1YYy1fuHovsgvd"
+      "anotacoes_estrategicas": "Remuneração: Bolsa R$ 1.150 + VR R$ 30,00/dia (~R$ 660/mês) + VT + TotalPass + Allya + Seguro. Total ~R$ 1.810/mês. Etapa Presencial confirmada: 1º Supervisora Soraia (Operação/POPs) + 2º Sócio da Unidade (Estratégia/Cultura). Local: Rua Edite Braga, 440 (Jardim América)."
     },
     {
       "id": 7,
