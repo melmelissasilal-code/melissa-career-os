@@ -4,481 +4,963 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cockpit de Vagas — Melissa Carrer</title>
-  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    .card-vaga { transition: all 0.2s ease; }
-    .card-vaga:hover { transform: translateY(-1px); }
-    .card-vaga.selected { border-color: var(--primary, #3b82f6) !important; box-shadow: 0 0 0 1px var(--primary, #3b82f6); }
-    .detail-section { animation: fadeIn 0.25s ease; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-    .collapse-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-    .collapse-content.open { max-height: 2000px; }
-    .chevron { transition: transform 0.2s ease; }
-    .chevron.rotated { transform: rotate(180deg); }
+    /* ═══════════════════════════════════════════════
+       DESIGN SYSTEM — MISSION CONTROL
+       ═══════════════════════════════════════════════ */
+    :root {
+      --bg-base: #0b0f17;
+      --bg-card: #141a26;
+      --bg-card-hover: #1a2234;
+      --bg-elevated: #1e2a3a;
+      --border: #1e293b;
+      --border-subtle: #162032;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent-blue: #3b82f6;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --accent-amber: #f59e0b;
+      --accent-purple: #8b5cf6;
+      --glass-bg: rgba(20, 26, 38, 0.75);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg-base);
+      color: var(--text-primary);
+      line-height: 1.5;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+    /* ── Layout ── */
+    .shell { max-width: 880px; margin: 0 auto; padding: 24px 20px 60px; }
+
+    /* ── Top Bar ── */
+    .top-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.72rem; font-weight: 600;
+      color: var(--text-muted); text-decoration: none;
+      transition: color 0.15s ease;
+      padding: 4px 8px; border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+    }
+    .back-link:hover { color: var(--text-primary); border-color: var(--border); }
+
+    /* ── Header ── */
+    .header { margin-bottom: 24px; }
+    .header-top { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .header h1 {
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #f1f5f9 30%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .header-meta { font-size: 0.72rem; color: var(--text-muted); margin-top: 4px; }
+    .header-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+    .badge-status {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 4px 10px;
+      border-radius: 99px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .badge-status.active { background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.2); }
+    .badge-status.pipeline { background: rgba(59, 130, 246, 0.12); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.2); }
+    .badge-status .dot { width: 6px; height: 6px; border-radius: 50%; }
+    .badge-status.active .dot { background: #10b981; }
+    .badge-status.pipeline .dot { background: #3b82f6; }
+
+    /* ── Focus Zone ── */
+    .focus-zone {
+      position: relative;
+      padding: 22px 24px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--glass-border);
+      background: linear-gradient(135deg, rgba(234, 29, 44, 0.1) 0%, rgba(20, 26, 38, 0.92) 50%, var(--glass-bg) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      margin-bottom: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .focus-zone::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, #ea1d2c, #f97316, transparent 80%);
+    }
+    .focus-label {
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .focus-label .pulse {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #ea1d2c;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(234, 29, 44, 0.4); }
+      50% { opacity: 0.8; box-shadow: 0 0 0 6px rgba(234, 29, 44, 0); }
+    }
+    .focus-content { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .focus-logo {
+      width: 46px; height: 46px;
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 0.65rem; color: white;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(234, 29, 44, 0.3);
+    }
+    .focus-info { flex: 1; min-width: 200px; }
+    .focus-company { font-size: 0.72rem; color: var(--text-secondary); font-weight: 600; }
+    .focus-event { font-size: 1.12rem; font-weight: 700; letter-spacing: -0.3px; margin: 2px 0; }
+    .focus-time { font-size: 0.78rem; color: var(--text-muted); }
+    .focus-countdown {
+      display: flex; align-items: center; gap: 4px;
+      font-size: 1.35rem; font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.5px;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .focus-countdown .num { color: #f87171; }
+    .focus-countdown .sep { color: var(--text-muted); font-weight: 400; font-size: 1rem; }
+    .focus-countdown .unit {
+      font-size: 0.55rem; font-weight: 600; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.5px; margin-right: 2px;
+    }
+    .focus-actions { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .focus-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.72rem; font-weight: 700;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: none; cursor: pointer;
+    }
+    .focus-btn.primary { background: #ea1d2c; color: white; }
+    .focus-btn.primary:hover { background: #d61725; }
+    .focus-btn.secondary { background: var(--bg-elevated); color: var(--text-primary); border: 1px solid var(--border); }
+    .focus-btn.secondary:hover { background: var(--bg-card-hover); }
+    .focus-btn.accent { background: rgba(234, 29, 44, 0.15); color: #f87171; border: 1px solid rgba(234, 29, 44, 0.3); }
+    .focus-btn.accent:hover { background: rgba(234, 29, 44, 0.25); }
+
+    /* ── Timeline Strip ── */
+    .timeline-title {
+      font-size: 0.6rem; font-weight: 800;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 8px;
+    }
+    .timeline {
+      display: flex; gap: 8px;
+      overflow-x: auto;
+      padding: 2px 0 12px;
+      margin-bottom: 24px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .timeline::-webkit-scrollbar { display: none; }
+    .timeline-chip {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      flex-shrink: 0;
+      transition: all 0.15s ease;
+      cursor: default;
+      min-width: 0;
+    }
+    .timeline-chip.is-focus {
+      border-color: rgba(234, 29, 44, 0.35);
+      background: rgba(234, 29, 44, 0.08);
+      box-shadow: 0 0 14px rgba(234, 29, 44, 0.1);
+    }
+    .timeline-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .timeline-text { min-width: 0; }
+    .timeline-name { font-size: 0.72rem; font-weight: 700; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .timeline-when { font-size: 0.62rem; font-weight: 500; color: var(--text-muted); white-space: nowrap; }
+
+    /* ── Pipeline Section ── */
+    .pipeline-label {
+      font-size: 0.6rem; font-weight: 800;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+    .pipeline { display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
+
+    /* ── Vaga Card ── */
+    .vaga-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+    .vaga-card:hover { border-color: var(--border); background: var(--bg-card-hover); }
+    .vaga-card.open { border-color: var(--border); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); }
+    .vaga-header {
+      position: relative;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 16px 14px 20px;
+      cursor: pointer;
+      background: transparent; border: none; width: 100%;
+      text-align: left; color: inherit; font-family: inherit;
+    }
+    .vaga-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .vaga-logo {
+      width: 38px; height: 38px;
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 0.6rem; color: white;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    .vaga-meta { min-width: 0; }
+    .vaga-title-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .vaga-name { font-size: 0.88rem; font-weight: 700; }
+    .vaga-stage {
+      font-size: 0.58rem; font-weight: 800; letter-spacing: 0.3px;
+      padding: 2px 8px; border-radius: 4px; text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .vaga-sub { font-size: 0.73rem; color: var(--text-secondary); margin-top: 1px; }
+    .vaga-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .vaga-date {
+      font-size: 0.65rem; font-weight: 600; color: var(--text-muted);
+      white-space: nowrap;
+      display: none;
+    }
+    @media (min-width: 640px) { .vaga-date { display: block; } }
+    .vaga-chevron {
+      width: 16px; height: 16px; color: var(--text-muted);
+      transition: transform 0.2s ease;
+    }
+    .vaga-card.open .vaga-chevron { transform: rotate(180deg); }
+
+    /* ── Vaga Detail (collapsible) ── */
+    .vaga-detail {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .vaga-card.open .vaga-detail { max-height: 3500px; }
+    .vaga-detail-inner {
+      padding: 0 20px 20px;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 16px;
+      display: flex; flex-direction: column; gap: 12px;
+      animation: fadeSlide 0.3s ease;
+    }
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Detail blocks ── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 8px;
+    }
+    .info-item { font-size: 0.73rem; }
+    .info-item .label { color: var(--text-muted); font-weight: 500; }
+    .info-item .value { color: var(--text-primary); font-weight: 600; }
+    .info-item .value.highlight { color: #34d399; }
+    .info-item .value.highlight-red { color: #f87171; }
+    .info-item .value.highlight-blue { color: #60a5fa; }
+    .info-item .value.highlight-amber { color: #fbbf24; }
+
+    .block {
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      line-height: 1.55;
+    }
+    .block-dark { background: var(--bg-base); border: 1px solid var(--border-subtle); }
+    .block-accent { border: 1px solid; }
+    .block-title {
+      font-size: 0.62rem; font-weight: 800;
+      letter-spacing: 0.8px; text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .block ul { list-style: none; color: var(--text-secondary); }
+    .block ul li { padding: 2px 0; }
+    .block ul li::before { content: '•'; margin-right: 6px; opacity: 0.5; }
+    .block p { color: var(--text-secondary); }
+    .block p strong { color: var(--text-primary); font-weight: 700; }
+
+    .pitch-block {
+      position: relative;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      background: rgba(59, 130, 246, 0.05);
+      border: 1px solid rgba(59, 130, 246, 0.18);
+    }
+    .pitch-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 6px;
+    }
+    .pitch-label { font-size: 0.68rem; font-weight: 700; color: #60a5fa; }
+    .copy-btn {
+      font-size: 0.6rem; color: #60a5fa;
+      background: none; border: 1px solid rgba(59, 130, 246, 0.25);
+      padding: 2px 8px; border-radius: 4px;
+      cursor: pointer; font-family: var(--font); font-weight: 600;
+      transition: all 0.15s ease;
+    }
+    .copy-btn:hover { background: rgba(59, 130, 246, 0.12); }
+    .pitch-text { color: var(--text-secondary); font-style: italic; line-height: 1.6; }
+
+    /* Action hub */
+    .action-hub {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid;
+      align-items: center;
+    }
+    .action-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 7px 14px; border-radius: var(--radius-sm);
+      font-size: 0.72rem; font-weight: 700;
+      text-decoration: none; transition: all 0.15s ease;
+      border: none; cursor: pointer;
+    }
+    .action-btn:hover { filter: brightness(1.12); }
+
+    /* Q&A */
+    .qa-section { display: flex; flex-direction: column; gap: 4px; }
+    .qa-title {
+      font-size: 0.62rem; font-weight: 800;
+      letter-spacing: 0.8px; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 2px;
+    }
+    .qa-item {
+      font-size: 0.73rem;
+    }
+    .qa-item summary {
+      cursor: pointer; font-weight: 600; color: var(--text-primary);
+      padding: 6px 0; transition: color 0.15s ease;
+      list-style: none;
+    }
+    .qa-item summary::-webkit-details-marker { display: none; }
+    .qa-item summary::before {
+      content: '▸'; margin-right: 6px; color: var(--text-muted);
+      display: inline-block; transition: transform 0.15s ease;
+    }
+    .qa-item[open] summary::before { transform: rotate(90deg); }
+    .qa-item summary:hover { color: #60a5fa; }
+    .qa-item .qa-answer {
+      padding: 4px 0 8px 18px;
+      color: var(--text-secondary);
+      border-left: 2px solid var(--border);
+      margin-left: 6px;
+      line-height: 1.6;
+    }
+
+    /* Ask-questions hint */
+    .ask-hint {
+      font-size: 0.72rem; color: var(--text-secondary);
+      padding-top: 4px;
+      line-height: 1.6;
+    }
+    .ask-hint strong { color: #34d399; font-weight: 700; }
+
+    /* ── Collapsible Sections (STAR, Perguntas) ── */
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 8px;
+      transition: border-color 0.2s ease;
+    }
+    .section-card:hover { border-color: var(--border); }
+    .section-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 16px;
+      cursor: pointer;
+      background: transparent; border: none; width: 100%;
+      text-align: left; color: inherit; font-family: inherit;
+    }
+    .section-title { font-size: 0.88rem; font-weight: 700; }
+    .section-subtitle { font-size: 0.65rem; color: var(--text-muted); margin-top: 1px; }
+    .section-detail {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .section-card.open .section-detail { max-height: 3500px; }
+    .section-card.open .vaga-chevron { transform: rotate(180deg); }
+    .section-inner {
+      padding: 0 16px 16px;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 14px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+
+    .star-item {
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.73rem;
+      border: 1px solid;
+    }
+    .star-item summary {
+      cursor: pointer; font-weight: 700; color: var(--text-primary);
+      list-style: none;
+    }
+    .star-item summary::-webkit-details-marker { display: none; }
+    .star-origin { font-size: 0.65rem; font-weight: 500; margin-left: 4px; }
+    .star-body {
+      margin-top: 8px; color: var(--text-secondary); line-height: 1.65;
+      padding-left: 10px; border-left: 2px solid;
+    }
+    .star-body strong { color: var(--text-primary); }
+    .star-match { font-size: 0.62rem; margin-top: 6px; display: block; font-weight: 600; }
+
+    .difficult-item {
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.73rem;
+    }
+    .difficult-item summary {
+      cursor: pointer; font-weight: 700;
+      list-style: none;
+    }
+    .difficult-item summary::-webkit-details-marker { display: none; }
+    .difficult-answer {
+      margin-top: 8px; color: var(--text-secondary);
+      font-style: italic; line-height: 1.65;
+      padding-left: 10px; border-left: 2px solid;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .shell { padding: 16px 14px 48px; }
+      .header h1 { font-size: 1.35rem; }
+      .focus-content { flex-direction: column; align-items: flex-start; }
+      .focus-countdown { font-size: 1.15rem; }
+      .vaga-header { padding: 12px 14px 12px 18px; }
+    }
   </style>
 </head>
-<body class="bg-transparent text-[var(--foreground)] antialiased p-3 md:p-5 font-sans">
-  <div class="max-w-4xl mx-auto space-y-4">
+<body>
+  <div class="shell">
 
-    <!-- HEADER COMPACTO -->
-    <div class="flex items-center justify-between gap-3">
-      <div>
-        <h1 class="text-xl font-bold tracking-tight text-[var(--foreground)]">Cockpit de Vagas</h1>
-        <p class="text-xs text-[var(--muted-foreground)]">Melissa Carrer • Atualizado 23/09/2026</p>
-      </div>
-      <div class="flex items-center gap-2">
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
-          ✅ 3 em Fase Ativa / Entrevistas
-        </span>
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-blue-500/10 text-blue-500 border border-blue-500/20">
-          5 no Pipeline
-        </span>
-      </div>
+    <!-- ═══ TOP BAR ═══ -->
+    <div class="top-bar">
+      <a href="index.html" class="back-link">
+        <span>←</span> Voltar ao Career OS
+      </a>
+      <span style="font-size: 0.65rem; color: var(--text-muted); font-weight: 600;">SALA DE GUERRA &bull; MODO PRIVADO</span>
     </div>
 
-    <!-- PRÓXIMAS AÇÕES (compacto, sem repetição) -->
-    <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-3.5 shadow-sm">
-      <div class="text-[10px] font-bold uppercase tracking-widest text-[var(--muted-foreground)] mb-2">📅 Esta semana</div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2">
-        <!-- iFood -->
-        <div class="flex items-center justify-between gap-2 p-2 rounded-lg bg-red-500/5 border border-red-500/20">
-          <div class="flex items-center gap-2 min-w-0">
-            <div class="w-7 h-7 rounded-md bg-[#ea1d2c] text-white flex items-center justify-center text-[9px] font-black shrink-0">iF</div>
-            <div class="min-w-0">
-              <div class="text-xs font-semibold text-[var(--foreground)] truncate">iFood iFuture — Etapa Final</div>
-              <div class="text-[10px] text-red-500 font-medium">Qui 24/09 às 09h30 • Dinâmica Kolab</div>
-            </div>
-          </div>
-          <a href="dossie_ifood.html" target="_blank" class="px-2 py-0.5 rounded bg-[#ea1d2c] text-white font-bold text-[9px] transition shrink-0">
-            Dossiê ↗
-          </a>
+    <!-- ═══ HEADER ═══ -->
+    <div class="header">
+      <div class="header-top">
+        <div>
+          <h1>Cockpit de Vagas</h1>
+          <div class="header-meta">Melissa Carrer • Atualizado 23/09/2026</div>
         </div>
-
-        <!-- Mundo das Permutas -->
-        <div class="flex items-center justify-between gap-2 p-2 rounded-lg bg-emerald-500/5 border border-emerald-500/20">
-          <div class="flex items-center gap-2 min-w-0">
-            <div class="w-7 h-7 rounded-md bg-[#2C4128] text-white flex items-center justify-center text-[9px] font-bold shrink-0 shadow-sm">MP</div>
-            <div class="min-w-0">
-              <div class="text-xs font-semibold text-[var(--foreground)] truncate">Mundo das Permutas</div>
-              <div class="text-[10px] text-emerald-600 font-medium">Qui 24/09 às 14h • Fase 2</div>
-            </div>
-          </div>
-          <a href="dossie_mundo_das_permutas.html" target="_blank" class="px-2 py-0.5 rounded bg-[#2C4128] text-white font-bold text-[9px] transition shrink-0">
-            Dossiê ↗
-          </a>
-        </div>
-
-        <!-- Baterias Moura -->
-        <div class="flex items-center justify-between gap-2 p-2 rounded-lg bg-blue-500/5 border border-blue-500/20">
-          <div class="flex items-center gap-2 min-w-0">
-            <div class="w-7 h-7 rounded-md bg-[#003399] text-white flex items-center justify-center text-[10px] font-bold shrink-0 shadow-sm">〽️</div>
-            <div class="min-w-0">
-              <div class="text-xs font-semibold text-[var(--foreground)] truncate">Baterias Moura — Presencial</div>
-              <div class="text-[10px] text-blue-500 font-medium">Qui 24/09 às 16h • Soraia & Sócio</div>
-            </div>
-          </div>
-          <a href="https://maps.google.com/?q=Rua+Edite+Braga+440+Fortaleza" target="_blank" class="px-2 py-0.5 rounded bg-blue-600 text-white font-bold text-[9px] transition shrink-0">
-            Maps ↗
-          </a>
-        </div>
-
-        <!-- PWR Gestão -->
-        <div class="flex items-center justify-between gap-2 p-2 rounded-lg bg-amber-500/5 border border-amber-500/20">
-          <div class="flex items-center gap-2 min-w-0">
-            <div class="w-7 h-7 rounded-md bg-[#1e293b] text-amber-400 flex items-center justify-center text-[9px] font-bold shrink-0 shadow-sm">PWR</div>
-            <div class="min-w-0">
-              <div class="text-xs font-semibold text-[var(--foreground)] truncate">PWR Gestão — Bate-papo RH</div>
-              <div class="text-[10px] text-amber-500 font-medium">Thaís Andrade • Agendando (Trainee)</div>
-            </div>
-          </div>
-          <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-500 font-bold text-[9px] shrink-0">
-            Online
-          </span>
+        <div class="header-badges">
+          <span class="badge-status active"><span class="dot"></span> 3 em Fase Ativa / Entrevistas</span>
+          <span class="badge-status pipeline"><span class="dot"></span> 5 no Pipeline</span>
         </div>
       </div>
     </div>
 
-    <!-- LISTA DE VAGAS -->
-    <div class="space-y-3" id="vagas-list">
+    <!-- ═══ FOCUS ZONE ═══ -->
+    <div class="focus-zone" id="focusZone">
+      <div class="focus-label">
+        <span class="pulse"></span>
+        Próximo compromisso prioritário
+      </div>
+      <div class="focus-content">
+        <div class="focus-logo" style="background: #ea1d2c;">iFood</div>
+        <div class="focus-info">
+          <div class="focus-company">iFood (iFuture) — Programa de Estágio</div>
+          <div class="focus-event">Dinâmica Kolab & Webcase Oficial</div>
+          <div class="focus-time">Qui, 24/09 às 09h30 (Chegar na sala às 09h)</div>
+        </div>
+        <div>
+          <div class="focus-countdown" id="countdown">
+            <span class="num" id="cd-h">--</span><span class="unit">h</span><span class="sep">:</span>
+            <span class="num" id="cd-m">--</span><span class="unit">m</span><span class="sep">:</span>
+            <span class="num" id="cd-s">--</span><span class="unit">s</span>
+          </div>
+        </div>
+      </div>
+      <div class="focus-actions">
+        <a href="dossie_ifood.html" target="_blank" class="focus-btn primary">🌐 Ver Dossiê Interativo Completo (5 Págs) ↗</a>
+        <a href="dossie_ifood.pdf" target="_blank" class="focus-btn secondary">📥 Baixar PDF Oficial (A4)</a>
+        <a href="index.html#ifood-study" class="focus-btn accent">⚡ Módulo de Treinamento & Flashcards</a>
+      </div>
+    </div>
 
-      <!-- 1. MUNDO DAS PERMUTAS -->
-      <div class="card-vaga bg-[var(--card)] border border-[var(--border)] rounded-xl shadow-sm overflow-hidden" data-vaga="permutas">
-        <button onclick="toggleVaga('permutas')" class="w-full p-4 flex items-center justify-between gap-3 text-left">
-          <div class="flex items-center gap-3 min-w-0">
-            <div class="w-9 h-9 rounded-lg bg-[#2C4128] text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">MP</div>
-            <div class="min-w-0">
-              <div class="flex items-center gap-2 flex-wrap">
-                <h3 class="font-bold text-sm text-[var(--foreground)]">Mundo das Permutas</h3>
-                <span class="px-1.5 py-0.5 text-[10px] font-bold rounded bg-emerald-500 text-white">APROVADA</span>
+    <!-- ═══ TIMELINE STRIP ═══ -->
+    <div class="timeline-title">📅 Esta semana</div>
+    <div class="timeline">
+      <div class="timeline-chip is-focus">
+        <div class="timeline-dot" style="background: #ea1d2c;"></div>
+        <div class="timeline-text">
+          <div class="timeline-name">iFood iFuture — Dinâmica Kolab</div>
+          <div class="timeline-when">Qui 24/09 às 09h30 • Webcase</div>
+        </div>
+      </div>
+      <div class="timeline-chip">
+        <div class="timeline-dot" style="background: #10b981;"></div>
+        <div class="timeline-text">
+          <div class="timeline-name">Mundo das Permutas — Fase 2</div>
+          <div class="timeline-when">Qui 24/09 às 14h • Plano de Ação Ceará</div>
+        </div>
+      </div>
+      <div class="timeline-chip">
+        <div class="timeline-dot" style="background: #3b82f6;"></div>
+        <div class="timeline-text">
+          <div class="timeline-name">Baterias Moura — Presencial</div>
+          <div class="timeline-when">Qui 24/09 às 16h • Soraia & Sócio</div>
+        </div>
+      </div>
+      <div class="timeline-chip">
+        <div class="timeline-dot" style="background: #f59e0b;"></div>
+        <div class="timeline-text">
+          <div class="timeline-name">PWR Gestão — Bate-papo RH</div>
+          <div class="timeline-when">Thaís Andrade • Agendando (Trainee)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ PIPELINE ═══ -->
+    <div class="pipeline-label">Lista de vagas no pipeline</div>
+    <div class="pipeline">
+
+      <!-- ──── 1. MUNDO DAS PERMUTAS ──── -->
+      <div class="vaga-card" data-vaga="permutas">
+        <button class="vaga-header" onclick="toggleVaga('permutas')">
+          <div style="position:absolute;left:0;top:0;width:3px;height:100%;background:#10b981;border-radius:3px 0 0 3px;"></div>
+          <div class="vaga-left">
+            <div class="vaga-logo" style="background: #2C4128;">MP</div>
+            <div class="vaga-meta">
+              <div class="vaga-title-row">
+                <span class="vaga-name">Mundo das Permutas</span>
+                <span class="vaga-stage" style="background:rgba(16,185,129,0.15);color:#34d399;">APROVADA</span>
               </div>
-              <div class="text-xs text-[var(--muted-foreground)]">Estágio Comercial — Captação de Ofertas • 100% Remoto</div>
+              <div class="vaga-sub">Estágio Comercial — Captação de Ofertas • 100% Remoto</div>
             </div>
           </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <span class="hidden sm:inline px-2 py-0.5 text-[10px] font-semibold rounded-full bg-emerald-500/10 text-emerald-500">Qui 24/09 • 14h</span>
-            <svg class="chevron w-4 h-4 text-[var(--muted-foreground)]" id="chev-permutas" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          <div class="vaga-right">
+            <span class="vaga-date" style="color:#34d399;">Qui 24/09 • 14h</span>
+            <svg class="vaga-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
           </div>
         </button>
-        <div class="collapse-content" id="detail-permutas">
-          <div class="px-4 pb-4 space-y-3 border-t border-[var(--border)] pt-3 detail-section">
-            
+        <div class="vaga-detail" id="detail-permutas">
+          <div class="vaga-detail-inner">
+
             <!-- Hub de Ações Oficiais MdP -->
-            <div class="flex items-center gap-2 flex-wrap p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
-              <a href="apresentacao_mundo_das_permutas.html" target="_blank" class="px-3.5 py-1.5 rounded-lg bg-[#2C4128] hover:bg-[#1f2f1c] text-white font-bold text-xs shadow-sm transition inline-flex items-center gap-1.5">
-                <span>🖥️ Abrir Apresentação Interativa (Slides)</span> ↗
-              </a>
-              <a href="dossie_mundo_das_permutas.html" target="_blank" class="px-3.5 py-1.5 rounded-lg bg-white border border-gray-300 text-gray-800 hover:bg-gray-50 font-bold text-xs transition inline-flex items-center gap-1.5 shadow-sm">
-                <span>📑 Ver Dossiê Tático & Scripts</span> ↗
-              </a>
+            <div class="action-hub" style="background:rgba(16,185,129,0.04);border-color:rgba(16,185,129,0.2);">
+              <a href="apresentacao_mundo_das_permutas.html" target="_blank" class="action-btn" style="background:#2C4128;color:white;"><span>🖥️ Abrir Apresentação Interativa (Slides)</span> ↗</a>
+              <a href="dossie_mundo_das_permutas.html" target="_blank" class="action-btn" style="background:var(--bg-elevated);color:var(--text-primary);border:1px solid var(--border);"><span>📑 Ver Dossiê Tático & Scripts</span> ↗</a>
             </div>
 
             <!-- Info rápida -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
-              <div><span class="text-[var(--muted-foreground)]">Formato:</span> <span class="font-medium">100% Remoto</span></div>
-              <div><span class="text-[var(--muted-foreground)]">Horário:</span> <span class="font-medium">30h/sem flexíveis</span></div>
-              <div><span class="text-[var(--muted-foreground)]">Remuneração:</span> <span class="font-medium text-emerald-500">Bolsa + Bônus</span></div>
-              <div><span class="text-[var(--muted-foreground)]">Status:</span> <span class="font-medium text-emerald-500">Aprovada 1ª etapa</span></div>
+            <div class="info-grid">
+              <div class="info-item"><span class="label">Formato:</span> <span class="value">100% Remoto</span></div>
+              <div class="info-item"><span class="label">Horário:</span> <span class="value">30h/sem flexíveis</span></div>
+              <div class="info-item"><span class="label">Remuneração:</span> <span class="value highlight">Bolsa + Bônus</span></div>
+              <div class="info-item"><span class="label">Status:</span> <span class="value highlight">Aprovada 1ª etapa</span></div>
             </div>
+
             <!-- O que sabemos -->
-            <div class="p-3 rounded-lg bg-[var(--background)] border border-[var(--border)] text-xs space-y-1.5">
-              <div class="font-semibold text-[var(--foreground)] text-[11px] uppercase tracking-wider">Sobre a plataforma</div>
-              <ul class="text-[var(--muted-foreground)] space-y-0.5 leading-relaxed">
-                <li>• Rede de permutas: troca de produtos/serviços sem dinheiro. Unidade: MP (1 MP = R$ 1)</li>
-                <li>• Curadoria humana revisa cada oferta. Taxa de 6% por parte só em permutas concluídas</li>
-                <li>• Categorias: Obras, Marketing, Saúde, Veículos. Aceita PJ + PF. Não faz imóveis</li>
+            <div class="block block-dark">
+              <div class="block-title" style="color:var(--text-secondary);">Sobre a plataforma</div>
+              <ul>
+                <li>Rede de permutas: troca de produtos/serviços sem dinheiro. Unidade: MP (1 MP = R$ 1)</li>
+                <li>Curadoria humana revisa cada oferta. Taxa de 6% por parte só em permutas concluídas</li>
+                <li>Categorias: Obras, Marketing, Saúde, Veículos. Aceita PJ + PF. Não faz imóveis</li>
               </ul>
             </div>
+
             <!-- Próximo passo -->
-            <div class="p-3 rounded-lg bg-emerald-500/5 border border-emerald-500/20 text-xs">
-              <div class="font-semibold text-emerald-600 mb-1">📊 Próximo passo: Apresentar plano de ação Ceará (Qui 24/09 às 14h)</div>
-              <p class="text-[var(--muted-foreground)]">Plano trimestral de captação regional: 750 contatos → 18 cadastros → 36 ofertas no Ceará. Nichos: hotelaria (litoral/serra), agências/TI de Fortaleza e clínicas. <strong>3 Motores: LinkedIn, Cold E-mail e Networking Universitário na UFC</strong>.</p>
+            <div class="block block-accent" style="background:rgba(16,185,129,0.04);border-color:rgba(16,185,129,0.2);">
+              <div class="block-title" style="color:#34d399;">📊 Próximo passo: Apresentar plano de ação Ceará (Qui 24/09 às 14h)</div>
+              <p>Plano trimestral de captação regional: 750 contatos → 18 cadastros → 36 ofertas no Ceará. Nichos: hotelaria (litoral/serra), agências/TI de Fortaleza e clínicas. <strong>3 Motores: LinkedIn, Cold E-mail e Networking Universitário na UFC</strong>.</p>
             </div>
+
             <!-- Pitch -->
-            <div class="p-3 rounded-lg bg-blue-500/5 border border-blue-500/20 text-xs">
-              <div class="flex items-center justify-between mb-1">
-                <span class="font-semibold text-blue-500">🗣️ Pitch Regional (Ceará + UFC)</span>
-                <button onclick="copyText(this)" data-text="Olá! Sou a Melissa, estudante de Administração na UFC em Fortaleza. Estruturei um plano de ação focado em transformar o Ceará em um polo de alta densidade para o Mundo das Permutas. Minha estratégia opera em 3 canais complementares: prospecção de PMEs cearenses no LinkedIn, cold e-mail consultivo e a capilaridade da rede universitária da UFC (professores-consultores, empresas juniores e alumni). Com isso, projeto 750 contatos no estado, gerando 18 cadastros ativos e 36 ofertas publicadas, priorizando hotelaria litorânea/serrana com alta sazonalidade, agências de marketing e clínicas locais." class="text-[10px] text-blue-400 hover:text-blue-300 underline">Copiar</button>
+            <div class="pitch-block">
+              <div class="pitch-header">
+                <span class="pitch-label">🗣️ Pitch Regional (Ceará + UFC)</span>
+                <button class="copy-btn" onclick="copyText(this)" data-text="Olá! Sou a Melissa, estudante de Administração na UFC em Fortaleza. Estruturei um plano de ação focado em transformar o Ceará em um polo de alta densidade para o Mundo das Permutas. Minha estratégia opera em 3 canais complementares: prospecção de PMEs cearenses no LinkedIn, cold e-mail consultivo e a capilaridade da rede universitária da UFC (professores-consultores, empresas juniores e alumni). Com isso, projeto 750 contatos no estado, gerando 18 cadastros ativos e 36 ofertas publicadas, priorizando hotelaria litorânea/serrana com alta sazonalidade, agências de marketing e clínicas locais.">Copiar</button>
               </div>
-              <p class="text-[var(--muted-foreground)] italic leading-relaxed">"Olá! Sou a Melissa, estudante de Administração na UFC em Fortaleza. Estruturei um plano de ação focado em transformar o Ceará em um polo de alta densidade para o Mundo das Permutas. Minha estratégia opera em 3 canais complementares: prospecção de PMEs cearenses no LinkedIn, cold e-mail consultivo e a capilaridade da rede universitária da UFC (professores-consultores, empresas juniores e alumni). Com isso, projeto 750 contatos no estado, gerando 18 cadastros ativos e 36 ofertas publicadas, priorizando hotelaria litorânea/serrana com alta sazonalidade, agências de marketing e clínicas locais."</p>
+              <p class="pitch-text">"Olá! Sou a Melissa, estudante de Administração na UFC em Fortaleza. Estruturei um plano de ação focado em transformar o Ceará em um polo de alta densidade para o Mundo das Permutas. Minha estratégia opera em 3 canais complementares: prospecção de PMEs cearenses no LinkedIn, cold e-mail consultivo e a capilaridade da rede universitária da UFC (professores-consultores, empresas juniores e alumni). Com isso, projeto 750 contatos no estado, gerando 18 cadastros ativos e 36 ofertas publicadas, priorizando hotelaria litorânea/serrana com alta sazonalidade, agências de marketing e clínicas locais."</p>
             </div>
+
             <!-- Q&A compacto -->
-            <div class="space-y-1.5">
-              <div class="font-semibold text-[11px] uppercase tracking-wider text-[var(--muted-foreground)]">Perguntas prováveis</div>
-              <details class="text-xs group"><summary class="cursor-pointer font-medium text-[var(--foreground)] hover:text-blue-500 py-1">Por que focar nas empresas regionais do Ceará?</summary><p class="pl-3 pb-2 text-[var(--muted-foreground)] border-l-2 border-blue-500/20 ml-1">Densidade local gera confiança e acelera a 1ª troca. Além disso, moro em Fortaleza e estudo Administração na UFC: conheço o mercado local, tenho proximidade física com decisores e acesso direto a uma das maiores redes de negócios do estado.</p></details>
-              <details class="text-xs group"><summary class="cursor-pointer font-medium text-[var(--foreground)] hover:text-blue-500 py-1">Como você vai usar o networking da UFC?</summary><p class="pl-3 pb-2 text-[var(--muted-foreground)] border-l-2 border-blue-500/20 ml-1">Ativação de professores que prestam consultoria a PMEs, empresas juniores (FEAAC), veteranos que já são sócios de empresas, além de parceiros do projeto Dragão do Mar e ligas como Ceará Finance.</p></details>
-              <details class="text-xs group"><summary class="cursor-pointer font-medium text-[var(--foreground)] hover:text-blue-500 py-1">Como estruturou as metas de 750 contatos?</summary><p class="pl-3 pb-2 text-[var(--muted-foreground)] border-l-2 border-blue-500/20 ml-1">Benchmarks de outbound B2B: ~15% resposta, ~30% reunião, ~50% fechamento. Progressão 150→250→350 = curva de aprendizado natural.</p></details>
-              <details class="text-xs group"><summary class="cursor-pointer font-medium text-[var(--foreground)] hover:text-blue-500 py-1">Entende a curadoria e o MP?</summary><p class="pl-3 pb-2 text-[var(--muted-foreground)] border-l-2 border-blue-500/20 ml-1">MP = unidade de conta (1 MP = R$ 1), não é moeda. Curadoria verifica escopo + valor justo. Taxa 6% só em permutas concluídas. Cadastrar é gratuito.</p></details>
+            <div class="qa-section">
+              <div class="qa-title">Perguntas prováveis</div>
+              <details class="qa-item"><summary>Por que focar nas empresas regionais do Ceará?</summary><div class="qa-answer">Densidade local gera confiança e acelera a 1ª troca. Além disso, moro em Fortaleza e estudo Administração na UFC: conheço o mercado local, tenho proximidade física com decisores e acesso direto a uma das maiores redes de negócios do estado.</div></details>
+              <details class="qa-item"><summary>Como você vai usar o networking da UFC?</summary><div class="qa-answer">Ativação de professores que prestam consultoria a PMEs, empresas juniores (FEAAC), veteranos que já são sócios de empresas, além de parceiros do projeto Dragão do Mar e ligas como Ceará Finance.</div></details>
+              <details class="qa-item"><summary>Como estruturou as metas de 750 contatos?</summary><div class="qa-answer">Benchmarks de outbound B2B: ~15% resposta, ~30% reunião, ~50% fechamento. Progressão 150→250→350 = curva de aprendizado natural.</div></details>
+              <details class="qa-item"><summary>Entende a curadoria e o MP?</summary><div class="qa-answer">MP = unidade de conta (1 MP = R$ 1), não é moeda. Curadoria verifica escopo + valor justo. Taxa 6% só em permutas concluídas. Cadastrar é gratuito.</div></details>
             </div>
+
             <!-- Perguntas pra fazer -->
-            <div class="text-xs text-[var(--muted-foreground)]">
-              <span class="font-semibold text-emerald-500">Perguntar:</span> Quantos membros ativos? Quais categorias priorizar? Existe CRM? Como medem sucesso do estágio?
+            <div class="ask-hint">
+              <strong>Perguntar:</strong> Quantos membros ativos? Quais categorias priorizar? Existe CRM? Como medem sucesso do estágio?
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 2. IFOOD -->
-      <div class="card-vaga bg-[var(--card)] border border-[var(--border)] rounded-xl shadow-sm overflow-hidden" data-vaga="ifood">
-        <button onclick="toggleVaga('ifood')" class="w-full p-4 flex items-center justify-between gap-3 text-left">
-          <div class="flex items-center gap-3 min-w-0">
-            <div class="w-9 h-9 rounded-lg bg-[#ea1d2c] text-white flex items-center justify-center font-black text-[10px] shrink-0 shadow-sm">iFood</div>
-            <div class="min-w-0">
-              <div class="flex items-center gap-2 flex-wrap">
-                <h3 class="font-bold text-sm text-[var(--foreground)]">iFood (iFuture 2027)</h3>
-                <span class="px-1.5 py-0.5 text-[10px] font-bold rounded bg-red-600 text-white">FASE FINAL DA TRILHA</span>
+      <!-- ──── 2. IFOOD ──── -->
+      <div class="vaga-card" data-vaga="ifood">
+        <button class="vaga-header" onclick="toggleVaga('ifood')">
+          <div style="position:absolute;left:0;top:0;width:3px;height:100%;background:#ea1d2c;border-radius:3px 0 0 3px;"></div>
+          <div class="vaga-left">
+            <div class="vaga-logo" style="background: #ea1d2c; font-size:0.55rem;">iFood</div>
+            <div class="vaga-meta">
+              <div class="vaga-title-row">
+                <span class="vaga-name">iFood (iFuture)</span>
               </div>
-              <div class="text-xs text-[var(--muted-foreground)]">Programa de Estágio • Trilha Corporativa • 100% Remoto</div>
+              <div class="vaga-sub">Programa de Estágio • Trilha Corporativa • 100% Remoto</div>
             </div>
           </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <span class="hidden sm:inline px-2 py-0.5 text-[10px] font-semibold rounded-full bg-red-500/10 text-red-500">Qui 24/09 • 09h30 (Sala 09h)</span>
-            <svg class="chevron w-4 h-4 text-[var(--muted-foreground)]" id="chev-ifood" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          <div class="vaga-right">
+            <span class="vaga-date" style="color:#f87171;">Qui 24/09 • 09h30 (Sala 09h)</span>
+            <svg class="vaga-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
           </div>
         </button>
-        <div class="collapse-content" id="detail-ifood">
-          <div class="px-4 pb-4 space-y-3 border-t border-[var(--border)] pt-3 detail-section">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
-              <div><span class="text-[var(--muted-foreground)]">Formato:</span> <span class="font-medium">100% Remoto</span></div>
-              <div><span class="text-[var(--muted-foreground)]">Horário:</span> <span class="font-medium">30h/sem flexíveis</span></div>
-              <div><span class="text-[var(--muted-foreground)]">Bolsa:</span> <span class="font-medium text-emerald-500">Competitiva + Benefícios Flex</span></div>
-              <div><span class="text-[var(--muted-foreground)]">Etapa:</span> <span class="font-bold text-red-500">Painel & Dinâmica Kolab</span></div>
+        <div class="vaga-detail" id="detail-ifood">
+          <div class="vaga-detail-inner">
+            <div class="info-grid">
+              <div class="info-item"><span class="label">Formato:</span> <span class="value">100% Remoto</span></div>
+              <div class="info-item"><span class="label">Horário:</span> <span class="value">30h/sem flexíveis</span></div>
+              <div class="info-item"><span class="label">Bolsa:</span> <span class="value highlight">Competitiva + Benefícios Flex</span></div>
+              <div class="info-item"><span class="label">Etapa:</span> <span class="value highlight-red">Painel & Dinâmica Kolab</span></div>
             </div>
-            <div class="p-3 rounded-lg bg-[var(--background)] border border-[var(--border)] text-xs space-y-1.5">
-              <div class="font-semibold text-[var(--foreground)] text-[11px] uppercase tracking-wider">Cultura & fit iFood (J.i.T.)</div>
-              <ul class="text-[var(--muted-foreground)] space-y-0.5">
+
+            <div class="block block-dark">
+              <div class="block-title" style="color:var(--text-secondary);">Cultura & fit iFood (J.i.T.)</div>
+              <ul>
                 <li>• <strong>Mentalidade de Dono & Kung Fu:</strong> Velocidade, drible à burocracia e responsabilidade ponta a ponta.</li>
                 <li>• <strong>High Quality Agreement (HQA):</strong> Debate profundo e franco, decisão rápida e 100% remando juntos.</li>
                 <li>• <strong>AI First:</strong> No iFood, IA é dever de todos (9.000+ agentes, LCM proprietário e Toqan IA).</li>
                 <li>• <strong>All Together & Diversidade:</strong> 40%+ liderança feminina, empatia, escuta ativa e acolhimento no erro (*Care to Dare*).</li>
               </ul>
             </div>
-            <div class="p-3 rounded-lg bg-red-500/5 border border-red-500/20 text-xs">
-              <div class="font-semibold text-red-500 mb-1">🎯 Webcase Oficial: "Comer Fora / iFood Salão"</div>
-              <p class="text-[var(--muted-foreground)]"><strong>Framework em 4 Passos:</strong> 1) Diagnóstico das Dores (R$ 495 Bi TAM, 60% WhatsApp, 24% híbrido; gargalo da espera pela conta) ➔ 2) Priorização de Alavancas (Giro de Mesa e ociosidade) ➔ 3) Soluções de Impacto (Pagar na Mesa com cashback instantâneo, Toqan IA/LCM no cardápio e Clube Omnichannel) ➔ 4) Métricas e KPIs (GMV físico, giro por mesa, NPS e adoção).</p>
+
+            <div class="block block-accent" style="background:rgba(234,29,44,0.04);border-color:rgba(234,29,44,0.2);">
+              <div class="block-title" style="color:#f87171;">🎯 Webcase Oficial: "Comer Fora / iFood Salão"</div>
+              <p><strong>Framework em 4 Passos:</strong> 1) Diagnóstico das Dores (R$ 495 Bi TAM, 60% WhatsApp, 24% híbrido; gargalo da espera pela conta) ➔ 2) Priorização de Alavancas (Giro de Mesa e ociosidade) ➔ 3) Soluções de Impacto (Pagar na Mesa com cashback instantâneo, Toqan IA/LCM no cardápio e Clube Omnichannel) ➔ 4) Métricas e KPIs (GMV físico, giro por mesa, NPS e adoção).</p>
             </div>
-            <div class="p-3 rounded-lg bg-blue-500/5 border border-blue-500/20 text-xs">
-              <div class="flex items-center justify-between mb-1">
-                <span class="font-semibold text-blue-500">🗣️ Pitch de Apresentação (45s)</span>
-                <button onclick="copyText(this)" data-text="Sou a Melissa, estudante do 4º semestre de Administração na UFC. No Banco do Nordeste, atuo em Gestão de Pessoas em uma célula corporativa de apenas 3 pessoas para mais de 7 mil colaboradores em 11 estados — vivendo diariamente People Analytics no Excel, auditoria de 4.480 registros de benefícios e dossiês de DEI. Em paralelo, presidi o Dragão do Mar na UFC, coordenando 30+ voluntários com rituais ágeis e metas gamificadas no Notion. Me identifico muito com o ecossistema do iFood porque uno a mentalidade de dona com raciocínio analítico para resolver problemas que geram impacto real em escala — especialmente na premissa AI First que o Diego Barreto lidera." class="text-[10px] text-blue-400 hover:text-blue-300 underline">Copiar</button>
+
+            <div class="pitch-block">
+              <div class="pitch-header">
+                <span class="pitch-label">🗣️ Pitch de Apresentação (45s)</span>
+                <button class="copy-btn" onclick="copyText(this)" data-text="Sou a Melissa, estudante do 4º semestre de Administração na UFC. No Banco do Nordeste, atuo em Gestão de Pessoas em uma célula corporativa de apenas 3 pessoas para mais de 7 mil colaboradores em 11 estados — vivendo diariamente People Analytics no Excel, auditoria de 4.480 registros de benefícios e dossiês de DEI. Em paralelo, presidi o Dragão do Mar na UFC, coordenando 30+ voluntários com rituais ágeis e metas gamificadas no Notion. Me identifico muito com o ecossistema do iFood porque uno a mentalidade de dona com raciocínio analítico para resolver problemas que geram impacto real em escala — especialmente na premissa AI First que o Diego Barreto lidera.">Copiar</button>
               </div>
-              <p class="text-[var(--muted-foreground)] italic leading-relaxed">"Sou a Melissa, estudante do 4º semestre de Administração na UFC. No <strong>Banco do Nordeste</strong>, atuo em GP em uma célula de 3 pessoas para +7 mil colaboradores — vivendo People Analytics, conciliação de 4.480 cobranças e DEI em escala. Presidi o <strong>Dragão do Mar</strong> coordenando 30+ voluntários com rituais ágeis e metas no Notion. Uno mentalidade de dona com rigor analítico e foco em impacto real em escala."</p>
+              <p class="pitch-text">"Sou a Melissa, estudante do 4º semestre de Administração na UFC. No <strong>Banco do Nordeste</strong>, atuo em GP em uma célula de 3 pessoas para +7 mil colaboradores — vivendo People Analytics, conciliação de 4.480 cobranças e DEI em escala. Presidi o <strong>Dragão do Mar</strong> coordenando 30+ voluntários com rituais ágeis e metas no Notion. Uno mentalidade de dona com rigor analítico e foco em impacto real em escala."</p>
             </div>
-            <div class="text-xs text-[var(--muted-foreground)]">
-              <span class="font-semibold text-emerald-500">Perguntas de Alto Nível para a Banca:</span> 
+
+            <div class="ask-hint">
+              <strong>Perguntas de Alto Nível para a Banca:</strong> 
               "Com o plano de investimento de R$ 24 bilhões do iFood MOVE, qual é hoje o principal gargalo na expansão do Comer Fora nas mais de 50 cidades?" e "Como a área de vocês estimula o estagiário a equilibrar o uso de IA com julgamento humano crítico?"
             </div>
+
             <!-- Botões Diretos do Dossiê Estratégico & Manual -->
-            <div class="flex gap-2 pt-2 flex-wrap border-t border-[var(--border)]">
-              <a href="dossie_ifood.html" target="_blank" class="px-3 py-1.5 rounded-lg bg-[#ea1d2c] text-white font-bold text-xs hover:bg-[#d61725] transition-colors inline-flex items-center gap-1.5 shadow-sm">
-                🌐 Ver Dossiê Interativo Completo (5 Págs)
-              </a>
-              <a href="dossie_ifood.pdf" target="_blank" class="px-3 py-1.5 rounded-lg bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] font-semibold text-xs hover:bg-[var(--accent)] transition-colors inline-flex items-center gap-1.5">
-                📥 Baixar PDF Oficial (A4)
-              </a>
-              <a href="index.html#ifood-study" class="px-3 py-1.5 rounded-lg bg-red-500/10 text-red-500 border border-red-500/25 font-semibold text-xs hover:bg-red-500/20 transition-colors inline-flex items-center gap-1.5">
-                ⚡ Módulo de Treinamento & Flashcards
-              </a>
+            <div class="action-hub" style="background:rgba(234,29,44,0.04);border-color:rgba(234,29,44,0.2);">
+              <a href="dossie_ifood.html" target="_blank" class="action-btn" style="background:#ea1d2c;color:white;">🌐 Ver Dossiê Interativo Completo (5 Págs) ↗</a>
+              <a href="dossie_ifood.pdf" target="_blank" class="action-btn" style="background:var(--bg-elevated);color:var(--text-primary);border:1px solid var(--border);">📥 Baixar PDF Oficial (A4)</a>
+              <a href="index.html#ifood-study" class="action-btn" style="background:rgba(234,29,44,0.15);color:#f87171;border:1px solid rgba(234,29,44,0.3);">⚡ Módulo de Treinamento & Flashcards</a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 3. BATERIAS MOURA -->
-      <div class="card-vaga bg-[var(--card)] border border-[var(--border)] rounded-xl shadow-sm overflow-hidden" data-vaga="moura">
-        <button onclick="toggleVaga('moura')" class="w-full p-4 flex items-center justify-between gap-3 text-left">
-          <div class="flex items-center gap-3 min-w-0">
-            <div class="w-9 h-9 rounded-lg bg-[#003399] text-white flex items-center justify-center font-bold text-base shrink-0 shadow-sm">〽️</div>
-            <div class="min-w-0">
-              <div class="flex items-center gap-2 flex-wrap">
-                <h3 class="font-bold text-sm text-[var(--foreground)]">Baterias Moura</h3>
-                <span class="px-1.5 py-0.5 text-[10px] font-bold rounded bg-blue-600 text-white">FASE FINAL</span>
+      <!-- ──── 3. BATERIAS MOURA ──── -->
+      <div class="vaga-card" data-vaga="moura">
+        <button class="vaga-header" onclick="toggleVaga('moura')">
+          <div style="position:absolute;left:0;top:0;width:3px;height:100%;background:#3b82f6;border-radius:3px 0 0 3px;"></div>
+          <div class="vaga-left">
+            <div class="vaga-logo" style="background: #003399; font-size:0.85rem;">〽️</div>
+            <div class="vaga-meta">
+              <div class="vaga-title-row">
+                <span class="vaga-name">Baterias Moura</span>
+                <span class="vaga-stage" style="background:rgba(59,130,246,0.15);color:#60a5fa;">FASE FINAL</span>
               </div>
-              <div class="text-xs text-[var(--muted-foreground)]">Estágio Adm. Financeiro • Rua Edite Braga, 440 (Jardim América)</div>
+              <div class="vaga-sub">Estágio Adm. Financeiro • Rua Edite Braga, 440 (Jardim América)</div>
             </div>
           </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <span class="px-2 py-0.5 text-[10px] font-bold rounded-full bg-blue-500/10 text-blue-500 border border-blue-500/20">Qui 24/09 • 16h</span>
-            <svg class="chevron w-4 h-4 text-[var(--muted-foreground)]" id="chev-moura" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          <div class="vaga-right">
+            <span class="vaga-date" style="color:#60a5fa;">Qui 24/09 • 16h</span>
+            <svg class="vaga-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
           </div>
         </button>
-        <div class="collapse-content" id="detail-moura">
-          <div class="px-4 pb-4 space-y-3 border-t border-[var(--border)] pt-3 detail-section">
-            
+        <div class="vaga-detail" id="detail-moura">
+          <div class="vaga-detail-inner">
+
             <!-- Hub de Ações Rápidas Moura -->
-            <div class="flex items-center gap-2 flex-wrap p-2.5 rounded-xl bg-blue-500/10 border border-blue-500/20">
-              <a href="https://maps.google.com/?q=Rua+Edite+Braga+440+Fortaleza" target="_blank" class="px-3.5 py-1.5 rounded-lg bg-[#003399] hover:bg-[#002570] text-white font-bold text-xs shadow-sm transition inline-flex items-center gap-1.5">
-                <span>📍 Abrir Localização no Google Maps (Rua Edite Braga, 440)</span> ↗
-              </a>
-              <span class="text-xs text-blue-600 font-semibold">Bate-Papo: 1º Supervisora Soraia ➔ 2º Sócio da Unidade</span>
+            <div class="action-hub" style="background:rgba(59,130,246,0.04);border-color:rgba(59,130,246,0.2);">
+              <a href="https://maps.google.com/?q=Rua+Edite+Braga+440+Fortaleza" target="_blank" class="action-btn" style="background:#003399;color:white;">📍 Abrir Localização no Google Maps (Rua Edite Braga, 440) ↗</a>
+              <span style="font-size:0.72rem;color:#60a5fa;font-weight:600;padding:4px 0;">Bate-Papo: 1º Supervisora Soraia ➔ 2º Sócio da Unidade</span>
             </div>
 
             <!-- Dados Operacionais & Remuneração -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
-              <div><span class="text-[var(--muted-foreground)]">Formato:</span> <span class="font-medium">Presencial (Jardim América)</span></div>
-              <div><span class="text-[var(--muted-foreground)]">Horário:</span> <span class="font-medium">9h às 16h (6h/dia)</span></div>
-              <div><span class="text-[var(--muted-foreground)]">Remuneração:</span> <span class="font-medium text-emerald-500">R$ 1.150 + VR R$ 30/dia (~R$ 1.810 total)</span></div>
-              <div><span class="text-[var(--muted-foreground)]">Etapa:</span> <span class="font-medium text-blue-500 font-bold">Presencial Final (Soraia & Sócio)</span></div>
+            <div class="info-grid">
+              <div class="info-item"><span class="label">Formato:</span> <span class="value">Presencial (Jardim América)</span></div>
+              <div class="info-item"><span class="label">Horário:</span> <span class="value">9h às 16h (6h/dia)</span></div>
+              <div class="info-item"><span class="label">Remuneração:</span> <span class="value highlight">R$ 1.150 + VR R$ 30/dia (~R$ 1.810 total)</span></div>
+              <div class="info-item"><span class="label">Etapa:</span> <span class="value highlight-blue">Presencial Final (Soraia & Sócio)</span></div>
             </div>
 
-            <div class="p-3 rounded-lg bg-[var(--background)] border border-[var(--border)] text-xs space-y-1.5">
-              <div class="font-semibold text-[var(--foreground)] text-[11px] uppercase tracking-wider">Cultura & Fit (Jeito Moura)</div>
-              <ul class="text-[var(--muted-foreground)] space-y-0.5">
+            <div class="block block-dark">
+              <div class="block-title" style="color:var(--text-secondary);">Cultura & Fit (Jeito Moura)</div>
+              <ul>
                 <li>• <strong>Crença Central:</strong> "Fortalecimento de vínculos garante um futuro melhor"</li>
                 <li>• <strong>O Jeito Moura:</strong> Melhoria contínua, simplicidade com rigor, respeito e protagonismo</li>
                 <li>• <strong>Processos & POPs:</strong> Valorizam muito a execução precisa de Procedimentos Operacionais Padrão</li>
               </ul>
             </div>
 
-            <div class="p-3 rounded-lg bg-blue-500/5 border border-blue-500/20 text-xs">
-              <span class="font-semibold text-blue-500">🎯 Match Central:</span>
-              <span class="text-[var(--muted-foreground)]"> Auditoria mensal de faturamento no BNB (4.480 linhas com PROCV) = Backup em Faturamento e atuação com POPs.</span>
+            <div class="block block-accent" style="background:rgba(59,130,246,0.04);border-color:rgba(59,130,246,0.15);">
+              <div class="block-title" style="color:#60a5fa;">🎯 Match Central:</div>
+              <p>Auditoria mensal de faturamento no BNB (4.480 linhas com PROCV) = Backup em Faturamento e atuação com POPs.</p>
             </div>
 
             <!-- Pitch Pessoal Calibrado -->
-            <div class="p-3 rounded-lg bg-blue-500/5 border border-blue-500/20 text-xs">
-              <div class="flex items-center justify-between mb-1">
-                <span class="font-semibold text-blue-500">🗣️ Seu Pitch Pessoal (19 Anos)</span>
-                <button onclick="copyText(this)" data-text="Olá! Muito prazer. Sou a Melissa Almeida, tenho 19 anos e estou no 4º semestre de Administração na UFC, no turno da noite — o que me dá disponibilidade integral para a jornada das 9h às 16h e mais de dois anos disponíveis para estagiar. No Banco do Nordeste, atuo na área corporativa lidando diretamente com as rotinas que a vaga de vocês exige: trabalho com conciliação analítica no Excel conferindo mensalmente quase 4.500 cobranças de faturamento com PROCV para garantir zero inconsistência financeira, além de atuar diariamente com base em POPs e relatórios. Também realizo atendimento a clientes internos e fornecedores, presido o Dragão do Mar na UFC liderando mais de 30 voluntários com processos no Notion e estudo finanças no Ceará Finance. Me identifico muito com a cultura da Moura de melhoria contínua e fortalecimento de vínculos, e estou super motivada para somar no time administrativo-financeiro da unidade!" class="text-[10px] text-blue-400 hover:text-blue-300 underline">Copiar Pitch</button>
+            <div class="pitch-block">
+              <div class="pitch-header">
+                <span class="pitch-label">🗣️ Seu Pitch Pessoal (19 Anos)</span>
+                <button class="copy-btn" onclick="copyText(this)" data-text="Olá! Muito prazer. Sou a Melissa Almeida, tenho 19 anos e estou no 4º semestre de Administração na UFC, no turno da noite — o que me dá disponibilidade integral para a jornada das 9h às 16h e mais de dois anos disponíveis para estagiar. No Banco do Nordeste, atuo na área corporativa lidando diretamente com as rotinas que a vaga de vocês exige: trabalho com conciliação analítica no Excel conferindo mensalmente quase 4.500 cobranças de faturamento com PROCV para garantir zero inconsistência financeira, além de atuar diariamente com base em POPs e relatórios. Também realizo atendimento a clientes internos e fornecedores, presido o Dragão do Mar na UFC liderando mais de 30 voluntários com processos no Notion e estudo finanças no Ceará Finance. Me identifico muito com a cultura da Moura de melhoria contínua e fortalecimento de vínculos, e estou super motivada para somar no time administrativo-financeiro da unidade!">Copiar Pitch</button>
               </div>
-              <p class="text-[var(--muted-foreground)] italic leading-relaxed">"Olá! Muito prazer. Sou a Melissa Almeida, tenho 19 anos e estou no 4º semestre de Administração na UFC, no turno da noite — com total disponibilidade diurna (9h às 16h) e mais de dois anos disponíveis para estagiar. No Banco do Nordeste, trabalho com conciliação analítica no Excel conferindo mensalmente quase 4.500 cobranças de faturamento com PROCV, além de atuar diariamente com base em POPs e relatórios. Presido o Dragão do Mar liderando 30+ voluntários no Notion e estudo finanças no Ceará Finance. Estou super motivada para somar no time administrativo-financeiro e crescer na Moura!"</p>
+              <p class="pitch-text">"Olá! Muito prazer. Sou a Melissa Almeida, tenho 19 anos e estou no 4º semestre de Administração na UFC, no turno da noite — com total disponibilidade diurna (9h às 16h) e mais de dois anos disponíveis para estagiar. No Banco do Nordeste, trabalho com conciliação analítica no Excel conferindo mensalmente quase 4.500 cobranças de faturamento com PROCV, além de atuar diariamente com base em POPs e relatórios. Presido o Dragão do Mar liderando 30+ voluntários no Notion e estudo finanças no Ceará Finance. Estou super motivada para somar no time administrativo-financeiro e crescer na Moura!"</p>
             </div>
 
             <!-- Q&A Separado: Soraia e Sócio -->
-            <div class="space-y-1.5">
-              <div class="font-semibold text-[11px] uppercase tracking-wider text-[var(--muted-foreground)]">Roteiro Tático para a Entrevista</div>
-              <details class="text-xs group"><summary class="cursor-pointer font-medium text-[var(--foreground)] hover:text-blue-500 py-1">👩‍💼 Com a Supervisora Soraia: Experiência com Excel, faturamento e POPs?</summary><p class="pl-3 pb-2 text-[var(--muted-foreground)] border-l-2 border-blue-500/20 ml-1">No BNB faço a conciliação analítica mensal de 4.480 linhas de cobrança do Wellhub via PROCV e fórmulas lógicas, cruzando CPF e matrícula para validar antes da ordem de pagamento. Também redigi o manual operacional (POP) de contratações e eventos corporativos.</p></details>
-              <details class="text-xs group"><summary class="cursor-pointer font-medium text-[var(--foreground)] hover:text-blue-500 py-1">👨‍💼 Com o Sócio: Por que sair do Banco do Nordeste para estagiar na Moura?</summary><p class="pl-3 pb-2 text-[var(--muted-foreground)] border-l-2 border-blue-500/20 ml-1">No BNB tive um aprendizado corporativo valioso, mas por ser um banco público regido por concurso, não existe perspectiva legal de efetivação. Meu objetivo é construir uma carreira sólida no setor privado em uma empresa líder como a Moura, onde meu desempenho, senso de dona e rigor me permitam crescer e ser efetivada.</p></details>
+            <div class="qa-section">
+              <div class="qa-title">Roteiro Tático para a Entrevista</div>
+              <details class="qa-item"><summary>👩‍💼 Com a Supervisora Soraia: Experiência com Excel, faturamento e POPs?</summary><div class="qa-answer">No BNB faço a conciliação analítica mensal de 4.480 linhas de cobrança do Wellhub via PROCV e fórmulas lógicas, cruzando CPF e matrícula para validar antes da ordem de pagamento. Também redigi o manual operacional (POP) de contratações e eventos corporativos.</div></details>
+              <details class="qa-item"><summary>👨‍💼 Com o Sócio: Por que sair do Banco do Nordeste para estagiar na Moura?</summary><div class="qa-answer">No BNB tive um aprendizado corporativo valioso, mas por ser um banco público regido por concurso, não existe perspectiva legal de efetivação. Meu objetivo é construir uma carreira sólida no setor privado em uma empresa líder como a Moura, onde meu desempenho, senso de dona e rigor me permitam crescer e ser efetivada.</div></details>
             </div>
 
             <!-- Perguntas para Você Fazer -->
-            <div class="text-xs text-[var(--muted-foreground)] space-y-1 border-t border-[var(--border)] pt-2">
-              <div><span class="font-semibold text-emerald-500">Para Soraia:</span> "Qual processo ou rotina consome mais o seu tempo hoje e que você espera que o estagiário assuma rapidamente para desafogar sua rotina?"</div>
-              <div><span class="font-semibold text-emerald-500">Para o Sócio:</span> "O que diferencia, na sua visão de liderança, um estagiário comum de alguém que realmente se destaca, cresce e é efetivado na Rede Moura?"</div>
+            <div class="ask-hint" style="border-top:1px solid var(--border-subtle);padding-top:8px;">
+              <div><strong>Para Soraia:</strong> "Qual processo ou rotina consome mais o seu tempo hoje e que você espera que o estagiário assuma rapidamente para desafogar sua rotina?"</div>
+              <div style="margin-top:4px;"><strong>Para o Sócio:</strong> "O que diferencia, na sua visão de liderança, um estagiário comum de alguém que realmente se destaca, cresce e é efetivado na Rede Moura?"</div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 4. PWR GESTÃO -->
-      <div class="card-vaga bg-[var(--card)] border border-[var(--border)] rounded-xl shadow-sm overflow-hidden" data-vaga="pwr">
-        <button onclick="toggleVaga('pwr')" class="w-full p-4 flex items-center justify-between gap-3 text-left">
-          <div class="flex items-center gap-3 min-w-0">
-            <div class="w-9 h-9 rounded-lg bg-[#1e293b] text-amber-400 flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">PWR</div>
-            <div class="min-w-0">
-              <h3 class="font-bold text-sm text-[var(--foreground)]">PWR Gestão</h3>
-              <div class="text-xs text-[var(--muted-foreground)]">Trainee em Consultoria de Gestão • Fortaleza (40h)</div>
+      <!-- ──── 4. PWR GESTÃO ──── -->
+      <div class="vaga-card" data-vaga="pwr">
+        <button class="vaga-header" onclick="toggleVaga('pwr')">
+          <div style="position:absolute;left:0;top:0;width:3px;height:100%;background:#f59e0b;border-radius:3px 0 0 3px;"></div>
+          <div class="vaga-left">
+            <div class="vaga-logo" style="background: #1e293b; color: #fbbf24;">PWR</div>
+            <div class="vaga-meta">
+              <div class="vaga-title-row">
+                <span class="vaga-name">PWR Gestão</span>
+                <span class="vaga-stage" style="background:rgba(245,158,11,0.15);color:#fbbf24;">BATE-PAPO RH 💬</span>
+              </div>
+              <div class="vaga-sub">Trainee em Consultoria de Gestão • Fortaleza (40h)</div>
             </div>
           </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <span class="hidden sm:inline px-2 py-0.5 text-[10px] font-semibold rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 font-bold">Bate-papo RH 💬</span>
-            <svg class="chevron w-4 h-4 text-[var(--muted-foreground)]" id="chev-pwr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          <div class="vaga-right">
+            <span class="vaga-date" style="color:#fbbf24;">Agendando (Trainee)</span>
+            <svg class="vaga-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
           </div>
         </button>
-        <div class="collapse-content" id="detail-pwr">
-          <div class="px-4 pb-4 space-y-3 border-t border-[var(--border)] pt-3 detail-section">
-            
+        <div class="vaga-detail" id="detail-pwr">
+          <div class="vaga-detail-inner">
+
             <!-- Ações Rápidas PWR -->
-            <div class="flex items-center gap-2 flex-wrap p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20">
-              <a href="02_CURRICULO_CAMALEAO/CURRICULOS_POR_VAGA/2026-09_PWR_GESTAO_TRAINEE.pdf" target="_blank" class="px-3.5 py-1.5 rounded-lg bg-[#1e293b] hover:bg-[#334155] text-amber-400 font-bold text-xs shadow-sm transition inline-flex items-center gap-1.5">
-                <span>📄 Ver Currículo Trainee Enviado</span> ↗
-              </a>
-              <span class="text-xs text-amber-600 font-medium px-2 py-0.5">💬 Contato WhatsApp recebido (Thaís Andrade - 23/09)</span>
+            <div class="action-hub" style="background:rgba(245,158,11,0.04);border-color:rgba(245,158,11,0.2);">
+              <a href="02_CURRICULO_CAMALEAO/CURRICULOS_POR_VAGA/2026-09_PWR_GESTAO_TRAINEE.pdf" target="_blank" class="action-btn" style="background:#1e293b;color:#fbbf24;"><span>📄 Ver Currículo Trainee Enviado</span> ↗</a>
+              <span style="font-size:0.72rem;color:#fbbf24;font-weight:600;padding:4px 0;">💬 Contato WhatsApp recebido (Thaís Andrade - 23/09)</span>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
-              <div><span class="text-[var(--muted-foreground)]">Formato:</span> <span class="font-medium">Presencial (Fortaleza)</span></div>
-              <div><span class="text-[var(--muted-foreground)]">Horário:</span> <span class="font-medium text-emerald-500 font-bold">40h/sem (Integral Diurno)</span></div>
-              <div><span class="text-[var(--muted-foreground)]">Vaga Alvo:</span> <span class="font-medium text-amber-500 font-bold">Trainee / Gestão</span></div>
-              <div><span class="text-[var(--muted-foreground)]">Etapa:</span> <span class="font-medium text-emerald-500 font-bold">Bate-papo Online RH</span></div>
+            <div class="info-grid">
+              <div class="info-item"><span class="label">Formato:</span> <span class="value">Presencial (Fortaleza)</span></div>
+              <div class="info-item"><span class="label">Horário:</span> <span class="value highlight">40h/sem (Integral Diurno)</span></div>
+              <div class="info-item"><span class="label">Vaga Alvo:</span> <span class="value highlight-amber">Trainee / Gestão</span></div>
+              <div class="info-item"><span class="label">Etapa:</span> <span class="value highlight">Bate-papo Online RH</span></div>
             </div>
 
             <!-- Alinhamento Estratégico WhatsApp -->
-            <div class="p-3 rounded-lg bg-emerald-500/5 border border-emerald-500/20 text-xs">
-              <div class="font-semibold text-emerald-600 mb-1">🎯 Ponto Crítico de Alinhamento: Trainee vs Estágio</div>
-              <p class="text-[var(--muted-foreground)] leading-relaxed">Contato inicial de Thaís Andrade mencionou estágio. Como a graduação na UFC é noturna e o período comercial diurno está 100% livre (40h semanais), o objetivo é alinhar o bate-papo para a trilha de <strong>Trainee em Consultoria de Gestão</strong> por já estar adiantada no curso (>50%) e com plena dedicação executiva.</p>
+            <div class="block block-accent" style="background:rgba(16,185,129,0.04);border-color:rgba(16,185,129,0.2);">
+              <div class="block-title" style="color:#34d399;">🎯 Ponto Crítico de Alinhamento: Trainee vs Estágio</div>
+              <p>Contato inicial de Thaís Andrade mencionou estágio. Como a graduação na UFC é noturna e o período comercial diurno está 100% livre (40h semanais), o objetivo é alinhar o bate-papo para a trilha de <strong>Trainee em Consultoria de Gestão</strong> por já estar adiantada no curso (>50%) e com plena dedicação executiva.</p>
             </div>
 
-            <div class="p-3 rounded-lg bg-[var(--background)] border border-[var(--border)] text-xs">
-              <span class="font-semibold text-[var(--foreground)]">Cultura:</span>
-              <span class="text-[var(--muted-foreground)]"> "O time que nunca para" — metas arrojadas, meritocracia, empreendedorismo, ritmo intenso.</span>
+            <div class="block block-dark">
+              <div class="block-title" style="color:var(--text-secondary);">Cultura:</div>
+              <p>"O time que nunca para" — metas arrojadas, meritocracia, empreendedorismo, ritmo intenso.</p>
             </div>
-            <div class="p-3 rounded-lg bg-blue-500/5 border border-blue-500/20 text-xs">
-              <span class="font-semibold text-blue-500">🎯 Match Cirúrgico:</span>
-              <span class="text-[var(--muted-foreground)]"> Liderança Dragão do Mar (sprints + Notion + rituais quinzenais) + Célula enxuta BNB (+7k colaboradores) + Rigor analítico/DRE no Ceará Finance.</span>
+
+            <div class="block block-accent" style="background:rgba(59,130,246,0.04);border-color:rgba(59,130,246,0.2);">
+              <div class="block-title" style="color:#60a5fa;">🎯 Match Cirúrgico:</div>
+              <p>Liderança Dragão do Mar (sprints + Notion + rituais quinzenais) + Célula enxuta BNB (+7k colaboradores) + Rigor analítico/DRE no Ceará Finance.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 5. VERITAS -->
-      <div class="card-vaga bg-[var(--card)] border border-[var(--border)] rounded-xl shadow-sm overflow-hidden" data-vaga="veritas">
-        <button onclick="toggleVaga('veritas')" class="w-full p-4 flex items-center justify-between gap-3 text-left">
-          <div class="flex items-center gap-3 min-w-0">
-            <div class="w-9 h-9 rounded-lg bg-purple-700 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">VER</div>
-            <div class="min-w-0">
-              <h3 class="font-bold text-sm text-[var(--foreground)]">Veritas</h3>
-              <div class="text-xs text-[var(--muted-foreground)]">Estágio em Gestão de Pessoas • Fortaleza</div>
+      <!-- ──── 5. VERITAS ──── -->
+      <div class="vaga-card" data-vaga="veritas">
+        <button class="vaga-header" onclick="toggleVaga('veritas')">
+          <div style="position:absolute;left:0;top:0;width:3px;height:100%;background:#8b5cf6;border-radius:3px 0 0 3px;"></div>
+          <div class="vaga-left">
+            <div class="vaga-logo" style="background: #7c3aed;">VER</div>
+            <div class="vaga-meta">
+              <div class="vaga-title-row">
+                <span class="vaga-name">Veritas</span>
+                <span class="vaga-stage" style="background:rgba(139,92,246,0.15);color:#a78bfa;">TRIAGEM</span>
+              </div>
+              <div class="vaga-sub">Estágio em Gestão de Pessoas • Fortaleza</div>
             </div>
           </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <span class="hidden sm:inline px-2 py-0.5 text-[10px] font-semibold rounded-full bg-purple-500/10 text-purple-500">Triagem</span>
-            <svg class="chevron w-4 h-4 text-[var(--muted-foreground)]" id="chev-veritas" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          <div class="vaga-right">
+            <span class="vaga-date" style="color:#a78bfa;">Triagem</span>
+            <svg class="vaga-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
           </div>
         </button>
-        <div class="collapse-content" id="detail-veritas">
-          <div class="px-4 pb-4 space-y-3 border-t border-[var(--border)] pt-3 detail-section">
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-xs">
-              <div><span class="text-[var(--muted-foreground)]">Formato:</span> <span class="font-medium">Presencial/Híbrido</span></div>
-              <div><span class="text-[var(--muted-foreground)]">Remuneração:</span> <span class="font-medium text-emerald-500">Bolsa + VT + VR</span></div>
-              <div><span class="text-[var(--muted-foreground)]">Etapa:</span> <span class="font-medium text-purple-500">Triagem Curricular</span></div>
+        <div class="vaga-detail" id="detail-veritas">
+          <div class="vaga-detail-inner">
+            <div class="info-grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));">
+              <div class="info-item"><span class="label">Formato:</span> <span class="value">Presencial/Híbrido</span></div>
+              <div class="info-item"><span class="label">Remuneração:</span> <span class="value highlight">Bolsa + VT + VR</span></div>
+              <div class="info-item"><span class="label">Etapa:</span> <span class="value" style="color:#a78bfa;">Triagem Curricular</span></div>
             </div>
-            <div class="p-3 rounded-lg bg-blue-500/5 border border-blue-500/20 text-xs">
-              <span class="font-semibold text-blue-500">🎯 Match:</span>
-              <span class="text-[var(--muted-foreground)]"> Quase 1 ano em Gestão de Pessoas no BNB: DEI, qualidade de vida, benefícios para 7k colaboradores.</span>
+            <div class="block block-accent" style="background:rgba(59,130,246,0.04);border-color:rgba(59,130,246,0.2);">
+              <div class="block-title" style="color:#60a5fa;">🎯 Match:</div>
+              <p>Quase 1 ano em Gestão de Pessoas no BNB: DEI, qualidade de vida, benefícios para 7k colaboradores.</p>
             </div>
           </div>
         </div>
       </div>
-
     </div>
 
-    <!-- ARSENAL STAR (colapsável) -->
-    <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl shadow-sm overflow-hidden">
-      <button onclick="toggleSection('star-section')" class="w-full p-4 flex items-center justify-between text-left">
+    <!-- ═══ ARSENAL STAR ═══ -->
+    <div class="section-card" id="sec-star">
+      <button class="section-header" onclick="toggleSection('star')">
         <div>
-          <h2 class="font-bold text-sm text-[var(--foreground)]">⭐ Histórias STAR</h2>
-          <p class="text-[10px] text-[var(--muted-foreground)]">4 histórias comprovadas para citar nas entrevistas</p>
+          <div class="section-title">⭐ Histórias STAR</div>
+          <div class="section-subtitle">4 histórias comprovadas para citar nas entrevistas</div>
         </div>
-        <svg class="chevron w-4 h-4 text-[var(--muted-foreground)]" id="chev-star-section" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        <svg class="vaga-chevron" id="chev-sec-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
       </button>
-      <div class="collapse-content" id="star-section">
-        <div class="px-4 pb-4 space-y-2 border-t border-[var(--border)] pt-3">
-          <details class="text-xs p-3 rounded-lg bg-blue-500/5 border border-blue-500/20">
-            <summary class="cursor-pointer font-semibold text-[var(--foreground)]">Auditoria de 4.480 Cobranças do Wellhub <span class="text-blue-400 font-normal">— BNB</span></summary>
-            <div class="mt-2 text-[var(--muted-foreground)] leading-relaxed pl-2 border-l-2 border-blue-500/20">
+      <div class="section-detail" id="detail-sec-star">
+        <div class="section-inner">
+          <details class="star-item" style="background:rgba(59,130,246,0.04);border-color:rgba(59,130,246,0.2);">
+            <summary>Auditoria de 4.480 Cobranças do Wellhub <span class="star-origin" style="color:#60a5fa;">— BNB</span></summary>
+            <div class="star-body" style="border-color:rgba(59,130,246,0.2);">
               <strong>S:</strong> Conciliação mensal de benefício corporativo em múltiplos estados.<br>
               <strong>T:</strong> Auditar 4.480 cobranças antes do faturamento contábil.<br>
               <strong>A:</strong> Modelagem no Excel com PROCV cruzando CPF e matrícula.<br>
               <strong>R:</strong> 4.475 validadas, zero cobrança indevida, modelo adotado como padrão.<br>
-              <span class="text-blue-400 text-[10px]">👉 Para: Moura (Faturamento) • PWR Gestão • MdP</span>
+              <span class="star-match" style="color:#60a5fa;">👉 Para: Moura (Faturamento) • PWR Gestão • MdP</span>
             </div>
           </details>
-          <details class="text-xs p-3 rounded-lg bg-purple-500/5 border border-purple-500/20">
-            <summary class="cursor-pointer font-semibold text-[var(--foreground)]">Reestruturação e Gestão Gamificada <span class="text-purple-400 font-normal">— Dragão do Mar</span></summary>
-            <div class="mt-2 text-[var(--muted-foreground)] leading-relaxed pl-2 border-l-2 border-purple-500/20">
+          <details class="star-item" style="background:rgba(139,92,246,0.04);border-color:rgba(139,92,246,0.2);">
+            <summary>Reestruturação e Gestão Gamificada <span class="star-origin" style="color:#a78bfa;">— Dragão do Mar</span></summary>
+            <div class="star-body" style="border-color:rgba(139,92,246,0.2);">
               <strong>S:</strong> Evasão de voluntários e desorganização de cronogramas.<br>
               <strong>T:</strong> Liderar 30+ voluntários e reestruturar a operação.<br>
               <strong>A:</strong> Sprints no Notion com metas quinzenais e gamificação.<br>
               <strong>R:</strong> +70% adesão, conferências com 100+ inscritos, captação de patrocínios.<br>
-              <span class="text-purple-400 text-[10px]">👉 Para: iFood (Dono/Inovação) • PWR • MdP</span>
+              <span class="star-match" style="color:#a78bfa;">👉 Para: iFood (Dono/Inovação) • PWR • MdP</span>
             </div>
           </details>
-          <details class="text-xs p-3 rounded-lg bg-emerald-500/5 border border-emerald-500/20">
-            <summary class="cursor-pointer font-semibold text-[var(--foreground)]">Célula de 3 para 7.000 Colaboradores <span class="text-emerald-400 font-normal">— BNB</span></summary>
-            <div class="mt-2 text-[var(--muted-foreground)] leading-relaxed pl-2 border-l-2 border-emerald-500/20">
+          <details class="star-item" style="background:rgba(16,185,129,0.04);border-color:rgba(16,185,129,0.2);">
+            <summary>Célula de 3 para 7.000 Colaboradores <span class="star-origin" style="color:#34d399;">— BNB</span></summary>
+            <div class="star-body" style="border-color:rgba(16,185,129,0.2);">
               <strong>S:</strong> Volume massivo de demandas de qualidade de vida e diversidade.<br>
               <strong>T:</strong> Centralizar atendimento, logística para 110 unidades e eventos.<br>
               <strong>A:</strong> Manual institucional + esteira de triagem por prioridades.<br>
               <strong>R:</strong> 100% atendido no prazo, padronização permanente.<br>
-              <span class="text-emerald-400 text-[10px]">👉 Para: Moura (Atendimento) • Veritas</span>
+              <span class="star-match" style="color:#34d399;">👉 Para: Moura (Atendimento) • Veritas</span>
             </div>
           </details>
-          <details class="text-xs p-3 rounded-lg bg-amber-500/5 border border-amber-500/20">
-            <summary class="cursor-pointer font-semibold text-[var(--foreground)]">Análise de Balanços e Relações Externas <span class="text-amber-400 font-normal">— Ceará Finance / UFC</span></summary>
-            <div class="mt-2 text-[var(--muted-foreground)] leading-relaxed pl-2 border-l-2 border-amber-500/20">
+          <details class="star-item" style="background:rgba(245,158,11,0.04);border-color:rgba(245,158,11,0.2);">
+            <summary>Análise de Balanços e Relações Externas <span class="star-origin" style="color:#fbbf24;">— Ceará Finance / UFC</span></summary>
+            <div class="star-body" style="border-color:rgba(245,158,11,0.2);">
               <strong>S:</strong> Necessidade de aprofundamento técnico em demonstrativos contábeis.<br>
               <strong>T:</strong> Analisar DRE, EBITDA, Fluxo de Caixa e articular parcerias.<br>
               <strong>A:</strong> Leitura sistemática de relatórios da B3 e organização de eventos.<br>
               <strong>R:</strong> Domínio prático de finanças corporativas aplicado ao raciocínio analítico.<br>
-              <span class="text-amber-400 text-[10px]">👉 Para: Moura (Financeiro) • MdP</span>
+              <span class="star-match" style="color:#fbbf24;">👉 Para: Moura (Financeiro) • MdP</span>
             </div>
           </details>
         </div>
       </div>
     </div>
 
-    <!-- PERGUNTAS DIFÍCEIS (colapsável) -->
-    <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl shadow-sm overflow-hidden">
-      <button onclick="toggleSection('perguntas-section')" class="w-full p-4 flex items-center justify-between text-left">
+    <!-- ═══ PERGUNTAS DIFÍCEIS ═══ -->
+    <div class="section-card" id="sec-perguntas">
+      <button class="section-header" onclick="toggleSection('perguntas')">
         <div>
-          <h2 class="font-bold text-sm text-[var(--foreground)]">🎯 Respostas Blindadas</h2>
-          <p class="text-[10px] text-[var(--muted-foreground)]">Para as perguntas mais temidas dos recrutadores</p>
+          <div class="section-title">🎯 Respostas Blindadas</div>
+          <div class="section-subtitle">Para as perguntas mais temidas dos recrutadores</div>
         </div>
-        <svg class="chevron w-4 h-4 text-[var(--muted-foreground)]" id="chev-perguntas-section" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        <svg class="vaga-chevron" id="chev-sec-perguntas" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
       </button>
-      <div class="collapse-content" id="perguntas-section">
-        <div class="px-4 pb-4 space-y-2 border-t border-[var(--border)] pt-3">
-          <details class="text-xs p-3 rounded-lg bg-[var(--background)] border border-[var(--border)]">
-            <summary class="cursor-pointer font-semibold text-red-400">"Por que quer sair do BNB para estagiar aqui?"</summary>
-            <p class="mt-2 text-[var(--muted-foreground)] italic leading-relaxed pl-2 border-l-2 border-red-500/20">"Gosto da experiência no BNB pelo volume de aprendizado e contato com dados corporativos, mas por ser banco público regido por concurso, não existe perspectiva de efetivação. Meu objetivo é construir carreira no setor privado onde meu desempenho e senso de dono me permitam crescer e gerar impacto duradouro."</p>
+      <div class="section-detail" id="detail-sec-perguntas">
+        <div class="section-inner">
+          <details class="difficult-item">
+            <summary style="color:#f87171;">"Por que quer sair do BNB para estagiar aqui?"</summary>
+            <div class="difficult-answer" style="border-color:rgba(239,68,68,0.2);">"Gosto da experiência no BNB pelo volume de aprendizado e contato com dados corporativos, mas por ser banco público regido por concurso, não existe perspectiva de efetivação. Meu objetivo é construir carreira no setor privado onde meu desempenho e senso de dono me permitam crescer e gerar impacto duradouro."</div>
           </details>
-          <details class="text-xs p-3 rounded-lg bg-[var(--background)] border border-[var(--border)]">
-            <summary class="cursor-pointer font-semibold text-amber-400">"Qual seu maior ponto a desenvolver?"</summary>
-            <p class="mt-2 text-[var(--muted-foreground)] italic leading-relaxed pl-2 border-l-2 border-amber-500/20">"No passado tendia a centralizar tarefas. No Dragão do Mar, liderando 30+ pessoas, aprendi a delegar com clareza via sprints no Notion, acompanhando indicadores sem precisar centralizar a operação."</p>
+          <details class="difficult-item">
+            <summary style="color:#fbbf24;">"Qual seu maior ponto a desenvolver?"</summary>
+            <div class="difficult-answer" style="border-color:rgba(245,158,11,0.2);">"No passado tendia a centralizar tarefas. No Dragão do Mar, liderando 30+ pessoas, aprendi a delegar com clareza via sprints no Notion, acompanhando indicadores sem precisar centralizar a operação."</div>
           </details>
-          <details class="text-xs p-3 rounded-lg bg-[var(--background)] border border-[var(--border)]">
-            <summary class="cursor-pointer font-semibold text-blue-400">"Como concilia UFC, estágio e liderança do projeto?"</summary>
-            <p class="mt-2 text-[var(--muted-foreground)] italic leading-relaxed pl-2 border-l-2 border-blue-500/20">"UFC noturno (a partir das 18h), período diurno 100% livre para o estágio. Gestão de tempo por blocos de agenda e rituais quinzenais = foco total e dedicação exclusiva durante o expediente."</p>
+          <details class="difficult-item">
+            <summary style="color:#60a5fa;">"Como concilia UFC, estágio e liderança do projeto?"</summary>
+            <div class="difficult-answer" style="border-color:rgba(59,130,246,0.2);">"UFC noturno (a partir das 18h), período diurno 100% livre para o estágio. Gestão de tempo por blocos de agenda e rituais quinzenais = foco total e dedicação exclusiva durante o expediente."</div>
           </details>
         </div>
       </div>
@@ -486,38 +968,67 @@
 
   </div>
 
+  <!-- ═══ JAVASCRIPT ═══ -->
   <script>
+    // ── Countdown Timer ──
+    function updateCountdown() {
+      // Target: Qui 24/09/2026 às 09:30 (Brasília = UTC-3)
+      const target = new Date('2026-09-24T09:30:00-03:00');
+      const now = new Date();
+      const diff = target - now;
+
+      if (diff <= 0) {
+        document.getElementById('cd-h').textContent = '00';
+        document.getElementById('cd-m').textContent = '00';
+        document.getElementById('cd-s').textContent = '00';
+        return;
+      }
+
+      const h = Math.floor(diff / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+
+      document.getElementById('cd-h').textContent = String(h).padStart(2, '0');
+      document.getElementById('cd-m').textContent = String(m).padStart(2, '0');
+      document.getElementById('cd-s').textContent = String(s).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // ── Accordion (vagas) ──
     function toggleVaga(id) {
-      const detail = document.getElementById(`detail-${id}`);
-      const chev = document.getElementById(`chev-${id}`);
-      const isOpen = detail.classList.contains('open');
-      
+      const card = document.querySelector(`[data-vaga="${id}"]`);
+      const wasOpen = card.classList.contains('open');
+
       // Close all
-      document.querySelectorAll('.collapse-content').forEach(el => { el.classList.remove('open'); });
-      document.querySelectorAll('.chevron').forEach(el => { el.classList.remove('rotated'); });
-      document.querySelectorAll('.card-vaga').forEach(el => { el.classList.remove('selected'); });
-      
+      document.querySelectorAll('.vaga-card').forEach(c => c.classList.remove('open'));
+
       // Toggle clicked
-      if (!isOpen) {
-        detail.classList.add('open');
-        chev.classList.add('rotated');
-        detail.closest('.card-vaga')?.classList.add('selected');
+      if (!wasOpen) {
+        card.classList.add('open');
       }
     }
 
+    // ── Accordion (sections) ──
     function toggleSection(id) {
-      const section = document.getElementById(id);
-      const chev = document.getElementById(`chev-${id}`);
-      section.classList.toggle('open');
-      chev.classList.toggle('rotated');
+      const card = document.getElementById(`sec-${id}`);
+      card.classList.toggle('open');
     }
 
+    // ── Copy to clipboard ──
     function copyText(btn) {
       const text = btn.getAttribute('data-text');
       navigator.clipboard.writeText(text).then(() => {
         const original = btn.textContent;
         btn.textContent = '✓ Copiado';
-        setTimeout(() => { btn.textContent = original; }, 1500);
+        btn.style.color = '#34d399';
+        btn.style.borderColor = 'rgba(16,185,129,0.3)';
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.style.color = '';
+          btn.style.borderColor = '';
+        }, 1800);
       });
     }
   </script>
