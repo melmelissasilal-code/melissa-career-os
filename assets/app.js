@@ -168,10 +168,19 @@ async function loadData() {
 function setupTabs() {
   document.querySelectorAll(".nav-btn[data-tab]").forEach(btn => {
     btn.addEventListener("click", () => {
+      const target = btn.getAttribute("data-tab");
+      
+      // Proteção de abas restritas (Sala de Guerra e Estudo iFood)
+      if ((target === "warroom" || target === "ifood-study") && (!window.CareerAuth || !window.CareerAuth.isAuthenticated)) {
+        if (window.CareerAuth && window.CareerAuth.openLoginModal) {
+          window.CareerAuth.openLoginModal();
+        }
+        return;
+      }
+
       document.querySelectorAll(".nav-btn[data-tab]").forEach(b => b.classList.remove("active"));
       document.querySelectorAll(".tab-pane").forEach(p => p.classList.remove("active"));
       btn.classList.add("active");
-      const target = btn.getAttribute("data-tab");
       const pane = document.getElementById(target);
       if (pane) pane.classList.add("active");
     });

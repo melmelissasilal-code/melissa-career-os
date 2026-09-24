@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
   <title>Cockpit de Vagas — Melissa Carrer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +21,7 @@
       --border-subtle: #162032;
       --text-primary: #f1f5f9;
       --text-secondary: #94a3b8;
-      --text-muted: #64748b;
+      --text-muted: #94a3b8;
       --accent-blue: #3b82f6;
       --accent-green: #10b981;
       --accent-red: #ef4444;
@@ -477,26 +478,207 @@
       padding-left: 10px; border-left: 2px solid;
     }
 
+    /* ── Lock Screen Overlay ── */
+    .lock-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 15, 23, 0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .lock-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 30px;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      animation: lockFade 0.25s ease-out;
+    }
+    @keyframes lockFade {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .lock-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(37, 99, 235, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      margin: 0 auto 16px;
+    }
+    .lock-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .lock-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .lock-input-wrap {
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .lock-input {
+      width: 100%;
+      padding: 12px 42px 12px 16px;
+      background: var(--bg-base);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-size: 1.15rem;
+      text-align: center;
+      letter-spacing: 0.15em;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .lock-input:focus {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+    .lock-eye-btn {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      padding: 4px;
+    }
+    .lock-error {
+      color: var(--accent-red);
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      min-height: 1.2rem;
+    }
+    .lock-btn {
+      width: 100%;
+      padding: 12px;
+      background: var(--accent-blue);
+      color: #ffffff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: filter 0.15s ease, transform 0.1s ease;
+    }
+    .lock-btn:hover {
+      filter: brightness(1.1);
+    }
+    .lock-btn:active {
+      transform: scale(0.98);
+    }
+    .lock-footer {
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: center;
+    }
+    .lock-back-link {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+      text-decoration: none;
+      transition: opacity 0.15s ease;
+    }
+    .lock-back-link:hover {
+      text-decoration: underline;
+    }
+
     /* ── Responsive ── */
     @media (max-width: 640px) {
-      .shell { padding: 16px 14px 48px; }
+      .shell { padding: 16px 12px 48px; }
       .header h1 { font-size: 1.35rem; }
       .focus-content { flex-direction: column; align-items: flex-start; }
       .focus-countdown { font-size: 1.15rem; }
-      .vaga-header { padding: 12px 14px 12px 18px; }
+      .vaga-header { padding: 12px 14px; }
+      .vaga-detail-inner { padding: 0 14px 14px; }
+      .vaga-date {
+        display: inline-block !important;
+        font-size: 0.65rem;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 2px 6px;
+        border-radius: 4px;
+        border: 1px solid var(--border-subtle);
+      }
+      .top-bar { flex-wrap: wrap; gap: 8px; }
     }
   </style>
 </head>
 <body>
-  <div class="shell">
 
-    <!-- ═══ TOP BAR ═══ -->
-    <div class="top-bar">
-      <a href="index.html" class="back-link">
-        <span>←</span> Voltar ao Career OS
-      </a>
-      <span style="font-size: 0.65rem; color: var(--text-muted); font-weight: 600;">SALA DE GUERRA &bull; MODO PRIVADO</span>
+  <!-- ═══ LOCK SCREEN DE SEGURANÇA (Acesso Restrito) ═══ -->
+  <div id="vagasLockScreen" class="lock-overlay">
+    <div class="lock-card">
+      <div class="lock-icon">🔐</div>
+      <h2 class="lock-title">Cockpit de Vagas — Acesso Restrito</h2>
+      <p class="lock-desc">
+        Área confidencial de <strong>Melissa da Silva Almeida</strong> para acompanhamento de candidaturas, pipelines e planejamento tático.
+      </p>
+      
+      <form id="lockForm" onsubmit="handleLockLogin(event)">
+        <div class="lock-input-wrap">
+          <input type="password" id="lockPinInput" class="lock-input" placeholder="Digite seu PIN ou Senha" autocomplete="current-password" autofocus>
+          <button type="button" class="lock-eye-btn" onclick="toggleLockPwd()" title="Mostrar/Ocultar Senha">👁️</button>
+        </div>
+        <div id="lockError" class="lock-error"></div>
+        <button type="submit" class="lock-btn">
+          <span>Desbloquear Cockpit</span> ➔
+        </button>
+      </form>
+
+      <div class="lock-footer">
+        <span style="font-size: 0.78rem; color: var(--text-muted);">É recrutador(a) ou visitante?</span>
+        <a href="index.html" class="lock-back-link">
+          ⬅️ Conhecer o Portfólio Público Oficial
+        </a>
+      </div>
     </div>
+  </div>
+
+  <!-- ═══ CONTEÚDO PROTEGIDO DO COCKPIT DE VAGAS ═══ -->
+  <div id="vagasProtectedApp" style="display: none;">
+    <div class="shell">
+
+      <!-- ═══ TOP BAR ═══ -->
+      <div class="top-bar">
+        <a href="index.html" class="back-link">
+          <span>←</span> Voltar ao Career OS
+        </a>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 0.65rem; color: var(--text-muted); font-weight: 600;">SALA DE GUERRA &bull; MODO PRIVADO</span>
+          <button onclick="handleLockLogout()" class="back-link" style="background: rgba(239, 68, 68, 0.1); color: #f87171; border-color: rgba(239, 68, 68, 0.25); cursor: pointer;" title="Bloquear cockpit e voltar ao modo restrito">
+            🔒 Sair
+          </button>
+        </div>
+      </div>
 
     <!-- ═══ HEADER ═══ -->
     <div class="header">
@@ -964,8 +1146,7 @@
           </details>
         </div>
       </div>
-    </div>
-
+  </div>
   </div>
 
   <!-- ═══ JAVASCRIPT ═══ -->
@@ -1031,6 +1212,71 @@
         }, 1800);
       });
     }
+  </script>
+
+  <!-- ═══ AUTHENTICATION & VAULT INTEGRATION ═══ -->
+  <script src="assets/vault_data.js"></script>
+  <script src="assets/auth.js"></script>
+  <script>
+    function checkCockpitAuth() {
+      const lockScreen = document.getElementById('vagasLockScreen');
+      const protectedApp = document.getElementById('vagasProtectedApp');
+
+      if (window.CareerAuth && window.CareerAuth.isAuthenticated) {
+        if (lockScreen) lockScreen.style.display = 'none';
+        if (protectedApp) protectedApp.style.display = 'block';
+      } else {
+        if (lockScreen) lockScreen.style.display = 'flex';
+        if (protectedApp) protectedApp.style.display = 'none';
+        setTimeout(() => {
+          const input = document.getElementById('lockPinInput');
+          if (input) input.focus();
+        }, 100);
+      }
+    }
+
+    async function handleLockLogin(e) {
+      if (e) e.preventDefault();
+      const input = document.getElementById('lockPinInput');
+      const pin = input ? input.value : '';
+      const errEl = document.getElementById('lockError');
+      if (errEl) errEl.textContent = '';
+
+      if (!window.CareerAuth) {
+        if (errEl) errEl.textContent = 'Módulo de autenticação não foi carregado.';
+        return;
+      }
+
+      const res = await window.CareerAuth.login(pin, true);
+      if (res.success) {
+        checkCockpitAuth();
+      } else {
+        if (errEl) errEl.textContent = res.error || 'PIN ou senha inválidos.';
+        if (input) {
+          input.focus();
+          input.select();
+        }
+      }
+    }
+
+    function handleLockLogout() {
+      if (window.CareerAuth) {
+        window.CareerAuth.logout();
+      }
+      checkCockpitAuth();
+    }
+
+    function toggleLockPwd() {
+      const input = document.getElementById('lockPinInput');
+      if (input) {
+        input.type = input.type === 'password' ? 'text' : 'password';
+      }
+    }
+
+    window.addEventListener('career-auth-change', checkCockpitAuth);
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(checkCockpitAuth, 100);
+    });
   </script>
 </body>
 </html>

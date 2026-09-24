@@ -25,8 +25,8 @@
         <!-- Abas Privadas (desbloqueadas apenas com o login da Melissa) -->
         <button class="nav-btn nav-private" data-tab="warroom">⚔️ Sala de Guerra</button>
         <a href="dashboard_vagas.html" class="nav-btn nav-private" style="background: linear-gradient(135deg, #1e40af, #2563eb); color: #ffffff !important; text-decoration: none; font-weight: 700; border-radius: 8px; padding: 6px 12px; display: inline-flex; align-items: center; gap: 4px;">⚡ Minhas Vagas</a>
-        <!-- Aba iFood Oficial (Visível Publicamente para Preparação da Dinâmica) -->
-        <button class="nav-btn ifood-nav-btn" data-tab="ifood-study" style="background: rgba(234, 29, 44, 0.12); color: #ea1d2c; border: 1px solid rgba(234, 29, 44, 0.35); font-weight: 800;">🍔 Estudo iFood</button>
+        <!-- Aba Privada de Estudo iFood (Visível apenas com login da Melissa) -->
+        <button class="nav-btn nav-private ifood-nav-btn" data-tab="ifood-study" style="background: rgba(234, 29, 44, 0.12); color: #ea1d2c; border: 1px solid rgba(234, 29, 44, 0.35); font-weight: 800;">🍔 Estudo iFood</button>
       </nav>
       <div class="header-actions">
         <button class="theme-toggle" id="themeToggle">🌙 Escuro</button>
@@ -67,49 +67,76 @@
         </div>
       </div>
 
-      <!-- Alerta Mundo das Permutas em Destaque Oficial -->
-      <div style="background: linear-gradient(135deg, #2C4128 0%, #1a2a17 100%); color: #ffffff; border-radius: 12px; padding: 14px 18px; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 14px rgba(44, 65, 40, 0.25); flex-wrap: wrap; gap: 12px; border: 1px solid rgba(255,255,255,0.2);">
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <span style="font-size: 2.2rem; line-height: 1;">🤝</span>
-          <div>
-            <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 800; background: rgba(52, 211, 153, 0.25); color: #6ee7b7; display: inline-block; padding: 2px 8px; border-radius: 4px; margin-bottom: 3px;">✅ APROVADA NA 1ª ETAPA • 24/09 às 14:00 (Apresentação do Plano de Ação)</div>
-            <h3 style="margin: 0; font-size: 1.15rem; font-weight: 800; letter-spacing: -0.3px;">Mundo das Permutas — Apresentação Interativa & Plano de Ação</h3>
-            <p style="margin: 2px 0 0 0; font-size: 0.82rem; opacity: 0.95;">Plano de 3 meses para captação de ofertas: 750 contatos, 18 cadastros, 36 ofertas, funil multicanal e scripts prontos.</p>
+      <!-- Banner de Boas-Vindas Executivo (Visível para Recrutadores no Modo Público) -->
+      <div class="public-only recruiter-welcome-card" style="background: linear-gradient(135deg, rgba(37,99,235,0.06), rgba(59,130,246,0.02)); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div style="max-width: 720px;">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.35rem;">
+            <span style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 800; background: rgba(37,99,235,0.12); color: var(--primary); padding: 2px 8px; border-radius: 4px;">🎯 Portfólio Profissional Interativo</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">&bull; Gestão de Pessoas &bull; Finanças &bull; BI &bull; Liderança</span>
           </div>
+          <h3 style="margin: 0; font-size: 1.15rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.3px;">
+            Bem-vindo(a) ao Cockpit Profissional de Melissa
+          </h3>
+          <p style="margin: 0.3rem 0 0 0; font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">
+            Explore meus <strong>16 projetos práticos</strong>, matriz com <strong>29 competências</strong>, banco de <strong>14 histórias STAR</strong> e versões do <strong>Currículo Camaleão</strong> customizadas para cada eixo de atuação.
+          </p>
         </div>
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <a href="apresentacao_mundo_das_permutas.html" target="_blank" style="background: #ffffff; color: #2C4128; padding: 8px 14px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
-            🖥️ Abrir Slides Interativos
-          </a>
-          <a href="dossie_mundo_das_permutas.html" target="_blank" style="background: rgba(255,255,255,0.18); color: #ffffff; border: 1px solid rgba(255,255,255,0.4); padding: 8px 14px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 6px;">
-            📑 Ver Dossiê Tático
-          </a>
-          <a href="dashboard_vagas.html" style="background: transparent; color: #ffffff; border: 1px dashed rgba(255,255,255,0.6); padding: 6px 12px; font-size: 0.8rem; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center;">
-            Cockpit de Vagas ➔
+          <button class="nav-btn" style="background: var(--primary); color: white; padding: 0.55rem 1rem; font-size: 0.85rem; font-weight: 700; border-radius: 8px; border: none; cursor: pointer;" onclick="document.querySelector('[data-tab=resumes]').click()">
+            📄 Ver Currículos Camaleão
+          </button>
+          <a href="dashboard_people_analytics_interativo.html" target="_blank" class="nav-btn" style="background: rgba(37,99,235,0.1); color: var(--primary); border: 1px solid rgba(37,99,235,0.25); padding: 0.55rem 1rem; font-size: 0.85rem; font-weight: 700; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+            📊 Dashboard Interativo ➔
           </a>
         </div>
       </div>
 
-      <!-- Alerta da Dinâmica iFood em Destaque Oficial -->
-      <div style="background: linear-gradient(135deg, #ea1d2c 0%, #991b1b 100%); color: #ffffff; border-radius: 12px; padding: 14px 18px; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 14px rgba(234, 29, 44, 0.25); flex-wrap: wrap; gap: 12px; border: 1px solid rgba(255,255,255,0.2);">
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <span style="font-size: 2.2rem; line-height: 1;">🍔</span>
-          <div>
-            <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 800; background: rgba(255,255,255,0.22); display: inline-block; padding: 2px 8px; border-radius: 4px; margin-bottom: 3px;">🔥 FASE FINAL AVALIATIVA (TRILHA CORPORATIVA): 24/09 às 09:30 (Sala libera 09:00)</div>
-            <h3 style="margin: 0; font-size: 1.15rem; font-weight: 800; letter-spacing: -0.3px;">iFood iFuture 2027 — Dossiê Estratégico & Manual da Dinâmica</h3>
-            <p style="margin: 2px 0 0 0; font-size: 0.82rem; opacity: 0.95;">Webcase "Comer Fora", Cultura J.i.T. (Kung Fu, Johnny, Canarinho, HQA), IA LCM/Toqan e Manual Minuto a Minuto.</p>
+      <!-- Banners de Processos Ativos e Dinâmicas (Preservados 100% no Modo Melissa / Privado) -->
+      <div class="private-only cockpit-ops-banners" style="flex-direction: column; gap: 1rem; margin-bottom: 1.5rem; width: 100%;">
+        <!-- Alerta Mundo das Permutas em Destaque Oficial -->
+        <div style="background: linear-gradient(135deg, #2C4128 0%, #1a2a17 100%); color: #ffffff; border-radius: 12px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 14px rgba(44, 65, 40, 0.25); flex-wrap: wrap; gap: 12px; border: 1px solid rgba(255,255,255,0.2); width: 100%;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 2.2rem; line-height: 1;">🤝</span>
+            <div>
+              <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 800; background: rgba(52, 211, 153, 0.25); color: #6ee7b7; display: inline-block; padding: 2px 8px; border-radius: 4px; margin-bottom: 3px;">✅ APROVADA NA 1ª ETAPA • 24/09 às 14:00 (Apresentação do Plano de Ação)</div>
+              <h3 style="margin: 0; font-size: 1.15rem; font-weight: 800; letter-spacing: -0.3px;">Mundo das Permutas — Apresentação Interativa & Plano de Ação</h3>
+              <p style="margin: 2px 0 0 0; font-size: 0.82rem; opacity: 0.95;">Plano de 3 meses para captação de ofertas: 750 contatos, 18 cadastros, 36 ofertas, funil multicanal e scripts prontos.</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <a href="apresentacao_mundo_das_permutas.html" target="_blank" style="background: #ffffff; color: #2C4128; padding: 8px 14px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+              🖥️ Abrir Slides Interativos
+            </a>
+            <a href="dossie_mundo_das_permutas.html" target="_blank" style="background: rgba(255,255,255,0.18); color: #ffffff; border: 1px solid rgba(255,255,255,0.4); padding: 8px 14px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 6px;">
+              📑 Ver Dossiê Tático
+            </a>
+            <a href="dashboard_vagas.html" style="background: transparent; color: #ffffff; border: 1px dashed rgba(255,255,255,0.6); padding: 6px 12px; font-size: 0.8rem; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center;">
+              ⚡ Cockpit de Vagas ➔
+            </a>
           </div>
         </div>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <a href="dossie_ifood.html" target="_blank" style="background: #ffffff; color: #ea1d2c; padding: 8px 14px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
-            🌐 Abrir Dossiê Interativo
-          </a>
-          <a href="dossie_ifood.pdf" target="_blank" style="background: rgba(255,255,255,0.18); color: #ffffff; border: 1px solid rgba(255,255,255,0.4); padding: 8px 14px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 6px;">
-            📥 Baixar PDF (5 Páginas)
-          </a>
-          <button onclick="document.querySelector('[data-tab=ifood-study]').click()" class="nav-btn" style="background: transparent; color: #ffffff; border: 1px dashed rgba(255,255,255,0.6); padding: 6px 12px; font-size: 0.8rem; cursor: pointer;">
-            Ver Módulo de Estudo ➔
-          </button>
+
+        <!-- Alerta da Dinâmica iFood em Destaque Oficial -->
+        <div style="background: linear-gradient(135deg, #ea1d2c 0%, #991b1b 100%); color: #ffffff; border-radius: 12px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 14px rgba(234, 29, 44, 0.25); flex-wrap: wrap; gap: 12px; border: 1px solid rgba(255,255,255,0.2); width: 100%;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 2.2rem; line-height: 1;">🍔</span>
+            <div>
+              <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 800; background: rgba(255,255,255,0.22); display: inline-block; padding: 2px 8px; border-radius: 4px; margin-bottom: 3px;">🔥 FASE FINAL AVALIATIVA (TRILHA CORPORATIVA): 24/09 às 09:30 (Sala libera 09:00)</div>
+              <h3 style="margin: 0; font-size: 1.15rem; font-weight: 800; letter-spacing: -0.3px;">iFood iFuture 2027 — Dossiê Estratégico & Manual da Dinâmica</h3>
+              <p style="margin: 2px 0 0 0; font-size: 0.82rem; opacity: 0.95;">Webcase "Comer Fora", Cultura J.i.T. (Kung Fu, Johnny, Canarinho, HQA), IA LCM/Toqan e Manual Minuto a Minuto.</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <a href="dossie_ifood.html" target="_blank" style="background: #ffffff; color: #ea1d2c; padding: 8px 14px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+              🌐 Abrir Dossiê Interativo
+            </a>
+            <a href="dossie_ifood.pdf" target="_blank" style="background: rgba(255,255,255,0.18); color: #ffffff; border: 1px solid rgba(255,255,255,0.4); padding: 8px 14px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 6px;">
+              📥 Baixar PDF (5 Páginas)
+            </a>
+            <button onclick="document.querySelector('[data-tab=ifood-study]').click()" class="nav-btn" style="background: transparent; color: #ffffff; border: 1px dashed rgba(255,255,255,0.6); padding: 6px 12px; font-size: 0.8rem; cursor: pointer;">
+              Ver Módulo de Estudo ➔
+            </button>
+          </div>
         </div>
       </div>
 
@@ -480,7 +507,7 @@
             </a>
           </div>
         </div>
-        <iframe src="dossie_ifood.html" style="width: 100%; height: 780px; border: 1px solid var(--card-border); border-radius: 8px; background: #ffffff;"></iframe>
+        <iframe src="dossie_ifood.html" style="width: 100%; height: 780px; border: 1px solid var(--border-color); border-radius: 8px; background: #ffffff;" loading="lazy"></iframe>
       </div>
 
       <!-- Métricas de Ouro do Pré-Work -->
