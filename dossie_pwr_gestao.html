@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Dossiê Tático — PWR Gestão (Trainee) | Melissa Carrer</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+    
+    :root {
+      --pwr-navy: #0B192C;
+      --pwr-blue: #004477;
+      --pwr-amber: #F59E0B;
+      --pwr-card: #1E293B;
+      --pwr-border: #334155;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0B1320;
+      color: #E2E8F0;
+    }
+
+    .font-mono-code { font-family: 'JetBrains Mono', monospace; }
+    .font-display { font-family: 'Space Grotesk', sans-serif; }
+
+    .tab-btn {
+      transition: all 0.2s ease;
+    }
+    .tab-btn.active {
+      background: #F59E0B;
+      color: #0B1320;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    }
+
+    .quote-box {
+      border-left: 3px solid #F59E0B;
+      background: rgba(245, 158, 11, 0.05);
+    }
+  </style>
+</head>
+<body class="p-3 md:p-6 antialiased">
+  <div class="max-w-5xl mx-auto space-y-6">
+
+    <!-- BARRA SUPERIOR DE NAVEGAÇÃO -->
+    <div class="flex items-center justify-between flex-wrap gap-3 pb-3 border-b border-slate-800">
+      <a href="dashboard_vagas.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-amber-400 transition">
+        <span>←</span> Voltar ao Cockpit de Vagas
+      </a>
+      <div class="flex items-center gap-2">
+        <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30">
+          🔥 Entrevista com Thaís Andrade (RH)
+        </span>
+        <a href="02_CURRICULO_CAMALEAO/CURRICULOS_POR_VAGA/2026-09_PWR_GESTAO_TRAINEE.pdf" target="_blank" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-semibold border border-slate-700 transition inline-flex items-center gap-1">
+          <span>📄 Currículo Trainee</span> ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- CABEÇALHO DO DOSSIÊ -->
+    <div class="bg-gradient-to-r from-[#0F1E36] to-[#1E293B] border border-slate-700 rounded-2xl p-5 md:p-6 shadow-xl relative overflow-hidden">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-5">
+        <div class="flex items-start gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-[#004477] border border-amber-400/40 text-amber-400 flex items-center justify-center font-black text-2xl shadow-lg shrink-0">
+            PWR
+          </div>
+          <div>
+            <div class="flex items-center gap-2 flex-wrap mb-1.5">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500 text-slate-950">
+                VAGA ALVO: TRAINEE (40H)
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                100% Presencial Fortaleza (Dionísio Torres)
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                Match Cultural Máximo
+              </span>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight text-white font-display">
+              PWR Gestão — Dossiê de Inteligência & Scripts
+            </h1>
+            <p class="text-xs md:text-sm text-slate-300 mt-1">
+              Guia Estratégico de Entrevista • Candidata: <strong>Melissa Carrer</strong> (Adm UFC • Presidente Dragão do Mar)
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-2 shrink-0 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+          <div class="text-[11px] text-slate-400 font-medium">Missão Oficial PWR:</div>
+          <div class="text-xs text-amber-400 font-semibold italic">
+            "Promover a riqueza e a produtividade, defendendo o empreendedorismo e a liberdade."
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABS DE NAVEGAÇÃO -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-1 border-b border-slate-800">
+      <button onclick="switchTab('tab-pitch')" class="tab-btn active px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap" id="btn-tab-pitch">
+        🗣️ Pitches & Respostas Prontas
+      </button>
+      <button onclick="switchTab('tab-raiox')" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white whitespace-nowrap" id="btn-tab-raiox">
+        🏛️ Raio-X & Cultura da PWR
+      </button>
+      <button onclick="switchTab('tab-skills')" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white whitespace-nowrap" id="btn-tab-skills">
+        💻 Power BI, IA & Tech
+      </button>
+      <button onclick="switchTab('tab-fechamento')" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white whitespace-nowrap" id="btn-tab-fechamento">
+        💎 Perguntas de Ouro para a Thaís
+      </button>
+    </div>
+
+    <!-- CONTEÚDO TAB 1: PITCHES -->
+    <div id="tab-pitch" class="tab-content space-y-4">
+      
+      <!-- PITCH 1: APRESENTAÇÃO 2 MINUTOS -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 md:p-5 space-y-3">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs font-bold">1</span>
+            <h3 class="font-bold text-sm text-white font-display">Pitch de Apresentação Inicial ("Me conte sobre você")</h3>
+          </div>
+          <button onclick="copyBox(this, 'pitch-apresentacao')" class="px-3 py-1 rounded bg-slate-800 hover:bg-slate-700 text-amber-400 text-xs font-semibold border border-slate-700 transition">
+            Copiar Script
+          </button>
+        </div>
+        <p class="text-xs md:text-sm text-slate-300 leading-relaxed quote-box p-3 rounded" id="pitch-apresentacao">
+          "Sou a Melissa, estudante de Administração na UFC no período noturno. Minha trajetória se apoia em três pilares: gestão orientada a dados, liderança empreendedora e uma crença inegociável na liberdade e na meritocracia.<br><br>
+          Na prática, presido o Dragão do Mar — organização que lidera mais de 30 voluntários universitários com sprints no Notion, rituais quinzenais e captação de patrocínios. No Banco do Nordeste, atuei no coração da gestão corporativa de uma instituição com mais de 7.000 colaboradores, mapeando fluxos de processos, tramitando PPAs e auditando bases com mais de 4.400 registros no Excel.<br><br>
+          Adiantei cadeiras, estou na metade da graduação e tenho 40 horas comerciais 100% livres durante o dia. Domino Power BI, IA aplicada à gestão e tecnologia. Meu objetivo não é cumprir um estágio burocrático, mas entrar como Trainee na PWR para gerar resultado real nos clientes e construir carreira na casa."
+        </p>
+      </div>
+
+      <!-- PITCH 2: DEFESA DE TRAINEE -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 md:p-5 space-y-3">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-xs font-bold">2</span>
+            <h3 class="font-bold text-sm text-white font-display">Defesa Blindada: "Por que você quer Trainee e não Estágio?"</h3>
+          </div>
+          <button onclick="copyBox(this, 'pitch-trainee')" class="px-3 py-1 rounded bg-slate-800 hover:bg-slate-700 text-amber-400 text-xs font-semibold border border-slate-700 transition">
+            Copiar Script
+          </button>
+        </div>
+        <p class="text-xs md:text-sm text-slate-300 leading-relaxed quote-box p-3 rounded" id="pitch-trainee">
+          "Por três motivos muito objetivos, Thaís:<br><br>
+          1. <strong>Disponibilidade Integral (40h):</strong> Minha graduação na UFC é 100% noturna (a partir das 18h). Meu horário diurno comercial é totalmente livre para dedicação presencial integral.<br><br>
+          2. <strong>Maturidade de Entrega:</strong> Já estou no 5º semestre, com matérias adiantadas. Já tive a experiência do estágio corporativo em banco de grande porte e já lidero uma equipe de 30 pessoas com metas reais. Não sou uma aluna que precisa de tutela básica.<br><br>
+          3. <strong>Fome de Crescimento & Responsabilidade:</strong> Busco o escopo, a cobrança e o ticket da vaga de Trainee porque quero ser cobrada por resultados e entregar overdelivery desde o primeiro dia. Meu foco é virar consultora na PWR."
+        </p>
+      </div>
+
+      <!-- PITCH 3: O GANCHO RADUÁN E DRAGÃO DO MAR -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 md:p-5 space-y-3">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs font-bold">3</span>
+            <h3 class="font-bold text-sm text-white font-display">A Conexão com o Raduán & Filosofia Liberal</h3>
+          </div>
+          <button onclick="copyBox(this, 'pitch-raduan')" class="px-3 py-1 rounded bg-slate-800 hover:bg-slate-700 text-amber-400 text-xs font-semibold border border-slate-700 transition">
+            Copiar Script
+          </button>
+        </div>
+        <p class="text-xs md:text-sm text-slate-300 leading-relaxed quote-box p-3 rounded" id="pitch-raduan">
+          "Minha conexão com a PWR não nasceu agora. Eu respiro os mesmos valores da empresa há anos. Hoje sou a Presidente do Dragão do Mar — projeto liberal que o próprio Raduán Melo fundou na universidade e que é vinculado ao Students For Liberty.<br><br>
+          Tive contato direto com o Raduán recentemente na parceria que abrimos para o Summit Sem Crise no Centro de Eventos. Ver o que os sócios construíram — saindo da universidade e criando a maior consultoria do Norte/Nordeste defendendo a liberdade e o livre mercado — é a minha maior referência de que é a iniciativa privada e a gestão profissionalizada que geram riqueza de verdade."
+        </p>
+      </div>
+
+    </div>
+
+    <!-- CONTEÚDO TAB 2: RAIO-X & CULTURA -->
+    <div id="tab-raiox" class="tab-content space-y-4 hidden">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl space-y-2">
+          <div class="text-xs font-bold text-amber-400">P — Paulo Vitor Porto</div>
+          <div class="text-[11px] text-slate-400">Sócio-Fundador • CEO Capital Upgrade</div>
+          <p class="text-xs text-slate-300">Especialista em business auditing, consultoria e estruturação financeira. Foco em números que sustentam o crescimento.</p>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl space-y-2">
+          <div class="text-xs font-bold text-amber-400">W — Wilson Sá</div>
+          <div class="text-[11px] text-slate-400">Sócio-Fundador • CEO PWR Gestão</div>
+          <p class="text-xs text-slate-300">Especialista em estratégia, gestão de pessoas, turnaround e metas de resultado. Lidera a expansão internacional.</p>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl space-y-2">
+          <div class="text-xs font-bold text-amber-400">R — Raduán Melo</div>
+          <div class="text-[11px] text-slate-400">Sócio-Fundador • Comercial & Expansão</div>
+          <p class="text-xs text-slate-300">Fundador do Dragão do Mar, articulador liberal, especialista em vendas consultivas e grandes eventos corporativos.</p>
+        </div>
+      </div>
+
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
+        <h3 class="font-bold text-sm text-white font-display">Os 10 Mandamentos da Cultura PWR (Para citar na entrevista)</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          <div class="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/50">
+            <strong class="text-amber-400">1. Garra e consistência:</strong> "O que precisa ser feito, será feito."
+          </div>
+          <div class="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/50">
+            <strong class="text-amber-400">2. Meritocracia:</strong> "Você é os seus resultados."
+          </div>
+          <div class="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/50">
+            <strong class="text-amber-400">3. Visão de longo prazo:</strong> "Trocamos o que queremos agora pelo que mais queremos."
+          </div>
+          <div class="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/50">
+            <strong class="text-amber-400">4. Overdelivery:</strong> "No mínimo, overdelivery."
+          </div>
+          <div class="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/50">
+            <strong class="text-amber-400">5. Antifragilidade:</strong> "No caos somos mais fortes."
+          </div>
+          <div class="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/50">
+            <strong class="text-amber-400">6. Foco na Execução:</strong> Estar ao lado do cliente na trincheira, não apenas dar conselho externo.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTEÚDO TAB 3: POWER BI & IA -->
+    <div id="tab-skills" class="tab-content space-y-4 hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
+        <h3 class="font-bold text-sm text-white font-display">Como apresentar suas competências técnicas com autoridade</h3>
+        
+        <div class="space-y-3 text-xs md:text-sm">
+          <div class="p-3.5 rounded-xl bg-slate-800/50 border border-slate-700 space-y-1.5">
+            <div class="font-bold text-amber-400">📊 Power BI & Modelagem de Gestão</div>
+            <p class="text-slate-300 leading-relaxed">
+              "No Power BI, meu objetivo é gerar visão executiva para o decisor: DRE gerencial, EBITDA, ponto de equilíbrio, curvas de vendas e análise RFM. Sei usar Power Query para limpar bases brutas de ERPs e conectar fontes diferentes para transformar dados dispersos em decisões estratégicas de caixa e margem."
+            </p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-800/50 border border-slate-700 space-y-1.5">
+            <div class="font-bold text-blue-400">🤖 Inteligência Artificial na Gestão (Tese do Blog da PWR)</div>
+            <p class="text-slate-300 leading-relaxed">
+              "Como a PWR sempre destaca nos artigos: <em>'A ferramenta de IA certa para a tarefa certa'</em>. Não vejo IA como gerador de texto genérico, mas como alavanca de produtividade para automatizar rotinas operacionais, estruturar diagnósticos preliminares e acelerar análises, liberando o consultor para o relacionamento e a execução com o cliente."
+            </p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-800/50 border border-slate-700 space-y-1.5">
+            <div class="font-bold text-emerald-400">💻 Programação & Criação do Site do Dragão</div>
+            <p class="text-slate-300 leading-relaxed">
+              "Desenvolvi pessoalmente a estrutura do site do Dragão do Mar e toda a arquitetura de projetos no Notion com bancos de dados relacionais e rituais quinzenais. Entender lógica de sistemas e programação me dá agilidade total para compreender os sistemas e processos de qualquer cliente da PWR em poucos dias."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTEÚDO TAB 4: FECHAMENTO -->
+    <div id="tab-fechamento" class="tab-content space-y-4 hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
+        <h3 class="font-bold text-sm text-white font-display">As 3 Perguntas Finais para fazer para a Thaís</h3>
+        <p class="text-xs text-slate-400">Quando ela abrir para dúvidas no fim, faça essas perguntas para garantir que você passe para a fase presencial:</p>
+
+        <div class="space-y-2.5 text-xs md:text-sm">
+          <div class="p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-slate-200">
+            <strong class="text-amber-400">1. Sobre alocação:</strong> "Thaís, para um Trainee que entra com essa bagagem analítica forte em Power BI, IA e processos, como costuma ser a curva de alocação prática nos projetos de consultoria com os clientes?"
+          </div>
+          <div class="p-3 rounded-lg bg-blue-500/10 border border-blue-500/20 text-slate-200">
+            <strong class="text-blue-400">2. Sobre cultura de overdelivery:</strong> "A PWR tem como valor o overdelivery. O que mais diferencia um Trainee que realmente supera as expectativas nos primeiros 6 meses e acelera para se tornar consultor?"
+          </div>
+          <div class="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-slate-200">
+            <strong class="text-emerald-400">3. Próximos passos:</strong> "Como funciona a dinâmica da próxima etapa presencial com a liderança aqui em Fortaleza?"
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(el => {
+        el.classList.remove('active');
+        el.classList.add('text-slate-400');
+      });
+
+      document.getElementById(tabId).classList.remove('hidden');
+      const activeBtn = document.getElementById(`btn-${tabId}`);
+      activeBtn.classList.add('active');
+      activeBtn.classList.remove('text-slate-400');
+    }
+
+    function copyBox(btn, elementId) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.textContent;
+        btn.textContent = '✓ Copiado!';
+        btn.classList.add('bg-emerald-600', 'text-white');
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.classList.remove('bg-emerald-600', 'text-white');
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
