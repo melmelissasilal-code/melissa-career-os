@@ -559,7 +559,7 @@ window.CAREER_DATA = {
       "programas_interesse": "Programa de Estágio Moura / Vagas Administrativas",
       "fit_cultural": "Excelente: Fortalecimento de vínculos, melhoria contínua, simplicidade, processos bem definidos (POPs) e otimismo realista.",
       "palavras_chave": "Baterias Moura, Faturamento, Excel, POP, Administrativo Financeiro, Fortaleza, Atendimento",
-      "status_monitoramento": "Ativo - Etapa Presencial Final (Supervisora & Sócio)"
+      "status_monitoramento": "Encerrado - Fase Final Concluída"
     },
     {
       "id": 2,
@@ -630,12 +630,12 @@ window.CAREER_DATA = {
       "area": "Administrativo / Financeiro / Faturamento",
       "plataforma": "Gupy / Contato Direto",
       "link_vaga": "https://redemoura.gupy.io/jobs/11748104?jobBoardSource=gupy_public_page",
-      "status": "Em Andamento",
+      "status": "Encerrado",
       "data_candidatura": "2026-09-18",
-      "etapa_atual": "Presencial Final (Soraia & Sócio)",
-      "proximo_prazo": "2026-09-24 16:00",
+      "etapa_atual": "Não Aprovada na Fase Final (Sócio)",
+      "proximo_prazo": "Processo Encerrado",
       "curriculo_usado": "Gupy Profile / Banco de Talentos",
-      "anotacoes_estrategicas": "Remuneração: Bolsa R$ 1.150 + VR R$ 30,00/dia (~R$ 660/mês) + VT + TotalPass + Allya + Seguro. Total ~R$ 1.810/mês. Etapa Presencial confirmada: 1º Supervisora Soraia (Operação/POPs) + 2º Sócio da Unidade (Estratégia/Cultura). Local: Rua Edite Braga, 440 (Jardim América)."
+      "anotacoes_estrategicas": "Chegou até a etapa decisiva presencial com a Supervisora Soraia e o Sócio da Unidade. Excelente aprendizado executivo e postura para os próximos processos."
     },
     {
       "id": 7,
@@ -930,5 +930,18 @@ window.CAREER_DATA = {
       "confidencialidade": "Público"
     }
   ],
-  "autopsias": []
+  "autopsias": [
+    {
+      "id": 1,
+      "processo_id": 8,
+      "empresa": "Baterias Moura (Rede Moura)",
+      "etapa_reprovacao": "Fase Final Presencial (Supervisora & Sócio)",
+      "motivo_percebido": "Decisão final de alocação/fit executivo pelo Sócio da unidade.",
+      "feedback_oficial": "Não aprovada na última fase.",
+      "pontos_fortes_demonstrados": "Avanço até a etapa final aos 19 anos; domínio de faturamento, conciliação e POPs; segurança ao lidar com liderança executiva.",
+      "lacunas_reveladas": "Ajuste de perfil de longo prazo na distribuidora.",
+      "acao_corretiva_adotada": "Canalizar o aprendizado de postura executiva para os processos prioritários (iFood, MdP e PWR).",
+      "data_registro": "2026-09-30"
+    }
+  ]
 };
