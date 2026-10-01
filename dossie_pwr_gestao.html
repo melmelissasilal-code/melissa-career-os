@@ -50,9 +50,9 @@
       <a href="dashboard_vagas.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-amber-400 transition">
         <span>←</span> Voltar ao Cockpit de Vagas
       </a>
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-2 flex-wrap">
         <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30">
-          🔥 Entrevista com Thaís Andrade (RH)
+          🔥 Entrevista com Thaís Andrade (RH) • Trainee
         </span>
         <a href="02_CURRICULO_CAMALEAO/CURRICULOS_POR_VAGA/2026-09_PWR_GESTAO_TRAINEE.pdf" target="_blank" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-semibold border border-slate-700 transition inline-flex items-center gap-1">
           <span>📄 Currículo Trainee</span> ↗
@@ -76,7 +76,7 @@
                 100% Presencial Fortaleza (Dionísio Torres)
               </span>
               <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                Match Cultural Máximo
+                Match Cirúrgico: 100% dos Requisitos
               </span>
             </div>
             <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight text-white font-display">
@@ -88,7 +88,7 @@
           </div>
         </div>
 
-        <div class="flex flex-col gap-2 shrink-0 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+        <div class="flex flex-col gap-1.5 shrink-0 bg-slate-900/80 p-3.5 rounded-xl border border-slate-800">
           <div class="text-[11px] text-slate-400 font-medium">Missão Oficial PWR:</div>
           <div class="text-xs text-amber-400 font-semibold italic">
             "Promover a riqueza e a produtividade, defendendo o empreendedorismo e a liberdade."
@@ -99,21 +99,27 @@
 
     <!-- TABS DE NAVEGAÇÃO -->
     <div class="flex items-center gap-2 overflow-x-auto pb-1 border-b border-slate-800">
-      <button onclick="switchTab('tab-pitch')" class="tab-btn active px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap" id="btn-tab-pitch">
-        🗣️ Pitches & Respostas Prontas
+      <button onclick="switchTab('tab-pitch')" class="tab-btn active px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap" id="btn-tab-pitch">
+        🗣️ Pitches & Scripts Prontos
       </button>
-      <button onclick="switchTab('tab-raiox')" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white whitespace-nowrap" id="btn-tab-raiox">
-        🏛️ Raio-X & Cultura da PWR
+      <button onclick="switchTab('tab-vaga')" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white whitespace-nowrap" id="btn-tab-vaga">
+        📋 Match Oficial InHire (12 Atribuições)
       </button>
-      <button onclick="switchTab('tab-skills')" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white whitespace-nowrap" id="btn-tab-skills">
+      <button onclick="switchTab('tab-manifesto')" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white whitespace-nowrap" id="btn-tab-manifesto">
+        🔥 O Time que Nunca Para
+      </button>
+      <button onclick="switchTab('tab-raiox')" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white whitespace-nowrap" id="btn-tab-raiox">
+        🏛️ Sócios & Cultura PWR
+      </button>
+      <button onclick="switchTab('tab-skills')" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white whitespace-nowrap" id="btn-tab-skills">
         💻 Power BI, IA & Tech
       </button>
-      <button onclick="switchTab('tab-fechamento')" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white whitespace-nowrap" id="btn-tab-fechamento">
-        💎 Perguntas de Ouro para a Thaís
+      <button onclick="switchTab('tab-fechamento')" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white whitespace-nowrap" id="btn-tab-fechamento">
+        💎 Perguntas de Fechamento
       </button>
     </div>
 
-    <!-- CONTEÚDO TAB 1: PITCHES -->
+    <!-- ════ TAB 1: PITCHES ════ -->
     <div id="tab-pitch" class="tab-content space-y-4">
       
       <!-- PITCH 1: APRESENTAÇÃO 2 MINUTOS -->
@@ -127,7 +133,7 @@
             Copiar Script
           </button>
         </div>
-        <p class="text-xs md:text-sm text-slate-300 leading-relaxed quote-box p-3 rounded" id="pitch-apresentacao">
+        <p class="text-xs md:text-sm text-slate-300 leading-relaxed quote-box p-3.5 rounded" id="pitch-apresentacao">
           "Sou a Melissa, estudante de Administração na UFC no período noturno. Minha trajetória se apoia em três pilares: gestão orientada a dados, liderança empreendedora e uma crença inegociável na liberdade e na meritocracia.<br><br>
           Na prática, presido o Dragão do Mar — organização que lidera mais de 30 voluntários universitários com sprints no Notion, rituais quinzenais e captação de patrocínios. No Banco do Nordeste, atuei no coração da gestão corporativa de uma instituição com mais de 7.000 colaboradores, mapeando fluxos de processos, tramitando PPAs e auditando bases com mais de 4.400 registros no Excel.<br><br>
           Adiantei cadeiras, estou na metade da graduação e tenho 40 horas comerciais 100% livres durante o dia. Domino Power BI, IA aplicada à gestão e tecnologia. Meu objetivo não é cumprir um estágio burocrático, mas entrar como Trainee na PWR para gerar resultado real nos clientes e construir carreira na casa."
@@ -145,7 +151,7 @@
             Copiar Script
           </button>
         </div>
-        <p class="text-xs md:text-sm text-slate-300 leading-relaxed quote-box p-3 rounded" id="pitch-trainee">
+        <p class="text-xs md:text-sm text-slate-300 leading-relaxed quote-box p-3.5 rounded" id="pitch-trainee">
           "Por três motivos muito objetivos, Thaís:<br><br>
           1. <strong>Disponibilidade Integral (40h):</strong> Minha graduação na UFC é 100% noturna (a partir das 18h). Meu horário diurno comercial é totalmente livre para dedicação presencial integral.<br><br>
           2. <strong>Maturidade de Entrega:</strong> Já estou no 5º semestre, com matérias adiantadas. Já tive a experiência do estágio corporativo em banco de grande porte e já lidero uma equipe de 30 pessoas com metas reais. Não sou uma aluna que precisa de tutela básica.<br><br>
@@ -164,7 +170,7 @@
             Copiar Script
           </button>
         </div>
-        <p class="text-xs md:text-sm text-slate-300 leading-relaxed quote-box p-3 rounded" id="pitch-raduan">
+        <p class="text-xs md:text-sm text-slate-300 leading-relaxed quote-box p-3.5 rounded" id="pitch-raduan">
           "Minha conexão com a PWR não nasceu agora. Eu respiro os mesmos valores da empresa há anos. Hoje sou a Presidente do Dragão do Mar — projeto liberal que o próprio Raduán Melo fundou na universidade e que é vinculado ao Students For Liberty.<br><br>
           Tive contato direto com o Raduán recentemente na parceria que abrimos para o Summit Sem Crise no Centro de Eventos. Ver o que os sócios construíram — saindo da universidade e criando a maior consultoria do Norte/Nordeste defendendo a liberdade e o livre mercado — é a minha maior referência de que é a iniciativa privada e a gestão profissionalizada que geram riqueza de verdade."
         </p>
@@ -172,7 +178,99 @@
 
     </div>
 
-    <!-- CONTEÚDO TAB 2: RAIO-X & CULTURA -->
+    <!-- ════ TAB 2: MATCH OFICIAL INHIRE ════ -->
+    <div id="tab-vaga" class="tab-content space-y-4 hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
+        <div>
+          <h3 class="font-bold text-base text-white font-display">Tabela de Match Cirúrgico: Requisitos Oficiais da Vaga InHire vs. Seu Perfil</h3>
+          <p class="text-xs text-slate-400 mt-0.5">Tudo o que o Grupo PWR listou no edital oficial é exatamente o que você já executou na prática.</p>
+        </div>
+
+        <!-- 4 DIFERENCIAIS -->
+        <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/25 space-y-2">
+          <div class="text-xs font-bold text-amber-400 uppercase tracking-wider">🌟 Os 4 Diferenciais Oficiais Citados pela PWR (Você possui todos!):</div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+            <div class="bg-slate-900/90 p-2.5 rounded-lg border border-slate-800">
+              <strong class="text-amber-300">1. Power BI:</strong> Construção de dashboards gerenciais, People Analytics, RFM e indicadores operacionais.
+            </div>
+            <div class="bg-slate-900/90 p-2.5 rounded-lg border border-slate-800">
+              <strong class="text-amber-300">2. Metodologias Ágeis:</strong> Gestão por sprints quinzenais no Notion, Kanban e acompanhamento de metas (+70% adesão).
+            </div>
+            <div class="bg-slate-900/90 p-2.5 rounded-lg border border-slate-800">
+              <strong class="text-amber-300">3. Mapeamento de Processos:</strong> Manual institucional e esteira de triagem de PPAs e eventos no BNB (+7k colaboradores).
+            </div>
+            <div class="bg-slate-900/90 p-2.5 rounded-lg border border-slate-800">
+              <strong class="text-amber-300">4. Modelagem Financeira:</strong> Ceará Finance analisando DRE, EBITDA e fluxo de caixa de empresas abertas na B3.
+            </div>
+          </div>
+        </div>
+
+        <!-- 12 ATRIBUIÇÕES DA VAGA -->
+        <div class="space-y-2 text-xs">
+          <div class="font-bold text-slate-300 uppercase tracking-wider text-[11px] pt-2">As 12 Atribuições Práticas da Vaga vs. Suas Provas Reais:</div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+            <div class="p-3 rounded-lg bg-slate-800/60 border border-slate-700/60">
+              <span class="text-amber-400 font-semibold">1. Execução in loco ou backoffice:</span>
+              <p class="text-slate-300 mt-1">Célula enxuta de 3 pessoas atendendo 7.000 no BNB com PPAs, relatórios e auditorias.</p>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-800/60 border border-slate-700/60">
+              <span class="text-amber-400 font-semibold">2. Negociar cronogramas, metas e recursos:</span>
+              <p class="text-slate-300 mt-1">Gestão de 30+ voluntários no Dragão do Mar, cronogramas de conferências e captação de patrocínios.</p>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-800/60 border border-slate-700/60">
+              <span class="text-amber-400 font-semibold">3. Conduzir grupos focais e facilitar workshops:</span>
+              <p class="text-slate-300 mt-1">Workshops internos no Dragão e 64 horas de oratória executiva no Speak Up UFC.</p>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-800/60 border border-slate-700/60">
+              <span class="text-amber-400 font-semibold">4. Elaborar Atas de reunião e encaminhamentos:</span>
+              <p class="text-slate-300 mt-1">Registro formal e follow-up contínuo de decisões e responsáveis em todas as reuniões do Dragão e BNB.</p>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-800/60 border border-slate-700/60">
+              <span class="text-amber-400 font-semibold">5. Preparar propostas e apresentações:</span>
+              <p class="text-slate-300 mt-1">Decks comerciais de patrocínio no Dragão e apresentações corporativas executivas em PowerPoint.</p>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-800/60 border border-slate-700/60">
+              <span class="text-amber-400 font-semibold">6. Acompanhar execução via Plano de Ação:</span>
+              <p class="text-slate-300 mt-1">Metodologia 5W2H, Notion e Trello organizados por núcleos funcionais.</p>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-800/60 border border-slate-700/60">
+              <span class="text-amber-400 font-semibold">7. Pesquisa e coleta analítica de dados:</span>
+              <p class="text-slate-300 mt-1">Auditoria de faturamento do Wellhub (4.480 linhas) e dados da Plataforma Senior no BNB.</p>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-800/60 border border-slate-700/60">
+              <span class="text-amber-400 font-semibold">8. Criar documentos base para decisão:</span>
+              <p class="text-slate-300 mt-1">Manuais operacionais, planilhas inteligentes de conciliação e relatórios de inteligência territorial.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════ TAB 3: MANIFESTO PWR ════ -->
+    <div id="tab-manifesto" class="tab-content space-y-4 hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
+        <div>
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500 text-slate-950 uppercase tracking-widest">Manifesto Oficial</span>
+          <h3 class="font-bold text-lg text-white font-display mt-1">"Nós Somos o Time que NUNCA PARA"</h3>
+          <p class="text-xs text-slate-400">Extraído diretamente da vaga da PWR. Este é o mantra psicológico dos sócios.</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs md:text-sm text-slate-300 leading-relaxed space-y-3 font-serif italic">
+          <p>"Somos um tipo diferente de pessoas. Não somos o gênio iluminado, muito menos o artista com um dom especial, nós somos apenas os que <strong>NUNCA PARAM</strong>. Ganhamos, conquistamos, nos apossamos do que queremos não por um milagre, mas pelo suor que derramamos no processo."</p>
+          <p>"Se o sucesso é um esporte para poucos, pagamos nosso ingresso com dedicação e entrega muito acima da média. Por sinal, vamos falar 'da média', ela não nos interessa, não é lá que nossos sonhos moram, não é lá que queremos estar."</p>
+          <p>"<strong>Acreditamos fortemente que a ação gera a motivação e não o contrário</strong>, por isso o movimento, o ritmo, a constância, nos diferenciam. Quando todos estão parados, nós ainda estamos começando. Somos sempre os últimos a sair da sala."</p>
+          <p>"Não há derrota se não há desistência. O tempo não é nosso inimigo, pois parar não é uma opção... Um grupo seleto sempre foi mais eficiente do que uma multidão incapaz. <strong>Pois o imbatível não é o que sempre vence, é o que NUNCA PARA.</strong>"</p>
+        </div>
+
+        <div class="p-3.5 rounded-lg bg-blue-500/10 border border-blue-500/20 text-xs text-slate-300">
+          <strong class="text-blue-400 font-semibold">Como você usará isso na entrevista:</strong>
+          <p class="mt-1">"Thaís, quando li o manifesto de vocês sobre 'o time que nunca para', me vi imediatamente ali. Eu concilio a faculdade pública à noite, estágio corporativo e a presidência de um projeto com 30 voluntários. Eu vivo essa verdade de que <em>a ação é que gera a motivação</em>. Eu não busco a média, busco overdelivery."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════ TAB 4: SÓCIOS & CULTURA ════ -->
     <div id="tab-raiox" class="tab-content space-y-4 hidden">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
         <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl space-y-2">
@@ -193,7 +291,7 @@
       </div>
 
       <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-3">
-        <h3 class="font-bold text-sm text-white font-display">Os 10 Mandamentos da Cultura PWR (Para citar na entrevista)</h3>
+        <h3 class="font-bold text-sm text-white font-display">Os Valores Fundamentais da Cultura PWR</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
           <div class="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/50">
             <strong class="text-amber-400">1. Garra e consistência:</strong> "O que precisa ser feito, será feito."
@@ -217,7 +315,7 @@
       </div>
     </div>
 
-    <!-- CONTEÚDO TAB 3: POWER BI & IA -->
+    <!-- ════ TAB 5: POWER BI & IA ════ -->
     <div id="tab-skills" class="tab-content space-y-4 hidden">
       <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
         <h3 class="font-bold text-sm text-white font-display">Como apresentar suas competências técnicas com autoridade</h3>
@@ -247,7 +345,7 @@
       </div>
     </div>
 
-    <!-- CONTEÚDO TAB 4: FECHAMENTO -->
+    <!-- ════ TAB 6: FECHAMENTO ════ -->
     <div id="tab-fechamento" class="tab-content space-y-4 hidden">
       <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
         <h3 class="font-bold text-sm text-white font-display">As 3 Perguntas Finais para fazer para a Thaís</h3>
