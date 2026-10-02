@@ -99,7 +99,10 @@
 
     <!-- TABS DE NAVEGAÇÃO -->
     <div class="flex items-center gap-2 overflow-x-auto pb-1 border-b border-slate-800">
-      <button onclick="switchTab('tab-pitch')" class="tab-btn active px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap" id="btn-tab-pitch">
+      <button onclick="switchTab('tab-cola')" class="tab-btn active px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-amber-500 text-slate-950 shadow-md" id="btn-tab-cola">
+        ⚡ COLA RÁPIDA (Palavras-Chave)
+      </button>
+      <button onclick="switchTab('tab-pitch')" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white whitespace-nowrap" id="btn-tab-pitch">
         🗣️ Pitches & Scripts Prontos
       </button>
       <button onclick="switchTab('tab-vaga')" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white whitespace-nowrap" id="btn-tab-vaga">
@@ -119,8 +122,151 @@
       </button>
     </div>
 
+    <!-- ════ TAB 0: COLA RÁPIDA & PALAVRAS-CHAVE ════ -->
+    <div id="tab-cola" class="tab-content space-y-4">
+      
+      <!-- NÚMEROS DE IMPACTO RELÂMPAGO -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-center">
+        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="text-xl md:text-2xl font-black text-amber-400">40h</div>
+          <div class="text-[10px] text-slate-400 uppercase font-semibold">Livres Diurnas (Noite UFC)</div>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="text-xl md:text-2xl font-black text-blue-400">+7.000</div>
+          <div class="text-[10px] text-slate-400 uppercase font-semibold">Colaboradores no BNB</div>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="text-xl md:text-2xl font-black text-emerald-400">30+</div>
+          <div class="text-[10px] text-slate-400 uppercase font-semibold">Liderados no Dragão</div>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="text-xl md:text-2xl font-black text-purple-400">4.480</div>
+          <div class="text-[10px] text-slate-400 uppercase font-semibold">Linhas Auditadas Excel</div>
+        </div>
+      </div>
+
+      <!-- MAPA DE PALAVRAS-CHAVE POR CATEGORIA -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 md:p-5 space-y-3.5">
+        <div class="flex items-center justify-between">
+          <h3 class="font-bold text-sm text-white font-display uppercase tracking-wider text-amber-400">🏷️ Arsenal de Palavras-Chave (Para Soltar na Conversa)</h3>
+          <span class="text-[11px] text-slate-400">Gatilhos Mentais PWR</span>
+        </div>
+
+        <div class="space-y-2.5 text-xs">
+          <!-- Bloco 1: Cultura PWR -->
+          <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800">
+            <span class="font-bold text-amber-400 block mb-1">🔥 Cultura & Mindset PWR:</span>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-semibold">O Time que Nunca Para</span>
+              <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-semibold">No mínimo, Overdelivery</span>
+              <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-semibold">Meritocracia & Autorresponsabilidade</span>
+              <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-semibold">"Você é os seus resultados"</span>
+              <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-semibold">Ação gera motivação</span>
+              <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-semibold">Antifragilidade (forte no caos)</span>
+              <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-semibold">Visão de longo prazo</span>
+              <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-semibold">Senso de Dono (Ownership)</span>
+            </div>
+          </div>
+
+          <!-- Bloco 2: Consultoria & Execução -->
+          <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800">
+            <span class="font-bold text-blue-400 block mb-1">📊 Metodologia & Consultoria:</span>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold">Foco na EXECUÇÃO (não no PowerPoint)</span>
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold">Trincheira com o cliente</span>
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold">Geração de Riqueza & Produtividade</span>
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold">Mapeamento de Processos</span>
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold">Planos de Ação (5W2H)</span>
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold">Elaboração de Atas & Follow-up de Decisões</span>
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold">Facilitação de Workshops</span>
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold">Sprints quinzenais no Notion</span>
+            </div>
+          </div>
+
+          <!-- Bloco 3: Dados, Power BI & IA -->
+          <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800">
+            <span class="font-bold text-emerald-400 block mb-1">🤖 Dados, Power BI, IA & Tecnologia:</span>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">"A ferramenta de IA certa para a tarefa certa"</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Automação de esteiras e processos</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Eliminar trabalho braçal repetitivo</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Power BI (Dashboards Executivos)</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Power Query & Tratamento de Bases de ERP</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Análise RFM (Recência, Frequência, Valor)</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">DRE Gerencial, EBITDA & Ponto de Equilíbrio</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Lógica de Código (Criei o site do Dragão)</span>
+            </div>
+          </div>
+
+          <!-- Bloco 4: Identidade & Sócios -->
+          <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800">
+            <span class="font-bold text-purple-400 block mb-1">🏛️ Conexão, Valores & Sócios:</span>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-semibold">Raduán Melo (Fundador do Dragão do Mar)</span>
+              <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-semibold">Melissa Carrer (Presidente Atual do Dragão)</span>
+              <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-semibold">Students For Liberty (SFL)</span>
+              <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-semibold">Parceria no Summit Sem Crise (Centro de Eventos)</span>
+              <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-semibold">Defesa Irrestrita da Liberdade</span>
+              <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-semibold">"É o setor privado que enriquece a sociedade"</span>
+              <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-semibold">Wilson Sá (CEO) & Paulo Vitor Porto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MATRIZ DE RESPOSTAS RÁPIDAS (BATE-PRONTO) -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 md:p-5 space-y-3">
+        <h3 class="font-bold text-sm text-white font-display uppercase tracking-wider text-amber-400">⚡ Cola Bate-Pronto (Gatilho → Resposta em 15 Segundos)</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          <!-- 1 -->
+          <div class="p-3 rounded-lg bg-slate-800/70 border border-slate-700/60 space-y-1">
+            <div class="font-bold text-amber-400">Se perguntarem: "Por que Trainee e não Estágio?"</div>
+            <div class="text-[11px] text-slate-400 font-mono-code">Gatilhos: 40h livres • 5º semestre • BNB • Ticket • Carreira</div>
+            <p class="text-slate-200 italic">"UFC é noturna, tenho 40h diurnas 100% livres. Já liderei 30 pessoas e atuei no BNB com 7.000 pessoas. Não quero estágio de observação; quero a cobrança e o ticket de Trainee para entregar overdelivery e virar consultora."</p>
+          </div>
+
+          <!-- 2 -->
+          <div class="p-3 rounded-lg bg-slate-800/70 border border-slate-700/60 space-y-1">
+            <div class="font-bold text-blue-400">Se perguntarem: "O que você sabe sobre a PWR?"</div>
+            <div class="text-[11px] text-slate-400 font-mono-code">Gatilhos: P-W-R • Foco na Execução • Riqueza & Liberdade</div>
+            <p class="text-slate-200 italic">"Criada por Paulo Vitor, Wilson Sá e Raduán Melo. Não é consultoria de PowerPoint de prateleira: entra na operação do cliente até a meta bater, defendendo livre mercado, empreendedorismo e geração de riqueza."</p>
+          </div>
+
+          <!-- 3 -->
+          <div class="p-3 rounded-lg bg-slate-800/70 border border-slate-700/60 space-y-1">
+            <div class="font-bold text-purple-400">Se perguntarem: "Como você conhece o Raduán?"</div>
+            <div class="text-[11px] text-slate-400 font-mono-code">Gatilhos: Dragão do Mar • SFL • Summit Sem Crise</div>
+            <p class="text-slate-200 italic">"Hoje presido o Dragão do Mar, projeto liberal que o Raduán fundou lá atrás vinculado ao Students For Liberty. Fizemos parceria recentemente no Summit Sem Crise no Centro de Eventos. Nossos valores são os mesmos."</p>
+          </div>
+
+          <!-- 4 -->
+          <div class="p-3 rounded-lg bg-slate-800/70 border border-slate-700/60 space-y-1">
+            <div class="font-bold text-emerald-400">Se perguntarem: "Como você usa IA na gestão?"</div>
+            <div class="text-[11px] text-slate-400 font-mono-code">Gatilhos: Ferramenta certa p/ tarefa certa • Automação • Reduzir braçal</div>
+            <p class="text-slate-200 italic">"Exatamente como o blog da PWR diz: a ferramenta certa para a tarefa certa. Uso IA para automatizar esteiras de trabalho e diagnósticos preliminares, tirando o trabalho braçal para o consultor focar na estratégia e no cliente."</p>
+          </div>
+
+          <!-- 5 -->
+          <div class="p-3 rounded-lg bg-slate-800/70 border border-slate-700/60 space-y-1">
+            <div class="font-bold text-amber-400">Se perguntarem: "Qual sua experiência com Power BI?"</div>
+            <div class="text-[11px] text-slate-400 font-mono-code">Gatilhos: DRE Gerencial • EBITDA • RFM • Power Query • Decisão</div>
+            <p class="text-slate-200 italic">"Uso Power Query para tratar bases de ERP e crio dashboards gerenciais de DRE, EBITDA e análise RFM para dar visão rápida de onde o empresário ganha ou perde margem e caixa."</p>
+          </div>
+
+          <!-- 6 -->
+          <div class="p-3 rounded-lg bg-slate-800/70 border border-slate-700/60 space-y-1">
+            <div class="font-bold text-rose-400">Se perguntarem: "Como lida com o ritmo 'Nunca Para' e pressão?"</div>
+            <div class="text-[11px] text-slate-400 font-mono-code">Gatilhos: Antifragilidade • No caos somos mais fortes • Ação gera motivação</div>
+            <p class="text-slate-200 italic">"No caos sou mais forte. Concilio faculdade federal, estágio em grande porte e presidência com 30 voluntários. Vivo o lema de vocês: a ação gera a motivação; o que precisa ser feito, será feito."</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
     <!-- ════ TAB 1: PITCHES ════ -->
-    <div id="tab-pitch" class="tab-content space-y-4">
+    <div id="tab-pitch" class="tab-content space-y-4 hidden">
       
       <!-- PITCH 1: APRESENTAÇÃO 2 MINUTOS -->
       <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 md:p-5 space-y-3">
