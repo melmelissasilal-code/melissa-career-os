@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Dossiê Tático — Marquise Incorporações (Adm Comercial) | Melissa Carrer</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+    
+    :root {
+      --mq-orange: #FF5B00;
+      --mq-orange-hover: #E04E00;
+      --mq-navy: #09121F;
+      --mq-card: #132238;
+      --mq-border: #1E3352;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #070D18;
+      color: #E2E8F0;
+    }
+
+    .font-mono-code { font-family: 'JetBrains Mono', monospace; }
+    .font-display { font-family: 'Space Grotesk', sans-serif; }
+
+    .tab-btn {
+      transition: all 0.2s ease;
+    }
+    .tab-btn.active {
+      background: #FF5B00;
+      color: #FFFFFF;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(255, 91, 0, 0.4);
+    }
+
+    .quote-box {
+      border-left: 3px solid #FF5B00;
+      background: rgba(255, 91, 0, 0.05);
+    }
+  </style>
+</head>
+<body class="p-3 md:p-6 antialiased">
+  <div class="max-w-5xl mx-auto space-y-6">
+
+    <!-- BARRA SUPERIOR DE NAVEGAÇÃO -->
+    <div class="flex items-center justify-between flex-wrap gap-3 pb-3 border-b border-slate-800">
+      <a href="dashboard_vagas.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-orange-400 transition">
+        <span>←</span> Voltar ao Cockpit de Vagas
+      </a>
+      <div class="flex items-center gap-2 flex-wrap">
+        <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-orange-500/10 text-orange-400 border border-orange-500/30">
+          🔥 Entrevista Oficial • Marquise Incorporações
+        </span>
+        <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+          ✓ Top 1-10 Candidatas (Etapa 3/6)
+        </span>
+      </div>
+    </div>
+
+    <!-- CABEÇALHO DO DOSSIÊ -->
+    <div class="bg-gradient-to-r from-[#0E1A2D] via-[#132238] to-[#1C1726] border border-slate-700/70 rounded-2xl p-5 md:p-6 shadow-2xl relative overflow-hidden">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-5">
+        <div class="flex items-start gap-4">
+          <div class="w-16 h-16 rounded-2xl bg-[#FF5B00] text-white flex items-center justify-center font-black text-2xl shadow-xl shadow-orange-500/20 shrink-0">
+            MQ
+          </div>
+          <div>
+            <div class="flex items-center gap-2 flex-wrap mb-1.5">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-500 text-white">
+                VAGA ALVO: ESTÁGIO ADMINISTRATIVO COMERCIAL
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                100% Presencial Fortaleza (Dionísio Torres)
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                Match Perfeito: Adm 4º Semestre UFC Noturno
+              </span>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight text-white font-display">
+              Marquise Incorporações — Dossiê de Inteligência & Scripts de Entrevista
+            </h1>
+            <p class="text-xs md:text-sm text-slate-300 mt-1">
+              Guia Tático de Aprovação • Candidata: <strong>Melissa Carrer (da Silva Almeida)</strong> • UFC Administração
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-1.5 shrink-0 bg-slate-900/90 p-3.5 rounded-xl border border-slate-800">
+          <div class="text-[11px] text-slate-400 font-medium">Slogan & DNA Marquise:</div>
+          <div class="text-xs text-orange-400 font-semibold italic">
+            "Há mais de 50 anos presente no futuro do Brasil • Coração Laranja"
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABS DE NAVEGAÇÃO -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-1 border-b border-slate-800">
+      <button onclick="switchTab('tab-cola')" class="tab-btn active px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap bg-orange-500 text-white shadow-md" id="btn-tab-cola">
+        ⚡ COLA RÁPIDA (Números & Palavras-Chave)
+      </button>
+      <button onclick="switchTab('tab-pitch')" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white whitespace-nowrap" id="btn-tab-pitch">
+        🗣️ Pitches de Apresentação (30s, 1min e 2min)
+      </button>
+      <button onclick="switchTab('tab-vaga')" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white whitespace-nowrap" id="btn-tab-vaga">
+        📋 Match Oficial da Vaga (As 6 Atribuições)
+      </button>
+      <button onclick="switchTab('tab-raiox')" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white whitespace-nowrap" id="btn-tab-raiox">
+        🏛️ Raio-X Marquise (50 Anos, Porsche, Obras & CEOs)
+      </button>
+      <button onclick="switchTab('tab-star')" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white whitespace-nowrap" id="btn-tab-star">
+        🎯 Perguntas STAR & Respostas Blindadas
+      </button>
+      <button onclick="switchTab('tab-fechamento')" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white whitespace-nowrap" id="btn-tab-fechamento">
+        💎 Perguntas de Ouro para os Entrevistadores
+      </button>
+    </div>
+
+    <!-- ════ TAB 1: COLA RÁPIDA & NÚMEROS DE IMPACTO ════ -->
+    <div id="tab-cola" class="tab-content space-y-4">
+      
+      <!-- NÚMEROS DE IMPACTO RELÂMPAGO -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-center">
+        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="text-xl md:text-2xl font-black text-orange-400">40h / 30h</div>
+          <div class="text-[10px] text-slate-400 uppercase font-semibold">Totalmente Livres Diurnas (Noite UFC)</div>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="text-xl md:text-2xl font-black text-blue-400">4.480</div>
+          <div class="text-[10px] text-slate-400 uppercase font-semibold">Linhas Auditadas Excel (PROCV BNB)</div>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="text-xl md:text-2xl font-black text-emerald-400">30+</div>
+          <div class="text-[10px] text-slate-400 uppercase font-semibold">Liderados no Dragão (Governança/Notion)</div>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="text-xl md:text-2xl font-black text-purple-400">+7.000</div>
+          <div class="text-[10px] text-slate-400 uppercase font-semibold">Colaboradores Impactados (BNB)</div>
+        </div>
+      </div>
+
+      <!-- MAPA DE PALAVRAS-CHAVE POR CATEGORIA -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 md:p-5 space-y-3.5">
+        <div class="flex items-center justify-between">
+          <h3 class="font-bold text-sm text-white font-display uppercase tracking-wider text-orange-400">🏷️ Arsenal de Palavras-Chave (Gatilhos de Autoridade Marquise)</h3>
+          <span class="text-[11px] text-slate-400">Conexão Imediata com o Negócio</span>
+        </div>
+
+        <div class="space-y-2.5 text-xs">
+          <!-- Bloco 1: Cultura Marquise -->
+          <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800">
+            <span class="font-bold text-orange-400 block mb-1">🔥 Cultura & Valores do Grupo Marquise:</span>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded bg-orange-500/20 text-orange-300 font-semibold">Coração Laranja</span>
+              <span class="px-2 py-0.5 rounded bg-orange-500/20 text-orange-300 font-semibold">Ousadia com Responsabilidade</span>
+              <span class="px-2 py-0.5 rounded bg-orange-500/20 text-orange-300 font-semibold">50 Anos sem Atrasar Obras</span>
+              <span class="px-2 py-0.5 rounded bg-orange-500/20 text-orange-300 font-semibold">Solidez & Governança (Conselho + CEOs)</span>
+              <span class="px-2 py-0.5 rounded bg-orange-500/20 text-orange-300 font-semibold">Fundadores da UFC (José Carlos Pontes & Erivaldo Arraes)</span>
+              <span class="px-2 py-0.5 rounded bg-orange-500/20 text-orange-300 font-semibold">Carla Pontes (CEO - Administradora FGV/Harvard)</span>
+              <span class="px-2 py-0.5 rounded bg-orange-500/20 text-orange-300 font-semibold">R$ 3,3 Bilhões Receita Bruta • R$ 677M EBITDA</span>
+            </div>
+          </div>
+
+          <!-- Bloco 2: Imobiliário & Incorporação -->
+          <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800">
+            <span class="font-bold text-blue-400 block mb-1">🏢 Incorporação, Produtos & Mercado de Luxo:</span>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold">Porsche Consulting (The Dream & Wind - Lean & Alta Precisão)</span>
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold">The Dream (Meireles - Rui Barbosa)</span>
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold">Wind Meireles</span>
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold">Mandara by YOO (Porto das Dunas)</span>
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold">Palladium Business Center (Praça Portugal)</span>
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold">Bothanic & Bellatrix (Guararapes)</span>
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold">Linha M.Lar (Cambeba, Lago, Kennedy)</span>
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-semibold">1,6 milhão m² construídos • 289 obras entregues</span>
+            </div>
+          </div>
+
+          <!-- Bloco 3: Operação Comercial & Backoffice -->
+          <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800">
+            <span class="font-bold text-emerald-400 block mb-1">⚙️ Backoffice Comercial & Rotina da Vaga:</span>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Conferência Rigorosa de Contratos</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Suporte à Área do Corretor & Imobiliárias Parceiras</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Atualização de Espelho de Vendas & Tabelas</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Lançamento de Notas Fiscais (Comissões & Despesas de Venda)</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Acompanhamento de Análise de Crédito & Repasse</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Excel Avançado (PROCV, Tabela Dinâmica, Validação)</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Sistemas ERP (Informakon, TOTVS, SoftExpert)</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Organização de Stands de Vendas & Decorados</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLA BATE-PRONTO -->
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 md:p-5 space-y-3">
+        <h3 class="font-bold text-sm text-white font-display uppercase tracking-wider text-orange-400">⚡ Cola Bate-Pronto (Perguntas Rápidas → Respostas de Impacto)</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          <div class="p-3 rounded-lg bg-slate-800/70 border border-slate-700/60 space-y-1">
+            <div class="font-bold text-orange-400">Se perguntarem: "Por que você quer trabalhar na Marquise Incorporações?"</div>
+            <p class="text-slate-200 italic">"Pela solidez inquestionável de mais de 50 anos e pela excelência em gestão. Os próprios fundadores começaram na UFC, onde curso Administração. Além disso, ver a Marquise inovar com consultoria da Porsche Consulting no The Dream e no Wind mostra que a empresa busca o mais alto padrão em processos. Quero somar meu rigor analítico de dados e backoffice para fazer a esteira de vendas rodar sem atrito."</p>
+          </div>
+
+          <div class="p-3 rounded-lg bg-slate-800/70 border border-slate-700/60 space-y-1">
+            <div class="font-bold text-blue-400">Se perguntarem: "Como você lida com conferência minuciosa de contratos e documentos?"</div>
+            <p class="text-slate-200 italic">"Com método e auditoria em camadas. No Banco do Nordeste, conciliei faturamento corporativo de 4.480 linhas cruzando dados via PROCV e validações no Excel, onde nenhum centavo ou matrícula podia estar errado. Trago essa mesma disciplina para conferir minutas de compra e venda, certidões e comprovantes de renda de clientes."</p>
+          </div>
+
+          <div class="p-3 rounded-lg bg-slate-800/70 border border-slate-700/60 space-y-1">
+            <div class="font-bold text-emerald-400">Se perguntarem: "Qual sua disponibilidade de horário?"</div>
+            <p class="text-slate-200 italic">"Tenho disponibilidade diurna total e imediata para a carga horária de estágio de 30 horas semanais no modelo presencial aqui em Fortaleza. Minhas aulas de Administração na UFC são 100% noturnas (a partir das 18h30 na FEAAC), então meu foco durante todo o dia é exclusivo e dedicado à Marquise."</p>
+          </div>
+
+          <div class="p-3 rounded-lg bg-slate-800/70 border border-slate-700/60 space-y-1">
+            <div class="font-bold text-purple-400">Se perguntarem: "Como você se relaciona com a equipe comercial e corretores?"</div>
+            <p class="text-slate-200 italic">"Com empatia, agilidade e postura facilitadora. Entendo que o corretor e a equipe de vendas estão na ponta do fechamento com o cliente. O papel do administrativo não é criar burocracia, mas sim blindar a operação com conformidade rápida, destravando contratos, comissões e retornos no menor tempo possível."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════ TAB 2: PITCHES DE APRESENTAÇÃO ════ -->
+    <div id="tab-pitch" class="tab-content hidden space-y-4">
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
+        <h2 class="text-lg font-bold text-orange-400 font-display">🗣️ Pitches de Apresentação Pessoal ("Me fale sobre você")</h2>
+        <p class="text-xs text-slate-300">
+          Escolha a versão conforme o tempo e o estilo do entrevistador (RH ou Gestor Comercial).
+        </p>
+
+        <!-- PITCH 1 MINUTO (RECOMENDADO) -->
+        <div class="p-4 rounded-xl bg-slate-950 border border-orange-500/40 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-orange-400 uppercase tracking-wide">⭐ Versão Principal — O Pitch de Ouro (1 Minuto / Equilibrado)</span>
+            <span class="text-[11px] text-slate-400 font-mono-code">~130 palavras • 60 seg</span>
+          </div>
+          <p class="text-sm text-slate-100 leading-relaxed font-medium">
+            "Olá! Eu sou a <strong>Melissa</strong>, estudante do <strong>4º semestre de Administração de Empresas na UFC</strong> no turno noturno, o que me dá total disponibilidade diurna. 
+            <br><br>
+            Minha trajetória profissional é pautada por <strong>rigor analítico, organização e liderança</strong>. No <strong>Banco do Nordeste</strong>, atuei na gestão corporativa lidando com People Analytics e conciliações analíticas complexas no Excel — auditando mais de <strong>4.480 registros de faturamento</strong> para uma base de 7.000 colaboradores sem nenhuma divergência contábil. Paralelamente, como <strong>Presidente e Co-fundadora do Dragão do Mar na UFC</strong>, lidero mais de 30 voluntários implementando governança, prazos e gestão de processos no Notion.
+            <br><br>
+            Acompanho a trajetória de mais de 50 anos do <strong>Grupo Marquise</strong> e o pioneirismo da <strong>Marquise Incorporações</strong> em trazer padrões internacionais, como a consultoria da Porsche Consulting no <em>The Dream</em>. Quero trazer essa minha bagagem de processos, conferência minuciosa de documentos e energia realizadora para apoiar o backoffice comercial e acelerar a esteira de vendas da Marquise."
+          </p>
+        </div>
+
+        <!-- PITCH 30 SEGUNDOS (DIRETO) -->
+        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-blue-400 uppercase tracking-wide">⚡ Versão Relâmpago (30 Segundos / Direto ao Ponto)</span>
+            <span class="text-[11px] text-slate-400 font-mono-code">~70 palavras • 30 seg</span>
+          </div>
+          <p class="text-sm text-slate-200 leading-relaxed">
+            "Sou a Melissa, curso Administração na UFC à noite e tenho o dia todo livre. Tenho perfil muito prático e orientado a dados: no Banco do Nordeste estruturei conciliações financeiras em Excel com mais de 4.400 linhas auditadas com precisão cirúrgica, e na UFC presido um projeto acadêmico gerindo a entrega de 30 pessoas. Busco essa vaga na Marquise Incorporações porque uno facilidade com sistemas e planilhas a uma comunicação muito ágil para suportar corretores, conferir contratos e garantir a fluidez da área comercial."
+          </p>
+        </div>
+
+        <!-- PITCH 2 MINUTOS (HISTÓRIA COMPLETA) -->
+        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-purple-400 uppercase tracking-wide">📖 Versão Detalhada com Storytelling (2 Minutos / Entrevista Profunda)</span>
+            <span class="text-[11px] text-slate-400 font-mono-code">Para entrevista com Gestor da Área Comercial</span>
+          </div>
+          <p class="text-xs text-slate-200 leading-relaxed space-y-2">
+            <span>"Sou a Melissa, aluna de Administração na UFC. Escolhi a administração pela paixão por entender como engrenagens de grandes empresas funcionam e como processos bem amarrados geram resultado financeiro real.</span><br><br>
+            <span>Minha primeira grande prova de fogo foi no <strong>Banco do Nordeste</strong>. Lá entrei em uma célula corporativa enxuta e assumi a conciliação analítica de faturamento do Wellhub para mais de 7.000 funcionários. Desenvolvi modelos com PROCV e tabelas dinâmicas para cruzar mais de 4.480 linhas de fatura com registros funcionais, mitigando riscos de cobranças indevidas e gerando relatórios de fechamento precisos. Também conduzi rotinas de comunicação interna, gestão de eventos corporativos e controle de notas fiscais.</span><br><br>
+            <span>Para exercitar liderança na prática, co-fundei e hoje presido o <strong>Dragão do Mar</strong>, projeto acadêmico de liderança e economia na UFC. Coordenamos 3 núcleos com mais de 30 voluntários, onde estruturei todo o fluxo de trabalho no Notion e Trello, gerindo parcerias institucionais e captação de recursos. Também atuo como analista na liga de mercado financeiro <strong>Ceará Finance</strong>, o que me deu familiaridade com demonstrativos contábeis e análises de indicadores.</span><br><br>
+            <span>Quando vi a oportunidade no Comercial da Marquise Incorporações, vi o casamento perfeito: o Grupo Marquise nasceu da determinação de estudantes da UFC há 50 anos e hoje é referência nacional de solidez, entregando projetos que transformam a cidade, como o The Dream e o Wind. Quero ser o braço direito da equipe comercial: cuidando de contratos, organizando planilhas, dando retorno ágil aos corretores e garantindo que o backoffice seja um motor que impulsione as vendas."</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════ TAB 3: RAIO-X DA VAGA (AS 6 ATRIBUIÇÕES) ════ -->
+    <div id="tab-vaga" class="tab-content hidden space-y-4">
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
+        <div class="flex items-center justify-between">
+          <h2 class="text-lg font-bold text-orange-400 font-display">📋 Match Cirúrgico: As 6 Atribuições da Vaga & Como Defender</h2>
+          <span class="text-xs text-emerald-400 font-semibold bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/30">100% de Aderência Prática</span>
+        </div>
+        <p class="text-xs text-slate-300">
+          Abaixo estão exatamente as 6 atribuições publicadas pela Marquise na Gupy e a resposta exata de como Melissa já faz isso na prática.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 text-xs">
+          <!-- 1 -->
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+            <span class="px-2 py-0.5 rounded bg-orange-500/20 text-orange-400 font-bold">Atribuição 1 Oficial</span>
+            <h4 class="font-bold text-white text-sm">Apoiar as rotinas e demandas administrativas do Backoffice Comercial e da equipe de vendas</h4>
+            <p class="text-slate-300"><strong>Como Melissa defende:</strong> "No Banco do Nordeste e no Dragão do Mar, minha rotina diária era exatamente dar suporte operacional a múltiplas frentes simultâneas. Entendo o backoffice não como um gargalo burocrático, mas como um facilitador: se o corretor precisa de uma confirmação ou se a equipe precisa de um dado de venda, meu compromisso é responder com rapidez e precisão."</p>
+          </div>
+
+          <!-- 2 -->
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+            <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 font-bold">Atribuição 2 Oficial</span>
+            <h4 class="font-bold text-white text-sm">Auxiliar na conferência de contratos e na documentação de clientes</h4>
+            <p class="text-slate-300"><strong>Como Melissa defende:</strong> "Tenho extrema atenção aos detalhes. Na conciliação do BNB, lidava com 4.480 linhas de dados onde qualquer divergência gerava impacto financeiro. Trago esse rigor de checagem em dupla camada para conferir contratos de promessa de compra e venda, documentos pessoais, certidões e comprovantes de renda de clientes, garantindo conformidade jurídica e comercial."</p>
+          </div>
+
+          <!-- 3 -->
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+            <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">Atribuição 3 Oficial</span>
+            <h4 class="font-bold text-white text-sm">Realizar lançamentos, controles e atualizações de planilhas, cadastros e sistemas</h4>
+            <p class="text-slate-300"><strong>Como Melissa defende:</strong> "Tenho domínio consolidado de Excel (PROCV, SOMASE, Tabelas Dinâmicas, validação e formatação condicional) e aprendo sistemas corporativos com extrema rapidez (já usei Plataforma Senior, Meu RH, Notion, Trello). Mantenho tabelas de vendas, espelhos de unidades e cadastros de clientes sempre higienizados e em dia."</p>
+          </div>
+
+          <!-- 4 -->
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+            <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-400 font-bold">Atribuição 4 Oficial</span>
+            <h4 class="font-bold text-white text-sm">Efetuar o lançamento de notas fiscais de pagamento no sistema</h4>
+            <p class="text-slate-300"><strong>Como Melissa defende:</strong> "No BNB, apoiava o controle de notas fiscais de prestadores e faturamento mensal de benefícios corporativos. Sei da importância de conferir CNPJ, valor bruto x líquido, retenções e prazo de vencimento antes do lançamento no ERP (como Informakon/TOTVS), evitando atrasos no pagamento de comissões aos corretores e imobiliárias parceiras."</p>
+          </div>
+
+          <!-- 5 -->
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+            <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-bold">Atribuição 5 Oficial</span>
+            <h4 class="font-bold text-white text-sm">Auxiliar no acompanhamento de análises de crédito e indicadores comerciais</h4>
+            <p class="text-slate-300"><strong>Como Melissa defende:</strong> "Pela Ceará Finance e pela graduação na UFC, tenho sólida base em matemática financeira, taxas de juros e capacidade de pagamento. Acompanho status de aprovação de crédito imobiliário bancário (Caixa, Bradesco, Itaú) e organizo indicadores de conversão de propostas em vendas para alimentar relatórios da diretoria."</p>
+          </div>
+
+          <!-- 6 -->
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+            <span class="px-2 py-0.5 rounded bg-pink-500/20 text-pink-400 font-bold">Atribuição 6 Oficial</span>
+            <h4 class="font-bold text-white text-sm">Organizar documentos, arquivos da área, materiais, stands de vendas e apartamentos decorados</h4>
+            <p class="text-slate-300"><strong>Como Melissa defende:</strong> "No BNB, gerenciei a logística física e documental de grandes eventos corporativos e expedição de materiais institucionais para dezenas de unidades. Tenho senso estético e zelo pela experiência do cliente em stands de vendas (como The Dream e Wind), cuidando para que tabelas, pastas e materiais impressos estejam sempre impecáveis."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════ TAB 4: RAIO-X MARQUISE & CULTURA ════ -->
+    <div id="tab-raiox" class="tab-content hidden space-y-4">
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
+        <h2 class="text-lg font-bold text-orange-400 font-display">🏛️ Raio-X Corporativo: Grupo Marquise & Marquise Incorporações</h2>
+        <p class="text-xs text-slate-300">
+          Dados profundos que 99% dos candidatos a estágio não sabem e que demonstram preparo cirúrgico.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+            <div class="font-bold text-orange-400 text-sm">🏗️ História & Solidez</div>
+            <ul class="text-slate-300 space-y-1 list-disc list-inside">
+              <li>Fundada em <strong>novembro de 1974</strong> por José Carlos Pontes e Erivaldo Arraes (estudantes de Engenharia da UFC).</li>
+              <li>Mais de <strong>50 anos de história</strong> sem nunca atrasar uma obra.</li>
+              <li>Receita bruta de <strong>R$ 3,3 bilhões</strong> e EBITDA de <strong>R$ 677 milhões</strong> (2025).</li>
+              <li>Mais de <strong>10.000 colaboradores</strong> em todo o Brasil.</li>
+              <li>Sede imponente na Av. Pontes Vieira, 1838 (Dionísio Torres, Fortaleza) e escritório na Faria Lima (SP).</li>
+            </ul>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+            <div class="font-bold text-blue-400 text-sm">💎 Marquise Incorporações</div>
+            <ul class="text-slate-300 space-y-1 list-disc list-inside">
+              <li>Mais de <strong>1,6 milhão de m² construídos</strong>.</li>
+              <li><strong>289 obras entregues</strong> e mais de <strong>13.000 clientes atendidos</strong>.</li>
+              <li>Pioneira na parceria com a <strong>Porsche Consulting</strong> para processos lean e altíssimo padrão construtivo.</li>
+              <li>Presença consolidada no Ceará (Fortaleza e Porto das Dunas) e expansão sólida em São Paulo.</li>
+              <li>Sistemas de gestão: <strong>Informakon</strong> (ERP Imobiliário), <strong>TOTVS</strong>, <strong>FastBuilt</strong> (pós-obra) e <strong>SoftExpert</strong>.</li>
+            </ul>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+            <div class="font-bold text-emerald-400 text-sm">🏆 Empreendimentos de Fortaleza</div>
+            <ul class="text-slate-300 space-y-1 list-disc list-inside">
+              <li><strong>The Dream (Meireles - Rui Barbosa):</strong> Alto luxo com Porsche Consulting.</li>
+              <li><strong>Wind (Meireles):</strong> Alto luxo sustentável e tecnológico.</li>
+              <li><strong>Mandara by YOO & Mandara Lanai:</strong> Resort residencial internacional no Porto das Dunas (premiado no International Property Awards).</li>
+              <li><strong>Palladium Business Center:</strong> Torre comercial ícone na Praça Portugal.</li>
+              <li><strong>Bothanic & Bellatrix:</strong> Sucesso nos Guararapes.</li>
+              <li><strong>Estação das Flores / M.Lar:</strong> Condomínios inteligentes com lazer completo.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-gradient-to-r from-orange-950/40 to-slate-950 border border-orange-500/30 text-xs text-slate-300 space-y-1.5">
+          <div class="font-bold text-orange-400 text-sm">🧡 O "Coração Laranja" & Governança Atual:</div>
+          <p>
+            Em 2024, o Grupo Marquise completou 50 anos estruturando uma sucessão de governança exemplar: os fundadores José Carlos Pontes e Erivaldo Arraes foram para o Conselho Consultivo, e a liderança executiva passou para os CEOs <strong>Carla Pontes</strong> (graduada em Administração pela FGV e mestre por Harvard) e <strong>Paulo Marcelo Santana</strong>. Ter uma mulher administradora liderando um conglomerado desse porte é uma inspiração direta para estudantes de Administração da UFC.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════ TAB 5: PERGUNTAS STAR & RESPOSTAS BLINDADAS ════ -->
+    <div id="tab-star" class="tab-content hidden space-y-4">
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
+        <h2 class="text-lg font-bold text-orange-400 font-display">🎯 Perguntas de Entrevista (RH & Gestor) com Respostas STAR Blindadas</h2>
+        <p class="text-xs text-slate-300">
+          Metodologia STAR completa (Situação, Tarefa, Ação e Resultado) para cada pergunta provável da entrevista.
+        </p>
+
+        <div class="space-y-3.5 text-xs">
+          <!-- STAR 1 -->
+          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+            <span class="text-orange-400 font-bold block text-sm">1. "Como você lida com rotinas repetitivas ou cobrança de prazos apertados?"</span>
+            <div class="space-y-1 text-slate-300">
+              <p><strong>[Situação & Tarefa]:</strong> No Banco do Nordeste, todo início de mês tínhamos um prazo fatal e muito curto para fechar o faturamento e conciliar os 4.480 lançamentos corporativos sem travar o pagamento dos prestadores.</p>
+              <p><strong>[Ação]:</strong> Em vez de tratar a rotina como um fardo mecânico, criei um roteiro padrão (POP) de conferência com fórmulas pré-estruturadas no Excel (PROCV e testes lógicos), eliminando cliques desnecessários e automatizando a triagem de divergências. Além disso, dividia o lote em blocos de foco diário.</p>
+              <p><strong>[Resultado]:</strong> Reduzi o tempo gasto no fechamento em mais de 30%, garanti 100% de precisão nos pagamentos e mantive uma entrega constante e tranquila, mesmo nos dias de maior pressão.</p>
+            </div>
+          </div>
+
+          <!-- STAR 2 -->
+          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+            <span class="text-blue-400 font-bold block text-sm">2. "Me conte sobre uma vez em que você identificou um erro antes que ele chegasse ao cliente ou gestor."</span>
+            <div class="space-y-1 text-slate-300">
+              <p><strong>[Situação & Tarefa]:</strong> Durante a auditoria de faturamento no BNB, identifiquei que a base enviada continha cobranças duplicadas de matrículas inativas que poderiam ser debitadas indevidamente se fossem direto para a liquidação.</p>
+              <p><strong>[Ação]:</strong> Como eu não me limitava a aceitar os dados prontos, criei uma regra de validação cruzada no Excel para confrontar o relatório de funcionários ativos do RH com o faturamento do provedor. Isolei as 15 divergências encontradas e entrei em contato imediato com a área emissora para retificação antes do envio financeiro.</p>
+              <p><strong>[Resultado]:</strong> Evitamos o repasse indevido de valores e qualquer atrito com colaboradores. Na Marquise, levo essa postura investigativa para conferir minutas contratuais de apartamentos e notas de comissão de corretores antes que qualquer erro avance na esteira.</p>
+            </div>
+          </div>
+
+          <!-- STAR 3 -->
+          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+            <span class="text-emerald-400 font-bold block text-sm">3. "Como você lida com corretores ansiosos ou clientes cobrando retorno rápido de contratos?"</span>
+            <div class="space-y-1 text-slate-300">
+              <p><strong>[Situação & Tarefa]:</strong> No Dragão do Mar e no BNB, lidei frequentemente com coordenadores, diretores e parceiros externos exigindo resoluções urgentes em momentos concorrentes.</p>
+              <p><strong>[Ação]:</strong> Aprendi que ansiedade do cliente ou corretor se combate com previsibilidade e clareza. Minha postura é: nunca deixar a pessoa no vácuo. Se a análise documental ou de crédito leva 24h, eu informo: <em>'Recebi seus documentos, já estão em validação e te dou o retorno definitivo até às 15h de hoje'</em>. Se há pendência, explico exatamente o que falta de forma didática.</p>
+              <p><strong>[Resultado]:</strong> Isso gera segurança no corretor, reduz mensagens de cobrança e cria uma relação de parceria onde o administrativo é visto como um aliado de fechamento de negócios.</p>
+            </div>
+          </div>
+
+          <!-- STAR 4 -->
+          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+            <span class="text-purple-400 font-bold block text-sm">4. "Quais são seus pontos fortes e um ponto a desenvolver?"</span>
+            <div class="space-y-1 text-slate-300">
+              <p><strong>Pontos Fortes:</strong> "Organização estruturada de processos, rigor analítico com planilhas e números, e comunicação assertiva para trabalhar em equipe com energia realizadora."</p>
+              <p><strong>Ponto a Desenvolver:</strong> "Por ser muito criteriosa com entregas perfeitas, no início eu tendia a centralizar tarefas operacionais para garantir que saíssem sem erros. Ao liderar mais de 30 voluntários no Dragão do Mar, aprendi a criar checklists claros e manuais de processo, permitindo delegar com confiança e focar na governança sem perder o padrão de qualidade."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════ TAB 6: PERGUNTAS DE OURO PARA O ENTREVISTADOR ════ -->
+    <div id="tab-fechamento" class="tab-content hidden space-y-4">
+      <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
+        <h2 class="text-lg font-bold text-orange-400 font-display">💎 Perguntas de Ouro para Fazer no Final da Entrevista</h2>
+        <p class="text-xs text-slate-300">
+          Quando o entrevistador disser: <em>"Você tem alguma pergunta para nós?"</em>, <strong>NUNCA diga "não"</strong>. Faça 2 ou 3 destas perguntas para demonstrar que você pensa como dona do negócio:
+        </p>
+
+        <div class="space-y-3 text-xs">
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-orange-500/30 space-y-1">
+            <div class="font-bold text-orange-400">Pergunta 1 (Sobre a Esteira Comercial & Sistemas):</div>
+            <p class="text-slate-200 italic">"No dia a dia do administrativo comercial da Marquise Incorporações, qual é hoje o principal gargalo entre a proposta fechada pelo corretor e a formalização do contrato no ERP? Como o estagiário pode atuar para destravar essa esteira com mais rapidez?"</p>
+            <span class="text-[10px] text-slate-400 font-mono-code">→ Demonstra: Foco em produtividade, conhecimento da esteira de vendas e vontade de gerar impacto real.</span>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-blue-500/30 space-y-1">
+            <div class="font-bold text-blue-400">Pergunta 2 (Sobre Excel & Eficiência de Processos):</div>
+            <p class="text-slate-200 italic">"Gosto muito de estruturar rotinas analíticas e controles em Excel para apoiar a liderança. Hoje os indicadores de vendas e comissões da área já são automatizados ou há espaço para propor melhorias em planilhas e relatórios?"</p>
+            <span class="text-[10px] text-slate-400 font-mono-code">→ Demonstra: Proatividade, domínio analítico e postura de overdelivery.</span>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-emerald-500/30 space-y-1">
+            <div class="font-bold text-emerald-400">Pergunta 3 (Sobre Cultura & Sucesso no Estágio):</div>
+            <p class="text-slate-200 italic">"Para a gestão da Marquise, o que diferencia um estagiário administrativo comum de alguém que realmente se destaca, incorpora o 'Coração Laranja' e constrói uma trajetória de efetivação aqui dentro?"</p>
+            <span class="text-[10px] text-slate-400 font-mono-code">→ Demonstra: Visão de longo prazo, ambição saudável e forte fit cultural com o Grupo Marquise.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active', 'bg-orange-500', 'text-white'));
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.add('text-slate-400'));
+
+      const activeTab = document.getElementById(tabId);
+      if (activeTab) {
+        activeTab.classList.remove('hidden');
+      }
+
+      const activeBtn = document.getElementById('btn-' + tabId);
+      if (activeBtn) {
+        activeBtn.classList.add('active', 'bg-orange-500', 'text-white');
+        activeBtn.classList.remove('text-slate-400');
+      }
+    }
+  </script>
+</body>
+</html>

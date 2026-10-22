@@ -685,38 +685,46 @@
       <div class="header-top">
         <div>
           <h1>Cockpit de Vagas</h1>
-          <div class="header-meta">Melissa Carrer • Atualizado 30/09/2026</div>
+          <div class="header-meta">Melissa Carrer • Atualizado 22/10/2026 (Entrevista Hoje: Marquise)</div>
         </div>
         <div class="header-badges">
-          <span class="badge-status active"><span class="dot"></span> 3 em Fase Ativa (PWR, iFood & MdP)</span>
+          <span class="badge-status active" style="background:rgba(251,191,36,0.15);color:#fbbf24;border-color:rgba(251,191,36,0.3);"><span class="dot" style="background:#fbbf24;"></span> 🔥 HOJE: Entrevista Marquise Incorporações</span>
+          <span class="badge-status active"><span class="dot"></span> 4 em Fase Ativa</span>
           <span class="badge-status pipeline"><span class="dot"></span> 4 no Pipeline Ativo</span>
         </div>
       </div>
     </div>
 
     <!-- ═══ FOCUS ZONE ═══ -->
-    <div class="focus-zone" id="focusZone">
+    <div class="focus-zone" id="focusZone" style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 58, 138, 0.35) 50%, var(--glass-bg) 100%); border-color: rgba(251, 191, 36, 0.45); box-shadow: 0 4px 24px rgba(30, 58, 138, 0.4);">
       <div class="focus-label">
-        <span class="pulse" style="background:#f59e0b;"></span>
-        Próximo compromisso prioritário • 1ª Etapa
+        <span class="pulse" style="background:#fbbf24;"></span>
+        COMPROMISSO CRÍTICO HOJE (22/10) • ENTREVISTA DECISIVA
       </div>
       <div class="focus-content">
-        <div class="focus-logo" style="background: #1e293b; color: #fbbf24; font-weight: 900;">PWR</div>
+        <div class="focus-logo" style="background: linear-gradient(135deg, #0f172a, #1e3a8a); color: #fbbf24; font-weight: 900; border: 1.5px solid rgba(251, 191, 36, 0.5); font-size: 0.9rem;">MQ</div>
         <div class="focus-info">
-          <div class="focus-company">PWR Gestão — Consultoria Empresarial</div>
-          <div class="focus-event">Entrevista Virtual com RH (Thaís Andrade) • Vaga de Trainee</div>
-          <div class="focus-time">Amanhã, 01/10 • Online • Alinhamento Trainee (40h)</div>
+          <div class="focus-company" style="color: #93c5fd; font-weight: 700;">Grupo Marquise — Marquise Incorporações (Fortaleza - Dionísio Torres)</div>
+          <div class="focus-event" style="color: #ffffff;">Entrevista de Seleção • Estágio Administrativo Comercial</div>
+          <div class="focus-time" style="color: #e2e8f0;">Hoje, 22/10 • Presencial/Virtual • Top 1-10 Candidatas (Etapa 3 Mindsight Concluída)</div>
         </div>
       </div>
       <div class="focus-actions">
-        <a href="dossie_pwr_gestao.html" target="_blank" class="focus-btn primary" style="background:#f59e0b; color:#0b1320; font-weight:800;">📑 Abrir Dossiê Tático & Scripts PWR ↗</a>
-        <a href="02_CURRICULO_CAMALEAO/CURRICULOS_POR_VAGA/2026-09_PWR_GESTAO_TRAINEE.pdf" target="_blank" class="focus-btn secondary">📄 Ver Currículo Trainee Enviado (PDF)</a>
+        <a href="dossie_marquise.html" target="_blank" class="focus-btn primary" style="background:#fbbf24; color:#0f172a; font-weight:800; box-shadow: 0 2px 8px rgba(251, 191, 36, 0.3);">📑 Abrir Dossiê Tático & Scripts Marquise (6 Abas) ↗</a>
+        <a href="#detail-marquise" onclick="toggleVaga('marquise')" class="focus-btn secondary" style="border-color: rgba(251, 191, 36, 0.3);">🔍 Ver Raio-X & Cases STAR Abaixo</a>
       </div>
     </div>
 
     <!-- ═══ TIMELINE STRIP ═══ -->
     <div class="timeline-title">📅 Esta semana</div>
     <div class="timeline">
+      <div class="timeline-chip is-focus" style="border-color: rgba(251, 191, 36, 0.6); background: rgba(30, 58, 138, 0.25);">
+        <div class="timeline-dot" style="background: #fbbf24;"></div>
+        <div class="timeline-text">
+          <div class="timeline-name" style="color: #fbbf24; font-weight: 800;">Marquise Incorporações — Entrevista Hoje 🔥</div>
+          <div class="timeline-when">22/10 • Estágio Administrativo Comercial</div>
+        </div>
+      </div>
       <div class="timeline-chip">
         <div class="timeline-dot" style="background: #10b981;"></div>
         <div class="timeline-text">
@@ -743,6 +751,86 @@
     <!-- ═══ PIPELINE ═══ -->
     <div class="pipeline-label">Lista de vagas no pipeline</div>
     <div class="pipeline">
+
+      <!-- ──── 0. GRUPO MARQUISE (MARQUISE INCORPORAÇÕES) ──── -->
+      <div class="vaga-card open" data-vaga="marquise">
+        <button class="vaga-header" onclick="toggleVaga('marquise')">
+          <div style="position:absolute;left:0;top:0;width:3px;height:100%;background:#fbbf24;border-radius:3px 0 0 3px;"></div>
+          <div class="vaga-left">
+            <div class="vaga-logo" style="background: linear-gradient(135deg, #0f172a, #1e3a8a); color: #fbbf24; font-weight: 900;">MQ</div>
+            <div class="vaga-meta">
+              <div class="vaga-title-row">
+                <span class="vaga-name">Grupo Marquise (Marquise Incorporações)</span>
+                <span class="vaga-stage" style="background:rgba(251,191,36,0.18);color:#fbbf24;font-weight:800;">ENTREVISTA HOJE 🔥</span>
+              </div>
+              <div class="vaga-sub">Estágio Administrativo Comercial • Fortaleza (Sede Dionísio Torres)</div>
+            </div>
+          </div>
+          <div class="vaga-right">
+            <span class="vaga-date" style="color:#fbbf24;font-weight:700;">Hoje • 22/10</span>
+            <svg class="vaga-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+        </button>
+        <div class="vaga-detail" id="detail-marquise" style="max-height: 4500px;">
+          <div class="vaga-detail-inner">
+
+            <!-- Hub de Ações Oficiais Marquise -->
+            <div class="action-hub" style="background:rgba(30,58,138,0.12);border-color:rgba(251,191,36,0.35);display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+              <a href="dossie_marquise.html" target="_blank" class="action-btn" style="background:#fbbf24;color:#0f172a;font-weight:800;"><span>📑 Abrir Dossiê Tático Completo (6 Abas)</span> ↗</a>
+              <span style="font-size:0.75rem;color:#f1f5f9;font-weight:600;padding:4px 0;">🎯 Top 1-10 Candidatas no Ranking Geral da Gupy (Aplicação 753733224)</span>
+            </div>
+
+            <!-- Info rápida -->
+            <div class="info-grid">
+              <div class="info-item"><span class="label">Formato:</span> <span class="value">100% Presencial</span></div>
+              <div class="info-item"><span class="label">Local:</span> <span class="value">Av. Pontes Vieira, 1838 - Fortaleza</span></div>
+              <div class="info-item"><span class="label">Carga Horária:</span> <span class="value highlight">30h/sem (Diurno Livre UFC Noturno)</span></div>
+              <div class="info-item"><span class="label">Etapa:</span> <span class="value" style="color:#fbbf24;font-weight:800;">Entrevista com Gestão / RH</span></div>
+            </div>
+
+            <!-- O que sabemos / Raio-X -->
+            <div class="block block-dark">
+              <div class="block-title" style="color:var(--text-secondary);">Sobre o Grupo Marquise & Incorporações (50 Anos)</div>
+              <ul>
+                <li>• <strong>Solidez & História:</strong> Fundado em 1974 por José Carlos Pontes e Erivaldo Arraes, estudantes de Engenharia da UFC (mesma universidade de Melissa). Hoje liderado por Carla Pontes (Co-CEO, formada em Administração) e Paulo Marcelo Santana.</li>
+                <li>• <strong>Alto Padrão & Inovação:</strong> Parceria inédita com a Porsche Consulting para metodologia Lean no <em>The Dream</em> (Meireles) e <em>Wind</em> (Aldeota). Empreendimentos icônicos: Mandara by YOO, Palladium, WSTC, Ivens Dias Branco.</li>
+                <li>• <strong>Sistemas de Backoffice:</strong> ERP Informakon / TOTVS RM, CRM Anapro/CV (Construtor de Vendas), SoftExpert e FastBuilt.</li>
+              </ul>
+            </div>
+
+            <!-- Próximo passo / Alinhamento -->
+            <div class="block block-accent" style="background:rgba(30,58,138,0.08);border-color:rgba(251,191,36,0.3);">
+              <div class="block-title" style="color:#fbbf24;">🎯 As 6 Atribuições Oficiais & Como Melissa Defende</div>
+              <ul style="font-size:0.75rem;line-height:1.6;margin-left:8px;">
+                <li>1. <strong>Conferência Contratual:</strong> Rigor absoluto validando documentos de compradores e contratos de compra e venda (Case BNB: conciliação de 4.480 linhas com zero inconformidade).</li>
+                <li>2. <strong>Lançamento em ERPs & Planilhas:</strong> Domínio pleno de Excel avançado (PROCV, SE, CONT.SE, tabelas dinâmicas) e integridade de bases.</li>
+                <li>3. <strong>Validação de NFs de Corretores:</strong> Conferência minuciosa de notas de comissão de imobiliárias e corretores parceiros antes da liquidação financeira.</li>
+                <li>4. <strong>Esteira de Crédito & Repasse:</strong> Apoio na triagem documental de financiamento bancário com foco na redução do tempo de esteira.</li>
+                <li>5. <strong>Apoio a Stands & Plantões:</strong> Experiência no Dragão do Mar UFC (gestão de 30+ voluntários e eventos) garantindo suporte de materiais e logística.</li>
+                <li>6. <strong>Atendimento Backoffice:</strong> Comunicação corporativa empática e ágil com clientes e corretores autônomos.</li>
+              </ul>
+            </div>
+
+            <!-- Pitch de Apresentação -->
+            <div class="pitch-block">
+              <div class="pitch-header">
+                <span class="pitch-label">🗣️ Pitch de Apresentação Personalizado (1 Minuto)</span>
+                <button class="copy-btn" onclick="copyText(this)" data-text="Olá! Sou a Melissa, estudante do 4º semestre de Administração na UFC. No Banco do Nordeste, atuo no suporte a uma operação corporativa que atende mais de 7 mil colaboradores em 11 estados. Minha rotina envolve rigor absoluto em conferência e conciliação analítica no Excel — onde auditei 4.480 lançamentos de faturamento sem nenhuma inconformidade —, além de elaboração de relatórios executivos e padronização de processos. Em paralelo, presidi o Dragão do Mar na UFC, coordenando mais de 30 voluntários com metas ágeis e governança no Notion. Me interesso muito pela Marquise Incorporações porque admiro a solidez de 50 anos do grupo, que inclusive nasceu de fundadores da UFC, e a busca contínua por excelência, como a parceria recente com a Porsche Consulting. Quero aplicar essa minha disciplina com dados, conferência de contratos e atendimento de excelência no backoffice comercial da Marquise.">Copiar</button>
+              </div>
+              <p class="pitch-text">"Olá! Sou a Melissa, estudante do 4º semestre de Administração na UFC. No <strong>Banco do Nordeste</strong>, atuo no suporte a uma operação corporativa de mais de 7 mil colaboradores, com rigor analítico em conciliação no Excel — auditando 4.480 lançamentos de faturamento com zero erro —, além de relatórios e rotinas administrativas. Presidi o <strong>Dragão do Mar</strong> na UFC coordenando 30+ voluntários. Admiro muito a Marquise por sua história de 50 anos, que nasceu de universitários da UFC, e pela excelência de alto padrão (como a consultoria Porsche). Quero trazer minha disciplina com contratos, notas fiscais e processos para fortalecer o backoffice comercial da incorporadora."</p>
+            </div>
+
+            <!-- Perguntas de Ouro para a Banca -->
+            <div class="ask-hint">
+              <strong>💎 Perguntas de Ouro para fazer no final:</strong><br>
+              1. <em>"Com a metodologia Lean que a Marquise implementou em parceria com a Porsche Consulting, quais foram os principais reflexos que vocês sentiram na esteira do backoffice comercial e contratação?"</em><br>
+              2. <em>"Quais são os principais gargalos ou desafios que o estagiário que assumir essa posição pode ajudar a resolver no dia a dia da conferência de contratos e notas fiscais de corretores?"</em><br>
+              3. <em>"Quais competências diferenciam um estagiário administrativo que se torna referência e constrói uma carreira de longo prazo na Marquise Incorporações?"</em>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       <!-- ──── 1. MUNDO DAS PERMUTAS ──── -->
       <div class="vaga-card" data-vaga="permutas">
